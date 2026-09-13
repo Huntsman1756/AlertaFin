@@ -6,24 +6,28 @@ denominadores ni contrato.
 
 ## 1. Aritmetica de denominaciones (DGSFP_UNAUTHORISED)
 
-Counter determinista sobre las 100 lineas del snapshot
-(`g1-wi/probe/unauth-name-counts.json`):
+Counter determinista sobre el snapshot, con **limite de registro =
+elemento `<p>`** (`g1-wi/probe/unauth-name-counts.json`). El conteo
+inicial por lineas de texto (100) estaba inflado por 3 lineas
+fragmentarias: la nota parentetica del registro BARKLEY vive DENTRO de
+su `<p>` pero salta de linea en el HTML. El conteo real por `<p>`:
 
 ```text
-rows_total            100    (AÑO_2024: 10, RESTO: 90)
-unique_raw_names       90
+record_boundary       <p> element
+rows_total             97    (AÑO_2024: 10, RESTO: 87)
+unique_raw_names       87
 duplicate_groups       10    (cada una x2)
 duplicate_extra_rows   10
 cross_section_dups      0    (todos los duplicados dentro de RESTO)
 ```
 
-Corrige el informe del probe: 90 unicas, no 95.
+Corrige el informe del probe: 97 registros / 87 unicas (no 100/95).
 
 ## 2. Matriz de denominadores (congelada)
 
 | Fuente        | Metrica                   | Denominador |
 | ------------- | ------------------------- | ----------: |
-| DGSFP_SUJETOS | source coverage           |    100 filas raw |
+| DGSFP_SUJETOS | source coverage           |     97 filas raw |
 | DGSFP_SUJETOS | domain recall             |    N/A — 0 dominios gold |
 | DGSFP_SUJETOS | clone recall              |    1 positivo explicito |
 | DGSFP_SUJETOS | valid source date parsing |    N/A — 0 fechas completas por registro |
@@ -72,12 +76,12 @@ observable) y DGSFP-G1.3 (limitacion de exhaustividad documentada).
 
 ## 5. Preservacion de duplicados raw
 
-No se deduplican las 100 filas durante la ingesta: `raw rows preserved
+No se deduplican las 97 filas durante la ingesta: `raw rows preserved
 = 100%` exige que las duplicaciones de origen permanezcan como registros
 de origen distintos. La identidad estable distingue ocurrencias
 identicas por **seccion + indice de ocurrencia** (p. ej.
 `RESTO:37`, `RESTO:81`). Vistas agrupadas posteriores son opcionales y
-derivadas; el canonical raw layer conserva las 100 ocurrencias.
+derivadas; el canonical raw layer conserva las 97 ocurrencias.
 
 ## 6. OpenDGSFP — estructuralmente N/A en este snapshot
 

@@ -1,6 +1,7 @@
 {
-  "rows_total": 100,
-  "unique_raw_names": 90,
+  "record_boundary": "<p> element",
+  "rows_total": 97,
+  "unique_raw_names": 87,
   "duplicate_groups": 10,
   "duplicate_extra_rows": 10,
   "duplicate_groups_detail": {
@@ -16,8 +17,8 @@
     "TOP CLASS INSURANCE": 2
   },
   "sections": {
-    "AÑO_2024": 10,
-    "RESTO": 90
+    "ANO_2024": 10,
+    "RESTO": 87
   },
   "cross_section_dups": []
 }

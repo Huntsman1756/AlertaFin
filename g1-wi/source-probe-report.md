@@ -30,18 +30,24 @@ DGSFP_FRAUDULENT_WEBS
   `g_correlationId`, timestamp en `_spPageContextInfo`, `SPThemeUtils`,
   `formDigest`). La region de contenido (`ms-rtestate-field`) es
   **byte-identica** entre fetches:
-  `unauth content_sha256 = 49c8fee53e4ed6e1f6268479de02fcb487753ed7f643040773a59b0a1e1006f2` (ambos fetches),
-  `webs content_sha256 = 5738801b7ef9f1f74a3040fd9daa26f6b3ab4d017149c6c760fe9d6331be133e` (ambos fetches).
+  `unauth content_sha256 = 49c8fee53e4ed6e1f6268479de02fcb487753ed7f643040773a59b0a1e1006f2` (ambos fetches).
+  La pagina webs tiene **4 campos** `ms-rtestate-field`, todos
+  byte-identicos entre fetches (hashes por campo en
+  `probe/snapshot.json`; el que contiene la lista es el campo 3,
+  `97c1fea96422c63a…`).
 - Consecuencia para provenance: cada retrieval se guarda con su raw
   completo y su sha256 (como en G0); la identidad de contenido se
   define sobre la region de contenido, no sobre el documento entero.
 
 ## DGSFP_UNAUTHORISED — estructura observada
 
-- Formato: HTML, lista plana dentro de `ms-rtestate-field`.
-- **Registros: 100 lineas** en dos bloques:
+- Formato: HTML, lista plana dentro de `ms-rtestate-field` (un `<p>`
+  por registro).
+- **Registros: 97** (limite de registro = elemento `<p>`; un primer
+  recuento por lineas de texto dio 100 porque la nota parentetica de
+  BARKLEY salta de linea dentro de su `<p>`) en dos bloques:
   - `Año 2024` — 10 denominaciones.
-  - `Resto de años` — 90 denominaciones, **sin fecha ni año por registro**.
+  - `Resto de años` — 87 denominaciones, **sin fecha ni año por registro**.
 - Campos por registro: **solo denominacion**. 5 registros llevan nota
   entre parentesis; una es evidencia explicita de clon:
   `(sin vinculos ni relacion con W.R. BERKLEY INSURANCE (EUROPE) LIMITED
@@ -89,7 +95,7 @@ B access_reproducible             true   200 estable; contenido
                                          byte-identico entre fetches
 C complete_snapshot_enumerable    true   pagina unica, lista completa,
                                          sin paginacion
-D record_boundary_identifiable    true   una linea por registro;
+D record_boundary_identifiable    true   un elemento <p> por registro;
                                          headers de seccion anual
 E raw_bytes_snapshotable          true   raw guardado; volatilidad
                                          acotada a tokens de request
@@ -141,7 +147,7 @@ DGSFP_FRAUDULENT_WEBS  CAPABLE true (con caveat documentado)
   `Año 2024` como cabecera de bloque (unico patron temporal presente);
   `Resto de años` y webs: `ABSENT`.
 - Denominadores minimos propuestos a congelar (recuento observado):
-  `DGSFP_SUJETOS` = 100 lineas (90 unicas — corregido en
+  `DGSFP_SUJETOS` = 97 registros (87 unicas — corregido en
   `pre-ingestion-freeze.md`), `DGSFP_PAGINAS` = 10 registros.
   Suficientes para evaluar; `DGSFP_PAGINAS` con n=10 exige 10/10 para
   cualquier gate >=95%.

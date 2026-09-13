@@ -3,13 +3,46 @@
   "frozen_at": "2026-09-13T20:05:00Z",
   "convention": "cada fichero es el raw bytes tal como se recibio; sha256 sobre bytes completos. La region de contenido (ms-rtestate-field) es estable entre requests; la volatilidad esta acotada a 6 lineas de tokens por request (CssLink ids, g_correlationId, _spPageContextInfo, SPThemeUtils, formDigest).",
   "files": {
-    "raw/unauth.html":   {"sha256": "96c168ec736b143249cbef27b364628c8f1f713041124110f64d1a7d60ddce7f", "bytes": 74699, "content_sha256": "49c8fee53e4ed6e1f6268479de02fcb487753ed7f643040773a59b0a1e1006f2"},
-    "raw/unauth-2.html": {"sha256": "c29f8f3f3bd3da7524ba55bea723128b4e59bda7358c8767ff02f92a2632d0e2", "bytes": 74699},
-    "raw/webs.html":     {"sha256": "e1f1d70d5832b213367c3d2dce5960f193c732711e16d60f09d6a5a31fe48322", "bytes": 57236, "content_sha256": "5738801b7ef9f1f74a3040fd9daa26f6b3ab4d017149c6c760fe9d6331be133e"},
-    "raw/webs-2.html":   {"sha256": "6f5837c0bbc9d43eea02238f25065694f2768e0a0d1fc34142d3063b7073ea06", "bytes": 57236},
-    "raw/noticias.html": {"sha256": "2ec51f4a9749a01f4e537b2ae8b5723c879e87388a42ba5f5e5ca9d3009dc99d", "bytes": 55705},
-    "raw/alertas.html":  {"sha256": "f6b40f3732e17f43461ed6a8a5d85688c260f3148307afcc3004cdbeecbf6f3e", "bytes": 59830},
-    "raw/consumidor.html": {"sha256": "5843955e9ec7e97a2412544d903ee35a341ba9a0c46b8a52e1bf397a2ca571f1", "bytes": 55596},
-    "retrievals.jsonl":  {"sha256": "compute-on-commit", "note": "provenance log"}
+    "raw/unauth.html": {
+      "sha256": "96c168ec736b143249cbef27b364628c8f1f713041124110f64d1a7d60ddce7f",
+      "bytes": 74699,
+      "content_field_sha256": [
+        "49c8fee53e4ed6e1f6268479de02fcb487753ed7f643040773a59b0a1e1006f2"
+      ]
+    },
+    "raw/unauth-2.html": {
+      "sha256": "c29f8f3f3bd3da7524ba55bea723128b4e59bda7358c8767ff02f92a2632d0e2",
+      "bytes": 74699
+    },
+    "raw/webs.html": {
+      "sha256": "e1f1d70d5832b213367c3d2dce5960f193c732711e16d60f09d6a5a31fe48322",
+      "bytes": 57236,
+      "content_field_sha256": [
+        "5738801b7ef9f1f74a3040fd9daa26f6b3ab4d017149c6c760fe9d6331be133e",
+        "691078afbffaf993a7edb9dc462100da7a3deecd064e706ea8a1b775a61ee170",
+        "fa6cd151baeb39d02c241e335993b3dfc361d90cf743548cee99d8d63525f1b7",
+        "97c1fea96422c63a84d8eb5aebd12505eea8ff90e22a025f52889cc6f5afbe5f"
+      ]
+    },
+    "raw/webs-2.html": {
+      "sha256": "6f5837c0bbc9d43eea02238f25065694f2768e0a0d1fc34142d3063b7073ea06",
+      "bytes": 57236
+    },
+    "raw/noticias.html": {
+      "sha256": "2ec51f4a9749a01f4e537b2ae8b5723c879e87388a42ba5f5e5ca9d3009dc99d",
+      "bytes": 55705
+    },
+    "raw/alertas.html": {
+      "sha256": "f6b40f3732e17f43461ed6a8a5d85688c260f3148307afcc3004cdbeecbf6f3e",
+      "bytes": 59830
+    },
+    "raw/consumidor.html": {
+      "sha256": "5843955e9ec7e97a2412544d903ee35a341ba9a0c46b8a52e1bf397a2ca571f1",
+      "bytes": 55596
+    },
+    "retrievals.jsonl": {
+      "sha256": "compute-on-commit",
+      "note": "provenance log"
+    }
   }
 }
