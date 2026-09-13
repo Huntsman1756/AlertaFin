@@ -20,7 +20,7 @@ from alertafin.eval_g1wi import (
 )
 
 CNMV_ROWS = [json.loads(l) for l in
-             Path("g0/normalized/notices.jsonl").open(
+             Path("g1-wi/normalized/cnmv_rows.jsonl").open(
                  encoding="utf-8") if l.strip()]
 DGSFP_ROWS = [json.loads(l) for l in
               Path("g1-wi/normalized/notices.jsonl").open(
@@ -56,10 +56,23 @@ def test_verdict_inconclusive_is_not_fail():
     assert verdict({"a": _g(status="INCONCLUSIVE")}) == "INCONCLUSIVE"
 
 
-def test_cnmv_fingerprint_matches_holdout_v2():
-    """Los ficheros del camino CNMV son byte-identicos a los evaluados
-    en holdout-v2 -> la evidencia es reutilizable."""
-    assert cnmv_code_matches(HOLDOUT_V2_COMMIT)
+def test_cnmv_fingerprint_no_longer_matches_after_r1():
+    """Tras la remediacion R1 de domainex, holdout-v2 ya no puede
+    decidir los gates semanticos CNMV: se requiere evidencia ciega
+    nueva (sampler G1-WI)."""
+    assert not cnmv_code_matches(HOLDOUT_V2_COMMIT)
+
+
+def test_holdout_reuse_when_fingerprint_matches(monkeypatch):
+    """Si el fingerprint coincidiera, la evidencia holdout-v2 si se
+    usaria para los gates semanticos CNMV."""
+    monkeypatch.setattr(
+        "alertafin.eval_g1wi.cnmv_code_matches", lambda *a, **k: True)
+    gates = compute_gates(CNMV_ROWS, DGSFP_ROWS, HOLDOUT, GOLD)
+    g = gates["domain_precision"]
+    assert g["status"] == "FAIL"          # 0.9897 < 1.0, FP conocidos
+    assert g["numerator"] < g["denominator"]
+    assert "holdout-v2" in g["evidence_source"]
 
 
 def test_fingerprint_mismatch_blocks_evidence_reuse():
@@ -81,36 +94,21 @@ def test_gates_structural():
     assert gates["valid_source_dates_parsed"]["status"] == "PASS"
 
 
-def test_domain_precision_known_fail():
-    """Holdout-v2 sobre el mismo extractor: 0.9897 < 1.0 -> FAIL
-    conocido, no ocultable."""
+def test_semantic_cnmv_inconclusive_until_new_evidence():
+    """Sin fingerprint match los gates semanticos (que cubren CNMV)
+    quedan INCONCLUSIVE hasta la nueva evidencia ciega."""
     gates = compute_gates(CNMV_ROWS, DGSFP_ROWS, HOLDOUT, GOLD)
-    g = gates["domain_precision"]
-    assert g["status"] == "FAIL"
-    assert g["threshold"] == 1.0
-    assert g["numerator"] < g["denominator"]
-    assert g["failures"]
+    for gid in ["domain_precision", "domain_recall",
+                "explicit_clone_precision", "explicit_clone_recall",
+                "false_emitted_clone_target"]:
+        assert gates[gid]["status"] == "INCONCLUSIVE", gid
 
 
-def test_domain_recall_per_source():
-    gates = compute_gates(CNMV_ROWS, DGSFP_ROWS, HOLDOUT, GOLD)
-    assert gates["domain_recall"]["status"] == "PASS"
-
-
-def test_clone_gates():
-    gates = compute_gates(CNMV_ROWS, DGSFP_ROWS, HOLDOUT, GOLD)
-    assert gates["explicit_clone_precision"]["status"] == "PASS"
-    assert gates["explicit_clone_recall"]["status"] == "PASS"
-    ft = gates["false_emitted_clone_target"]
-    assert ft["status"] == "PASS"
-    assert "targets_emitted" in ft
-
-
-def test_source_limitation_gate_currently_fails():
-    """La salida unificada todavia no expone la limitacion DGSFP
+def test_source_limitation_gate():
+    """Tras R1.B la salida expone la limitacion DGSFP
     (DECLARED_PAGE_ONLY / population_completeness UNKNOWN)."""
     gates = compute_gates(CNMV_ROWS, DGSFP_ROWS, HOLDOUT, GOLD)
-    assert gates["dgsfp_source_limitation"]["status"] == "FAIL"
+    assert gates["dgsfp_source_limitation"]["status"] == "PASS"
 
 
 def test_no_clone_target_side_door():

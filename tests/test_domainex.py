@@ -1,4 +1,8 @@
-from alertafin.domainex import extract_domains_from_text, normalize_domain
+from alertafin.domainex import (
+    extract_domains_from_record,
+    extract_domains_from_text,
+    normalize_domain,
+)
 
 
 def test_uppercase_www_host():
@@ -73,3 +77,42 @@ def test_subdomains_not_collapsed():
     text = "cuenta.foo.example.com y foo.example.com"
     hosts = [d["host_normalized"] for d in extract_domains_from_text(text)]
     assert hosts == ["cuenta.foo.example.com", "foo.example.com"]
+
+
+# --- G1-WI-R1.A: causa general de los FP conocidos (holdout-v2) ---
+
+def test_r1_file_extension_tld_not_domain():
+    """Extensiones de documento no son TLD: 'ver.pdf' es la referencia
+    a un anexo en Observaciones, no un host. Regla general, no denylist
+    del token."""
+    assert extract_domains_from_text(
+        "VER ALERTA SOBRE FRAUDE EN GRUPOS DE WHATSAPP VER.PDF") == []
+    assert extract_domains_from_text(
+        "consulte el anexo aviso.pdf y el folleto resumen.docx") == []
+    assert extract_domains_from_text(
+        "descargue datos.zip o informe.xls") == []
+
+
+def test_r1_numeric_version_not_domain():
+    """'5.3.ai' en 'SOLVEXPULSE 5.3.AI' es numero de version/seccion
+    X.Y.tld: todos los labels no-TLD puramente numericos -> no host."""
+    n = {"entidad_raw": "SOLVEXPULSE 5.3.AI",
+         "entidad_secundaria_raw": "HTTPS://SOLVEXPULSE-53-AI.ORG",
+         "observaciones_raw": None}
+    hosts = [d["host_normalized"]
+             for d in extract_domains_from_record(n)]
+    assert hosts == ["solvexpulse-53-ai.org"]
+    assert extract_domains_from_text("apartado 4.2.bis y version 5.3.ai") == []
+
+
+def test_r1_single_numeric_label_domain_preserved():
+    """Un solo label numerico sigue siendo dominio valido (163.com)."""
+    hosts = [d["host_normalized"]
+             for d in extract_domains_from_text("visite 163.com hoy")]
+    assert hosts == ["163.com"]
+    assert normalize_domain("163.com") == "163.com"
+
+
+def test_r1_real_ai_domain_preserved():
+    """.ai es TLD real: un host normal .ai no se toca."""
+    assert normalize_domain("solver.ai") == "solver.ai"

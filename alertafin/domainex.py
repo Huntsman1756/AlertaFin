@@ -75,6 +75,17 @@ def _tld_of(host: str):
     return host.rsplit(".", 1)[-1]
 
 
+# Extensiones de fichero/documento (clase cerrada): un token
+# '<algo>.<ext>' es una referencia a un anexo, no un hostname.
+# Causa general del FP 'ver.pdf' (holdout-v2); no es denylist de tokens.
+_FILE_EXTENSIONS = frozenset({
+    "pdf", "doc", "docx", "xls", "xlsx", "ppt", "pptx", "txt", "csv",
+    "zip", "rar", "7z", "exe", "msi", "jpg", "jpeg", "png", "gif",
+    "bmp", "svg", "mp3", "mp4", "avi", "mov", "xml", "json", "htm",
+    "html",
+})
+
+
 def _valid_host(host: str) -> bool:
     if host in HOST_DENYLIST:
         return False
@@ -85,6 +96,13 @@ def _valid_host(host: str) -> bool:
         return False
     tld = labels[-1]
     if len(tld) < 2 or not tld.isalpha():
+        return False
+    if tld in _FILE_EXTENSIONS:
+        return False
+    # Numero de version/seccion 'X.Y.tld': >=2 labels no-TLD, todos
+    # puramente numericos -> no es hostname (causa general del FP
+    # '5.3.ai'). Un unico label numerico (163.com) sigue siendo dominio.
+    if len(labels) >= 3 and all(lbl.isdigit() for lbl in labels[:-1]):
         return False
     return True
 

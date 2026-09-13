@@ -1,15 +1,19 @@
 """G1-WI.C: construye la vista unificada multifuente (WarningNotice).
 
-Lee las filas normalizadas congeladas:
-- `g0/normalized/notices.jsonl`   (CNMV, 10.368 filas)
+Las filas DGSFP vienen del snapshot congelado:
 - `g1-wi/normalized/notices.jsonl` (DGSFP, 97 + 10 filas)
 
-y escribe:
+Las filas CNMV se **regeneran**: `pipeline.enrich` sobre los raw bytes
+inmutables de `g0/raw/` (ByteStore) con la provenance original. Los
+artefactos `g0/` no se modifican; la vista v0.2 no hereda los dominios
+del extractor historico.
+
+Escribe:
+- `g1-wi/normalized/cnmv_rows.jsonl`   (CNMV re-normalizado, CUT actual)
 - `g1-wi/normalized/warning_notices.jsonl`
 - `g1-wi/normalized/unified_summary.json`
 
-Modelo: `alertafin/unified.py`. Vista derivada v0.2 — no modifica los
-artefactos G0.
+Modelo: `alertafin/unified.py`. Vista derivada v0.2.
 """
 
 import json
@@ -18,13 +22,15 @@ from pathlib import Path
 
 sys.path.insert(0, str(Path(__file__).resolve().parents[1]))
 
+from alertafin.pipeline import enrich
+from alertafin.provenance import ByteStore
 from alertafin.unified import (
     SOURCE_ORDER,
     build_notices,
     notice_for_jsonl,
 )
 
-CNMV = Path("g0/normalized/notices.jsonl")
+G0 = Path("g0")
 DGSFP = Path("g1-wi/normalized/notices.jsonl")
 OUT = Path("g1-wi/normalized")
 
@@ -34,8 +40,30 @@ def _load(path: Path):
         return [json.loads(line) for line in fh if line.strip()]
 
 
+def _cnmv_rows():
+    """Re-parsea el raw CNMV congelado con el extractor actual."""
+    legacy = _load(G0 / "normalized" / "notices.jsonl")
+    prov = legacy[0]["provenance"]
+    raw = ByteStore(G0 / "raw").get(prov["source_sha256"])
+    res = enrich(raw, provenance=prov)
+    rows = []
+    for n in res.notices:
+        out = dict(n)
+        out["raw_row_bytes_hex"] = out.pop("raw_row_bytes").hex()
+        rows.append(out)
+    return rows
+
+
 def main() -> int:
-    rows = _load(CNMV) + _load(DGSFP)
+    cnmv_rows = _cnmv_rows()
+    dgsfp_rows = _load(DGSFP)
+    OUT.mkdir(parents=True, exist_ok=True)
+    with (OUT / "cnmv_rows.jsonl").open(
+            "w", encoding="utf-8", newline="\n") as fh:
+        for r in cnmv_rows:
+            fh.write(json.dumps(r, ensure_ascii=False) + "\n")
+
+    rows = cnmv_rows + dgsfp_rows
     notices = build_notices(rows)
 
     OUT.mkdir(parents=True, exist_ok=True)

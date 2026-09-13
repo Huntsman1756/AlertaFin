@@ -5,8 +5,8 @@
     "CNMV": {
       "notices": 10361,
       "occurrences": 10368,
-      "domain_assertions": 10216,
-      "clone_evidence": 1015
+      "domain_assertions": 10169,
+      "clone_evidence": 1018
     },
     "DGSFP_UNAUTHORISED": {
       "notices": 87,

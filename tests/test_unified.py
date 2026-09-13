@@ -18,7 +18,7 @@ from alertafin.unified import (
 )
 
 CNMV_ROWS = [json.loads(l) for l in
-             Path("g0/normalized/notices.jsonl").open(
+             Path("g1-wi/normalized/cnmv_rows.jsonl").open(
                  encoding="utf-8") if l.strip()]
 DGSFP_ROWS = [json.loads(l) for l in
               Path("g1-wi/normalized/notices.jsonl").open(
@@ -182,3 +182,30 @@ def test_dgsfp_duplicate_dedup_in_search():
     milton = [n for n in res.notices if n["entidad_raw"] == "MILTON GROUP"]
     assert len(milton) == 1
     assert len(milton[0]["source_occurrences"]) == 2
+
+
+# --- G1-WI-R1.B: limitacion DGSFP en la salida ---
+
+def test_dgsfp_notices_carry_source_limitation():
+    for n in NOTICES:
+        if not n["source"].startswith("DGSFP"):
+            continue
+        lim = n.get("source_limitation")
+        assert lim, n["notice_id"]
+        assert lim["population_scope"] == "DECLARED_PAGE_ONLY"
+        assert lim["population_completeness_beyond_page"] == "UNKNOWN"
+
+
+def test_unauthorised_preserves_official_disclaimer():
+    n = next(n for n in NOTICES if n["source"] == "DGSFP_UNAUTHORISED")
+    assert "no es exhaustiva" in n["source_limitation"]["declaration_raw"]
+
+
+def test_check_result_exposes_source_limitations():
+    index = MultiSourceIndex.build(NOTICES)
+    res = check_multi("dominio-inexistente-xyz.com", index)
+    lims = res.source_limitations
+    assert "DGSFP_UNAUTHORISED" in lims
+    assert "DGSFP_FRAUDULENT_WEBS" in lims
+    assert lims["DGSFP_FRAUDULENT_WEBS"]["population_scope"] == \
+        "DECLARED_PAGE_ONLY"

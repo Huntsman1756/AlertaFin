@@ -5,10 +5,10 @@ el commit de este script congela la mecanica; `evaluation.json` se
 genera/publica como paso separado y auditable.
 
 Entradas (todas congeladas):
-- `g0/normalized/notices.jsonl`      CNMV rows
-- `g1-wi/normalized/notices.jsonl`   DGSFP rows
-- `g0/holdout-v2/evaluation.json`    evidencia CNMV (si fingerprint match)
-- `g1-wi/eval/gold.json`             censo gold DGSFP
+- `g1-wi/normalized/cnmv_rows.jsonl`  CNMV re-normalizado con el CUT
+- `g1-wi/normalized/notices.jsonl`    DGSFP rows (snapshot congelado)
+- `g0/holdout-v2/evaluation.json`     evidencia CNMV (si fingerprint match)
+- `g1-wi/eval/gold.json`              censo gold DGSFP
 """
 
 import json
@@ -26,7 +26,7 @@ def _load_jsonl(path: Path):
 
 
 def main() -> int:
-    cnmv_rows = _load_jsonl(Path("g0/normalized/notices.jsonl"))
+    cnmv_rows = _load_jsonl(Path("g1-wi/normalized/cnmv_rows.jsonl"))
     dgsfp_rows = _load_jsonl(Path("g1-wi/normalized/notices.jsonl"))
     holdout = json.loads(
         Path("g0/holdout-v2/evaluation.json").read_text("utf-8"))

@@ -67,6 +67,37 @@ _DGSFP_IDENTITY_KEYS = [
     "section",
 ]
 
+# Limitacion de cobertura por fuente (contrato DGSFP-G1.3): la salida
+# debe preservar que la lista oficial puede no ser exhaustiva.
+# Nunca: NO_WARNING_FOUND => autorizado/seguro.
+SOURCE_LIMITATION = {
+    "CNMV": {
+        "population_scope": "DECLARED_SOURCE_ONLY",
+        "population_completeness_beyond_page": "UNKNOWN",
+        "declaration_raw": None,
+        "note": "snapshot completo de la lista publicada; la poblacion "
+                "real de entidades no autorizadas puede excederla",
+    },
+    "DGSFP_UNAUTHORISED": {
+        "population_scope": "DECLARED_PAGE_ONLY",
+        "population_completeness_beyond_page": "UNKNOWN",
+        "declaration_raw":
+            "Esta relación no es exhaustiva y pueden existir sujetos no "
+            "autorizados en fase de comprobación por parte de la "
+            "Dirección General de Seguros y Fondos de Pensiones, o que "
+            "operen de forma clandestina, por lo que aún no se haya "
+            "tenido conocimiento de los mismos.",
+    },
+    "DGSFP_FRAUDULENT_WEBS": {
+        "population_scope": "DECLARED_PAGE_ONLY",
+        "population_completeness_beyond_page": "UNKNOWN",
+        "declaration_raw": None,
+        "note": "anuncio estatico huerfano de navegacion; no verificable "
+                "que futuras advertencias se consoliden en esta pagina "
+                "(source probe G1-WI.A)",
+    },
+}
+
 # Campos que ascienden al nivel notice; el resto de la fila queda en la
 # ocurrencia como evidencia raw versionable.
 _LIFTED = {"notice_id", "domains", "clone"}
@@ -165,6 +196,8 @@ def build_notices(rows) -> list:
             "warning_date_status": warning_date_status,
             "domain_assertions": domain_assertions,
             "clone_evidence": clone_evidence,
+            "source_limitation": dict(
+                SOURCE_LIMITATION[SOURCE_BY_NAMESPACE[ns]]),
             "source_occurrences": occs,
         })
     return notices
@@ -217,6 +250,8 @@ class MultiCheckResult:
         self.source_status = source_status
         self.notices = notices
         self.coverage_complete = coverage_complete
+        self.source_limitations = {
+            k: dict(v) for k, v in SOURCE_LIMITATION.items()}
 
 
 def check_multi(query: str, index: MultiSourceIndex) -> MultiCheckResult:
