@@ -1,0 +1,180 @@
+{
+  "holdout": "g0-blind-v2",
+  "source_sha256": "1816cd621f96fcbe6a2d138ea6fa52befd27babcb5dfb2c5e8f50a086ecb7049",
+  "code_under_test_commit": "ab07001b0919ac5694e034fe686f87ac27df732e",
+  "experiment_freeze_commit": "69eb8c9b0825339fd6a45d27d325cb456c53140d",
+  "parser_still_frozen": true,
+  "evaluator_still_frozen": true,
+  "sample_total": 300,
+  "labeled": 300,
+  "pending": 0,
+  "invalid": 0,
+  "domains": {
+    "precision": 0.9897,
+    "recall": 1.0,
+    "tp": 289,
+    "fp": 3,
+    "fn": 0,
+    "fp_cases": [
+      {
+        "case_key": "07e410b020e55b94df56e415e12c8475c65dab0487955fd7f5c592cf2dace39c:bdffe672dde292d6c229dc526fcad6affc0f5ef965005f9e416c9866b045ca0b",
+        "false": [
+          "ver.pdf"
+        ]
+      },
+      {
+        "case_key": "b7bebc0fbde89a62623ead5630c2f1743bb52dce2bdc0f79e9d05521cb341a8a:f63fb417930bb3e8e11be1ce1bb5937d2c67b80827979dc2f3d923db4d3c1122",
+        "false": [
+          "ver.pdf"
+        ]
+      },
+      {
+        "case_key": "78f2837766196623138f782e4d91ab667ea28061ef2c9fb35924af1cb4aa22a3:b277fc27816067493a165d4433a14e113e115d2e507bc472a9d5facd630f6dbb",
+        "false": [
+          "5.3.ai"
+        ]
+      }
+    ],
+    "fn_cases": []
+  },
+  "clone_detection": {
+    "precision": 1.0,
+    "recall": 1.0,
+    "tp": 25,
+    "fp": 0,
+    "fn": 0,
+    "mismatches": []
+  },
+  "clone_target": {
+    "gold_clone_cases": 25,
+    "gold_target_resolvable_cases": 22,
+    "gold_target_unresolvable_cases": 3,
+    "parser_target_resolved_cases": 14,
+    "parser_target_on_unresolvable_cases": 0,
+    "target_resolution_coverage": 0.6364,
+    "clone_target_exact": 0.5909,
+    "hits": 13,
+    "misses": 9,
+    "miss_cases": [
+      {
+        "case_key": "90a80efc549e9af35ee6d8c7c1daf3ba2fe5ef6b0adcb831f96e445774f1f4b2:0cb7d1306a7fa291d384f4a52952784a4b5779d091fee91615e365f309046a5e",
+        "expected": "UNIVERSAL CAPITAL MARKETS LIMITED",
+        "got": "UNIVERSAL CAPITAL MARKETS LIMITED, entidad que estuvo"
+      },
+      {
+        "case_key": "1438ab043e97586dbab60e203615ab7e7e587b2b64d6eb305f122bd69d73ec9d:5081e478e6cd68db6d29ca8282220c76c059a31c3e3ab7f767ea8eafe7a6d289",
+        "expected": "Irish Life Investment Managers Limited",
+        "got": null
+      },
+      {
+        "case_key": "cf323421fcc057b13a71a37cde99e90d218e11b678ef498193c46315ead6bdbd:e4596c383f31c52a39b124936d414c6066b57946752d4aedb4d72a89faee0bd4",
+        "expected": "J.P. Morgan Ireland",
+        "got": null
+      },
+      {
+        "case_key": "1b22f8a0b0f5db90cc6f8cf822f3d4942d309f90f5f5742839cc869d98a31ec0:9dc5f8b6b673b6302bf53c0a11542d2d075ae13678732ac80cf2bce7c317c9b5",
+        "expected": "AMUNDI LUXEMBOURG S.A.",
+        "got": null
+      },
+      {
+        "case_key": "1e633cce88f157d5d7b14d6652e58d13b3f1d7c31547c37792eec4ba8ab880db:d53523c21c6758caae67d77bf13cb7077b9d5555481c05381f134e40d5273e5e",
+        "expected": "LIONTRUST EUROPE S.A.",
+        "got": null
+      },
+      {
+        "case_key": "5a41976f518e6ea8e70cde8dc6dc7f98c499452ab2a68b0f4fadab67e067ad91:2ed995417da7516ea961100ee47ac29a00726a3718588426282b0c5323189784",
+        "expected": "KPH Advisory Services Limited",
+        "got": null
+      },
+      {
+        "case_key": "92e802c9e5e375c1dcb9f12e142cee9a8bf4d3c434b4fc12c05dd746994ff7ca:161d8835754986fb50fee412549bbf33f8f2760b453243452a71c0a337b0e347",
+        "expected": "TD ICAV",
+        "got": null
+      },
+      {
+        "case_key": "a8c5260b98181d6285f056a48a5d6479996810b29c38a8db978562cccfb8bf70:bee6e78f01fd406cc7c138d5c3fa16a41c407196c4e2da1740f52977e63c8280",
+        "expected": "Bank of Ireland",
+        "got": null
+      },
+      {
+        "case_key": "ea3cd9d0f156b307266f9fc4a501b5b3a47cf69e0afb48b9946206f9839b0a8b:cbfaf19e9b7141f57fe5cc1f0094e8bbb67cab55b606bf06eccfab99ed93f742",
+        "expected": "E&L Credit Limited",
+        "got": null
+      }
+    ]
+  },
+  "relation_status": {
+    "agreement": 0.68,
+    "total": 25,
+    "mismatches": [
+      {
+        "case_key": "1438ab043e97586dbab60e203615ab7e7e587b2b64d6eb305f122bd69d73ec9d:5081e478e6cd68db6d29ca8282220c76c059a31c3e3ab7f767ea8eafe7a6d289",
+        "expected": "EXPLICIT_SOURCE",
+        "got": "UNRESOLVED"
+      },
+      {
+        "case_key": "cf323421fcc057b13a71a37cde99e90d218e11b678ef498193c46315ead6bdbd:e4596c383f31c52a39b124936d414c6066b57946752d4aedb4d72a89faee0bd4",
+        "expected": "EXPLICIT_SOURCE",
+        "got": "UNRESOLVED"
+      },
+      {
+        "case_key": "1b22f8a0b0f5db90cc6f8cf822f3d4942d309f90f5f5742839cc869d98a31ec0:9dc5f8b6b673b6302bf53c0a11542d2d075ae13678732ac80cf2bce7c317c9b5",
+        "expected": "EXPLICIT_SOURCE",
+        "got": "UNRESOLVED"
+      },
+      {
+        "case_key": "1e633cce88f157d5d7b14d6652e58d13b3f1d7c31547c37792eec4ba8ab880db:d53523c21c6758caae67d77bf13cb7077b9d5555481c05381f134e40d5273e5e",
+        "expected": "EXPLICIT_SOURCE",
+        "got": "UNRESOLVED"
+      },
+      {
+        "case_key": "5a41976f518e6ea8e70cde8dc6dc7f98c499452ab2a68b0f4fadab67e067ad91:2ed995417da7516ea961100ee47ac29a00726a3718588426282b0c5323189784",
+        "expected": "EXPLICIT_SOURCE",
+        "got": "UNRESOLVED"
+      },
+      {
+        "case_key": "92e802c9e5e375c1dcb9f12e142cee9a8bf4d3c434b4fc12c05dd746994ff7ca:161d8835754986fb50fee412549bbf33f8f2760b453243452a71c0a337b0e347",
+        "expected": "EXPLICIT_SOURCE",
+        "got": "UNRESOLVED"
+      },
+      {
+        "case_key": "a8c5260b98181d6285f056a48a5d6479996810b29c38a8db978562cccfb8bf70:bee6e78f01fd406cc7c138d5c3fa16a41c407196c4e2da1740f52977e63c8280",
+        "expected": "EXPLICIT_SOURCE",
+        "got": "UNRESOLVED"
+      },
+      {
+        "case_key": "ea3cd9d0f156b307266f9fc4a501b5b3a47cf69e0afb48b9946206f9839b0a8b:cbfaf19e9b7141f57fe5cc1f0094e8bbb67cab55b606bf06eccfab99ed93f742",
+        "expected": "EXPLICIT_SOURCE",
+        "got": "UNRESOLVED"
+      }
+    ]
+  },
+  "gate_status": {
+    "domain_precision_100": false,
+    "domain_recall_95": true,
+    "clone_precision_100": true,
+    "clone_recall_95": true,
+    "clone_target_exact_90": false,
+    "automatic_false_target_0": true
+  },
+  "denominators": {
+    "gold_domain_instances": 289,
+    "gold_clone_cases": 25,
+    "gold_target_resolvable_cases": 22,
+    "gold_target_unresolvable_cases": 3,
+    "minimums": {
+      "gold_domain_instances": 100,
+      "gold_clone_cases": 20,
+      "gold_target_resolvable_cases": 15,
+      "gold_target_unresolvable_cases": 3
+    },
+    "sufficient": {
+      "gold_domain_instances": true,
+      "gold_clone_cases": true,
+      "gold_target_resolvable_cases": true,
+      "gold_target_unresolvable_cases": true
+    }
+  },
+  "unclear_cases": [],
+  "verdict": "FAIL"
+}
