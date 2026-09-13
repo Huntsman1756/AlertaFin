@@ -4,12 +4,14 @@ Dos capas:
 
 A. STRUCTURAL / CENSUS — medidos mecanicamente sobre los artefactos
    congelados (rows normalizadas + vista unificada).
-B. SEMANTIC QUALITY — CNMV reutiliza la evidencia inmutable de
-   holdout-v2 SOLO si el fingerprint del camino CNMV (parser, domainex,
-   clones, identity, textnorm, search) sigue siendo el del commit
-   evaluado; si difiere -> INCONCLUSIVE (hace falta evidencia ciega
-   nueva). DGSFP se evalua contra el censo gold congelado en
-   `g1-wi/eval/gold.json`.
+B. SEMANTIC QUALITY — si existe evidencia ciega nueva de G1-WI
+   (`g1-wi/blind/labels.jsonl` scoreada contra el CUT), tiene
+   precedencia y alimenta los gates CNMV; denominadores insuficientes
+   -> INCONCLUSIVE por gate (sin remuestreo). Sin evidencia nueva,
+   CNMV reutiliza holdout-v2 SOLO si el fingerprint del camino CNMV
+   (parser, domainex, clones, identity, textnorm, search) sigue siendo
+   el del commit evaluado; si difiere -> INCONCLUSIVE. DGSFP se evalua
+   siempre contra el censo gold congelado en `g1-wi/eval/gold.json`.
 
 Estados: PASS | FAIL | N/A | INCONCLUSIVE.
 N/A != PASS. INCONCLUSIVE != FAIL.
@@ -37,8 +39,9 @@ HOLDOUT_V2_COMMIT = "ab07001b0919ac5694e034fe686f87ac27df732e"
 # El evaluador se congela por TAG (un commit no puede contener su propio
 # SHA). `g1-wi-evaluator-v1` apunta al commit que congela esta mecanica;
 # si el evaluador cambia despues, el flag evaluator_unchanged lo delata.
-EVALUATOR_TAG = "g1-wi-evaluator-v1"
-EVALUATOR_FILES = ["alertafin/eval_g1wi.py", "scripts/g1wi_evaluate.py"]
+EVALUATOR_TAG = "g1-wi-evaluator-v2"
+EVALUATOR_FILES = ["alertafin/eval_g1wi.py", "alertafin/blind_eval.py",
+                   "scripts/g1wi_evaluate.py"]
 
 CNMV_CODE_FILES = [
     "alertafin/parser.py",
@@ -111,8 +114,13 @@ def _s(n: float) -> str:
     return f"{n:.4f}"
 
 
-def compute_gates(cnmv_rows, dgsfp_rows, holdout, gold) -> dict:
-    """Los 16 gates obligatorios sobre los artefactos congelados."""
+def compute_gates(cnmv_rows, dgsfp_rows, holdout, gold,
+                  cnmv_blind=None) -> dict:
+    """Los 16 gates obligatorios sobre los artefactos congelados.
+
+    `cnmv_blind` = metricas de `alertafin.blind_eval.score_blind`
+    sobre la muestra ciega G1-WI; si existe, sustituye a holdout-v2
+    como evidencia semantica CNMV (es evidencia del propio CUT)."""
     gates = {}
     rows = list(cnmv_rows) + list(dgsfp_rows)
     notices = build_notices(rows)
@@ -197,15 +205,27 @@ def compute_gates(cnmv_rows, dgsfp_rows, holdout, gold) -> dict:
 
     # ---------- B. SEMANTIC QUALITY ----------
 
-    evidence_ok = cnmv_code_matches(HOLDOUT_V2_COMMIT)
-    cnmv_ev = ("holdout-v2 evaluation.json "
-               f"(code {HOLDOUT_V2_COMMIT[:7]}, fingerprint match)"
-               if evidence_ok else
-               "code drift vs holdout-v2: evidencia no reutilizable")
-
-    d_hold = holdout["domains"]
-    c_hold = holdout["clone_detection"]
-    t_hold = holdout["clone_target"]
+    if cnmv_blind is not None:
+        evidence_ok = True
+        cnmv_ev = ("g1-wi blind labels (evidencia nueva del CUT, "
+                   "etiquetas congeladas)")
+        d_hold = cnmv_blind["domains"]
+        c_hold = cnmv_blind["clone_detection"]
+        t_hold = cnmv_blind["clone_target"]
+        suff = cnmv_blind["denominators"]["sufficient"]
+    else:
+        evidence_ok = cnmv_code_matches(HOLDOUT_V2_COMMIT)
+        cnmv_ev = ("holdout-v2 evaluation.json "
+                   f"(code {HOLDOUT_V2_COMMIT[:7]}, fingerprint match)"
+                   if evidence_ok else
+                   "code drift vs holdout-v2: evidencia no reutilizable")
+        d_hold = holdout["domains"]
+        c_hold = holdout["clone_detection"]
+        t_hold = holdout["clone_target"]
+        # holdout-v2 ya cumplio los minimos en su manifest
+        suff = {k: True
+                for k in ("gold_domain_instances", "gold_clone_cases",
+                          "gold_target_unresolvable_cases")}
 
     gold_pag = gold["sources"]["dgsfp.paginas_web_fraudulentas"]
     gold_suj = gold["sources"]["dgsfp.sujetos_no_autorizados"]
@@ -222,24 +242,26 @@ def compute_gates(cnmv_rows, dgsfp_rows, holdout, gold) -> dict:
         len(n["clone_evidence"]) for n in notices
         if n["source"].startswith("DGSFP"))
 
-    if evidence_ok:
+    dom_ok = evidence_ok and suff["gold_domain_instances"]
+    if dom_ok:
         dom_tp = d_hold["tp"] + len(emitted_set & gold_set)
         dom_denom = (d_hold["tp"] + d_hold["fp"]) + len(emitted_set)
         dom_prec = dom_tp / dom_denom if dom_denom else 1.0
         gates["domain_precision"] = _gate(
             "PASS" if dom_prec >= 1.0 else "FAIL",
             1.0, dom_tp, dom_denom, cnmv_ev + " + censo DGSFP",
-            [f"CNMV holdout-v2 fp: {[c['false'] for c in d_hold['fp_cases']]}"]
+            [f"CNMV fp: {[c['false'] for c in d_hold['fp_cases']]}"]
             + [f"DGSFP fp: {dgsfp_fp}"] if (d_hold["fp"] or dgsfp_fp)
             else [],
             observed=_s(dom_prec))
     else:
         gates["domain_precision"] = _gate(
             "INCONCLUSIVE", 1.0, None, None, cnmv_ev,
+            [] if evidence_ok else
             ["evidencia CNMV no reutilizable: se requiere nueva "
              "auditoria ciega"])
 
-    if evidence_ok:
+    if dom_ok:
         cnmv_rec = d_hold["recall"]
         pag_rec = (len(emitted_set & gold_set) / len(gold_set)
                    if gold_set else None)
@@ -257,7 +279,7 @@ def compute_gates(cnmv_rows, dgsfp_rows, holdout, gold) -> dict:
         gates["domain_recall"] = _gate(
             "INCONCLUSIVE", ">=0.95 por fuente", None, None, cnmv_ev)
 
-    if evidence_ok:
+    if evidence_ok and suff["gold_clone_cases"]:
         gates["explicit_clone_precision"] = _gate(
             "PASS" if c_hold["precision"] >= 1.0 else "FAIL",
             1.0, c_hold["tp"], c_hold["tp"] + c_hold["fp"],
@@ -270,6 +292,12 @@ def compute_gates(cnmv_rows, dgsfp_rows, holdout, gold) -> dict:
             cnmv_ev + "; DGSFP N/A (0 positivos gold, errata)",
             [f"CNMV recall {_s(c_hold['recall'])}",
              "DGSFP_SUJETOS N/A", "DGSFP_PAGINAS N/A"])
+    else:
+        for gid in ["explicit_clone_precision", "explicit_clone_recall"]:
+            gates[gid] = _gate("INCONCLUSIVE", None, None, None,
+                               cnmv_ev)
+
+    if evidence_ok and suff["gold_target_unresolvable_cases"]:
         gates["false_emitted_clone_target"] = _gate(
             "PASS" if (t_hold["parser_target_on_unresolvable_cases"] == 0
                        and dgsfp_emitted_targets == 0) else "FAIL",
@@ -280,9 +308,8 @@ def compute_gates(cnmv_rows, dgsfp_rows, holdout, gold) -> dict:
             targets_emitted=t_hold["parser_target_resolved_cases"]
             + dgsfp_emitted_targets)
     else:
-        for gid in ["explicit_clone_precision", "explicit_clone_recall",
-                    "false_emitted_clone_target"]:
-            gates[gid] = _gate("INCONCLUSIVE", None, None, None, cnmv_ev)
+        gates["false_emitted_clone_target"] = _gate(
+            "INCONCLUSIVE", 0, None, None, cnmv_ev)
 
     # ---------- DGSFP-specific ----------
 
@@ -343,10 +370,17 @@ def _git(*args) -> str:
                           capture_output=True, text=True).stdout.strip()
 
 
-def build_evaluation(cnmv_rows, dgsfp_rows, holdout, gold) -> dict:
+def _sha256_if_exists(path: str):
+    p = Path(path)
+    return _sha256_file(path) if p.exists() else None
+
+
+def build_evaluation(cnmv_rows, dgsfp_rows, holdout, gold,
+                     cnmv_blind=None) -> dict:
     head = _git("rev-parse", "HEAD")
     eval_commit = _git("rev-parse", f"{EVALUATOR_TAG}^{{commit}}") or None
-    gates = compute_gates(cnmv_rows, dgsfp_rows, holdout, gold)
+    gates = compute_gates(cnmv_rows, dgsfp_rows, holdout, gold,
+                          cnmv_blind=cnmv_blind)
     return {
         "evaluation": "g1-wi",
         # codigo evaluado = checkout sobre el que corre esta evaluacion
@@ -368,6 +402,11 @@ def build_evaluation(cnmv_rows, dgsfp_rows, holdout, gold) -> dict:
             "dgsfp_gold_sha256": _sha256_file("g1-wi/eval/gold.json"),
             "dgsfp_snapshot_sha256":
                 _sha256_file("g1-wi/probe/snapshot.json"),
+            "cnmv_blind_sample_sha256":
+                _sha256_if_exists("g1-wi/blind/sample.jsonl"),
+            "cnmv_blind_labels_sha256":
+                _sha256_if_exists("g1-wi/blind/labels.jsonl"),
+            "cnmv_blind_evidence_used": cnmv_blind is not None,
         },
         "gates": gates,
         "verdict": verdict(gates),

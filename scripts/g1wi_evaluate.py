@@ -7,7 +7,11 @@ genera/publica como paso separado y auditable.
 Entradas (todas congeladas):
 - `g1-wi/normalized/cnmv_rows.jsonl`  CNMV re-normalizado con el CUT
 - `g1-wi/normalized/notices.jsonl`    DGSFP rows (snapshot congelado)
-- `g0/holdout-v2/evaluation.json`     evidencia CNMV (si fingerprint match)
+- `g0/holdout-v2/evaluation.json`     evidencia CNMV historica
+  (solo reutilizable si fingerprint match)
+- `g1-wi/blind/sample.jsonl` + `g1-wi/blind/labels.jsonl`
+  evidencia ciega nueva CNMV; si existen ambas, tienen precedencia
+  sobre holdout-v2 para los gates semanticos CNMV
 - `g1-wi/eval/gold.json`              censo gold DGSFP
 """
 
@@ -17,6 +21,7 @@ from pathlib import Path
 
 sys.path.insert(0, str(Path(__file__).resolve().parents[1]))
 
+from alertafin.blind_eval import score_blind
 from alertafin.eval_g1wi import build_evaluation
 
 
@@ -32,7 +37,16 @@ def main() -> int:
         Path("g0/holdout-v2/evaluation.json").read_text("utf-8"))
     gold = json.loads(Path("g1-wi/eval/gold.json").read_text("utf-8"))
 
-    ev = build_evaluation(cnmv_rows, dgsfp_rows, holdout, gold)
+    sample_p = Path("g1-wi/blind/sample.jsonl")
+    labels_p = Path("g1-wi/blind/labels.jsonl")
+    cnmv_blind = None
+    if sample_p.exists() and labels_p.exists():
+        rows_by_key = {f"{r['notice_id']}:{r['record_version_id']}": r
+                       for r in cnmv_rows}
+        cnmv_blind = score_blind(rows_by_key, _load_jsonl(labels_p))
+
+    ev = build_evaluation(cnmv_rows, dgsfp_rows, holdout, gold,
+                          cnmv_blind=cnmv_blind)
     out = Path("g1-wi/evaluation.json")
     out.write_text(json.dumps(ev, ensure_ascii=False, indent=2) + "\n",
                    encoding="utf-8", newline="\n")
