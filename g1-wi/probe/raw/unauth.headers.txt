@@ -1,0 +1,24 @@
+HTTP/1.1 200 OK
+Cache-Control: private, max-age=0
+Content-Type: text/html; charset=utf-8
+Expires: Sat, 29 Aug 2026 19:56:33 GMT
+Last-Modified: Sun, 13 Sep 2026 19:56:33 GMT
+X-SharePointHealthScore: 
+SPRequestGuid: 49e83aa2-67df-20b0-ffb3-4687e4e11db6
+request-id: 49e83aa2-67df-20b0-ffb3-4687e4e11db6
+X-FRAME-OPTIONS: SAMEORIGIN
+Content-Security-Policy: default-src 'self'; script-src 'self' 'unsafe-inline' 'unsafe-eval' https://*.google-analytics.com https://www.gstatic.com www.googletagmanager.com www.google.com; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; img-src 'self' https://www.googletagmanager.com data: https://*.google-analytics.com https://www.gstatic.com; connect-src 'self' https://dgsfp.mineco.gob.es https://*.google-analytics.com; frame-src 'self' blob: https://rrpp.dgsfp.mineco.es https://www.google.com/recaptcha/ https://www.gstatic.com/recaptcha/; object-src 'none'; frame-ancestors 'self';
+SPRequestDuration: 645
+SPIisLatency: 2
+X-Content-Type-Options: nosniff
+X-MS-InvokeApp: 1; RequireReadOnly
+X-XSS-Protection: 1; mode=block
+Strict-Transport-Security: max-age=31536000;IncludeSubDomains
+Referrer-Policy: strict-origin-when-cross-origin
+Cross-Origin-Embedder-Policy: cross-origin
+Cross-Origin-Opener-Policy: same-origin-allow-popups
+Permissions-Policy: geolocation=(),camera=(),microphone=(),payment=(),usb=(),accelerometer=(),gyroscope=(),magnetometer=(),fullscreen=(self)
+Cross-Origin-Resource-Policy: same-origin
+Date: Sun, 13 Sep 2026 19:56:33 GMT
+Content-Length: 74699
+
