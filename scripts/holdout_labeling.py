@@ -125,30 +125,50 @@ def _ratio(num, den):
     return round(num / den, 4) if den else None
 
 
-def cmd_evaluate():
-    if not LABELS.exists():
-        print("NO HAY ETIQUETAS: ejecuta primero `scaffold` y etiqueta.")
-        return 3
-    sample = {e["notice_id"]: e for e in _read_jsonl(SAMPLE)}
-    labels = _read_jsonl(LABELS)
-    unknown = sorted({l["notice_id"] for l in labels} - set(sample))
-    if unknown:
-        print(json.dumps({"error": "notice_id fuera de la muestra",
-                          "unknown": unknown[:10]}, ensure_ascii=False))
-        return 2
+def labeled_rows(labels):
+    """Solo las filas marcadas explicitamente `labeled: true`."""
+    return [l for l in labels if l.get("labeled") is True]
 
-    labeled = [l for l in labels
-               if l.get("expected_domains") is not None
-               and l.get("expected_clone_detected") is not None]
 
+def validate_label(l):
+    """Tipos obligatorios de una fila etiquetada. Lista de errores (vacia = OK)."""
+    errs = []
+    domains = l.get("expected_domains")
+    if not isinstance(domains, list) or not all(isinstance(d, str) for d in domains):
+        errs.append("expected_domains debe ser lista de strings")
+    if not isinstance(l.get("expected_clone_detected"), bool):
+        errs.append("expected_clone_detected debe ser bool")
+    target = l.get("expected_clone_target")
+    if target is not None and not isinstance(target, str):
+        errs.append("expected_clone_target debe ser str o null")
+    rel = l.get("expected_relation_status")
+    if rel is not None and not isinstance(rel, str):
+        errs.append("expected_relation_status debe ser str o null")
+    return errs
+
+
+def score(sample, labeled):
+    """Metricas del holdout. La seleccion de filas la hace `cmd_evaluate`.
+
+    Dos preguntas separadas:
+    - deteccion de clon: sobre todos los casos etiquetados.
+    - target exacto: solo sobre ground truth con target explicitamente
+      resoluble. Si el ground truth no fija target, el caso queda FUERA del
+      denominador (no se cuenta un null/null como acierto).
+    """
     dtp = dfp = dfn = 0
     fp_cases, fn_cases = [], []
     ctp = cfp = cfn = 0
     clone_mismatch = []
-    target_hit = target_total = 0
-    target_mismatch = []
     rel_agree = rel_total = 0
     rel_mismatch = []
+    gold_clone_cases = 0
+    gold_resolvable = 0
+    parser_resolved = 0
+    parser_on_unresolvable = 0
+    target_hit = target_miss = 0
+    target_miss_cases = []
+
     for l in labeled:
         e = sample[l["notice_id"]]
         gold = set(l["expected_domains"])
@@ -163,19 +183,10 @@ def cmd_evaluate():
             fn_cases.append({"notice_id": l["notice_id"],
                              "missed": sorted(gold - got)})
 
-        gold_clone = bool(l["expected_clone_detected"])
+        gold_clone = l["expected_clone_detected"]
         got_clone = bool(e["clone"]["clone_detected"])
         if gold_clone and got_clone:
             ctp += 1
-            if _norm_target(l.get("expected_clone_target")) == \
-                    _norm_target(e["clone"].get("clone_target_raw")):
-                target_hit += 1
-            else:
-                target_mismatch.append({
-                    "notice_id": l["notice_id"],
-                    "expected": l.get("expected_clone_target"),
-                    "got": e["clone"].get("clone_target_raw")})
-            target_total += 1
         elif gold_clone and not got_clone:
             cfn += 1
         elif not gold_clone and got_clone:
@@ -183,6 +194,31 @@ def cmd_evaluate():
         if gold_clone != got_clone:
             clone_mismatch.append({"notice_id": l["notice_id"],
                                    "expected": gold_clone, "got": got_clone})
+
+        if gold_clone:
+            gold_clone_cases += 1
+            gold_t = _norm_target(l.get("expected_clone_target"))
+            got_t = _norm_target(e["clone"].get("clone_target_raw"))
+            if gold_t:
+                gold_resolvable += 1
+                if got_t:
+                    parser_resolved += 1
+                    if gold_t == got_t:
+                        target_hit += 1
+                    else:
+                        target_miss += 1
+                        target_miss_cases.append({
+                            "notice_id": l["notice_id"],
+                            "expected": l.get("expected_clone_target"),
+                            "got": e["clone"].get("clone_target_raw")})
+                else:
+                    target_miss += 1
+                    target_miss_cases.append({
+                        "notice_id": l["notice_id"],
+                        "expected": l.get("expected_clone_target"),
+                        "got": None})
+            elif got_t:
+                parser_on_unresolvable += 1
 
         if l.get("expected_relation_status") is not None:
             rel_total += 1
@@ -198,8 +234,72 @@ def cmd_evaluate():
     drec = _ratio(dtp, dtp + dfn)
     cprec = _ratio(ctp, ctp + cfp)
     crec = _ratio(ctp, ctp + cfn)
-    texact = _ratio(target_hit, target_total)
+    texact = _ratio(target_hit, gold_resolvable)
     rel = _ratio(rel_agree, rel_total)
+
+    return {
+        "domains": {
+            "precision": dprec, "recall": drec,
+            "tp": dtp, "fp": dfp, "fn": dfn,
+            "fp_cases": fp_cases[:20], "fn_cases": fn_cases[:20],
+        },
+        "clone_detection": {
+            "precision": cprec, "recall": crec,
+            "tp": ctp, "fp": cfp, "fn": cfn,
+            "mismatches": clone_mismatch[:20],
+        },
+        "clone_target": {
+            "gold_clone_cases": gold_clone_cases,
+            "gold_target_resolvable_cases": gold_resolvable,
+            "parser_target_resolved_cases": parser_resolved,
+            "parser_target_on_unresolvable_cases": parser_on_unresolvable,
+            "target_resolution_coverage": _ratio(parser_resolved, gold_resolvable),
+            "clone_target_exact": texact,
+            "hits": target_hit, "misses": target_miss,
+            "miss_cases": target_miss_cases[:20],
+        },
+        "relation_status": {
+            "agreement": rel, "total": rel_total,
+            "mismatches": rel_mismatch[:20],
+        },
+        "gate_status": {
+            "domain_precision_100": dprec == 1.0 if dprec is not None else None,
+            "domain_recall_95": drec >= 0.95 if drec is not None else None,
+            "clone_precision_100": cprec == 1.0 if cprec is not None else None,
+            "clone_recall_95": crec >= 0.95 if crec is not None else None,
+            "clone_target_exact_90": (None if texact is None
+                                      else texact >= 0.90),
+        },
+    }
+
+
+def cmd_evaluate():
+    if not LABELS.exists():
+        print("NO HAY ETIQUETAS: ejecuta primero `scaffold` y etiqueta.")
+        return 3
+    sample = {e["notice_id"]: e for e in _read_jsonl(SAMPLE)}
+    labels = _read_jsonl(LABELS)
+
+    unknown = sorted({l["notice_id"] for l in labels} - set(sample))
+    if unknown:
+        print(json.dumps({"error": "notice_id fuera de la muestra",
+                          "unknown": unknown[:10]}, ensure_ascii=False))
+        return 2
+
+    counts = Counter(l["notice_id"] for l in labels)
+    duplicates = sorted(k for k, v in counts.items() if v > 1)
+    if duplicates:
+        print(json.dumps({"error": "notice_id duplicado en labels",
+                          "duplicates": duplicates[:10]}, ensure_ascii=False))
+        return 2
+
+    labeled = labeled_rows(labels)
+    errors = {l["notice_id"]: errs for l in labeled
+              if (errs := validate_label(l))}
+    if errors:
+        print(json.dumps({"error": "etiquetas invalidas",
+                          "details": errors}, ensure_ascii=False, indent=2))
+        return 2
 
     current_fp, _ = parser_fingerprint()
     manifest = json.loads(MANIFEST.read_text("utf-8")) if MANIFEST.exists() else {}
@@ -214,32 +314,9 @@ def cmd_evaluate():
         "sample_total": len(sample),
         "labeled": len(labeled),
         "pending": len(sample) - len(labeled),
-        "domains": {
-            "precision": dprec, "recall": drec,
-            "tp": dtp, "fp": dfp, "fn": dfn,
-            "fp_cases": fp_cases[:20], "fn_cases": fn_cases[:20],
-        },
-        "clone_detection": {
-            "precision": cprec, "recall": crec,
-            "tp": ctp, "fp": cfp, "fn": cfn,
-            "mismatches": clone_mismatch[:20],
-        },
-        "clone_target_exact": {
-            "agreement": texact, "hits": target_hit, "total": target_total,
-            "mismatches": target_mismatch[:20],
-        },
-        "relation_status": {
-            "agreement": rel, "total": rel_total,
-            "mismatches": rel_mismatch[:20],
-        },
-        "gate_status": {
-            "domain_precision_100": dprec == 1.0 if dprec is not None else None,
-            "domain_recall_95": drec >= 0.95 if drec is not None else None,
-            "clone_precision_100": cprec == 1.0 if cprec is not None else None,
-            "clone_recall_95": crec >= 0.95 if crec is not None else None,
-            "clone_target_exact_90": texact is not None and texact >= 0.90,
-        },
+        "invalid": len(errors),
     }
+    report.update(score(sample, labeled))
     EVAL.write_text(json.dumps(report, ensure_ascii=False, indent=2) + "\n",
                     encoding="utf-8")
     print(json.dumps(report, ensure_ascii=False, indent=2))

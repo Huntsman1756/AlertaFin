@@ -155,4 +155,10 @@ los mismos 210 IDs pero sin ningun output inferido. `stratum_blind` conserva
 solo regulador/tramo porque el estrato original codificaba la prediccion de
 clon. `scaffold` crea la plantilla `labels.jsonl` con campos vacios y
 `evaluate` hace el join por `notice_id` contra `sample.jsonl` y calcula
-precision/recall (con `pending` mientras falten etiquetas).
+precision/recall (con `pending` mientras falten etiquetas). Solo puntua filas
+con `labeled: true`, valida los tipos obligatorios y separa dos preguntas:
+deteccion de clon (todos los casos etiquetados) y target exacto (solo ground
+truth con target explicitamente resoluble; un `null`/`null` no cuenta como
+acierto). Reporta ademas `gold_target_resolvable_cases`,
+`parser_target_resolved_cases`, `parser_target_on_unresolvable_cases` y
+`target_resolution_coverage`.
