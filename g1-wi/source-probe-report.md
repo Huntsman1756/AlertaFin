@@ -49,7 +49,9 @@ DGSFP_FRAUDULENT_WEBS
   - `Año 2024` — 10 denominaciones.
   - `Resto de años` — 87 denominaciones, **sin fecha ni año por registro**.
 - Campos por registro: **solo denominacion**. 5 registros llevan nota
-  entre parentesis; una es evidencia explicita de clon:
+  entre parentesis; una es un disclaimer de confusion de nombre
+  (NO es afirmacion de clon bajo la semantica G0 — ver errata en
+  `pre-ingestion-freeze.md`):
   `(sin vinculos ni relacion con W.R. BERKLEY INSURANCE (EUROPE) LIMITED
   SUC. EN ESPAÑA, que es entidad aseguradora autorizada)`.
 - **Duplicados en la propia fuente: 10 denominaciones aparecen 2 veces**

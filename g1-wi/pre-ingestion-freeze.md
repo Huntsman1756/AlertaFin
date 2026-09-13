@@ -29,7 +29,7 @@ Corrige el informe del probe: 97 registros / 87 unicas (no 100/95).
 | ------------- | ------------------------- | ----------: |
 | DGSFP_SUJETOS | source coverage           |     97 filas raw |
 | DGSFP_SUJETOS | domain recall             |    N/A — 0 dominios gold |
-| DGSFP_SUJETOS | clone recall              |    1 positivo explicito |
+| DGSFP_SUJETOS | clone recall              |    N/A — 0 positivos explicitos (ver errata) |
 | DGSFP_SUJETOS | valid source date parsing |    N/A — 0 fechas completas por registro |
 | DGSFP_PAGINAS | source coverage           |    10 registros |
 | DGSFP_PAGINAS | domain recall             |    10 dominios gold -> exige 10/10 |
@@ -39,6 +39,40 @@ Corrige el informe del probe: 97 registros / 87 unicas (no 100/95).
 `clone recall` con n=1 se acepta porque se evalua un **censo exhaustivo
 del snapshot declarado**, no una muestra. Se informa `1/1`; no es
 evidencia estadistica fuerte y no se presenta como tal.
+
+## Errata contractual (registrada antes de la evaluacion, pre-G1-WI.C)
+
+Descubierta al revisar la implementacion de G1-WI.B contra la semantica
+congelada. No reescribe historia: `g1-wi-prereg-v1` y `82fbde5`
+permanecen como estan.
+
+1. **BARKLEY no es clone bajo la semantica G0.** El contrato exige
+   afirmacion explicita de «clon/suplantacion/imitacion» para
+   `clone_detected`; una afirmacion de *no relacion*
+   («sin vínculos ni relación con X») no basta — semanticamente es un
+   disclaimer de confusion de nombre, no una declaracion de clon. La
+   nota se preserva en `nota_raw`, pero:
+   `clone_detected=false`, `clone_target_raw=null`,
+   `relation_status=null`.
+2. **Denominador**: `DGSFP_SUJETOS clone recall` pasa de
+   `1 positivo explicito` a **N/A por 0 positivos explicitos**.
+   Defendible: se descubre antes de la evaluacion ciega y elimina un
+   caso que el parser ya acertaba 1/1 — no rescata ningun FAIL.
+3. **`notice_id` vs ocurrencia fisica.** El contrato G0 prohibe
+   contadores/indices en la identidad del aviso. Se separa:
+
+   ```text
+   notice_id             = hash(source_namespace, source_type,
+                                entidad_raw, url_raw, section)
+   source_occurrence_id  = identidad determinista de la ocurrencia
+                           fisica (si puede incluir occurrence_index)
+   record_version_id     = sha256(raw <p>)
+   ```
+
+   Dos filas raw identicas comparten `notice_id` y
+   `record_version_id` pero mantienen `source_occurrence_id`
+   distintos: las 97 ocurrencias se preservan sin inventar que dos
+   filas indistinguibles sean dos avisos juridicamente distintos.
 
 ## 3. Semantica temporal
 
@@ -53,7 +87,7 @@ context_period:
                   (o preservar raw si el modelo no admite partial dates)
 
 warning_date:
-    ABSENT en los 100 sujetos
+    ABSENT en los 97 sujetos
     ABSENT en las 10 paginas
 ```
 
