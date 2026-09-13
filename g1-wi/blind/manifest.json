@@ -1,0 +1,22 @@
+{
+  "experiment": "g1-wi-blind-cnmv-v1",
+  "preregistration_commit": "8af629cb98c31fc6baa821d1d3dabf81de8f8a90",
+  "seed": 17552254767547088750,
+  "seed_derivation": "sha256('g1-wi-blind-v1:' + prereg_commit)[0:8] big-endian",
+  "n": 300,
+  "corpus": {
+    "path": "g1-wi/normalized/cnmv_rows.jsonl",
+    "rows": 10368,
+    "excluded_seen_notice_ids": 670,
+    "eligible": 9691
+  },
+  "strata": {
+    "CNMV/>=2024": 50,
+    "CNMV/2019-2021": 48,
+    "EXTRANJERO/>=2024": 97,
+    "CNMV/2022-2023": 28,
+    "CNMV/<2019": 18,
+    "EXTRANJERO/2022-2023": 59
+  },
+  "labels": "PENDING — etiquetado ciego externo; congelar antes de evaluar. Si denominadores insuficientes -> INCONCLUSIVE, sin remuestreo."
+}
