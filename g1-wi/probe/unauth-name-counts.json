@@ -1,0 +1,23 @@
+{
+  "rows_total": 100,
+  "unique_raw_names": 90,
+  "duplicate_groups": 10,
+  "duplicate_extra_rows": 10,
+  "duplicate_groups_detail": {
+    "COBERTURA ASISTENCIAL DEPORTIVA S.L.": 2,
+    "DIMAX, DISTRIBUCIONES DEL TERCER MILENIO, S.L.": 2,
+    "GRAVITELL INSURANCE@REINSURANCE BROKERS S.L": 2,
+    "GRAVITELL LIMITED": 2,
+    "HENRY MORTIMER PLC": 2,
+    "IBERSHAMROCK S.L.": 2,
+    "INKORE": 2,
+    "MILTON GROUP": 2,
+    "SEGUROS NOVA": 2,
+    "TOP CLASS INSURANCE": 2
+  },
+  "sections": {
+    "AÑO_2024": 10,
+    "RESTO": 90
+  },
+  "cross_section_dups": []
+}

@@ -141,9 +141,10 @@ DGSFP_FRAUDULENT_WEBS  CAPABLE true (con caveat documentado)
   `Año 2024` como cabecera de bloque (unico patron temporal presente);
   `Resto de años` y webs: `ABSENT`.
 - Denominadores minimos propuestos a congelar (recuento observado):
-  `DGSFP_SUJETOS` = 100 lineas (95 unicas), `DGSFP_PAGINAS` = 10
-  registros. Suficientes para evaluar; `DGSFP_PAGINAS` con n=10 exige
-  10/10 para cualquier gate >=95%.
+  `DGSFP_SUJETOS` = 100 lineas (90 unicas — corregido en
+  `pre-ingestion-freeze.md`), `DGSFP_PAGINAS` = 10 registros.
+  Suficientes para evaluar; `DGSFP_PAGINAS` con n=10 exige 10/10 para
+  cualquier gate >=95%.
 - Respuestas a las 12 preguntas del probe: cubiertas arriba
   (acceso/formato/registros/paginacion/historico/fechas/campos/
   dominios/IDs/duplicados/cambios/robots).
