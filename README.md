@@ -1,8 +1,10 @@
 # AlertaFin
 
-Índice auditable de advertencias financieras oficiales. G0: **solo CNMV**
-(WebAPI `PaffNoAutorizadas`). No determina si una entidad es segura ni si
-está autorizada; solo representa hechos regulatorios publicados.
+Índice auditable de advertencias financieras oficiales: **CNMV**
+(WebAPI `PaffNoAutorizadas`) + **DGSFP** (sujetos no autorizados y
+páginas web fraudulentas), con provenance byte-exacta. No determina si
+una entidad es segura ni si está autorizada; solo representa hechos
+regulatorios publicados. Ver `DATA_NOTICE.md` para el aviso de datos.
 
 ```bash
 alertafin check nextinversion.com
@@ -221,14 +223,32 @@ como indice auditable de advertencias y detector de clones explicitos;
 `UNRESOLVED` es un estado de producto legitimo y no se completan
 relaciones automaticamente.
 
-## v0.2 — Multi-source Warning Index (G1-WI)
+## v0.2 — Multi-source Warning Index (G1-WI): FAIL — cerrado
 
-Nueva fase preregistrada en `g1-wi/preregistration.md`: integrar las
-fuentes de advertencias **DGSFP** («Sujetos no autorizados», «Paginas web
-fraudulentas») bajo un contrato nuevo — el antiguo G1 sigue BLOCKED, no
-se desbloquea retrospectivamente. Sin gate de cobertura/exactitud de
-`clone_target` (tesis rechazada); la abstencion `UNRESOLVED` permanece.
-Enrichment opcional via export determinista pinneado de
-`Huntsman1756/OpenDGSFP`, solo por identificador oficial exacto. Primer
-paso: **G1-WI.A Source Probe** read-only (`g1-wi/source-probe.md`), cero
-parser productivo.
+Fase preregistrada en `g1-wi/preregistration.md` (tag `g1-wi-prereg-v1`):
+índice multifuente CNMV + DGSFP con `WarningNotice` semántico que agrupa
+`source_occurrences[1..N]` y assertions provenance-backed
+(`domain_assertions[]`, `clone_evidence[]`). Sin gate de
+`clone_target` (tesis rechazada en ADR-001); `UNRESOLVED` permanece.
+
+Resultado del run final único (`g1-wi/evaluation.json` @ `6deb5f0`,
+etiquetas ciegas n=300 congeladas en `59e5028` antes de evaluar):
+
+```text
+15/16 gates PASS
+domain precision     FAIL   311/312 = 0.9968   (gate 1.0)
+domain recall        PASS   311/311
+clone precision      PASS   21/21
+clone recall         PASS   21/21
+structural (11)      PASS   — incl. coverage, tipos, limitación DGSFP,
+                              SOURCE_UNAVAILABLE, 0 merges
+```
+
+Unico FP: `www.inexxspain.com`, extraído de `Observaciones` — dominio de
+**otro sujeto ya advertido**, atribuido al notice equivocado
+(`RELATED_WARNED_DOMAIN_MISATTRIBUTED_AS_SUBJECT_DOMAIN`,
+`ADR-002-g1-wi-final-fail.md`). **El contrato v0.2 no se cumplió** y no
+hay R2 dentro de G1-WI. Lo que sí queda sustentado por evidencia: índice
+multifuente auditable, búsqueda exacta con `SOURCE_UNAVAILABLE` y
+limitaciones de fuente explícitas, y detección de clon explícita 21/21
+con abstención segura de targets.

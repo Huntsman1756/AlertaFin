@@ -1,6 +1,35 @@
 __pycache__/
 *.pyc
 .pytest_cache/
+.ruff_cache/
+.mypy_cache/
 .venv/
 venv/
 .coverage
+htmlcov/
+coverage.xml
+build/
+dist/
+*.egg-info/
+
+# Secretos y credenciales locales — nunca commitear
+.env
+.env.*
+!.env.example
+*.pem
+*.key
+*.p12
+*.pfx
+*secrets*.json
+*credentials*.json
+
+# OS / editores
+.DS_Store
+Thumbs.db
+.idea/
+.vscode/
+
+# Logs y temporales
+*.log
+*.tmp
+*.bak
