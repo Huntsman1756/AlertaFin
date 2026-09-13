@@ -1,0 +1,32 @@
+{
+  "gold": "g1-wi census gold — DGSFP",
+  "frozen_by": "g1-wi/pre-ingestion-freeze.md (82fbde5) + errata (640d524)",
+  "note": "Censo del snapshot congelado, no muestra de generalizacion. Denominadores fijados antes del parser productivo. clone recall DGSFP = N/A por 0 positivos explicitos (la nota 'sin vinculos' no es afirmacion de clon, semantica G0).",
+  "sources": {
+    "dgsfp.sujetos_no_autorizados": {
+      "occurrences": 97,
+      "unique_names": 87,
+      "duplicate_groups": 10,
+      "gold_domains": [],
+      "gold_clone_positives": 0,
+      "record_level_dates": 0
+    },
+    "dgsfp.paginas_web_fraudulentas": {
+      "occurrences": 10,
+      "gold_domains": [
+        "rapidegroupe.com",
+        "bp-groupe.com",
+        "europae-s.com",
+        "topfservices.com",
+        "bcifinanzial.com",
+        "credito-confiable.com",
+        "serviciofinance.com",
+        "sin-cargos.credito-expres.com",
+        "astral-bank.com",
+        "banque.astral-agency.com"
+      ],
+      "gold_clone_positives": 0,
+      "record_level_dates": 0
+    }
+  }
+}
