@@ -36,11 +36,28 @@ _LEGIT_CONTEXT_RE = re.compile(
 )
 _SENTENCE_SPLIT_RE = re.compile(r"(?<=[.;])\s+|\n")
 
+# Herencia controlada del descarte por contexto legitimo: si un fragmento
+# descartado termina en abreviatura (letra + '.', p.ej. 'S.L.', 'S.A.',
+# 'S.à r.l.'), el split por '. ' pudo cortar a media clausula. Si el fragmento
+# siguiente empieza como continuacion parentetica/URL ('(', '<', 'http://',
+# 'www.'), hereda el descarte: sigue siendo la entidad legitima citada.
+_ABBREV_TAIL_FRAG = re.compile(r"[A-Za-z\u00c0-\u00ff]\.\s*[\"'\)\]]*\s*$")
+_CONTINUATION_START = re.compile(
+    r"^\s*(?:[(\[<]|(?:https?|ftp)://|www\.)", re.IGNORECASE)
+
 
 def _obs_fragments(text: str):
+    inherit_discard = False
     for fragment in _SENTENCE_SPLIT_RE.split(text):
-        if fragment and not _LEGIT_CONTEXT_RE.search(fragment):
-            yield fragment
+        if not fragment:
+            continue
+        if _LEGIT_CONTEXT_RE.search(fragment):
+            inherit_discard = bool(_ABBREV_TAIL_FRAG.search(fragment))
+            continue
+        if inherit_discard and _CONTINUATION_START.match(fragment):
+            continue
+        inherit_discard = False
+        yield fragment
 _HOST_BODY = r"[a-z0-9](?:[a-z0-9-]*[a-z0-9])?"
 _HOST_RE = re.compile(
     r"(?<![\w@.\-])"                     # no letra, '@' (email), punto o guion antes

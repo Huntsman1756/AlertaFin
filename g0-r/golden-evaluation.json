@@ -1,0 +1,152 @@
+{
+  "mode": "g0-r golden regression (parser ACTUAL vs golden + overlay)",
+  "note": "golden_corpus.jsonl no se modifica; las etiquetas efectivas son label + g0-r/golden-adjudications.jsonl. La evaluacion G0 original (14/14 PASS, parser congelado) sigue intacta en g0/gates-t0.json.",
+  "source_sha256": "1816cd621f96fcbe6a2d138ea6fa52befd27babcb5dfb2c5e8f50a086ecb7049",
+  "golden_corpus_sha256": "c345fb3120b381d2f5434c76f5a5e796b8bc51e89e8b7db4966597a7e5f7cee8",
+  "corpus": {
+    "total": 154,
+    "usable": 154,
+    "disputed_unresolved": 0,
+    "clone_labeled": 82,
+    "agreement_AB": 110,
+    "resolved_manual": 44
+  },
+  "adjudications": {
+    "file": "g0-r\\golden-adjudications.jsonl",
+    "applied": 37,
+    "by_decision": {
+      "CORRECT_LABEL": 32,
+      "SET_UNRESOLVED": 2,
+      "NORMALIZE_LABEL": 3
+    }
+  },
+  "gates": {
+    "parser_determinism_3_of_3": {
+      "threshold": "3/3",
+      "result": true,
+      "observed": "1/3"
+    },
+    "provenance_100_percent": {
+      "threshold": "100%",
+      "result": true,
+      "observed": "10368/10368"
+    },
+    "valid_dates_100_percent": {
+      "threshold": "100%",
+      "result": true,
+      "observed": {
+        "unparseable_rows": 0,
+        "notices_con_fecha": 10368
+      }
+    },
+    "notice_id_collisions_0": {
+      "threshold": 0,
+      "result": true,
+      "observed": {
+        "collisions": 0,
+        "duplicate_identity_rows": 7
+      }
+    },
+    "notice_id_idempotence_100_percent": {
+      "threshold": "100%",
+      "result": true,
+      "observed": "10368/10368"
+    },
+    "raw_to_normalized_provenance_100_percent": {
+      "threshold": "100%",
+      "result": true,
+      "observed": "10368/10368"
+    },
+    "false_entity_merges_0": {
+      "threshold": 0,
+      "result": true,
+      "observed": "por construccion: el indice de busqueda no persiste entidades ni fusiona registros; sujetos distintos permanecen distintos (ver tests/test_gates.py)"
+    },
+    "raw_field_preservation_golden_100_percent": {
+      "threshold": "100%",
+      "result": true,
+      "observed": {
+        "cases": 154,
+        "failures": []
+      }
+    },
+    "domain_extraction_precision_100": {
+      "threshold": "100%",
+      "result": true,
+      "observed": {
+        "precision": 1.0,
+        "tp": 152,
+        "fp": 0
+      }
+    },
+    "domain_extraction_recall_95": {
+      "threshold": ">=95%",
+      "result": true,
+      "observed": {
+        "recall": 1.0,
+        "tp": 152,
+        "fn": 0
+      }
+    },
+    "explicit_clone_detection_precision_100": {
+      "threshold": "100%",
+      "result": true,
+      "observed": {
+        "precision": 1.0,
+        "tp": 82,
+        "fp": 0
+      }
+    },
+    "explicit_clone_detection_recall_95": {
+      "threshold": ">=95%",
+      "result": true,
+      "observed": {
+        "recall": 1.0,
+        "tp": 82,
+        "fn": 0
+      }
+    },
+    "clone_target_exact_90": {
+      "threshold": ">=90%",
+      "result": true,
+      "observed": {
+        "exact": 1.0,
+        "hits": 82,
+        "total": 82
+      }
+    },
+    "automatic_false_clone_of_0": {
+      "threshold": 0,
+      "result": true,
+      "observed": {
+        "structural_violations": [],
+        "corpus_false_positives": 0
+      }
+    }
+  },
+  "gates_pass": "14/14",
+  "decision_basis": {
+    "clone_target_exact_corpus": 1.0,
+    "kill_criteria": [
+      ">=90% GO",
+      "70-90% DEGRADE",
+      "<70% FAIL"
+    ]
+  },
+  "decision": "GO (PASS)",
+  "legacy_golden_compatibility": {
+    "gates_pass": "13/14",
+    "clone_target_exact_90": {
+      "exact": 0.5854,
+      "hits": 48,
+      "total": 82,
+      "status": "FAIL_BY_STALE_LABELS"
+    },
+    "domain_extraction_recall_95": {
+      "recall": 0.9806,
+      "tp": 152,
+      "fn": 3
+    },
+    "note": "Las etiquetas golden originales fueron escritas bajo el extractor anterior (no resolvia targets y extraia URLs de entidades legitimas); las divergencias estan adjudicadas caso a caso en golden-adjudications.jsonl."
+  }
+}

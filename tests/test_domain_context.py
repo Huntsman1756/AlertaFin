@@ -33,6 +33,54 @@ def test_obs_subject_web_still_extracted():
     assert hosts == {"fake-broker.example"}
 
 
+def test_obs_legit_url_after_legal_suffix_paren_excluded():
+    """Regresion G0-R (holdout 98bcfb2b): 'S.L. (https://...)' no debe separar
+    la URL de la entidad legitima de su contexto 'no guarda relacion'."""
+    n = {
+        "entidad_raw": "HTTPS://WWW.EAFI-GESTION.COM  (CLON)",
+        "entidad_secundaria_raw": None,
+        "observaciones_raw": (
+            "No guarda relaci\u00f3n con Expert Timing Systems International "
+            "EAF S.L. (https://www.etsfactory.com/), debidamente registrada "
+            "en Espa\u00f1a como Empresa de Asesoramiento Financiero con el "
+            "n\u00ba 33."
+        ),
+    }
+    hosts = {d["host_normalized"] for d in extract_domains_from_record(n)}
+    assert hosts == {"www.eafi-gestion.com"}
+
+
+def test_obs_legit_url_after_double_legal_suffix_excluded():
+    """Regresion G0-R (holdout f557f915): 'A.V., S.A. (<https://...>)'."""
+    n = {
+        "entidad_raw": "CSPARTNERS-GESTION (CLON)",
+        "entidad_secundaria_raw": "CONTACT@INFOS-CSP.COM (CLON)",
+        "observaciones_raw": (
+            "NO guardan relaci\u00f3n con CAPITAL STRATEGIES PARTNERS, A.V., "
+            "S.A. (<https://www.capitalstrategies.com/>) debidamente "
+            "registrada en Espa\u00f1a como empresa de servicios de "
+            "inversi\u00f3n (agencia de valores) con el n\u00ba 230."
+        ),
+    }
+    hosts = {d["host_normalized"] for d in extract_domains_from_record(n)}
+    assert hosts == set()
+
+
+def test_obs_non_continuation_after_legit_fragment_not_inherited():
+    """La herencia de descarte solo aplica a continuaciones parenteticas/URL;
+    una frase nueva tras el corte conserva sus dominios."""
+    n = {
+        "entidad_raw": "ENTIDAD X",
+        "entidad_secundaria_raw": None,
+        "observaciones_raw": (
+            "No guarda relaci\u00f3n con LEGIT S.L. La entidad advertida "
+            "opera mediante https://warned-site.example."
+        ),
+    }
+    hosts = {d["host_normalized"] for d in extract_domains_from_record(n)}
+    assert hosts == {"warned-site.example"}
+
+
 def test_entidad_fields_not_context_filtered():
     n = {
         "entidad_raw": "WWW.NO-GUARDA-RELACION.COM",

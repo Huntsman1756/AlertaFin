@@ -1,0 +1,278 @@
+{
+  "holdout": "g0-blind-v1",
+  "source_sha256": "1816cd621f96fcbe6a2d138ea6fa52befd27babcb5dfb2c5e8f50a086ecb7049",
+  "parser_fingerprint_manifest": "66789a8a5d5059b0d9ee4d1dbb38795b68335b46f497bb2a6c2a0c371c0f797e",
+  "parser_fingerprint_now": "66789a8a5d5059b0d9ee4d1dbb38795b68335b46f497bb2a6c2a0c371c0f797e",
+  "parser_still_frozen": true,
+  "sample_total": 210,
+  "labeled": 210,
+  "pending": 0,
+  "invalid": 0,
+  "domains": {
+    "precision": 0.985,
+    "recall": 1.0,
+    "tp": 197,
+    "fp": 3,
+    "fn": 0,
+    "fp_cases": [
+      {
+        "notice_id": "98bcfb2bb6f9bc079ef9be0dbc0eb0c6f222b3568bd5a4d01499316dc12e4b0a",
+        "false": [
+          "www.etsfactory.com"
+        ]
+      },
+      {
+        "notice_id": "f557f9154c4ff01d5f8509f608f32050317f75fcf6984d4c3f0b3951617c8bc6",
+        "false": [
+          "www.capitalstrategies.com"
+        ]
+      },
+      {
+        "notice_id": "6deb5cc280a8b6b625925ee71ebdeb3090eec47bd70d1f673aa32ea899da2225",
+        "false": [
+          "tr.pro"
+        ]
+      }
+    ],
+    "fn_cases": []
+  },
+  "clone_detection": {
+    "precision": 1.0,
+    "recall": 0.9677,
+    "tp": 30,
+    "fp": 0,
+    "fn": 1,
+    "mismatches": [
+      {
+        "notice_id": "4405b685a3b162d15211bd1cc046211ce982988cedf9a5e9b1cb1d00c228f698",
+        "expected": true,
+        "got": false
+      }
+    ]
+  },
+  "clone_target": {
+    "gold_clone_cases": 31,
+    "gold_target_resolvable_cases": 25,
+    "parser_target_resolved_cases": 2,
+    "parser_target_on_unresolvable_cases": 0,
+    "target_resolution_coverage": 0.08,
+    "clone_target_exact": 0.0,
+    "hits": 0,
+    "misses": 25,
+    "miss_cases": [
+      {
+        "notice_id": "09cfd68f698a14f4ffccd860de960fe9df601bdb1341e5d6cd3c5c6bdcf1346f",
+        "expected": "CMC MARKETS GERMANY GMBH, SUCURSAL EN ESPAÑA",
+        "got": null
+      },
+      {
+        "notice_id": "98bcfb2bb6f9bc079ef9be0dbc0eb0c6f222b3568bd5a4d01499316dc12e4b0a",
+        "expected": "Expert Timing Systems International EAF S.L.",
+        "got": null
+      },
+      {
+        "notice_id": "bd241cc39368aa88ee1eb1db7309551b7d95bd3bd0ebd3bba509761d28b8626a",
+        "expected": "BOTANA GESTIÓN, S.L.",
+        "got": null
+      },
+      {
+        "notice_id": "c804b550f42d208ed53598cc84275b4f13a11f823317bdcfe4092a5192c4e943",
+        "expected": "FOREXTIME LTD",
+        "got": null
+      },
+      {
+        "notice_id": "d2d496fbe952ea639eace4d81157882710db824127cfcb7e237a90b9f456a907",
+        "expected": "CRUX ASSET MANAGEMENT LIMITED",
+        "got": null
+      },
+      {
+        "notice_id": "1a5f3d701774d004dd1da70c6e2a2ed059d662a052079e332ec27306a5e9ea9c",
+        "expected": "AMERICAN CENTURY INVESTMENT (EU) GMBH",
+        "got": null
+      },
+      {
+        "notice_id": "656b51870bbc8c1d1492d745defe24ba5cf27183183d98d1f4c4aa14c67cc6f0",
+        "expected": "INDEXUS GROEP B.V.",
+        "got": null
+      },
+      {
+        "notice_id": "84a8d1d1b6cbe0aeed4e1080ebc13a6a2d6d3890b53bf27d6a1b289de41e1c31",
+        "expected": "GRAND CAPITAL LTD",
+        "got": null
+      },
+      {
+        "notice_id": "ab1b255712145bd3ed981e6dcbfb67c0cf25adefb577b87efd36db6e27e0860c",
+        "expected": "SECTOR THETA AS",
+        "got": null
+      },
+      {
+        "notice_id": "f557f9154c4ff01d5f8509f608f32050317f75fcf6984d4c3f0b3951617c8bc6",
+        "expected": "CAPITAL STRATEGIES PARTNERS, A.V., S.A.",
+        "got": null
+      },
+      {
+        "notice_id": "35999f8825a6708fa688f16a6273a52bf87d46e2bebe098f167bb3237d189e59",
+        "expected": "OANDA TMS BROKERS S.A., SUCURSAL EN ESPAÑA",
+        "got": null
+      },
+      {
+        "notice_id": "4a0e4b6987864bbbf7652e677b516587b1e86f5a3de893fc94abafbddf9573ab",
+        "expected": "APOLLO CAPITAL SOLUTIONS EUROPE B.V.",
+        "got": null
+      },
+      {
+        "notice_id": "5ea2188abc66757bae4c9a8d2fb6552e661ffb64bf392b4d47ea683fb7394881",
+        "expected": "OCTO FINANCES SA",
+        "got": null
+      },
+      {
+        "notice_id": "d66fef2079585f885c71206a7cebe902b486cca04f7a80b9bf18ef9a01a15f2d",
+        "expected": "INTERACTIVE BROKERS IRELAND LIMITED",
+        "got": null
+      },
+      {
+        "notice_id": "f11ca94626ba0714e42fc5b50343192abb941badd8d8a04fc7ef255ddfa6d137",
+        "expected": "ABANTE ASESORES DISTRIBUCION, AGENCIA DE VALORES, S.A.",
+        "got": null
+      },
+      {
+        "notice_id": "14ed93b14ae71b03e62e963473a4d7a0f6543bcd84e8475b0daa34a1d644b229",
+        "expected": "VIE FINANCE AEPEY",
+        "got": null
+      },
+      {
+        "notice_id": "2247506211fe57a75c37b3be022fedc6419d85157ea7c4a37cfcd89af5fb793f",
+        "expected": "AMF",
+        "got": null
+      },
+      {
+        "notice_id": "994e774a673f0e2dbe3bad3971b56bf7340974f5a92315a9dcdf170a7eeb779a",
+        "expected": "VIE FINANCE AEPEY",
+        "got": null
+      },
+      {
+        "notice_id": "99e0017104659fb8cd05eb406c1d72a09bbb9baea061339121eb0a074a7334e3",
+        "expected": "VIE FINANCE AEPEY",
+        "got": null
+      },
+      {
+        "notice_id": "c41e069a2c6a2edc1da3efb44ca691a26909d5b535df59b8a20dfd16a00bbea7",
+        "expected": "VIE FINANCE AEPEY",
+        "got": null
+      }
+    ]
+  },
+  "relation_status": {
+    "agreement": 0.2581,
+    "total": 31,
+    "mismatches": [
+      {
+        "notice_id": "09cfd68f698a14f4ffccd860de960fe9df601bdb1341e5d6cd3c5c6bdcf1346f",
+        "expected": "EXPLICIT_SOURCE",
+        "got": "PARSED_EXPLICIT"
+      },
+      {
+        "notice_id": "98bcfb2bb6f9bc079ef9be0dbc0eb0c6f222b3568bd5a4d01499316dc12e4b0a",
+        "expected": "EXPLICIT_SOURCE",
+        "got": "UNRESOLVED"
+      },
+      {
+        "notice_id": "bd241cc39368aa88ee1eb1db7309551b7d95bd3bd0ebd3bba509761d28b8626a",
+        "expected": "EXPLICIT_SOURCE",
+        "got": "UNRESOLVED"
+      },
+      {
+        "notice_id": "c804b550f42d208ed53598cc84275b4f13a11f823317bdcfe4092a5192c4e943",
+        "expected": "EXPLICIT_SOURCE",
+        "got": "PARSED_EXPLICIT"
+      },
+      {
+        "notice_id": "d2d496fbe952ea639eace4d81157882710db824127cfcb7e237a90b9f456a907",
+        "expected": "EXPLICIT_SOURCE",
+        "got": "UNRESOLVED"
+      },
+      {
+        "notice_id": "1a5f3d701774d004dd1da70c6e2a2ed059d662a052079e332ec27306a5e9ea9c",
+        "expected": "EXPLICIT_SOURCE",
+        "got": "PARSED_EXPLICIT"
+      },
+      {
+        "notice_id": "656b51870bbc8c1d1492d745defe24ba5cf27183183d98d1f4c4aa14c67cc6f0",
+        "expected": "EXPLICIT_SOURCE",
+        "got": "PARSED_EXPLICIT"
+      },
+      {
+        "notice_id": "84a8d1d1b6cbe0aeed4e1080ebc13a6a2d6d3890b53bf27d6a1b289de41e1c31",
+        "expected": "EXPLICIT_SOURCE",
+        "got": "PARSED_EXPLICIT"
+      },
+      {
+        "notice_id": "ab1b255712145bd3ed981e6dcbfb67c0cf25adefb577b87efd36db6e27e0860c",
+        "expected": "EXPLICIT_SOURCE",
+        "got": "UNRESOLVED"
+      },
+      {
+        "notice_id": "f557f9154c4ff01d5f8509f608f32050317f75fcf6984d4c3f0b3951617c8bc6",
+        "expected": "EXPLICIT_SOURCE",
+        "got": "PARSED_EXPLICIT"
+      },
+      {
+        "notice_id": "35999f8825a6708fa688f16a6273a52bf87d46e2bebe098f167bb3237d189e59",
+        "expected": "EXPLICIT_SOURCE",
+        "got": "PARSED_EXPLICIT"
+      },
+      {
+        "notice_id": "4a0e4b6987864bbbf7652e677b516587b1e86f5a3de893fc94abafbddf9573ab",
+        "expected": "EXPLICIT_SOURCE",
+        "got": "PARSED_EXPLICIT"
+      },
+      {
+        "notice_id": "5ea2188abc66757bae4c9a8d2fb6552e661ffb64bf392b4d47ea683fb7394881",
+        "expected": "EXPLICIT_SOURCE",
+        "got": "PARSED_EXPLICIT"
+      },
+      {
+        "notice_id": "d66fef2079585f885c71206a7cebe902b486cca04f7a80b9bf18ef9a01a15f2d",
+        "expected": "EXPLICIT_SOURCE",
+        "got": "PARSED_EXPLICIT"
+      },
+      {
+        "notice_id": "f11ca94626ba0714e42fc5b50343192abb941badd8d8a04fc7ef255ddfa6d137",
+        "expected": "EXPLICIT_SOURCE",
+        "got": "PARSED_EXPLICIT"
+      },
+      {
+        "notice_id": "14ed93b14ae71b03e62e963473a4d7a0f6543bcd84e8475b0daa34a1d644b229",
+        "expected": "EXPLICIT_SOURCE",
+        "got": "UNRESOLVED"
+      },
+      {
+        "notice_id": "2247506211fe57a75c37b3be022fedc6419d85157ea7c4a37cfcd89af5fb793f",
+        "expected": "EXPLICIT_SOURCE",
+        "got": "UNRESOLVED"
+      },
+      {
+        "notice_id": "994e774a673f0e2dbe3bad3971b56bf7340974f5a92315a9dcdf170a7eeb779a",
+        "expected": "EXPLICIT_SOURCE",
+        "got": "UNRESOLVED"
+      },
+      {
+        "notice_id": "99e0017104659fb8cd05eb406c1d72a09bbb9baea061339121eb0a074a7334e3",
+        "expected": "EXPLICIT_SOURCE",
+        "got": "UNRESOLVED"
+      },
+      {
+        "notice_id": "c41e069a2c6a2edc1da3efb44ca691a26909d5b535df59b8a20dfd16a00bbea7",
+        "expected": "EXPLICIT_SOURCE",
+        "got": "UNRESOLVED"
+      }
+    ]
+  },
+  "gate_status": {
+    "domain_precision_100": false,
+    "domain_recall_95": true,
+    "clone_precision_100": true,
+    "clone_recall_95": true,
+    "clone_target_exact_90": false
+  }
+}

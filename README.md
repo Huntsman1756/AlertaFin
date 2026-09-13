@@ -162,3 +162,55 @@ truth con target explicitamente resoluble; un `null`/`null` no cuenta como
 acierto). Reporta ademas `gold_target_resolvable_cases`,
 `parser_target_resolved_cases`, `parser_target_on_unresolvable_cases` y
 `target_resolution_coverage`.
+
+## G0 blind holdout: FAIL — resultado historico inmutable
+
+Etiquetado ciego completo (210/210, commit `139a25f`, tag `g0-holdout-fail`)
+con el parser congelado (`parser_still_frozen: true`):
+
+| Metrica | Resultado | Gate |
+|---|---|---|
+| domain precision | 0.985 (3 FP) | FAIL (<100%) |
+| domain recall | 1.0 | PASS |
+| clone precision | 1.0 | PASS |
+| clone recall | 0.9677 (30/31) | PASS |
+| clone target exact | 0/25 | FAIL (<90%) |
+
+Dos gates preregistrados fallan -> **G0 HOLDOUT VERDICT = FAIL**. La tesis
+"indice de advertencias y dominios" continua; la tesis "grafo CLONE_OF con
+targets deterministas" falla en G0. Este resultado no se rescribe.
+
+## G0-R: remediacion sobre corpus de regresion
+
+`G0-R: remediation evaluated on known regression data; not evidence of
+generalization.` Los 210 casos etiquetados dejan de ser holdout de
+generalizacion (se conocen y se usaron para corregir el parser): pasan a ser
+corpus de regresion medido por `scripts/holdout_regression.py`.
+
+- `g0-r/baseline.json`: baseline inmutable creado antes de tocar el parser
+  (reproduce el FAIL congelado; `reproduces_frozen_evaluation: true`).
+- `g0-r/latest.json`: metricas del parser actual + delta vs baseline.
+- `g0-r/golden-adjudications.jsonl` + `g0-r/golden-evaluation.json`
+  (`holdout_regression.py golden`): re-evaluacion de los 14 gates sobre
+  `golden_corpus.jsonl` **sin modificarlo**; cada correccion de etiqueta es
+  una linea auditable (`CORRECT_LABEL`/`NORMALIZE_LABEL`/`SET_UNRESOLVED`)
+  con razon y alcance `G0-R regression only`. Vista legacy sin overlay:
+  `13/14` (`clone_target_exact_90: FAIL_BY_STALE_LABELS`, etiquetas escritas
+  bajo el extractor anterior). Vista adjudicada: 14/14.
+- `holdout_sample.py verify` reporta MISMATCH a proposito: el fingerprint del
+  parser cambio (es el freeze guard funcionando, no un error).
+
+Resultado G0-R sobre las 210 etiquetas congeladas: domain precision 0.9949
+(1 FP: `tr.pro`, adjudicacion de etiqueta **PENDIENTE** — no se usa para
+fabricar 100%), recall 1.0; clones 31/31, precision 1.0; target 25/25,
+cobertura 100%, 0 targets sobre casos no resolubles.
+
+```text
+G0 blind holdout       FAIL   # historico, inmutable
+G0-R regression        PASS   # datos conocidos; no es generalizacion
+new blind holdout      PENDING
+G1 DGSFP               BLOCKED
+```
+
+Un PASS de generalizacion exige un holdout nuevo y disjunto; mientras no
+exista, la tesis del grafo de clones sigue sin rehabilitarse y G1 bloqueado.
