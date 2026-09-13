@@ -35,6 +35,7 @@ El seen set une como minimo:
 210 casos holdout-v1 (g0/holdout/labels.jsonl)
 7 identity groups inspeccionados (g0/identity-groups-t0.json)
 notices usados como fixture o triage manual en G0-R
+  (g0-r/golden-adjudications.jsonl)
 ```
 
 El manifest registra la lista, su sha256 y el recuento.
@@ -57,10 +58,46 @@ x
 <2019 / 2019-2021 / 2022-2023 / >=2024
 ```
 
-- Seleccion proporcional con minimos por estrato, seed fija registrada en
-  el manifest.
 - **Tamano: 300 casos.** Con ~10% de clones historicos se esperan del orden
   de 30 positivos sin seleccionar expresamente clones.
+
+### Seed (fijada antes de muestrear, derivada — sin eleccion manual)
+
+```text
+seed_material =
+"AlertaFin-holdout-v2|c01cae34ffd29019d7d124cc7aeaba4907230006|sample"
+
+sha256(seed_material) =
+043cce379d447b134e1de5035c77eb0edf1827f93d8d3db1b36da0f7b6dcfbf4
+
+SEED = int.from_bytes(sha256[:8], "big") = 305345613011385107
+```
+
+### Algoritmo de asignacion (cerrado)
+
+```text
+MIN_PER_NONEMPTY_STRATUM = 5
+
+1. Elegir como maximo una version por notice_id:
+   record_version_id lexicograficamente menor.
+
+2. Agrupar los elegibles por:
+   regulator_group x temporal_bucket.
+
+3. Asignar min(5, population_i) a cada estrato no vacio.
+
+4. Repartir las plazas restantes proporcionalmente
+   sobre la capacidad restante mediante largest remainder/Hamilton.
+
+5. Empates de resto:
+   orden lexicografico del nombre del estrato.
+
+6. Total exacto: n = 300.
+```
+
+Dentro de cada estrato, orden por `case_key` y `random.Random(SEED)` sobre
+la lista ordenada.
+
 - No hay challenge set dentro del veredicto. Pruebas especificas de
   `imita`, `mismo nombre`, multi-target, etc. serian un corpus de robustez
   separado y claramente no-ciego.
@@ -71,7 +108,9 @@ Esta vez no se congela solo el parser. El manifest fija:
 
 ```text
 source_sha256
-base_commit                 # commit del codigo evaluado
+code_under_test_commit      # ab07001... — el parser evaluado NO cambia
+experiment_freeze_commit    # commit que contiene selector + tests
+preregistration_commit      # c01cae3... (+ enmiendas docs-only)
 parser_fingerprint          # PARSER_FILES, mismo metodo que v1
 evaluator_fingerprint       # scripts de scoring/evaluacion
 selection_script_sha256
@@ -89,6 +128,11 @@ allocation                  # recuento por estrato
 El `evaluator_fingerprint` se incluye porque en v1 se encontraron bugs
 metodologicos en el scoring antes de etiquetar: el evaluador tambien forma
 parte del experimento.
+
+El seen-set builder es **fail-closed**: si falta cualquiera de las fuentes
+declaradas (golden, holdout-v1, identity groups, adjudicaciones/triage
+G0-R), `select` aborta; nunca continua con un seen set parcial. El manifest
+guarda recuento por origen, union final y SHA-256.
 
 ## Etiquetado
 
@@ -116,13 +160,26 @@ metricas descriptivas, sin umbral.
 
 ## Veredicto
 
-Tres estados posibles:
+Adecuacion minima de denominadores (cerrada antes de muestrear):
 
 ```text
-todos los gates                          -> PASS
-algun gate falla                         -> FAIL
-denominador insuficiente para un gate
-critico                                -> INCONCLUSIVE
+gold domain instances              >= 100
+gold clone cases                   >= 20
+gold target resolvable cases       >= 15
+gold target unresolvable cases     >= 3
+```
+
+El ultimo importa para que `automatic false target = 0` no sea un PASS
+vacuo sin ningun caso ambiguo.
+
+Precedencia del veredicto:
+
+```text
+1. Si cualquier gate evaluable FAIL            -> FAIL
+2. Si ninguno falla pero falta algun
+   denominador minimo                          -> INCONCLUSIVE
+3. Si todos los gates pasan y denominadores
+   suficientes                                 -> PASS
 ```
 
 No hay remediacion antes de publicar el resultado.
