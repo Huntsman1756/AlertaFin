@@ -34,6 +34,12 @@ from alertafin.unified import (
 
 HOLDOUT_V2_COMMIT = "ab07001b0919ac5694e034fe686f87ac27df732e"
 
+# El evaluador se congela por TAG (un commit no puede contener su propio
+# SHA). `g1-wi-evaluator-v1` apunta al commit que congela esta mecanica;
+# si el evaluador cambia despues, el flag evaluator_unchanged lo delata.
+EVALUATOR_TAG = "g1-wi-evaluator-v1"
+EVALUATOR_FILES = ["alertafin/eval_g1wi.py", "scripts/g1wi_evaluate.py"]
+
 CNMV_CODE_FILES = [
     "alertafin/parser.py",
     "alertafin/domainex.py",
@@ -41,6 +47,11 @@ CNMV_CODE_FILES = [
     "alertafin/identity.py",
     "alertafin/textnorm.py",
     "alertafin/search.py",
+]
+
+CODE_UNDER_TEST_FILES = CNMV_CODE_FILES + [
+    "alertafin/dgsfp.py",
+    "alertafin/unified.py",
 ]
 
 _PROV_KEYS = ["source_url", "retrieved_at", "http_status",
@@ -327,14 +338,27 @@ def compute_gates(cnmv_rows, dgsfp_rows, holdout, gold) -> dict:
     return gates
 
 
-def build_evaluation(cnmv_rows, dgsfp_rows, holdout, gold) -> dict:
-    head = subprocess.run(["git", "rev-parse", "HEAD"],
+def _git(*args) -> str:
+    return subprocess.run(["git", *args],
                           capture_output=True, text=True).stdout.strip()
+
+
+def build_evaluation(cnmv_rows, dgsfp_rows, holdout, gold) -> dict:
+    head = _git("rev-parse", "HEAD")
+    eval_commit = _git("rev-parse", f"{EVALUATOR_TAG}^{{commit}}") or None
     gates = compute_gates(cnmv_rows, dgsfp_rows, holdout, gold)
     return {
         "evaluation": "g1-wi",
+        # codigo evaluado = checkout sobre el que corre esta evaluacion
         "code_under_test_commit": head,
-        "evaluator_commit": head,
+        # mecanica del evaluador, congelada por tag — distinto de CUT
+        "evaluator_freeze_commit": eval_commit,
+        "evaluator_unchanged": (
+            eval_commit is not None and all(
+                _sha256_at_commit(eval_commit, f) == _sha256_file(f)
+                for f in EVALUATOR_FILES)),
+        "code_under_test_sha256": {
+            f: _sha256_file(f) for f in CODE_UNDER_TEST_FILES},
         "evidence_fingerprints": {
             "cnmv_holdout_v2_evaluation_sha256":
                 _sha256_file("g0/holdout-v2/evaluation.json"),

@@ -129,9 +129,18 @@ def test_sixteen_mandatory_gates():
 
 def test_evaluation_schema():
     ev = build_evaluation(CNMV_ROWS, DGSFP_ROWS, HOLDOUT, GOLD)
-    for k in ["code_under_test_commit", "evidence_fingerprints",
-              "gates", "verdict"]:
+    for k in ["code_under_test_commit", "evaluator_freeze_commit",
+              "evaluator_unchanged", "code_under_test_sha256",
+              "evidence_fingerprints", "gates", "verdict"]:
         assert k in ev
+    # CUT = HEAD del checkout evaluado; freeze del evaluador es un
+    # commit distinto resuelto por tag (None si el tag aun no existe)
+    assert ev["code_under_test_commit"]
+    assert ev["evaluator_freeze_commit"] != ev["code_under_test_commit"] \
+        or ev["evaluator_freeze_commit"] is None
+    for f in ["alertafin/dgsfp.py", "alertafin/unified.py",
+              "alertafin/domainex.py"]:
+        assert f in ev["code_under_test_sha256"]
     assert ev["verdict"] in {"PASS", "FAIL", "INCONCLUSIVE"}
     for g in ev["gates"].values():
         assert g["status"] in {"PASS", "FAIL", "N/A", "INCONCLUSIVE"}
