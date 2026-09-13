@@ -1,0 +1,21 @@
+{
+  "status": "OK",
+  "parser_version": "g1wi-dgsfp-1.0.0",
+  "sources": {
+    "dgsfp.sujetos_no_autorizados": {
+      "records": 97,
+      "row_errors": 0,
+      "notice_ids_unique": 97
+    },
+    "dgsfp.paginas_web_fraudulentas": {
+      "records": 10,
+      "row_errors": 0,
+      "notice_ids_unique": 10
+    }
+  },
+  "total_notices": 107,
+  "notice_ids_unique": 107,
+  "clone_detected": 1,
+  "domains_total": 10,
+  "warning_dates_present": 0
+}
