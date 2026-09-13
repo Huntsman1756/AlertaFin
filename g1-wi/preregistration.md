@@ -1,8 +1,8 @@
 # G1-WI — AlertaFin v0.2 · Multi-source Warning Index
 
 Preregistracion del contrato de exito. **Docs-only.** Congelado en el
-commit que introduce este fichero (hash fijado por enmienda docs-only,
-mismo procedimiento que `holdout-v2`).
+commit `5b1434879d65ec042ee7423fd4cb1253c5154af7` (hash fijado por esta
+enmienda docs-only, mismo procedimiento que `holdout-v2`).
 
 - Fase: **AlertaFin v0.2 — Multi-source Warning Index**
 - Gate: **G1-WI** (DGSFP warning-source integration)
