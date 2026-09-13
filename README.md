@@ -1,0 +1,146 @@
+# AlertaFin
+
+Índice auditable de advertencias financieras oficiales. G0: **solo CNMV**
+(WebAPI `PaffNoAutorizadas`). No determina si una entidad es segura ni si
+está autorizada; solo representa hechos regulatorios publicados.
+
+```bash
+alertafin check nextinversion.com
+alertafin check "Global Capital"
+alertafin recent --days 30
+alertafin clones
+alertafin show <notice-id>
+```
+
+Estados: `WARNED` | `NO_WARNING_FOUND` | `AMBIGUOUS` | `SOURCE_UNAVAILABLE`.
+`NO_WARNING_FOUND` significa únicamente que no hubo coincidencia en las
+fuentes consultadas. Un fallo de fuente nunca es `NO_WARNING_FOUND`.
+
+## Decisiones congeladas (G0)
+
+1. **Identidad**: `notice_id = sha256(canonical_json)` de
+   `{source_namespace, tipo_raw, fecha_raw, entidad_raw,
+   entidad_secundaria_raw, codigo_regulador_raw, pais_regulador_raw}`
+   (UTF-8, `ensure_ascii=False`, separadores `(',',':')`, claves en orden
+   fijo, vacío→`null`). `Observaciones` y `Fecha Baja` NO forman parte de la
+   identidad. `record_version_id = sha256(raw_row_bytes)` por separado.
+   Sin contadores, índices ni orden del CSV.
+2. **Serialización canónica**: JSON como arriba; no hay concatenación de
+   strings de longitud variable sin framing.
+3. **Provenance**: cada retrieval genera su propio evento
+   (`g0/provenance/retrievals.jsonl`) aunque los bytes sean idénticos; los
+   bytes se almacenan inmutables por SHA-256 (`g0/raw/aa/…bin`). Caché
+   agresiva: no se re-pide la fuente si el último intento fue OK (≤1
+   pull/día en G0).
+4. **Parser**: RFC4180 a nivel de bytes; conserva `raw_row_bytes` exactos
+   (incluye newlines embebidos entrecomillados); campos vacíos→`None`,
+   padding conservado (`'NOAUTO    '`); fechas `dd/mm/yyyy`
+   (`Fecha Baja` con hora opcional); filas inválidas→`row_errors`, nunca
+   silencio; cabecera distinta→`ParseError` (schema change).
+5. **Dominios** (`domainex.py`): extracción determinista de
+   `entidad_raw`, `entidad_secundaria_raw` y `observaciones_raw`;
+   normalización técnica (minúsculas, sin esquema/credenciales/puerto/path,
+   sin punto final, IDNA punycode) conservando SIEMPRE el raw.
+   - `foo.example.com != example.com`; `www.` NO se elimina.
+   - Dominios tras `@` (correos) NO se extraen (precision-first).
+   - En `Observaciones` se excluyen fragmentos con contexto de **entidad
+     legítima** (`no guarda relación con…`, `su web`, `web oficial`, …):
+     esos dominios pertenecen al suplantado, no al sujeto advertido.
+   - Denylist explícita: `u.mint` (nombre de producto, no dominio).
+6. **Clones** (`clones.py`): solo si la fuente lo afirma explícitamente
+   (token `CLONE`/`CLON`, `clon*`, `suplanta*`, `hace(n) pasar`,
+   `utiliza(n) el nombre de`, `falsa identidad`). `similar a` NO es clon.
+   - `clone_target_raw` solo por patrones exactos sobre el propio registro.
+   - `EXPLICIT_SOURCE` (con objetivo) | `PARSED_EXPLICIT` (solo nº de
+     registro) | `UNRESOLVED` (sin objetivo → NO se emite `CLONE_OF`).
+   - Nunca fuzzy matching para construir relaciones. Precision > recall.
+7. **Búsqueda** (`search.py`): dominio exacto o nombre normalizado exacto;
+   un sujeto→`WARNED`+notices[]; varios sujetos→`AMBIGUOUS`; parcial/fuzzy
+   nunca advierte. Sujeto = casefold+colapso de espacios del raw; no hay
+   fusión persistente de entidades.
+8. **`Fecha Baja`**: no se le atribuye semántica jurídica. Solo se documenta
+   el hecho observable (ver `g0/fecha-baja-matrix-t0.json`): con el pull
+   `estado=actu`, las 10.338 filas con `Fecha Baja` NULL aparecen y las 30
+   con `Fecha Baja` poblada no aparecen (10.368 full).
+
+## Reproducir G0
+
+```bash
+pip install -e .[test]
+pytest                                     # suite completa
+python -m alertafin.acquire                # Paso 1 (cache; --force fuerza red)
+python scripts/census.py                   # Paso 2
+python scripts/fecha_baja_matrix.py        # Paso 3
+python scripts/golden_corpus.py select|label|finalize   # Paso 4
+python scripts/identity_groups.py          # Evidencia de los 7 grupos de identidad
+python scripts/holdout_sample.py select    # Holdout ciego (parser congelado)
+python scripts/holdout_sample.py verify    # Verifica que el parser no cambio
+python scripts/evaluate_gates.py           # Pasos 5-6 -> g0/gates-t0.json
+```
+
+## Gates congelados (14, en `g0/gates-t0.json`)
+
+El acta de G0 evalua **14 gates pre-registrados**: determinismo del parser,
+provenance, fechas, colisiones de identidad, idempotencia, provenance
+raw->normalized, preservacion de campos raw, dominios (precision/recall),
+clones (precision/recall, target exacto), falso `CLONE_OF` y falsos merges.
+Resultado: **14/14 PASS**.
+
+Las cifras de `g0/census-t0.json` (incluida la cobertura de clones 28,18%)
+son **metricas de techo del producto**, marcadas `"metric_kind":
+"product-ceiling (NO gates)"`, y no se suman a la tabla de umbrales. Si un
+informe muestra 15 filas, la decimoquinta es contexto de poblacion/decision
+(`decision_basis`), no un gate.
+
+## Golden corpus (g0/golden/)
+
+154 casos (100 recientes, 25 clones, 20 con dominio, 11 difíciles;
+los buckets se solapan por diseño). Protocolo de doble pasada: etiquetador
+A (`alertafin.pipeline`) vs etiquetador B (implementación independiente en
+`scripts/golden_corpus.py`); coincidencia→`CONFIRMED_AB`; discrepancia→
+`DISPUTED` + arbitraje manual documentado en `resolutions.json`→
+`RESOLVED_MANUAL`. 0 disputas sin resolver.
+
+## Límites conocidos (documentados, no racionalizados)
+
+- **Identidad vs version (7 grupos).** En el pull T0 hay 7 `notice_id` con mas
+  de una fila. Inspeccionados uno a uno (`scripts/identity_groups.py` ->
+  `g0/identity-groups-t0.json`): **5** son la misma fila fisica publicada dos
+  veces consecutivas (`record_version_id` y `raw_row_bytes` identicos) y **2**
+  difieren **solo** en `Observaciones`, con los 7 campos de identidad
+  identicos (`record_version_id` distinto). Ninguno son dos notices distintos;
+  el versionado funciona como se diseño y la identidad no queda
+  subespecificada en estos casos.
+
+  | notice_id (12) | filas | clasificacion |
+  |---|---|---|
+  | `471c6716385b` | 4541-4542 | fila duplicada (bytes identicos) |
+  | `47e0bd7aa57a` | 6270-6271 | fila duplicada (bytes identicos) |
+  | `48dbcd0d59a8` | 4855-4856 | fila duplicada (bytes identicos) |
+  | `4da7eaa0b14a` | 3844-3845 | fila duplicada (bytes identicos) |
+  | `6334d313088d` | 8813-8814 | fila duplicada (bytes identicos) |
+  | `5879af6de6d1` | 2766-2767 | version: solo `Observaciones` |
+  | `a88ca5244ebf` | 2637-2638 | version: solo `Observaciones` |
+
+- Cobertura de resolución de clones en población completa: 28,18% de las
+  1.015 filas marcadas como clon obtienen referencia explícita (157
+  `EXPLICIT_SOURCE` + 129 `PARSED_EXPLICIT`); 729 quedan `UNRESOLVED`
+  porque CNMV no nombra al objetivo de forma estructurada. No se inventan.
+- El golden corpus etiquetado por A/B/arbitraje no es un benchmark externo
+  independiente; su acuerdo bruto A=B fue 110/154 (71,4%) y las 44
+  discrepancias se resolvieron contra el texto raw (2 familias de error de
+  B, documentadas en `resolutions.json`). Es un corpus de
+  **regresion/desarrollo**, no un holdout ciego: las reglas del extractor se
+  derivaron de sus propias discrepancias. Para generalizacion se usa el
+  holdout de abajo.
+
+## Holdout ciego (`g0/holdout/`)
+
+`scripts/holdout_sample.py select` congela el parser (sha256 del contenido de
+`parser.py`, `domainex.py`, `clones.py`, `pipeline.py`, `identity.py`,
+`textnorm.py`, `__init__.py`), excluye los 154 casos del golden ya
+inspeccionados y extrae del resto una muestra estratificada determinista
+(regulador x clon x tramo temporal, seed fija). `sample.jsonl` guarda la salida
+congelada del parser **sin etiquetas**; `verify` demuestra que el parser no
+cambio entre muestreo y etiquetado. Regla: no tocar el parser mientras la
+muestra siga sin etiquetar.

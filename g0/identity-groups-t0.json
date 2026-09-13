@@ -1,0 +1,236 @@
+{
+  "metric_kind": "identity-evidence (NO gates)",
+  "source_sha256": "1816cd621f96fcbe6a2d138ea6fa52befd27babcb5dfb2c5e8f50a086ecb7049",
+  "rows_total": 10368,
+  "notice_ids_unique": 10361,
+  "duplicate_identity_groups": 7,
+  "duplicate_identity_rows": 7,
+  "classification_counts": {
+    "BYTE_IDENTICAL_DUPLICATE_ROW": 5,
+    "VERSIONED_OBSERVACIONES_ONLY": 2
+  },
+  "conclusion": "Ningun grupo representa dos notices distintos: o es la misma fila publicada dos veces (bytes identicos) o difiere solo en Observaciones, que no forma parte de la identidad por diseno. La identidad no esta subespecificada en estos 7 casos.",
+  "groups": [
+    {
+      "notice_id": "471c6716385bdb0eadad59128600293d33d794b5f92a832bd82b68d3f13064fe",
+      "rows": [
+        {
+          "row_number": 4541,
+          "record_version_id": "e7cf1a0023051cb476ade0f3c375372f6668fdddde9fe22f23b26989547de3c0",
+          "fecha_raw": "31/05/2023",
+          "entidad_raw": "TREZO CAPITAL",
+          "entidad_secundaria_raw": "WWW.TREZOCAPITAL.COM",
+          "codigo_regulador_raw": "FCA",
+          "pais_regulador_raw": "REINO UNIDO",
+          "observaciones_raw": null,
+          "fecha_baja_raw": null
+        },
+        {
+          "row_number": 4542,
+          "record_version_id": "e7cf1a0023051cb476ade0f3c375372f6668fdddde9fe22f23b26989547de3c0",
+          "fecha_raw": "31/05/2023",
+          "entidad_raw": "TREZO CAPITAL",
+          "entidad_secundaria_raw": "WWW.TREZOCAPITAL.COM",
+          "codigo_regulador_raw": "FCA",
+          "pais_regulador_raw": "REINO UNIDO",
+          "observaciones_raw": null,
+          "fecha_baja_raw": null
+        }
+      ],
+      "identity_canonical_distinct": 1,
+      "raw_row_bytes_distinct": 1,
+      "non_identity_diff_fields": [],
+      "classification": "BYTE_IDENTICAL_DUPLICATE_ROW"
+    },
+    {
+      "notice_id": "47e0bd7aa57a41e20f379a73c15dc63720ea4bcb389ef6cf085f316ad3434d61",
+      "rows": [
+        {
+          "row_number": 6270,
+          "record_version_id": "64deb7a305721f9d8dd4f46f1bf997b480a967cfe205f05d1fc3f2074ff45b6d",
+          "fecha_raw": "31/03/2025",
+          "entidad_raw": "https://network-capital-partners.com/",
+          "entidad_secundaria_raw": "NETWORK CAPITAL LTD",
+          "codigo_regulador_raw": "CNMV",
+          "pais_regulador_raw": "ESPAÑA",
+          "observaciones_raw": null,
+          "fecha_baja_raw": null
+        },
+        {
+          "row_number": 6271,
+          "record_version_id": "64deb7a305721f9d8dd4f46f1bf997b480a967cfe205f05d1fc3f2074ff45b6d",
+          "fecha_raw": "31/03/2025",
+          "entidad_raw": "https://network-capital-partners.com/",
+          "entidad_secundaria_raw": "NETWORK CAPITAL LTD",
+          "codigo_regulador_raw": "CNMV",
+          "pais_regulador_raw": "ESPAÑA",
+          "observaciones_raw": null,
+          "fecha_baja_raw": null
+        }
+      ],
+      "identity_canonical_distinct": 1,
+      "raw_row_bytes_distinct": 1,
+      "non_identity_diff_fields": [],
+      "classification": "BYTE_IDENTICAL_DUPLICATE_ROW"
+    },
+    {
+      "notice_id": "48dbcd0d59a8427ffaf2deb0214b3ff99ee4203170d0e535fd47da2a2569d408",
+      "rows": [
+        {
+          "row_number": 4855,
+          "record_version_id": "27cf8fc6467390e5f8672a4b0345be231a2d630c092ac1f82e27b7088499d1f3",
+          "fecha_raw": "22/03/2023",
+          "entidad_raw": "TITANCFD.COM (CLONE)",
+          "entidad_secundaria_raw": "MAKE-CRYPTO.COM (CLONE)",
+          "codigo_regulador_raw": "HCMC",
+          "pais_regulador_raw": "GRECIA",
+          "observaciones_raw": "Los dominios que aparecen en el listado no guardan relación con la entidad de nombre VIE FINANCE AEPEY.",
+          "fecha_baja_raw": null
+        },
+        {
+          "row_number": 4856,
+          "record_version_id": "27cf8fc6467390e5f8672a4b0345be231a2d630c092ac1f82e27b7088499d1f3",
+          "fecha_raw": "22/03/2023",
+          "entidad_raw": "TITANCFD.COM (CLONE)",
+          "entidad_secundaria_raw": "MAKE-CRYPTO.COM (CLONE)",
+          "codigo_regulador_raw": "HCMC",
+          "pais_regulador_raw": "GRECIA",
+          "observaciones_raw": "Los dominios que aparecen en el listado no guardan relación con la entidad de nombre VIE FINANCE AEPEY.",
+          "fecha_baja_raw": null
+        }
+      ],
+      "identity_canonical_distinct": 1,
+      "raw_row_bytes_distinct": 1,
+      "non_identity_diff_fields": [],
+      "classification": "BYTE_IDENTICAL_DUPLICATE_ROW"
+    },
+    {
+      "notice_id": "4da7eaa0b14a2315d8dfb06f5b1966746b3677d2ccf76d2a7c1f0e9bfeab7fab",
+      "rows": [
+        {
+          "row_number": 3844,
+          "record_version_id": "37be76a7db90f416ee49fe2dbc9313916605497d5d5be915996ca700713c1151",
+          "fecha_raw": "02/11/2023",
+          "entidad_raw": "TITANCFD.COM (CLONE)",
+          "entidad_secundaria_raw": "MAKE-CRYPTO.COM (CLONE)",
+          "codigo_regulador_raw": "HCMC",
+          "pais_regulador_raw": "GRECIA",
+          "observaciones_raw": "La entidad registrada en Grecia VIE FINANCE AEPEY no guarda relación con ninguna de las páginas web advertidas.",
+          "fecha_baja_raw": null
+        },
+        {
+          "row_number": 3845,
+          "record_version_id": "37be76a7db90f416ee49fe2dbc9313916605497d5d5be915996ca700713c1151",
+          "fecha_raw": "02/11/2023",
+          "entidad_raw": "TITANCFD.COM (CLONE)",
+          "entidad_secundaria_raw": "MAKE-CRYPTO.COM (CLONE)",
+          "codigo_regulador_raw": "HCMC",
+          "pais_regulador_raw": "GRECIA",
+          "observaciones_raw": "La entidad registrada en Grecia VIE FINANCE AEPEY no guarda relación con ninguna de las páginas web advertidas.",
+          "fecha_baja_raw": null
+        }
+      ],
+      "identity_canonical_distinct": 1,
+      "raw_row_bytes_distinct": 1,
+      "non_identity_diff_fields": [],
+      "classification": "BYTE_IDENTICAL_DUPLICATE_ROW"
+    },
+    {
+      "notice_id": "5879af6de6d19ea029b0bbff5d36a6b6fa1043b34c906ca0d13532537656b684",
+      "rows": [
+        {
+          "row_number": 2766,
+          "record_version_id": "e6a93b2af5e2d7d01568391d39c8a54dafad62fac2cdd217058f60eb656a8dbd",
+          "fecha_raw": "24/04/2024",
+          "entidad_raw": "HTTPS://TOLOT-EPARGNE.FR/ (CLONE)",
+          "entidad_secundaria_raw": null,
+          "codigo_regulador_raw": "CSSF",
+          "pais_regulador_raw": "LUXEMBURGO",
+          "observaciones_raw": "Personas desconocidas, usando direcciones de correos electrónicos con la estructura nombre.apellido@accorin.fr, nombre.apellido@accorinv.com,  y contact@accorinvest-gestion.com   están suplantando de manera fraudulenta la identidad de la sociedad  AccorInvest Group S.A., con quien no guardan ninguna relación.",
+          "fecha_baja_raw": null
+        },
+        {
+          "row_number": 2767,
+          "record_version_id": "c020694e6b38fdd6311e7a3ccd729ab4f08f4e193a4652a9a473da131e57d196",
+          "fecha_raw": "24/04/2024",
+          "entidad_raw": "HTTPS://TOLOT-EPARGNE.FR/ (CLONE)",
+          "entidad_secundaria_raw": null,
+          "codigo_regulador_raw": "CSSF",
+          "pais_regulador_raw": "LUXEMBURGO",
+          "observaciones_raw": "Personas desconocidas, usando direcciones de correos electrónicos con la estructura nombre.apellido@amvontobel.com  están suplantando de manera fraudulenta la identidad de la sociedad registrada en Luxemburgo Vontobel Asset Management S.A., con quien no guardan ninguna relación.",
+          "fecha_baja_raw": null
+        }
+      ],
+      "identity_canonical_distinct": 1,
+      "raw_row_bytes_distinct": 2,
+      "non_identity_diff_fields": [
+        "observaciones_raw"
+      ],
+      "classification": "VERSIONED_OBSERVACIONES_ONLY"
+    },
+    {
+      "notice_id": "6334d313088d3eab2d31c730d0a268890ae54060edb9e46ed1bcca762b0ba817",
+      "rows": [
+        {
+          "row_number": 8813,
+          "record_version_id": "77bac90617b0c7c8d6eabf31ee2c4c0d10e7c48377ece2558a46eafd77c3b0c5",
+          "fecha_raw": "16/11/2020",
+          "entidad_raw": "HTTPS://SWIFTCRYPTOFX.COM/",
+          "entidad_secundaria_raw": "SWIFT CRYPTO FX",
+          "codigo_regulador_raw": "CNMV",
+          "pais_regulador_raw": "ESPAÑA",
+          "observaciones_raw": null,
+          "fecha_baja_raw": null
+        },
+        {
+          "row_number": 8814,
+          "record_version_id": "77bac90617b0c7c8d6eabf31ee2c4c0d10e7c48377ece2558a46eafd77c3b0c5",
+          "fecha_raw": "16/11/2020",
+          "entidad_raw": "HTTPS://SWIFTCRYPTOFX.COM/",
+          "entidad_secundaria_raw": "SWIFT CRYPTO FX",
+          "codigo_regulador_raw": "CNMV",
+          "pais_regulador_raw": "ESPAÑA",
+          "observaciones_raw": null,
+          "fecha_baja_raw": null
+        }
+      ],
+      "identity_canonical_distinct": 1,
+      "raw_row_bytes_distinct": 1,
+      "non_identity_diff_fields": [],
+      "classification": "BYTE_IDENTICAL_DUPLICATE_ROW"
+    },
+    {
+      "notice_id": "a88ca5244ebfb224c50f75b18b5a1b2d58daf23e250ef72916220e7b9f3a4e1e",
+      "rows": [
+        {
+          "row_number": 2637,
+          "record_version_id": "4d6a523cebcdeb9c5e3aad2826c65e6c2b612456f55052d54f06679dd1470d84",
+          "fecha_raw": "12/06/2024",
+          "entidad_raw": "THE CR SPORTS CONSULTING GMBH",
+          "entidad_secundaria_raw": "“THE SPORTS MUSEUM”",
+          "codigo_regulador_raw": "BAFIN",
+          "pais_regulador_raw": "ALEMANIA",
+          "observaciones_raw": "BAFIN tiene evidencias que indican que THE CR SPORTS CONSULTING GMBH (también conocida como “THE SPORTS MUSEUM”) está ofreciendo en Alemania valores sin la hoja informativa requerida.",
+          "fecha_baja_raw": null
+        },
+        {
+          "row_number": 2638,
+          "record_version_id": "a084df9fb47797ce1e507c22b47350b002217ebc62a6932e985a9c1698b9427e",
+          "fecha_raw": "12/06/2024",
+          "entidad_raw": "THE CR SPORTS CONSULTING GMBH",
+          "entidad_secundaria_raw": "“THE SPORTS MUSEUM”",
+          "codigo_regulador_raw": "BAFIN",
+          "pais_regulador_raw": "ALEMANIA",
+          "observaciones_raw": "BAFIN tiene evidencias que indican que THE CR SPORTS CONSULTING GMBH (también conocida como “THE SPORTS MUSEUM”) está ofreciendo en Alemania valores sin el folleto requerido.",
+          "fecha_baja_raw": null
+        }
+      ],
+      "identity_canonical_distinct": 1,
+      "raw_row_bytes_distinct": 2,
+      "non_identity_diff_fields": [
+        "observaciones_raw"
+      ],
+      "classification": "VERSIONED_OBSERVACIONES_ONLY"
+    }
+  ]
+}

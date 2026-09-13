@@ -1,0 +1,46 @@
+[
+  {
+    "query_params": {
+      "format": "csv",
+      "estado": "actu"
+    },
+    "http_status": 200,
+    "size": 1310953,
+    "sha256": "81c3b1c759905b7ae0c7be9011e653dc514d1ff3d4bc4e50fd4ec698160296c0",
+    "physical_lines": 10339,
+    "equals_full_pull": false
+  },
+  {
+    "query_params": {
+      "format": "csv",
+      "situacion": "actu"
+    },
+    "http_status": 200,
+    "size": 1314617,
+    "sha256": "1816cd621f96fcbe6a2d138ea6fa52befd27babcb5dfb2c5e8f50a086ecb7049",
+    "physical_lines": 10369,
+    "equals_full_pull": true
+  },
+  {
+    "query_params": {
+      "format": "csv",
+      "estado": "V"
+    },
+    "http_status": 400,
+    "size": null,
+    "sha256": null,
+    "physical_lines": null,
+    "equals_full_pull": false
+  },
+  {
+    "query_params": {
+      "format": "csv",
+      "vigentes": "true"
+    },
+    "http_status": 200,
+    "size": 1314617,
+    "sha256": "1816cd621f96fcbe6a2d138ea6fa52befd27babcb5dfb2c5e8f50a086ecb7049",
+    "physical_lines": 10369,
+    "equals_full_pull": true
+  }
+]

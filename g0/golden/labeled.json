@@ -1,0 +1,5652 @@
+[
+  {
+    "notice_id": "f9729f4aa015e8cf24a39ec6324f13a391229528ef3c5abc402fb91f27e89167",
+    "raw": {
+      "tipo_raw": "NOAUTO",
+      "fecha_raw": "09/09/2026",
+      "entidad_raw": "TAG MARKETS",
+      "entidad_secundaria_raw": "TAG MARKETS LTD",
+      "observaciones_raw": null,
+      "fecha_baja_raw": null
+    },
+    "buckets": [
+      "recent_100"
+    ],
+    "passes": {
+      "A": {
+        "domains": [],
+        "clone": false,
+        "target": null,
+        "relation_status": null,
+        "registry_number": null
+      },
+      "B": {
+        "domains": [],
+        "clone": false,
+        "target": null
+      }
+    },
+    "disputes": [],
+    "label_status": "CONFIRMED",
+    "label": null
+  },
+  {
+    "notice_id": "ee7cb90159ef6bb7068177fa7cbbaa3e1c6c7b46b63a0a92597d6ee729052f3b",
+    "raw": {
+      "tipo_raw": "NOAUTO",
+      "fecha_raw": "09/09/2026",
+      "entidad_raw": "WWW.ACCES-ANGELMAR.COM (CLONE)",
+      "entidad_secundaria_raw": null,
+      "observaciones_raw": "La página web advertida se hace pasar de manera fraudulenta por la entidad ANGELMAR Corp S.A., con la que no guarda relación",
+      "fecha_baja_raw": null
+    },
+    "buckets": [
+      "recent_100"
+    ],
+    "passes": {
+      "A": {
+        "domains": [
+          "www.acces-angelmar.com"
+        ],
+        "clone": true,
+        "target": "ANGELMAR Corp S.A.",
+        "relation_status": "EXPLICIT_SOURCE",
+        "registry_number": null
+      },
+      "B": {
+        "domains": [
+          "www.acces-angelmar.com"
+        ],
+        "clone": true,
+        "target": null
+      }
+    },
+    "disputes": [
+      {
+        "field": "clone_target",
+        "A": "ANGELMAR Corp S.A.",
+        "B": null
+      }
+    ],
+    "label_status": "DISPUTED",
+    "label": null
+  },
+  {
+    "notice_id": "ebe2f320ba3b0bdd6b1d326f5ef6e4ddecac87c9d38ce48b090a23ade981a50e",
+    "raw": {
+      "tipo_raw": "NOAUTO",
+      "fecha_raw": "09/09/2026",
+      "entidad_raw": "NEXURA VG",
+      "entidad_secundaria_raw": "WWW.NEXURAVG.COM",
+      "observaciones_raw": null,
+      "fecha_baja_raw": null
+    },
+    "buckets": [
+      "recent_100"
+    ],
+    "passes": {
+      "A": {
+        "domains": [
+          "www.nexuravg.com"
+        ],
+        "clone": false,
+        "target": null,
+        "relation_status": null,
+        "registry_number": null
+      },
+      "B": {
+        "domains": [
+          "www.nexuravg.com"
+        ],
+        "clone": false,
+        "target": null
+      }
+    },
+    "disputes": [],
+    "label_status": "CONFIRMED",
+    "label": null
+  },
+  {
+    "notice_id": "e9fdd9533bd282b6bf856b5a5a698489a617ee1d5629848be3adfaaa344fd903",
+    "raw": {
+      "tipo_raw": "NOAUTO",
+      "fecha_raw": "09/09/2026",
+      "entidad_raw": "WWW.TOPFORCECOMPANY.COM (CLONE)",
+      "entidad_secundaria_raw": "WWW.TOPFORCECOMPANY.NET (CLONE)",
+      "observaciones_raw": "Las páginas web advertidas se hacen pasar de manera fraudulenta por la entidad FORCE MANAGEMENT, con la que no guardan relación",
+      "fecha_baja_raw": null
+    },
+    "buckets": [
+      "recent_100"
+    ],
+    "passes": {
+      "A": {
+        "domains": [
+          "www.topforcecompany.com",
+          "www.topforcecompany.net"
+        ],
+        "clone": true,
+        "target": "FORCE MANAGEMENT",
+        "relation_status": "EXPLICIT_SOURCE",
+        "registry_number": null
+      },
+      "B": {
+        "domains": [
+          "www.topforcecompany.com",
+          "www.topforcecompany.net"
+        ],
+        "clone": true,
+        "target": null
+      }
+    },
+    "disputes": [
+      {
+        "field": "clone_target",
+        "A": "FORCE MANAGEMENT",
+        "B": null
+      }
+    ],
+    "label_status": "DISPUTED",
+    "label": null
+  },
+  {
+    "notice_id": "e84849e05e511a1110e345aa12b537d1e6b0fc7b50c667ef92506baefb96f22e",
+    "raw": {
+      "tipo_raw": "NOAUTO",
+      "fecha_raw": "09/09/2026",
+      "entidad_raw": "WWW.BVFCAPITAL.COM (CLONE)",
+      "entidad_secundaria_raw": null,
+      "observaciones_raw": "LA web advertida se hace pasar de manera fraudulenta por la entidad BVF CAPITAL S.à r.l., con la que no guarda relación.",
+      "fecha_baja_raw": null
+    },
+    "buckets": [
+      "recent_100"
+    ],
+    "passes": {
+      "A": {
+        "domains": [
+          "www.bvfcapital.com"
+        ],
+        "clone": true,
+        "target": "BVF CAPITAL S.à r.l.",
+        "relation_status": "EXPLICIT_SOURCE",
+        "registry_number": null
+      },
+      "B": {
+        "domains": [
+          "www.bvfcapital.com"
+        ],
+        "clone": true,
+        "target": null
+      }
+    },
+    "disputes": [
+      {
+        "field": "clone_target",
+        "A": "BVF CAPITAL S.à r.l.",
+        "B": null
+      }
+    ],
+    "label_status": "DISPUTED",
+    "label": null
+  },
+  {
+    "notice_id": "e7a6f479724e390fd14b8666d7f5afe87419e47a225e52d9906518cf92f69c94",
+    "raw": {
+      "tipo_raw": "NOAUTO",
+      "fecha_raw": "09/09/2026",
+      "entidad_raw": "EUROPEAN BROKER S.A. LUXEMBOURG (CLONE)",
+      "entidad_secundaria_raw": null,
+      "observaciones_raw": "Se han detectado personas desconocidas, que utilizan direcciones de correo electrónico con la estructura  nombre.apellido@pro-trx.net, que se hacen pasar de manera fraudulenta por la entidad autorizada EUROPEAN BROKER S.A. LUXEMBOURG, con la que no guardan relación.",
+      "fecha_baja_raw": null
+    },
+    "buckets": [
+      "recent_100"
+    ],
+    "passes": {
+      "A": {
+        "domains": [],
+        "clone": true,
+        "target": "EUROPEAN BROKER S.A",
+        "relation_status": "EXPLICIT_SOURCE",
+        "registry_number": null
+      },
+      "B": {
+        "domains": [],
+        "clone": true,
+        "target": null
+      }
+    },
+    "disputes": [
+      {
+        "field": "clone_target",
+        "A": "EUROPEAN BROKER S.A",
+        "B": null
+      }
+    ],
+    "label_status": "DISPUTED",
+    "label": null
+  },
+  {
+    "notice_id": "e33bc8e5e3a8b61e63f6c41c526f3d0417463a2b73fcf65b6d19ddbca4b365b9",
+    "raw": {
+      "tipo_raw": "NOAUTO",
+      "fecha_raw": "09/09/2026",
+      "entidad_raw": "WWW.CREST-INVEST.LU (CLONE)",
+      "entidad_secundaria_raw": null,
+      "observaciones_raw": "LA web advertida se hace pasar de manera fraudulenta por la entidad autorizada  CREST INVEST S.A., con la que no guarda relación.",
+      "fecha_baja_raw": null
+    },
+    "buckets": [
+      "recent_100"
+    ],
+    "passes": {
+      "A": {
+        "domains": [
+          "www.crest-invest.lu"
+        ],
+        "clone": true,
+        "target": "CREST INVEST S.A.",
+        "relation_status": "EXPLICIT_SOURCE",
+        "registry_number": null
+      },
+      "B": {
+        "domains": [
+          "www.crest-invest.lu"
+        ],
+        "clone": true,
+        "target": null
+      }
+    },
+    "disputes": [
+      {
+        "field": "clone_target",
+        "A": "CREST INVEST S.A.",
+        "B": null
+      }
+    ],
+    "label_status": "DISPUTED",
+    "label": null
+  },
+  {
+    "notice_id": "de7a6e05fcbfcd28042de00ba2db43d89a8be00151355cc443affa30d73652ca",
+    "raw": {
+      "tipo_raw": "NOAUTO",
+      "fecha_raw": "09/09/2026",
+      "entidad_raw": "MEXC",
+      "entidad_secundaria_raw": "WWW.MEXC.COM",
+      "observaciones_raw": null,
+      "fecha_baja_raw": null
+    },
+    "buckets": [
+      "recent_100"
+    ],
+    "passes": {
+      "A": {
+        "domains": [
+          "www.mexc.com"
+        ],
+        "clone": false,
+        "target": null,
+        "relation_status": null,
+        "registry_number": null
+      },
+      "B": {
+        "domains": [
+          "www.mexc.com"
+        ],
+        "clone": false,
+        "target": null
+      }
+    },
+    "disputes": [],
+    "label_status": "CONFIRMED",
+    "label": null
+  },
+  {
+    "notice_id": "d69bfb1938d48c89951d4f77ac9ae7bc03806acf9ea5c2f16b302b19b254a53f",
+    "raw": {
+      "tipo_raw": "NOAUTO",
+      "fecha_raw": "09/09/2026",
+      "entidad_raw": "INTERNATIONAL FUND SERVICES & ASSET MANAGEMENT S.A. (CLONE)",
+      "entidad_secundaria_raw": null,
+      "observaciones_raw": "Personas desconocidas, que utilizan el correo electrónico ifsam@eclipso.eu se hacen pasar de manera fraudulenta por la entidad autorizada INTERNATIONAL FUND SERVICES & ASSET MANAGEMENT S.A., con la que no guardan relación.",
+      "fecha_baja_raw": null
+    },
+    "buckets": [
+      "recent_100"
+    ],
+    "passes": {
+      "A": {
+        "domains": [],
+        "clone": true,
+        "target": "INTERNATIONAL FUND SERVICES & ASSET MANAGEMENT S.A.",
+        "relation_status": "EXPLICIT_SOURCE",
+        "registry_number": null
+      },
+      "B": {
+        "domains": [],
+        "clone": true,
+        "target": null
+      }
+    },
+    "disputes": [
+      {
+        "field": "clone_target",
+        "A": "INTERNATIONAL FUND SERVICES & ASSET MANAGEMENT S.A.",
+        "B": null
+      }
+    ],
+    "label_status": "DISPUTED",
+    "label": null
+  },
+  {
+    "notice_id": "bedf63e2f2f98ae0bf56f63db4ce78d89334f9475ad59e5f415dc10cdd446a84",
+    "raw": {
+      "tipo_raw": "NOAUTO",
+      "fecha_raw": "09/09/2026",
+      "entidad_raw": "WWW.GABLAU-INVEST.LU (CLONE)",
+      "entidad_secundaria_raw": null,
+      "observaciones_raw": "LA web advertida se hace pasar de manera fraudulenta por la entidad Molentis S.A., con la que no guarda relación.",
+      "fecha_baja_raw": null
+    },
+    "buckets": [
+      "recent_100"
+    ],
+    "passes": {
+      "A": {
+        "domains": [
+          "www.gablau-invest.lu"
+        ],
+        "clone": true,
+        "target": "Molentis S.A.",
+        "relation_status": "EXPLICIT_SOURCE",
+        "registry_number": null
+      },
+      "B": {
+        "domains": [
+          "www.gablau-invest.lu"
+        ],
+        "clone": true,
+        "target": null
+      }
+    },
+    "disputes": [
+      {
+        "field": "clone_target",
+        "A": "Molentis S.A.",
+        "B": null
+      }
+    ],
+    "label_status": "DISPUTED",
+    "label": null
+  },
+  {
+    "notice_id": "b9e78066233063ead039c3cd1a0349cfda0d6b8eecfc59faec13f67a7cf7e953",
+    "raw": {
+      "tipo_raw": "NOAUTO",
+      "fecha_raw": "09/09/2026",
+      "entidad_raw": "WWW.ALPHAWEALTHMANAGEMENT.CAPITAL (CLONE)",
+      "entidad_secundaria_raw": null,
+      "observaciones_raw": "LA web advertida se hace pasar de manera fraudulenta por la entidad autorizada Alpha Wealth Management Luxembourg, con la que  no guarda relación.",
+      "fecha_baja_raw": null
+    },
+    "buckets": [
+      "recent_100"
+    ],
+    "passes": {
+      "A": {
+        "domains": [
+          "www.alphawealthmanagement.capital"
+        ],
+        "clone": true,
+        "target": "Alpha Wealth Management Luxembourg",
+        "relation_status": "EXPLICIT_SOURCE",
+        "registry_number": null
+      },
+      "B": {
+        "domains": [
+          "www.alphawealthmanagement.capital"
+        ],
+        "clone": true,
+        "target": null
+      }
+    },
+    "disputes": [
+      {
+        "field": "clone_target",
+        "A": "Alpha Wealth Management Luxembourg",
+        "B": null
+      }
+    ],
+    "label_status": "DISPUTED",
+    "label": null
+  },
+  {
+    "notice_id": "b2e65c53f1dcb254c6eefd2ec5da77a6c58f4123a2895cccdfd6a0702f347a66",
+    "raw": {
+      "tipo_raw": "NOAUTO",
+      "fecha_raw": "09/09/2026",
+      "entidad_raw": "WWW.EURIZONINVESTMENT.COM (CLONE)",
+      "entidad_secundaria_raw": null,
+      "observaciones_raw": "Se han detectado personas desconocidas, que utilizan la dirección de correo electrónico info@eurizoninvestment.com, que se hacen pasar de manera fraudulenta por la entidad autorizada EURIZON CAPITAL SGR S.P.A., sucursal de Luxemburgo, con la que no guardan ninguna relación.",
+      "fecha_baja_raw": null
+    },
+    "buckets": [
+      "recent_100"
+    ],
+    "passes": {
+      "A": {
+        "domains": [
+          "www.eurizoninvestment.com"
+        ],
+        "clone": true,
+        "target": "EURIZON CAPITAL SGR S.P.A., sucursal de Luxemburgo",
+        "relation_status": "EXPLICIT_SOURCE",
+        "registry_number": null
+      },
+      "B": {
+        "domains": [
+          "www.eurizoninvestment.com"
+        ],
+        "clone": true,
+        "target": null
+      }
+    },
+    "disputes": [
+      {
+        "field": "clone_target",
+        "A": "EURIZON CAPITAL SGR S.P.A., sucursal de Luxemburgo",
+        "B": null
+      }
+    ],
+    "label_status": "DISPUTED",
+    "label": null
+  },
+  {
+    "notice_id": "aa431f3afdfb58e4f72b0484516f598f5748508a0627b1e390c68f8175c903e6",
+    "raw": {
+      "tipo_raw": "NOAUTO",
+      "fecha_raw": "09/09/2026",
+      "entidad_raw": "WWW.NEVENTALUX.COM (CLONE)",
+      "entidad_secundaria_raw": null,
+      "observaciones_raw": "LA web advertida se hace pasar de manera fraudulenta por la entidad NEVENTA MANAGEMENT, con la que no guarda relación.",
+      "fecha_baja_raw": null
+    },
+    "buckets": [
+      "recent_100"
+    ],
+    "passes": {
+      "A": {
+        "domains": [
+          "www.neventalux.com"
+        ],
+        "clone": true,
+        "target": "NEVENTA MANAGEMENT",
+        "relation_status": "EXPLICIT_SOURCE",
+        "registry_number": null
+      },
+      "B": {
+        "domains": [
+          "www.neventalux.com"
+        ],
+        "clone": true,
+        "target": null
+      }
+    },
+    "disputes": [
+      {
+        "field": "clone_target",
+        "A": "NEVENTA MANAGEMENT",
+        "B": null
+      }
+    ],
+    "label_status": "DISPUTED",
+    "label": null
+  },
+  {
+    "notice_id": "8d2a33c47e80030476df0ac30b33d045417caba56cbb749499a07dcc2e5583de",
+    "raw": {
+      "tipo_raw": "NOAUTO",
+      "fecha_raw": "09/09/2026",
+      "entidad_raw": "URBANMINT DIGITAL ASSETS S.A.",
+      "entidad_secundaria_raw": "U.MINT",
+      "observaciones_raw": null,
+      "fecha_baja_raw": null
+    },
+    "buckets": [
+      "recent_100",
+      "difficult_14"
+    ],
+    "passes": {
+      "A": {
+        "domains": [],
+        "clone": false,
+        "target": null,
+        "relation_status": null,
+        "registry_number": null
+      },
+      "B": {
+        "domains": [],
+        "clone": false,
+        "target": null
+      }
+    },
+    "disputes": [],
+    "label_status": "CONFIRMED",
+    "label": null
+  },
+  {
+    "notice_id": "85772d3125955fd7d2d271a597297cff050d60570fb348aa03c7226166ba5680",
+    "raw": {
+      "tipo_raw": "NOAUTO",
+      "fecha_raw": "09/09/2026",
+      "entidad_raw": "TAG MARKETS",
+      "entidad_secundaria_raw": "T.M FINANCIAL LTD",
+      "observaciones_raw": null,
+      "fecha_baja_raw": null
+    },
+    "buckets": [
+      "recent_100"
+    ],
+    "passes": {
+      "A": {
+        "domains": [],
+        "clone": false,
+        "target": null,
+        "relation_status": null,
+        "registry_number": null
+      },
+      "B": {
+        "domains": [],
+        "clone": false,
+        "target": null
+      }
+    },
+    "disputes": [],
+    "label_status": "CONFIRMED",
+    "label": null
+  },
+  {
+    "notice_id": "84c34b16eaa7f679d4226972c759508e5eb29683a9d3a0e084d69ae6e865d333",
+    "raw": {
+      "tipo_raw": "NOAUTO",
+      "fecha_raw": "09/09/2026",
+      "entidad_raw": "WWW.ROBUSUMBRELLA.COM (CLONE)",
+      "entidad_secundaria_raw": null,
+      "observaciones_raw": "LA web advertida se hace pasar de manera fraudulenta por la entidad autorizada Robus Umbrella, con la que no guarda relación.",
+      "fecha_baja_raw": null
+    },
+    "buckets": [
+      "recent_100"
+    ],
+    "passes": {
+      "A": {
+        "domains": [
+          "www.robusumbrella.com"
+        ],
+        "clone": true,
+        "target": "Robus Umbrella",
+        "relation_status": "EXPLICIT_SOURCE",
+        "registry_number": null
+      },
+      "B": {
+        "domains": [
+          "www.robusumbrella.com"
+        ],
+        "clone": true,
+        "target": null
+      }
+    },
+    "disputes": [
+      {
+        "field": "clone_target",
+        "A": "Robus Umbrella",
+        "B": null
+      }
+    ],
+    "label_status": "DISPUTED",
+    "label": null
+  },
+  {
+    "notice_id": "83e7948f9c3c695c0ab230e3026b53ae2aba28ed77e678ebbb0a0c0f03b7f9b0",
+    "raw": {
+      "tipo_raw": "NOAUTO",
+      "fecha_raw": "09/09/2026",
+      "entidad_raw": "NORDEA INVESTMENT FUNDS S.A. (CLONE)",
+      "entidad_secundaria_raw": null,
+      "observaciones_raw": "Se han detectado personas desconocidas, que utilizan direcciones de correo electrónico utilizando las estructuras “inicial del nombre\\n.apellido@nordea-am.com”,“Inicial del nombre.apellido@nordea-ifs.com”, y“Nombre.Apellido@fundsnordea.com”, que se hacen pasar de manera fraudulenta por la entidad autorizada Nordea Investment Funds S.A., con la que no guardan ninguna relación.",
+      "fecha_baja_raw": null
+    },
+    "buckets": [
+      "recent_100"
+    ],
+    "passes": {
+      "A": {
+        "domains": [],
+        "clone": true,
+        "target": "Nordea Investment Funds S.A.",
+        "relation_status": "EXPLICIT_SOURCE",
+        "registry_number": null
+      },
+      "B": {
+        "domains": [],
+        "clone": true,
+        "target": null
+      }
+    },
+    "disputes": [
+      {
+        "field": "clone_target",
+        "A": "Nordea Investment Funds S.A.",
+        "B": null
+      }
+    ],
+    "label_status": "DISPUTED",
+    "label": null
+  },
+  {
+    "notice_id": "7b39d2aff2f0e72f0f4d175cfe27caac32615764f18290c8637e86388d662d86",
+    "raw": {
+      "tipo_raw": "NOAUTO",
+      "fecha_raw": "09/09/2026",
+      "entidad_raw": "WWW.TRESORWACHT.COM (CLONE)",
+      "entidad_secundaria_raw": null,
+      "observaciones_raw": "El sitio web hace referencia de forma fraudulenta a las entidades Indylux Capital S.à r.l. y Kherty Finance S.à r.l., con las que no guarda relación.",
+      "fecha_baja_raw": null
+    },
+    "buckets": [
+      "recent_100"
+    ],
+    "passes": {
+      "A": {
+        "domains": [
+          "www.tresorwacht.com"
+        ],
+        "clone": true,
+        "target": null,
+        "relation_status": "UNRESOLVED",
+        "registry_number": null
+      },
+      "B": {
+        "domains": [
+          "www.tresorwacht.com"
+        ],
+        "clone": true,
+        "target": null
+      }
+    },
+    "disputes": [],
+    "label_status": "CONFIRMED",
+    "label": null
+  },
+  {
+    "notice_id": "77ab3682edfc732490ca7e529c37c8d81e412cc800e395b200a4632fe598a3d4",
+    "raw": {
+      "tipo_raw": "NOAUTO",
+      "fecha_raw": "09/09/2026",
+      "entidad_raw": "WWW.ICI-INVEST.LU (CLONE)",
+      "entidad_secundaria_raw": null,
+      "observaciones_raw": "LA web advertida se hace pasar de manera fraudulenta por la entidad autorizada ICI Invest S.A., con la que no guarda relación.",
+      "fecha_baja_raw": null
+    },
+    "buckets": [
+      "recent_100"
+    ],
+    "passes": {
+      "A": {
+        "domains": [
+          "www.ici-invest.lu"
+        ],
+        "clone": true,
+        "target": "ICI Invest S.A.",
+        "relation_status": "EXPLICIT_SOURCE",
+        "registry_number": null
+      },
+      "B": {
+        "domains": [
+          "www.ici-invest.lu"
+        ],
+        "clone": true,
+        "target": null
+      }
+    },
+    "disputes": [
+      {
+        "field": "clone_target",
+        "A": "ICI Invest S.A.",
+        "B": null
+      }
+    ],
+    "label_status": "DISPUTED",
+    "label": null
+  },
+  {
+    "notice_id": "73062128772ccbe774cce46970d83bb54a3e887c9f02840f4c68e30344c719ae",
+    "raw": {
+      "tipo_raw": "NOAUTO",
+      "fecha_raw": "09/09/2026",
+      "entidad_raw": "WWW.GEKKO-FUND.COM (CLONE)",
+      "entidad_secundaria_raw": null,
+      "observaciones_raw": "LA web advertida se hace pasar de manera fraudulenta por la entidad autorizada Gekko Fund SICAV, con la que no guarda relación",
+      "fecha_baja_raw": null
+    },
+    "buckets": [
+      "recent_100"
+    ],
+    "passes": {
+      "A": {
+        "domains": [
+          "www.gekko-fund.com"
+        ],
+        "clone": true,
+        "target": "Gekko Fund SICAV",
+        "relation_status": "EXPLICIT_SOURCE",
+        "registry_number": null
+      },
+      "B": {
+        "domains": [
+          "www.gekko-fund.com"
+        ],
+        "clone": true,
+        "target": null
+      }
+    },
+    "disputes": [
+      {
+        "field": "clone_target",
+        "A": "Gekko Fund SICAV",
+        "B": null
+      }
+    ],
+    "label_status": "DISPUTED",
+    "label": null
+  },
+  {
+    "notice_id": "71e1540fd8b43f882d6035d39f9cf1c49231a7187e19bf3bacd6e79b982eeb20",
+    "raw": {
+      "tipo_raw": "NOAUTO",
+      "fecha_raw": "09/09/2026",
+      "entidad_raw": "LUXEMPART S.A. (CLONE)",
+      "entidad_secundaria_raw": null,
+      "observaciones_raw": "Se han detectado personas desconocidas, que utilizan direcciones de correo electrónico con la estructura   nombre.apellido@client-luxempart.lu, que se hacen pasar de manera fraudulenta por la entidad autorizada LUXEMPART S.A., con la que no guardan relación.",
+      "fecha_baja_raw": null
+    },
+    "buckets": [
+      "recent_100"
+    ],
+    "passes": {
+      "A": {
+        "domains": [],
+        "clone": true,
+        "target": "LUXEMPART S.A.",
+        "relation_status": "EXPLICIT_SOURCE",
+        "registry_number": null
+      },
+      "B": {
+        "domains": [],
+        "clone": true,
+        "target": null
+      }
+    },
+    "disputes": [
+      {
+        "field": "clone_target",
+        "A": "LUXEMPART S.A.",
+        "B": null
+      }
+    ],
+    "label_status": "DISPUTED",
+    "label": null
+  },
+  {
+    "notice_id": "67acb2e6f5223c7f6dadeb7e63f7834d84b1a4eec9684ed5d9dae08f74ffe1f2",
+    "raw": {
+      "tipo_raw": "NOAUTO",
+      "fecha_raw": "09/09/2026",
+      "entidad_raw": "ISLADOVA",
+      "entidad_secundaria_raw": "WWW.ISLADOVA.COM",
+      "observaciones_raw": null,
+      "fecha_baja_raw": null
+    },
+    "buckets": [
+      "recent_100"
+    ],
+    "passes": {
+      "A": {
+        "domains": [
+          "www.isladova.com"
+        ],
+        "clone": false,
+        "target": null,
+        "relation_status": null,
+        "registry_number": null
+      },
+      "B": {
+        "domains": [
+          "www.isladova.com"
+        ],
+        "clone": false,
+        "target": null
+      }
+    },
+    "disputes": [],
+    "label_status": "CONFIRMED",
+    "label": null
+  },
+  {
+    "notice_id": "63578259ba0c6bb8f42df93b9f3beeb38e06ea32e174e36756e6c0c47eb761cc",
+    "raw": {
+      "tipo_raw": "NOAUTO",
+      "fecha_raw": "09/09/2026",
+      "entidad_raw": "WWW.MOLENTIS-SA.COM (CLONE)",
+      "entidad_secundaria_raw": null,
+      "observaciones_raw": "LA web advertida se hace pasar de manera fraudulenta por la entidad Molentis S.A., con la que no guarda relación.",
+      "fecha_baja_raw": null
+    },
+    "buckets": [
+      "recent_100"
+    ],
+    "passes": {
+      "A": {
+        "domains": [
+          "www.molentis-sa.com"
+        ],
+        "clone": true,
+        "target": "Molentis S.A.",
+        "relation_status": "EXPLICIT_SOURCE",
+        "registry_number": null
+      },
+      "B": {
+        "domains": [
+          "www.molentis-sa.com"
+        ],
+        "clone": true,
+        "target": null
+      }
+    },
+    "disputes": [
+      {
+        "field": "clone_target",
+        "A": "Molentis S.A.",
+        "B": null
+      }
+    ],
+    "label_status": "DISPUTED",
+    "label": null
+  },
+  {
+    "notice_id": "6150011606a4868adb4a168e1d8a904ac7a18dc0c0b036d109cb647c08866c8c",
+    "raw": {
+      "tipo_raw": "NOAUTO",
+      "fecha_raw": "09/09/2026",
+      "entidad_raw": "3CGROUP",
+      "entidad_secundaria_raw": "WWW.3CGROUP.SE",
+      "observaciones_raw": null,
+      "fecha_baja_raw": null
+    },
+    "buckets": [
+      "recent_100"
+    ],
+    "passes": {
+      "A": {
+        "domains": [
+          "www.3cgroup.se"
+        ],
+        "clone": false,
+        "target": null,
+        "relation_status": null,
+        "registry_number": null
+      },
+      "B": {
+        "domains": [
+          "www.3cgroup.se"
+        ],
+        "clone": false,
+        "target": null
+      }
+    },
+    "disputes": [],
+    "label_status": "CONFIRMED",
+    "label": null
+  },
+  {
+    "notice_id": "49f3262c81fd532c62bbea67b31f9d36bb125ad47d656cc2ff6cdb555ee7c371",
+    "raw": {
+      "tipo_raw": "NOAUTO",
+      "fecha_raw": "09/09/2026",
+      "entidad_raw": "CLEARSTREAM BANKING S.A. (CLONE)",
+      "entidad_secundaria_raw": null,
+      "observaciones_raw": "Se han detectado personas desconocidas, que utilizan direcciones de correo electrónico con la estructura  nombre.apellido@clearstream-global.pro y otras como compliance@clearstream-global.pro, que se hacen pasar de manera fraudulenta por la entidad autorizada Clearstream Banking S.A., con las que no guardan relación.",
+      "fecha_baja_raw": null
+    },
+    "buckets": [
+      "recent_100"
+    ],
+    "passes": {
+      "A": {
+        "domains": [],
+        "clone": true,
+        "target": "Clearstream Banking S.A., con las que no guardan relación",
+        "relation_status": "EXPLICIT_SOURCE",
+        "registry_number": null
+      },
+      "B": {
+        "domains": [],
+        "clone": true,
+        "target": null
+      }
+    },
+    "disputes": [
+      {
+        "field": "clone_target",
+        "A": "Clearstream Banking S.A., con las que no guardan relación",
+        "B": null
+      }
+    ],
+    "label_status": "DISPUTED",
+    "label": null
+  },
+  {
+    "notice_id": "4440fedeb9e848dea395e42a2049fa1b2e9e7338f06181f000ea2490837118b9",
+    "raw": {
+      "tipo_raw": "NOAUTO",
+      "fecha_raw": "09/09/2026",
+      "entidad_raw": "WWW.IMGPARTNERS.CM (CLONE)",
+      "entidad_secundaria_raw": "WWW.LOOM-HELLO-95431323.FIGMA.SITE (CLONE)",
+      "observaciones_raw": "LA web advertida se hace pasar de manera fraudulenta por la entidad autorizada iM Global Partner Asset Management S.A., con la que no guarda relación",
+      "fecha_baja_raw": null
+    },
+    "buckets": [
+      "recent_100"
+    ],
+    "passes": {
+      "A": {
+        "domains": [
+          "www.imgpartners.cm",
+          "www.loom-hello-95431323.figma.site"
+        ],
+        "clone": true,
+        "target": "iM Global Partner Asset Management S.A.",
+        "relation_status": "EXPLICIT_SOURCE",
+        "registry_number": null
+      },
+      "B": {
+        "domains": [
+          "www.imgpartners.cm",
+          "www.loom-hello-95431323.figma.site"
+        ],
+        "clone": true,
+        "target": null
+      }
+    },
+    "disputes": [
+      {
+        "field": "clone_target",
+        "A": "iM Global Partner Asset Management S.A.",
+        "B": null
+      }
+    ],
+    "label_status": "DISPUTED",
+    "label": null
+  },
+  {
+    "notice_id": "43678701141bc447233a5c43a54d49df46801bbf55557405e6b3dac99f4c70a9",
+    "raw": {
+      "tipo_raw": "NOAUTO",
+      "fecha_raw": "09/09/2026",
+      "entidad_raw": "WWW.ARCOVA-AI.COM (CLONE)",
+      "entidad_secundaria_raw": null,
+      "observaciones_raw": "LA web advertida utiliza de manera fraudulenta el nombre de la entidad SB Systems sp. Zo.o., con la que no guarda relación.",
+      "fecha_baja_raw": null
+    },
+    "buckets": [
+      "recent_100"
+    ],
+    "passes": {
+      "A": {
+        "domains": [
+          "www.arcova-ai.com"
+        ],
+        "clone": true,
+        "target": null,
+        "relation_status": "UNRESOLVED",
+        "registry_number": null
+      },
+      "B": {
+        "domains": [
+          "www.arcova-ai.com"
+        ],
+        "clone": true,
+        "target": null
+      }
+    },
+    "disputes": [],
+    "label_status": "CONFIRMED",
+    "label": null
+  },
+  {
+    "notice_id": "39911276b3f86beb17a72fe98ae8652f145fc4df0bac818e2128ceacfcd25252",
+    "raw": {
+      "tipo_raw": "NOAUTO",
+      "fecha_raw": "09/09/2026",
+      "entidad_raw": "WWW.VISIONFUNDLU.COM (CLONE)",
+      "entidad_secundaria_raw": null,
+      "observaciones_raw": "LA web advertida se hace pasar de manera fraudulenta por la entidad autorizada RBC Funds (Lux), con la que  no guarda relación.",
+      "fecha_baja_raw": null
+    },
+    "buckets": [
+      "recent_100"
+    ],
+    "passes": {
+      "A": {
+        "domains": [
+          "www.visionfundlu.com"
+        ],
+        "clone": true,
+        "target": "RBC Funds (Lux)",
+        "relation_status": "EXPLICIT_SOURCE",
+        "registry_number": null
+      },
+      "B": {
+        "domains": [
+          "www.visionfundlu.com"
+        ],
+        "clone": true,
+        "target": null
+      }
+    },
+    "disputes": [
+      {
+        "field": "clone_target",
+        "A": "RBC Funds (Lux)",
+        "B": null
+      }
+    ],
+    "label_status": "DISPUTED",
+    "label": null
+  },
+  {
+    "notice_id": "2b5ce4ed55d6a80377ff24bade1fbf25882f988b090623dc89a4b7638f54cb01",
+    "raw": {
+      "tipo_raw": "NOAUTO",
+      "fecha_raw": "09/09/2026",
+      "entidad_raw": "WWW.HAUTFORTPARTNERS.COM (CLONE)",
+      "entidad_secundaria_raw": null,
+      "observaciones_raw": "LA web advertida se hace pasar de manera fraudulenta por la entidad autorizada Hautfort Partners S.à r.l., con la que no guarda relación",
+      "fecha_baja_raw": null
+    },
+    "buckets": [
+      "recent_100"
+    ],
+    "passes": {
+      "A": {
+        "domains": [
+          "www.hautfortpartners.com"
+        ],
+        "clone": true,
+        "target": "Hautfort Partners S.à r.l.",
+        "relation_status": "EXPLICIT_SOURCE",
+        "registry_number": null
+      },
+      "B": {
+        "domains": [
+          "www.hautfortpartners.com"
+        ],
+        "clone": true,
+        "target": null
+      }
+    },
+    "disputes": [
+      {
+        "field": "clone_target",
+        "A": "Hautfort Partners S.à r.l.",
+        "B": null
+      }
+    ],
+    "label_status": "DISPUTED",
+    "label": null
+  },
+  {
+    "notice_id": "2b4145df24b0397ed8dff8c063308bd83af28ed78b78857191a11c4b2e5d5a2c",
+    "raw": {
+      "tipo_raw": "NOAUTO",
+      "fecha_raw": "09/09/2026",
+      "entidad_raw": "URBANMINT DIGITAL ASSETS S.A.",
+      "entidad_secundaria_raw": "WWW.URBANMINT.IO",
+      "observaciones_raw": null,
+      "fecha_baja_raw": null
+    },
+    "buckets": [
+      "recent_100"
+    ],
+    "passes": {
+      "A": {
+        "domains": [
+          "www.urbanmint.io"
+        ],
+        "clone": false,
+        "target": null,
+        "relation_status": null,
+        "registry_number": null
+      },
+      "B": {
+        "domains": [
+          "www.urbanmint.io"
+        ],
+        "clone": false,
+        "target": null
+      }
+    },
+    "disputes": [],
+    "label_status": "CONFIRMED",
+    "label": null
+  },
+  {
+    "notice_id": "28817ea435aca2598b2a694c36152e2a935227ccb99b92938296a598080c3447",
+    "raw": {
+      "tipo_raw": "NOAUTO",
+      "fecha_raw": "09/09/2026",
+      "entidad_raw": "TAG MARKETS",
+      "entidad_secundaria_raw": "WWW.TAGMARKETS.COM",
+      "observaciones_raw": null,
+      "fecha_baja_raw": null
+    },
+    "buckets": [
+      "recent_100"
+    ],
+    "passes": {
+      "A": {
+        "domains": [
+          "www.tagmarkets.com"
+        ],
+        "clone": false,
+        "target": null,
+        "relation_status": null,
+        "registry_number": null
+      },
+      "B": {
+        "domains": [
+          "www.tagmarkets.com"
+        ],
+        "clone": false,
+        "target": null
+      }
+    },
+    "disputes": [],
+    "label_status": "CONFIRMED",
+    "label": null
+  },
+  {
+    "notice_id": "2702d0c017a8fbe90fed6a7d6145b0bca3d6a4fb125505033a3aba931c9fc1e0",
+    "raw": {
+      "tipo_raw": "NOAUTO",
+      "fecha_raw": "09/09/2026",
+      "entidad_raw": "MELZAPAY S.A.",
+      "entidad_secundaria_raw": "WWW.MELZAPAY.COM",
+      "observaciones_raw": null,
+      "fecha_baja_raw": null
+    },
+    "buckets": [
+      "recent_100"
+    ],
+    "passes": {
+      "A": {
+        "domains": [
+          "www.melzapay.com"
+        ],
+        "clone": false,
+        "target": null,
+        "relation_status": null,
+        "registry_number": null
+      },
+      "B": {
+        "domains": [
+          "www.melzapay.com"
+        ],
+        "clone": false,
+        "target": null
+      }
+    },
+    "disputes": [],
+    "label_status": "CONFIRMED",
+    "label": null
+  },
+  {
+    "notice_id": "1971a394ca3b197b1cb4f734b5d62ccc76c4d9717695d7ccbc38a27a58d6440f",
+    "raw": {
+      "tipo_raw": "NOAUTO",
+      "fecha_raw": "09/09/2026",
+      "entidad_raw": "WWW.WINVEST.INTERNATIONAL (CLONE)",
+      "entidad_secundaria_raw": "WWW.WINVEST-INTERNATIONAL.ONLINE (CLONE)",
+      "observaciones_raw": "Las páginas web advertidas se hacen pasar de manera fraudulenta por la entidad autorizada Winvest International S.C.S., FIAR.. con la que no guardan relación",
+      "fecha_baja_raw": null
+    },
+    "buckets": [
+      "recent_100"
+    ],
+    "passes": {
+      "A": {
+        "domains": [
+          "www.winvest-international.online",
+          "www.winvest.international"
+        ],
+        "clone": true,
+        "target": "Winvest International S.C.S., FIAR.",
+        "relation_status": "EXPLICIT_SOURCE",
+        "registry_number": null
+      },
+      "B": {
+        "domains": [
+          "www.winvest-international.online",
+          "www.winvest.international"
+        ],
+        "clone": true,
+        "target": null
+      }
+    },
+    "disputes": [
+      {
+        "field": "clone_target",
+        "A": "Winvest International S.C.S., FIAR.",
+        "B": null
+      }
+    ],
+    "label_status": "DISPUTED",
+    "label": null
+  },
+  {
+    "notice_id": "0c7fcbcef1c4ee9f7c673df7aae65c082e8aa6a2725cd39bf807f0459e274728",
+    "raw": {
+      "tipo_raw": "NOAUTO",
+      "fecha_raw": "09/09/2026",
+      "entidad_raw": "HANCUVERTAM",
+      "entidad_secundaria_raw": "WWW.HANCUVERTAM.PRO",
+      "observaciones_raw": null,
+      "fecha_baja_raw": null
+    },
+    "buckets": [
+      "recent_100"
+    ],
+    "passes": {
+      "A": {
+        "domains": [
+          "www.hancuvertam.pro"
+        ],
+        "clone": false,
+        "target": null,
+        "relation_status": null,
+        "registry_number": null
+      },
+      "B": {
+        "domains": [
+          "www.hancuvertam.pro"
+        ],
+        "clone": false,
+        "target": null
+      }
+    },
+    "disputes": [],
+    "label_status": "CONFIRMED",
+    "label": null
+  },
+  {
+    "notice_id": "04ae2b2542666388adef6f0b6ae2c3e1ba2b17b2c1239350ffaafda1a836b5f4",
+    "raw": {
+      "tipo_raw": "NOAUTO",
+      "fecha_raw": "09/09/2026",
+      "entidad_raw": "ALINMCOL",
+      "entidad_secundaria_raw": "WWW.ALINMCOL.COM",
+      "observaciones_raw": null,
+      "fecha_baja_raw": null
+    },
+    "buckets": [
+      "recent_100"
+    ],
+    "passes": {
+      "A": {
+        "domains": [
+          "www.alinmcol.com"
+        ],
+        "clone": false,
+        "target": null,
+        "relation_status": null,
+        "registry_number": null
+      },
+      "B": {
+        "domains": [
+          "www.alinmcol.com"
+        ],
+        "clone": false,
+        "target": null
+      }
+    },
+    "disputes": [],
+    "label_status": "CONFIRMED",
+    "label": null
+  },
+  {
+    "notice_id": "0414d4a27d43bdd6e0d06439a1fd5635c53e066ddfb1770ea586222bd4e6d09f",
+    "raw": {
+      "tipo_raw": "NOAUTO",
+      "fecha_raw": "09/09/2026",
+      "entidad_raw": "WWW.CARRERA-FINANCE.DIGITAL (CLONE)",
+      "entidad_secundaria_raw": null,
+      "observaciones_raw": "LA web advertida se hace pasar de manera fraudulenta por la entidad autorizada Carrera Finance S.A., con la que no guarda relación",
+      "fecha_baja_raw": null
+    },
+    "buckets": [
+      "recent_100"
+    ],
+    "passes": {
+      "A": {
+        "domains": [
+          "www.carrera-finance.digital"
+        ],
+        "clone": true,
+        "target": "Carrera Finance S.A.",
+        "relation_status": "EXPLICIT_SOURCE",
+        "registry_number": null
+      },
+      "B": {
+        "domains": [
+          "www.carrera-finance.digital"
+        ],
+        "clone": true,
+        "target": null
+      }
+    },
+    "disputes": [
+      {
+        "field": "clone_target",
+        "A": "Carrera Finance S.A.",
+        "B": null
+      }
+    ],
+    "label_status": "DISPUTED",
+    "label": null
+  },
+  {
+    "notice_id": "feab24ff984f6b7468bbc7a633bfbae093b97ad93bd1d03b92255c76db101655",
+    "raw": {
+      "tipo_raw": "NOAUTO",
+      "fecha_raw": "02/09/2026",
+      "entidad_raw": "Q-BIT",
+      "entidad_secundaria_raw": "HTTPS://QBIT-STO.COM",
+      "observaciones_raw": null,
+      "fecha_baja_raw": null
+    },
+    "buckets": [
+      "recent_100"
+    ],
+    "passes": {
+      "A": {
+        "domains": [
+          "qbit-sto.com"
+        ],
+        "clone": false,
+        "target": null,
+        "relation_status": null,
+        "registry_number": null
+      },
+      "B": {
+        "domains": [
+          "qbit-sto.com"
+        ],
+        "clone": false,
+        "target": null
+      }
+    },
+    "disputes": [],
+    "label_status": "CONFIRMED",
+    "label": null
+  },
+  {
+    "notice_id": "cae15d15d391fe0b4bf163bc92409c25b699abba81ea29cdeb0e56d65a8133ed",
+    "raw": {
+      "tipo_raw": "NOAUTO",
+      "fecha_raw": "02/09/2026",
+      "entidad_raw": "A&P SELECTIVE INVESTMENT FUND S.C.A., SICAV-FIAR (CLONE)",
+      "entidad_secundaria_raw": null,
+      "observaciones_raw": "Se han detectado personas desconocidas que utilizan direcciones de correo electrónico con la estructura Nombre.Apellido@ap-selective-investment-fund.com para hacerse pasar de manera fraudulenta por la entidad autorizada A&P Selective Investment Fund S.C.A., SICAV-FIAR, con la que no guardan relación alguna.",
+      "fecha_baja_raw": null
+    },
+    "buckets": [
+      "recent_100"
+    ],
+    "passes": {
+      "A": {
+        "domains": [],
+        "clone": true,
+        "target": "A&P Selective Investment Fund S.C.A., SICAV-FIAR",
+        "relation_status": "EXPLICIT_SOURCE",
+        "registry_number": null
+      },
+      "B": {
+        "domains": [],
+        "clone": true,
+        "target": null
+      }
+    },
+    "disputes": [
+      {
+        "field": "clone_target",
+        "A": "A&P Selective Investment Fund S.C.A., SICAV-FIAR",
+        "B": null
+      }
+    ],
+    "label_status": "DISPUTED",
+    "label": null
+  },
+  {
+    "notice_id": "c9bf5f53b1ab18a0c0e97331ce8ed5f7b3d7b6fafa8bb81484c6df964ae00949",
+    "raw": {
+      "tipo_raw": "NOAUTO",
+      "fecha_raw": "02/09/2026",
+      "entidad_raw": "WWW.NEXUSGROUP.EU.COM (CLONE)",
+      "entidad_secundaria_raw": null,
+      "observaciones_raw": "La página web advertida se hace pasar de manera fraudulenta por la entidad autorizada Nexus Global Group S.A., con la que no guarda relación",
+      "fecha_baja_raw": null
+    },
+    "buckets": [
+      "recent_100"
+    ],
+    "passes": {
+      "A": {
+        "domains": [
+          "www.nexusgroup.eu.com"
+        ],
+        "clone": true,
+        "target": "Nexus Global Group S.A.",
+        "relation_status": "EXPLICIT_SOURCE",
+        "registry_number": null
+      },
+      "B": {
+        "domains": [
+          "www.nexusgroup.eu.com"
+        ],
+        "clone": true,
+        "target": null
+      }
+    },
+    "disputes": [
+      {
+        "field": "clone_target",
+        "A": "Nexus Global Group S.A.",
+        "B": null
+      }
+    ],
+    "label_status": "DISPUTED",
+    "label": null
+  },
+  {
+    "notice_id": "c3b49cee2b2f892f8c4c5513ecbb117c9474b0578050e97b2f6188d41638db61",
+    "raw": {
+      "tipo_raw": "NOAUTO",
+      "fecha_raw": "02/09/2026",
+      "entidad_raw": "WWW.ESPACECLIENT.BCEEGESTION.COM (CLONE)",
+      "entidad_secundaria_raw": null,
+      "observaciones_raw": "La página web advertida se hace pasar de manera fraudulenta por la entidad autorizada Banque et Caisse d’Epargne de l’Etat Luxembourg, con la que no guarda relación",
+      "fecha_baja_raw": null
+    },
+    "buckets": [
+      "recent_100"
+    ],
+    "passes": {
+      "A": {
+        "domains": [
+          "www.espaceclient.bceegestion.com"
+        ],
+        "clone": true,
+        "target": "Banque et Caisse d’Epargne de l’Etat Luxembourg",
+        "relation_status": "EXPLICIT_SOURCE",
+        "registry_number": null
+      },
+      "B": {
+        "domains": [
+          "www.espaceclient.bceegestion.com"
+        ],
+        "clone": true,
+        "target": null
+      }
+    },
+    "disputes": [
+      {
+        "field": "clone_target",
+        "A": "Banque et Caisse d’Epargne de l’Etat Luxembourg",
+        "B": null
+      }
+    ],
+    "label_status": "DISPUTED",
+    "label": null
+  },
+  {
+    "notice_id": "c00b7ccd6d06f86c1fe0c1a4c5f682b73f903595f35661e8310d24ae6e3741f8",
+    "raw": {
+      "tipo_raw": "NOAUTO",
+      "fecha_raw": "02/09/2026",
+      "entidad_raw": "MERITUM CAPITAL (CLONE)",
+      "entidad_secundaria_raw": null,
+      "observaciones_raw": "Se han detectado personas desconocidas, que utilizan direcciones de correo electrónico con la estructura NombreApellido@meritumcapital-intl.com y otras como contact@meritumcapital-intl.com, que se hacen pasar de manera fraudulenta por la entidad autorizada MERITUM CAPITAL, con la que no guardan relación.",
+      "fecha_baja_raw": null
+    },
+    "buckets": [
+      "recent_100"
+    ],
+    "passes": {
+      "A": {
+        "domains": [],
+        "clone": true,
+        "target": "MERITUM CAPITAL",
+        "relation_status": "EXPLICIT_SOURCE",
+        "registry_number": null
+      },
+      "B": {
+        "domains": [],
+        "clone": true,
+        "target": null
+      }
+    },
+    "disputes": [
+      {
+        "field": "clone_target",
+        "A": "MERITUM CAPITAL",
+        "B": null
+      }
+    ],
+    "label_status": "DISPUTED",
+    "label": null
+  },
+  {
+    "notice_id": "b972dba12c586827db07ac28507246c57e831e2345a70f7a36de72c4e2f583d2",
+    "raw": {
+      "tipo_raw": "NOAUTO",
+      "fecha_raw": "02/09/2026",
+      "entidad_raw": "WWW.GERMAN-LION-SA.EU (CLONE)",
+      "entidad_secundaria_raw": "WWW.GERMAN-LION-SA.COM.DE (CLONE)",
+      "observaciones_raw": "Las páginas web advertidas se hacen pasar de manera fraudulenta por la entidad autorizada German Lion S.A., con la que no guardan relación.",
+      "fecha_baja_raw": null
+    },
+    "buckets": [
+      "recent_100"
+    ],
+    "passes": {
+      "A": {
+        "domains": [
+          "www.german-lion-sa.com.de",
+          "www.german-lion-sa.eu"
+        ],
+        "clone": true,
+        "target": "German Lion S.A.",
+        "relation_status": "EXPLICIT_SOURCE",
+        "registry_number": null
+      },
+      "B": {
+        "domains": [
+          "www.german-lion-sa.com.de",
+          "www.german-lion-sa.eu"
+        ],
+        "clone": true,
+        "target": null
+      }
+    },
+    "disputes": [
+      {
+        "field": "clone_target",
+        "A": "German Lion S.A.",
+        "B": null
+      }
+    ],
+    "label_status": "DISPUTED",
+    "label": null
+  },
+  {
+    "notice_id": "b360c142ad7927f02e467b0cb17fa424558f33fab7bcae305b076f3de883b70a",
+    "raw": {
+      "tipo_raw": "NOAUTO",
+      "fecha_raw": "02/09/2026",
+      "entidad_raw": "WERDY",
+      "entidad_secundaria_raw": "WWW.WERDY.NET",
+      "observaciones_raw": null,
+      "fecha_baja_raw": null
+    },
+    "buckets": [
+      "recent_100"
+    ],
+    "passes": {
+      "A": {
+        "domains": [
+          "www.werdy.net"
+        ],
+        "clone": false,
+        "target": null,
+        "relation_status": null,
+        "registry_number": null
+      },
+      "B": {
+        "domains": [
+          "www.werdy.net"
+        ],
+        "clone": false,
+        "target": null
+      }
+    },
+    "disputes": [],
+    "label_status": "CONFIRMED",
+    "label": null
+  },
+  {
+    "notice_id": "a4f525d34c5ca335c963fce9b41922ab2509b619310a881cf720a7b726cd5846",
+    "raw": {
+      "tipo_raw": "NOAUTO",
+      "fecha_raw": "02/09/2026",
+      "entidad_raw": "WWW.GERMAN-LION-SA.EU (CLONE)",
+      "entidad_secundaria_raw": "WWW.GERMAN-LION.DE (CLONE)",
+      "observaciones_raw": "Las páginas web advertidas se hacen pasar de manera fraudulenta por la entidad autorizada German Lion S.A., con la que no guardan relación.",
+      "fecha_baja_raw": null
+    },
+    "buckets": [
+      "recent_100"
+    ],
+    "passes": {
+      "A": {
+        "domains": [
+          "www.german-lion-sa.eu",
+          "www.german-lion.de"
+        ],
+        "clone": true,
+        "target": "German Lion S.A.",
+        "relation_status": "EXPLICIT_SOURCE",
+        "registry_number": null
+      },
+      "B": {
+        "domains": [
+          "www.german-lion-sa.eu",
+          "www.german-lion.de"
+        ],
+        "clone": true,
+        "target": null
+      }
+    },
+    "disputes": [
+      {
+        "field": "clone_target",
+        "A": "German Lion S.A.",
+        "B": null
+      }
+    ],
+    "label_status": "DISPUTED",
+    "label": null
+  },
+  {
+    "notice_id": "991f48fd6ae03502f0ea138ee3408c134550fcb3a90ec1091a11983d11bb4986",
+    "raw": {
+      "tipo_raw": "NOAUTO",
+      "fecha_raw": "02/09/2026",
+      "entidad_raw": "WWW.BULL-VERSE.ORG",
+      "entidad_secundaria_raw": null,
+      "observaciones_raw": null,
+      "fecha_baja_raw": null
+    },
+    "buckets": [
+      "recent_100"
+    ],
+    "passes": {
+      "A": {
+        "domains": [
+          "www.bull-verse.org"
+        ],
+        "clone": false,
+        "target": null,
+        "relation_status": null,
+        "registry_number": null
+      },
+      "B": {
+        "domains": [
+          "www.bull-verse.org"
+        ],
+        "clone": false,
+        "target": null
+      }
+    },
+    "disputes": [],
+    "label_status": "CONFIRMED",
+    "label": null
+  },
+  {
+    "notice_id": "96836559bb520baddf190198a9a9b15bff937dd17aca0f0caca48fe290d1078a",
+    "raw": {
+      "tipo_raw": "NOAUTO",
+      "fecha_raw": "02/09/2026",
+      "entidad_raw": "WWW.CBNFINANCESSUPPORT.INFO (CLONE)",
+      "entidad_secundaria_raw": "WWW.CENTRESINFO.ME (CLONE)",
+      "observaciones_raw": "Las páginas web advertidas se hacen pasar de manera fraudulenta por la entidad autorizada Coinbase Luxembourg S.A., con la que no guardan relación.",
+      "fecha_baja_raw": null
+    },
+    "buckets": [
+      "recent_100"
+    ],
+    "passes": {
+      "A": {
+        "domains": [
+          "www.cbnfinancessupport.info",
+          "www.centresinfo.me"
+        ],
+        "clone": true,
+        "target": "Coinbase Luxembourg S.A.",
+        "relation_status": "EXPLICIT_SOURCE",
+        "registry_number": null
+      },
+      "B": {
+        "domains": [
+          "www.cbnfinancessupport.info",
+          "www.centresinfo.me"
+        ],
+        "clone": true,
+        "target": null
+      }
+    },
+    "disputes": [
+      {
+        "field": "clone_target",
+        "A": "Coinbase Luxembourg S.A.",
+        "B": null
+      }
+    ],
+    "label_status": "DISPUTED",
+    "label": null
+  },
+  {
+    "notice_id": "940afb8517336acb0be3df5d4993de4dd09dc5442cb8f8ee4f1a618529771c32",
+    "raw": {
+      "tipo_raw": "NOAUTO",
+      "fecha_raw": "02/09/2026",
+      "entidad_raw": "DIGITAL ASSET BANK S.A. LUXEMBOURG",
+      "entidad_secundaria_raw": "WWW.DIGITALASSET-BANK.COM",
+      "observaciones_raw": null,
+      "fecha_baja_raw": null
+    },
+    "buckets": [
+      "recent_100"
+    ],
+    "passes": {
+      "A": {
+        "domains": [
+          "www.digitalasset-bank.com"
+        ],
+        "clone": false,
+        "target": null,
+        "relation_status": null,
+        "registry_number": null
+      },
+      "B": {
+        "domains": [
+          "www.digitalasset-bank.com"
+        ],
+        "clone": false,
+        "target": null
+      }
+    },
+    "disputes": [],
+    "label_status": "CONFIRMED",
+    "label": null
+  },
+  {
+    "notice_id": "7efc1674f5c639a56fbad32055ac9ec1dfe7f36a4aadd0058ac25e9b492bcf8f",
+    "raw": {
+      "tipo_raw": "NOAUTO",
+      "fecha_raw": "02/09/2026",
+      "entidad_raw": "AFITAUSTIN",
+      "entidad_secundaria_raw": "WWW.AFITAUSTIN.COM",
+      "observaciones_raw": null,
+      "fecha_baja_raw": null
+    },
+    "buckets": [
+      "recent_100"
+    ],
+    "passes": {
+      "A": {
+        "domains": [
+          "www.afitaustin.com"
+        ],
+        "clone": false,
+        "target": null,
+        "relation_status": null,
+        "registry_number": null
+      },
+      "B": {
+        "domains": [
+          "www.afitaustin.com"
+        ],
+        "clone": false,
+        "target": null
+      }
+    },
+    "disputes": [],
+    "label_status": "CONFIRMED",
+    "label": null
+  },
+  {
+    "notice_id": "7d0c499519a4c36379d593508df679ade43a9b383599efe88b89b6fcd54745a4",
+    "raw": {
+      "tipo_raw": "NOAUTO",
+      "fecha_raw": "02/09/2026",
+      "entidad_raw": "WWW.SMTBEUROPE.COM (CLONE)",
+      "entidad_secundaria_raw": null,
+      "observaciones_raw": "La web advertida se hace pasar de manera fraudulenta por la entidad autorizada Sumitomo Mitsui Trust Bank (Luxembourg) S.A., con la que no guarda relación",
+      "fecha_baja_raw": null
+    },
+    "buckets": [
+      "recent_100"
+    ],
+    "passes": {
+      "A": {
+        "domains": [
+          "www.smtbeurope.com"
+        ],
+        "clone": true,
+        "target": "Sumitomo Mitsui Trust Bank (Luxembourg) S.A.",
+        "relation_status": "EXPLICIT_SOURCE",
+        "registry_number": null
+      },
+      "B": {
+        "domains": [
+          "www.smtbeurope.com"
+        ],
+        "clone": true,
+        "target": null
+      }
+    },
+    "disputes": [
+      {
+        "field": "clone_target",
+        "A": "Sumitomo Mitsui Trust Bank (Luxembourg) S.A.",
+        "B": null
+      }
+    ],
+    "label_status": "DISPUTED",
+    "label": null
+  },
+  {
+    "notice_id": "793790f74b86706b8584d2c7ce4594b7843f559f82eae2b5ae561bfb2363a2fa",
+    "raw": {
+      "tipo_raw": "NOAUTO",
+      "fecha_raw": "02/09/2026",
+      "entidad_raw": "WWW.VIVID-MONEY.LU (CLONE)",
+      "entidad_secundaria_raw": null,
+      "observaciones_raw": "LA web advertida se hace pasar de manera fraudulenta por la entidad autorizada VIVID MONEY S.A., con la que no guarda relación.",
+      "fecha_baja_raw": null
+    },
+    "buckets": [
+      "recent_100"
+    ],
+    "passes": {
+      "A": {
+        "domains": [
+          "www.vivid-money.lu"
+        ],
+        "clone": true,
+        "target": "VIVID MONEY S.A.",
+        "relation_status": "EXPLICIT_SOURCE",
+        "registry_number": null
+      },
+      "B": {
+        "domains": [
+          "www.vivid-money.lu"
+        ],
+        "clone": true,
+        "target": null
+      }
+    },
+    "disputes": [
+      {
+        "field": "clone_target",
+        "A": "VIVID MONEY S.A.",
+        "B": null
+      }
+    ],
+    "label_status": "DISPUTED",
+    "label": null
+  },
+  {
+    "notice_id": "7500c0d38234d7a16535282b08b0b30b6dbb46b3a1c1b6069f511e75820cbfe3",
+    "raw": {
+      "tipo_raw": "NOAUTO",
+      "fecha_raw": "02/09/2026",
+      "entidad_raw": "NUVERAMIX",
+      "entidad_secundaria_raw": "WWW.NUVERAMIX.COM",
+      "observaciones_raw": null,
+      "fecha_baja_raw": null
+    },
+    "buckets": [
+      "recent_100"
+    ],
+    "passes": {
+      "A": {
+        "domains": [
+          "www.nuveramix.com"
+        ],
+        "clone": false,
+        "target": null,
+        "relation_status": null,
+        "registry_number": null
+      },
+      "B": {
+        "domains": [
+          "www.nuveramix.com"
+        ],
+        "clone": false,
+        "target": null
+      }
+    },
+    "disputes": [],
+    "label_status": "CONFIRMED",
+    "label": null
+  },
+  {
+    "notice_id": "6719c4ab5a8963123b29793e0f244776eb9b875d2488fac18f1de944709eb7b0",
+    "raw": {
+      "tipo_raw": "NOAUTO",
+      "fecha_raw": "02/09/2026",
+      "entidad_raw": "WWW.CAPMAN-HOLDING.COM (CLONE)",
+      "entidad_secundaria_raw": null,
+      "observaciones_raw": "La web advertida, que utiliza correos electrónicos con la estructura apellido@capman-holding.com se hace pasar de manera fraudulenta por la entidad autorizada CapMan Lynx SCA, SICAR, con la que no guarda relación.",
+      "fecha_baja_raw": null
+    },
+    "buckets": [
+      "recent_100"
+    ],
+    "passes": {
+      "A": {
+        "domains": [
+          "www.capman-holding.com"
+        ],
+        "clone": true,
+        "target": "CapMan Lynx SCA, SICAR",
+        "relation_status": "EXPLICIT_SOURCE",
+        "registry_number": null
+      },
+      "B": {
+        "domains": [
+          "www.capman-holding.com"
+        ],
+        "clone": true,
+        "target": null
+      }
+    },
+    "disputes": [
+      {
+        "field": "clone_target",
+        "A": "CapMan Lynx SCA, SICAR",
+        "B": null
+      }
+    ],
+    "label_status": "DISPUTED",
+    "label": null
+  },
+  {
+    "notice_id": "555e4049853b3c728e53947ef1e63b578eb0d3048f9745a8fce5d15587e400ea",
+    "raw": {
+      "tipo_raw": "NOAUTO",
+      "fecha_raw": "02/09/2026",
+      "entidad_raw": "CASTLEFORBES WEALTH LIMITED",
+      "entidad_secundaria_raw": "WWW.CASTLEFORBESWEALTH.COM",
+      "observaciones_raw": null,
+      "fecha_baja_raw": null
+    },
+    "buckets": [
+      "recent_100"
+    ],
+    "passes": {
+      "A": {
+        "domains": [
+          "www.castleforbeswealth.com"
+        ],
+        "clone": false,
+        "target": null,
+        "relation_status": null,
+        "registry_number": null
+      },
+      "B": {
+        "domains": [
+          "www.castleforbeswealth.com"
+        ],
+        "clone": false,
+        "target": null
+      }
+    },
+    "disputes": [],
+    "label_status": "CONFIRMED",
+    "label": null
+  },
+  {
+    "notice_id": "4b514cd3d2311351a04b874cb3b165fdd8a08e08457247100ccb09d9c5d35160",
+    "raw": {
+      "tipo_raw": "NOAUTO",
+      "fecha_raw": "02/09/2026",
+      "entidad_raw": "JPMORGAN ASSET MANAGEMENT (EUROPE) S.À R.L. (CLONE)",
+      "entidad_secundaria_raw": null,
+      "observaciones_raw": "Se han detectado personas desconocidas que utilizan direcciones de correo electrónico con la estructura Nombre.Apellido@jpm-savings.com y otras como client.services@jpm-savings.com para hacerse pasar de manera fraudulenta por la entidad autorizada JPMorgan Asset Management (Europe) S.à r.l., con la que no guardan relación.",
+      "fecha_baja_raw": null
+    },
+    "buckets": [
+      "recent_100"
+    ],
+    "passes": {
+      "A": {
+        "domains": [],
+        "clone": true,
+        "target": "JPMorgan Asset Management (Europe) S.à r.l.",
+        "relation_status": "EXPLICIT_SOURCE",
+        "registry_number": null
+      },
+      "B": {
+        "domains": [],
+        "clone": true,
+        "target": null
+      }
+    },
+    "disputes": [
+      {
+        "field": "clone_target",
+        "A": "JPMorgan Asset Management (Europe) S.à r.l.",
+        "B": null
+      }
+    ],
+    "label_status": "DISPUTED",
+    "label": null
+  },
+  {
+    "notice_id": "498a01a900884c15bc25759c2176cfbdcb0fc98220b588031ced7ba772865716",
+    "raw": {
+      "tipo_raw": "NOAUTO",
+      "fecha_raw": "02/09/2026",
+      "entidad_raw": "WWW.PAREFTURN.FUND (CLONE)",
+      "entidad_secundaria_raw": null,
+      "observaciones_raw": "LA web advertida se hace pasar de manera fraudulenta por la entidad autorizada PARETURN, con la que no guarda relación.",
+      "fecha_baja_raw": null
+    },
+    "buckets": [
+      "recent_100"
+    ],
+    "passes": {
+      "A": {
+        "domains": [
+          "www.parefturn.fund"
+        ],
+        "clone": true,
+        "target": "PARETURN",
+        "relation_status": "EXPLICIT_SOURCE",
+        "registry_number": null
+      },
+      "B": {
+        "domains": [
+          "www.parefturn.fund"
+        ],
+        "clone": true,
+        "target": null
+      }
+    },
+    "disputes": [
+      {
+        "field": "clone_target",
+        "A": "PARETURN",
+        "B": null
+      }
+    ],
+    "label_status": "DISPUTED",
+    "label": null
+  },
+  {
+    "notice_id": "3c0130705e5afbb9dfdcd82ffc048c199dad063136a24a4241113d6e43cccc54",
+    "raw": {
+      "tipo_raw": "NOAUTO",
+      "fecha_raw": "02/09/2026",
+      "entidad_raw": "MINEA GLOBAL FINANCE SA",
+      "entidad_secundaria_raw": null,
+      "observaciones_raw": null,
+      "fecha_baja_raw": null
+    },
+    "buckets": [
+      "recent_100"
+    ],
+    "passes": {
+      "A": {
+        "domains": [],
+        "clone": false,
+        "target": null,
+        "relation_status": null,
+        "registry_number": null
+      },
+      "B": {
+        "domains": [],
+        "clone": false,
+        "target": null
+      }
+    },
+    "disputes": [],
+    "label_status": "CONFIRMED",
+    "label": null
+  },
+  {
+    "notice_id": "39bba94d90bd06a75ba7c941d0a55319e401b49df1976330e8fc37464152d797",
+    "raw": {
+      "tipo_raw": "NOAUTO",
+      "fecha_raw": "02/09/2026",
+      "entidad_raw": "WWW.MOTIONASSET.IO (CLONE)",
+      "entidad_secundaria_raw": null,
+      "observaciones_raw": "La página web advertida se hace pasar de manera fraudulenta por la entidad autorizada  Finance in Motion Asset Management S.à r.l., con la que no guarda relación",
+      "fecha_baja_raw": null
+    },
+    "buckets": [
+      "recent_100"
+    ],
+    "passes": {
+      "A": {
+        "domains": [
+          "www.motionasset.io"
+        ],
+        "clone": true,
+        "target": "Finance in Motion Asset Management S.à r.l.",
+        "relation_status": "EXPLICIT_SOURCE",
+        "registry_number": null
+      },
+      "B": {
+        "domains": [
+          "www.motionasset.io"
+        ],
+        "clone": true,
+        "target": null
+      }
+    },
+    "disputes": [
+      {
+        "field": "clone_target",
+        "A": "Finance in Motion Asset Management S.à r.l.",
+        "B": null
+      }
+    ],
+    "label_status": "DISPUTED",
+    "label": null
+  },
+  {
+    "notice_id": "38cfa8291c0efe0a0cde044f8d9d817fae9a79d7c38615fd6ae6f011c871ce6e",
+    "raw": {
+      "tipo_raw": "NOAUTO",
+      "fecha_raw": "02/09/2026",
+      "entidad_raw": "WWW.QUASIR-INVESTMENTS.LU (CLONE)",
+      "entidad_secundaria_raw": null,
+      "observaciones_raw": "La web advertida se hace pasar de manera fraudulenta por la entidad autorizada Quasir Investments Limited, con la que no guarda relación alguna.",
+      "fecha_baja_raw": null
+    },
+    "buckets": [
+      "recent_100"
+    ],
+    "passes": {
+      "A": {
+        "domains": [
+          "www.quasir-investments.lu"
+        ],
+        "clone": true,
+        "target": "Quasir Investments Limited",
+        "relation_status": "EXPLICIT_SOURCE",
+        "registry_number": null
+      },
+      "B": {
+        "domains": [
+          "www.quasir-investments.lu"
+        ],
+        "clone": true,
+        "target": null
+      }
+    },
+    "disputes": [
+      {
+        "field": "clone_target",
+        "A": "Quasir Investments Limited",
+        "B": null
+      }
+    ],
+    "label_status": "DISPUTED",
+    "label": null
+  },
+  {
+    "notice_id": "37ae2e18bf9db2495c5bdf2b02f8227a4fe26cdd3115b2e75b04aab84808071d",
+    "raw": {
+      "tipo_raw": "NOAUTO",
+      "fecha_raw": "02/09/2026",
+      "entidad_raw": "WWW.GERMAN-LION-SA.EU (CLONE)",
+      "entidad_secundaria_raw": "WWW.GERMAN-LION-SA.COM (CLONE)",
+      "observaciones_raw": "Las páginas web advertidas se hacen pasar de manera fraudulenta por la entidad autorizada German Lion S.A., con la que no guardan relación.",
+      "fecha_baja_raw": null
+    },
+    "buckets": [
+      "recent_100"
+    ],
+    "passes": {
+      "A": {
+        "domains": [
+          "www.german-lion-sa.com",
+          "www.german-lion-sa.eu"
+        ],
+        "clone": true,
+        "target": "German Lion S.A.",
+        "relation_status": "EXPLICIT_SOURCE",
+        "registry_number": null
+      },
+      "B": {
+        "domains": [
+          "www.german-lion-sa.com",
+          "www.german-lion-sa.eu"
+        ],
+        "clone": true,
+        "target": null
+      }
+    },
+    "disputes": [
+      {
+        "field": "clone_target",
+        "A": "German Lion S.A.",
+        "B": null
+      }
+    ],
+    "label_status": "DISPUTED",
+    "label": null
+  },
+  {
+    "notice_id": "2114af41e456e983d0b324e9086c49ae25e7bae504a62f0bf17457ee07d76381",
+    "raw": {
+      "tipo_raw": "NOAUTO",
+      "fecha_raw": "02/09/2026",
+      "entidad_raw": "AISBIERG ENNERSTETZUNG BANK",
+      "entidad_secundaria_raw": null,
+      "observaciones_raw": null,
+      "fecha_baja_raw": null
+    },
+    "buckets": [
+      "recent_100"
+    ],
+    "passes": {
+      "A": {
+        "domains": [],
+        "clone": false,
+        "target": null,
+        "relation_status": null,
+        "registry_number": null
+      },
+      "B": {
+        "domains": [],
+        "clone": false,
+        "target": null
+      }
+    },
+    "disputes": [],
+    "label_status": "CONFIRMED",
+    "label": null
+  },
+  {
+    "notice_id": "1df7a6858e21395445221f19c7cc7a501d89ba2a48a8c102ffa40ab04a2d4353",
+    "raw": {
+      "tipo_raw": "NOAUTO",
+      "fecha_raw": "02/09/2026",
+      "entidad_raw": "QATARI",
+      "entidad_secundaria_raw": "WWW.QATARI.XYZ",
+      "observaciones_raw": null,
+      "fecha_baja_raw": null
+    },
+    "buckets": [
+      "recent_100"
+    ],
+    "passes": {
+      "A": {
+        "domains": [
+          "www.qatari.xyz"
+        ],
+        "clone": false,
+        "target": null,
+        "relation_status": null,
+        "registry_number": null
+      },
+      "B": {
+        "domains": [
+          "www.qatari.xyz"
+        ],
+        "clone": false,
+        "target": null
+      }
+    },
+    "disputes": [],
+    "label_status": "CONFIRMED",
+    "label": null
+  },
+  {
+    "notice_id": "1393ced89b7fa295103a54ed1a789369366142e9918dd7ec196e857f56a534d4",
+    "raw": {
+      "tipo_raw": "NOAUTO",
+      "fecha_raw": "02/09/2026",
+      "entidad_raw": "WWW.JFL-INVEST.COM (CLONE)",
+      "entidad_secundaria_raw": null,
+      "observaciones_raw": "LA web advertida, que utiliza correos electrónicos con la estructura xxx@jfl-invest.com se hace pasar de manera fraudulenta por la entidad autorizada JFL Invest S.A., con la que no guarda relación.",
+      "fecha_baja_raw": null
+    },
+    "buckets": [
+      "recent_100"
+    ],
+    "passes": {
+      "A": {
+        "domains": [
+          "www.jfl-invest.com"
+        ],
+        "clone": true,
+        "target": "JFL Invest S.A.",
+        "relation_status": "EXPLICIT_SOURCE",
+        "registry_number": null
+      },
+      "B": {
+        "domains": [
+          "www.jfl-invest.com"
+        ],
+        "clone": true,
+        "target": null
+      }
+    },
+    "disputes": [
+      {
+        "field": "clone_target",
+        "A": "JFL Invest S.A.",
+        "B": null
+      }
+    ],
+    "label_status": "DISPUTED",
+    "label": null
+  },
+  {
+    "notice_id": "ffe6815a036efe4d293bbd769cee4ac22724238a3d284059a7022c8dbd77260c",
+    "raw": {
+      "tipo_raw": "NOAUTO",
+      "fecha_raw": "31/08/2026",
+      "entidad_raw": "https://blueberrygrouptl.com/",
+      "entidad_secundaria_raw": "BLUEBERRY CAPITAL",
+      "observaciones_raw": null,
+      "fecha_baja_raw": null
+    },
+    "buckets": [
+      "recent_100"
+    ],
+    "passes": {
+      "A": {
+        "domains": [
+          "blueberrygrouptl.com"
+        ],
+        "clone": false,
+        "target": null,
+        "relation_status": null,
+        "registry_number": null
+      },
+      "B": {
+        "domains": [
+          "blueberrygrouptl.com"
+        ],
+        "clone": false,
+        "target": null
+      }
+    },
+    "disputes": [],
+    "label_status": "CONFIRMED",
+    "label": null
+  },
+  {
+    "notice_id": "bfd6423d1c84d6e043eaace9bb012f551bee9e7d860ebf7b237568328c57ce52",
+    "raw": {
+      "tipo_raw": "NOAUTO",
+      "fecha_raw": "31/08/2026",
+      "entidad_raw": "https://zentrix.cfd",
+      "entidad_secundaria_raw": "https://cfd.zentrix.cfd",
+      "observaciones_raw": null,
+      "fecha_baja_raw": null
+    },
+    "buckets": [
+      "recent_100"
+    ],
+    "passes": {
+      "A": {
+        "domains": [
+          "cfd.zentrix.cfd",
+          "zentrix.cfd"
+        ],
+        "clone": false,
+        "target": null,
+        "relation_status": null,
+        "registry_number": null
+      },
+      "B": {
+        "domains": [
+          "cfd.zentrix.cfd",
+          "zentrix.cfd"
+        ],
+        "clone": false,
+        "target": null
+      }
+    },
+    "disputes": [],
+    "label_status": "CONFIRMED",
+    "label": null
+  },
+  {
+    "notice_id": "bac12ac9dc24117a85ae4f58f4180edd4d4fa9a5b3c98e9ca3883372ee701d3f",
+    "raw": {
+      "tipo_raw": "NOAUTO",
+      "fecha_raw": "31/08/2026",
+      "entidad_raw": "HTTPS://WWW.SOLLVENTIS.COM/ (CLON)",
+      "entidad_secundaria_raw": "HTTPS://WWW.SOLLVENTIS.NET/ (CLON)",
+      "observaciones_raw": "No guarda relación con SOLVENTIS, SV, SA, (https://solventis.es/) debidamente registrada en España como Empresa de Servicios de Inversión (Sociedad de Valores) con el nº 244",
+      "fecha_baja_raw": null
+    },
+    "buckets": [
+      "recent_100"
+    ],
+    "passes": {
+      "A": {
+        "domains": [
+          "www.sollventis.com",
+          "www.sollventis.net"
+        ],
+        "clone": true,
+        "target": null,
+        "relation_status": "PARSED_EXPLICIT",
+        "registry_number": "244"
+      },
+      "B": {
+        "domains": [
+          "solventis.es",
+          "www.sollventis.com",
+          "www.sollventis.net"
+        ],
+        "clone": true,
+        "target": null
+      }
+    },
+    "disputes": [
+      {
+        "field": "domains",
+        "A": [
+          "www.sollventis.com",
+          "www.sollventis.net"
+        ],
+        "B": [
+          "solventis.es",
+          "www.sollventis.com",
+          "www.sollventis.net"
+        ]
+      }
+    ],
+    "label_status": "DISPUTED",
+    "label": null
+  },
+  {
+    "notice_id": "af3e3b9f1395f3714c06ee0bcb7950257a2c73133045bcafee1ca08da8125330",
+    "raw": {
+      "tipo_raw": "NOAUTO",
+      "fecha_raw": "31/08/2026",
+      "entidad_raw": "https://olympus-capitallimited.com (CLON)",
+      "entidad_secundaria_raw": "OLYMPUSCAPITAL (CLON)",
+      "observaciones_raw": "No guarda relación con OLYMPUS EQUITY EUROPE, FI, debidamente registrado en España como Fondo de Inversión armonizado, con el nº 5.795.",
+      "fecha_baja_raw": null
+    },
+    "buckets": [
+      "recent_100"
+    ],
+    "passes": {
+      "A": {
+        "domains": [
+          "olympus-capitallimited.com"
+        ],
+        "clone": true,
+        "target": null,
+        "relation_status": "UNRESOLVED",
+        "registry_number": null
+      },
+      "B": {
+        "domains": [
+          "olympus-capitallimited.com"
+        ],
+        "clone": true,
+        "target": null
+      }
+    },
+    "disputes": [],
+    "label_status": "CONFIRMED",
+    "label": null
+  },
+  {
+    "notice_id": "a3b8fc7cd46174114b1cc708644ea071af1fbacbd664a4233638bda6049016c2",
+    "raw": {
+      "tipo_raw": "NOAUTO",
+      "fecha_raw": "31/08/2026",
+      "entidad_raw": "https://olympus-capitallimited.com (CLON)",
+      "entidad_secundaria_raw": "OLYMPUS CAPITAL LIMITED (CLON)",
+      "observaciones_raw": "No guarda relación con OLYMPUS EQUITY EUROPE, FI, debidamente registrado en España como Fondo de Inversión armonizado, con el nº 5.795.",
+      "fecha_baja_raw": null
+    },
+    "buckets": [
+      "recent_100"
+    ],
+    "passes": {
+      "A": {
+        "domains": [
+          "olympus-capitallimited.com"
+        ],
+        "clone": true,
+        "target": null,
+        "relation_status": "UNRESOLVED",
+        "registry_number": null
+      },
+      "B": {
+        "domains": [
+          "olympus-capitallimited.com"
+        ],
+        "clone": true,
+        "target": null
+      }
+    },
+    "disputes": [],
+    "label_status": "CONFIRMED",
+    "label": null
+  },
+  {
+    "notice_id": "9e7fdcb3fd1ef6a4386fe2d9dd1e0ec78264bc2759df6b4f59297e8f20801bab",
+    "raw": {
+      "tipo_raw": "NOAUTO",
+      "fecha_raw": "31/08/2026",
+      "entidad_raw": "WWW.GARLENIX.COM",
+      "entidad_secundaria_raw": "GARLENIX",
+      "observaciones_raw": "DENOMINACIÓN COMERCIAL QUE OPERA A TRAVÉS DE DIVERSAS PÁGINAS WEB",
+      "fecha_baja_raw": null
+    },
+    "buckets": [
+      "recent_100"
+    ],
+    "passes": {
+      "A": {
+        "domains": [
+          "www.garlenix.com"
+        ],
+        "clone": false,
+        "target": null,
+        "relation_status": null,
+        "registry_number": null
+      },
+      "B": {
+        "domains": [
+          "www.garlenix.com"
+        ],
+        "clone": false,
+        "target": null
+      }
+    },
+    "disputes": [],
+    "label_status": "CONFIRMED",
+    "label": null
+  },
+  {
+    "notice_id": "80d9e76c13a199bf0c612ad9cbf2512cc40449680b1038e9c78930e155834515",
+    "raw": {
+      "tipo_raw": "NOAUTO",
+      "fecha_raw": "31/08/2026",
+      "entidad_raw": "https://zentrix.cfd",
+      "entidad_secundaria_raw": "ZENTRIX",
+      "observaciones_raw": null,
+      "fecha_baja_raw": null
+    },
+    "buckets": [
+      "recent_100"
+    ],
+    "passes": {
+      "A": {
+        "domains": [
+          "zentrix.cfd"
+        ],
+        "clone": false,
+        "target": null,
+        "relation_status": null,
+        "registry_number": null
+      },
+      "B": {
+        "domains": [
+          "zentrix.cfd"
+        ],
+        "clone": false,
+        "target": null
+      }
+    },
+    "disputes": [],
+    "label_status": "CONFIRMED",
+    "label": null
+  },
+  {
+    "notice_id": "682a85dce34b2d5eeda39cb5dbd9aea31deb630f96fe5eb68e9d8794493c83c5",
+    "raw": {
+      "tipo_raw": "NOAUTO",
+      "fecha_raw": "31/08/2026",
+      "entidad_raw": "MY.NEXT-CAP.PRO (CLON)",
+      "entidad_secundaria_raw": null,
+      "observaciones_raw": "No guarda relación con AXON WEALTH ADVISORY DIGITAL, A.V., S.A.U. (https://finizens.com), debidamente registrada en España como empresa de Servicios de Inversión con el nº 267.",
+      "fecha_baja_raw": null
+    },
+    "buckets": [
+      "recent_100"
+    ],
+    "passes": {
+      "A": {
+        "domains": [
+          "finizens.com",
+          "my.next-cap.pro"
+        ],
+        "clone": true,
+        "target": null,
+        "relation_status": "PARSED_EXPLICIT",
+        "registry_number": "267"
+      },
+      "B": {
+        "domains": [
+          "finizens.com",
+          "my.next-cap.pro"
+        ],
+        "clone": true,
+        "target": null
+      }
+    },
+    "disputes": [],
+    "label_status": "CONFIRMED",
+    "label": null
+  },
+  {
+    "notice_id": "5bdfce7b4d7df84a1374c17d2c0e82d1bcede2bfbb276cbdc9dae05ef4335dc2",
+    "raw": {
+      "tipo_raw": "NOAUTO",
+      "fecha_raw": "31/08/2026",
+      "entidad_raw": "HTTPS://WWW.SOLLVENTIS.COM/ (CLON)",
+      "entidad_secundaria_raw": "SOLLVENTIS (CLON)",
+      "observaciones_raw": "No guarda relación con SOLVENTIS, SV, SA, (https://solventis.es/) debidamente registrada en España como Empresa de Servicios de Inversión (Sociedad de Valores) con el nº 244",
+      "fecha_baja_raw": null
+    },
+    "buckets": [
+      "recent_100"
+    ],
+    "passes": {
+      "A": {
+        "domains": [
+          "www.sollventis.com"
+        ],
+        "clone": true,
+        "target": null,
+        "relation_status": "PARSED_EXPLICIT",
+        "registry_number": "244"
+      },
+      "B": {
+        "domains": [
+          "solventis.es",
+          "www.sollventis.com"
+        ],
+        "clone": true,
+        "target": null
+      }
+    },
+    "disputes": [
+      {
+        "field": "domains",
+        "A": [
+          "www.sollventis.com"
+        ],
+        "B": [
+          "solventis.es",
+          "www.sollventis.com"
+        ]
+      }
+    ],
+    "label_status": "DISPUTED",
+    "label": null
+  },
+  {
+    "notice_id": "42f5a23649775f80755db4e940c683e31a03c459773260f7776f35aaccc90bf0",
+    "raw": {
+      "tipo_raw": "NOAUTO",
+      "fecha_raw": "31/08/2026",
+      "entidad_raw": "https://zentrix.cfd",
+      "entidad_secundaria_raw": "ZENTRIX INC",
+      "observaciones_raw": null,
+      "fecha_baja_raw": null
+    },
+    "buckets": [
+      "recent_100"
+    ],
+    "passes": {
+      "A": {
+        "domains": [
+          "zentrix.cfd"
+        ],
+        "clone": false,
+        "target": null,
+        "relation_status": null,
+        "registry_number": null
+      },
+      "B": {
+        "domains": [
+          "zentrix.cfd"
+        ],
+        "clone": false,
+        "target": null
+      }
+    },
+    "disputes": [],
+    "label_status": "CONFIRMED",
+    "label": null
+  },
+  {
+    "notice_id": "409a251aaaa7a9f9d5e2282db78b6b1561976a0151978e395b16478bbc2cd7eb",
+    "raw": {
+      "tipo_raw": "NOAUTO",
+      "fecha_raw": "31/08/2026",
+      "entidad_raw": "my.aipltfrm.com",
+      "entidad_secundaria_raw": null,
+      "observaciones_raw": null,
+      "fecha_baja_raw": null
+    },
+    "buckets": [
+      "recent_100"
+    ],
+    "passes": {
+      "A": {
+        "domains": [
+          "my.aipltfrm.com"
+        ],
+        "clone": false,
+        "target": null,
+        "relation_status": null,
+        "registry_number": null
+      },
+      "B": {
+        "domains": [
+          "my.aipltfrm.com"
+        ],
+        "clone": false,
+        "target": null
+      }
+    },
+    "disputes": [],
+    "label_status": "CONFIRMED",
+    "label": null
+  },
+  {
+    "notice_id": "39d0397deba1cc690a86453d6a7fcfcf4b9efddcf4d1831f94e582b7f7ee20f8",
+    "raw": {
+      "tipo_raw": "NOAUTO",
+      "fecha_raw": "31/08/2026",
+      "entidad_raw": "https://term.lifefinancialtime.me",
+      "entidad_secundaria_raw": "LIFE FINANCIAL TIME",
+      "observaciones_raw": null,
+      "fecha_baja_raw": null
+    },
+    "buckets": [
+      "recent_100"
+    ],
+    "passes": {
+      "A": {
+        "domains": [
+          "term.lifefinancialtime.me"
+        ],
+        "clone": false,
+        "target": null,
+        "relation_status": null,
+        "registry_number": null
+      },
+      "B": {
+        "domains": [
+          "term.lifefinancialtime.me"
+        ],
+        "clone": false,
+        "target": null
+      }
+    },
+    "disputes": [],
+    "label_status": "CONFIRMED",
+    "label": null
+  },
+  {
+    "notice_id": "35b2197eb44946a7b0a5108c0b769a68a7a3b3954d1fa04d5200670e5d1e8cbd",
+    "raw": {
+      "tipo_raw": "NOAUTO",
+      "fecha_raw": "31/08/2026",
+      "entidad_raw": "HTTPS://WWW.SOLLVENTIS.COM/ (CLON)",
+      "entidad_secundaria_raw": "HTTPS://WEBTRADER.RIGGILY-UNFROZIS.COM/ (CLON)",
+      "observaciones_raw": "No guarda relación con SOLVENTIS, SV, SA, (https://solventis.es/) debidamente registrada en España como Empresa de Servicios de Inversión (Sociedad de Valores) con el nº 244",
+      "fecha_baja_raw": null
+    },
+    "buckets": [
+      "recent_100"
+    ],
+    "passes": {
+      "A": {
+        "domains": [
+          "webtrader.riggily-unfrozis.com",
+          "www.sollventis.com"
+        ],
+        "clone": true,
+        "target": null,
+        "relation_status": "PARSED_EXPLICIT",
+        "registry_number": "244"
+      },
+      "B": {
+        "domains": [
+          "solventis.es",
+          "webtrader.riggily-unfrozis.com",
+          "www.sollventis.com"
+        ],
+        "clone": true,
+        "target": null
+      }
+    },
+    "disputes": [
+      {
+        "field": "domains",
+        "A": [
+          "webtrader.riggily-unfrozis.com",
+          "www.sollventis.com"
+        ],
+        "B": [
+          "solventis.es",
+          "webtrader.riggily-unfrozis.com",
+          "www.sollventis.com"
+        ]
+      }
+    ],
+    "label_status": "DISPUTED",
+    "label": null
+  },
+  {
+    "notice_id": "339e4ea0f64805c0f4a7ff2d2fa1f6f7423c1bd7a7d7e488d30f7b3dc3929cc7",
+    "raw": {
+      "tipo_raw": "NOAUTO",
+      "fecha_raw": "31/08/2026",
+      "entidad_raw": "https://gpbfinancialservices.eu/ (CLON)",
+      "entidad_secundaria_raw": null,
+      "observaciones_raw": "No guarda relación con la entidad GPB FINANCIAL SERVICES LTD, debidamente autorizada y registrada con el nº 3.031 como empresa de servicios de inversión del Espacio Económico Europeo en libre prestación de servicios.",
+      "fecha_baja_raw": null
+    },
+    "buckets": [
+      "recent_100"
+    ],
+    "passes": {
+      "A": {
+        "domains": [
+          "gpbfinancialservices.eu"
+        ],
+        "clone": true,
+        "target": null,
+        "relation_status": "UNRESOLVED",
+        "registry_number": null
+      },
+      "B": {
+        "domains": [
+          "gpbfinancialservices.eu"
+        ],
+        "clone": true,
+        "target": null
+      }
+    },
+    "disputes": [],
+    "label_status": "CONFIRMED",
+    "label": null
+  },
+  {
+    "notice_id": "2dbb19d20362115df459e26a57c3e0feb8c60d72d8b9954366201f6bd1959a77",
+    "raw": {
+      "tipo_raw": "NOAUTO",
+      "fecha_raw": "31/08/2026",
+      "entidad_raw": "HTTPS://TIBIPRO.COM",
+      "entidad_secundaria_raw": "TIBIPRO",
+      "observaciones_raw": null,
+      "fecha_baja_raw": null
+    },
+    "buckets": [
+      "recent_100"
+    ],
+    "passes": {
+      "A": {
+        "domains": [
+          "tibipro.com"
+        ],
+        "clone": false,
+        "target": null,
+        "relation_status": null,
+        "registry_number": null
+      },
+      "B": {
+        "domains": [
+          "tibipro.com"
+        ],
+        "clone": false,
+        "target": null
+      }
+    },
+    "disputes": [],
+    "label_status": "CONFIRMED",
+    "label": null
+  },
+  {
+    "notice_id": "22d4bdbfdf0fdbc073fc8373f2ba5ca4a3a4c4ca70f98aceea46df2cbb0c6f50",
+    "raw": {
+      "tipo_raw": "NOAUTO",
+      "fecha_raw": "31/08/2026",
+      "entidad_raw": "www.ibrokergm.com (CLON)",
+      "entidad_secundaria_raw": "IBROKERGM (CLON)",
+      "observaciones_raw": "No guarda relación con IBROKER GLOBAL MARKETS, S.V., S.A (https://www.ibroker.es), debidamente registrada en España como empresa de servicios de inversión con el nº 260. ",
+      "fecha_baja_raw": null
+    },
+    "buckets": [
+      "recent_100",
+      "clones_25"
+    ],
+    "passes": {
+      "A": {
+        "domains": [
+          "www.ibrokergm.com"
+        ],
+        "clone": true,
+        "target": null,
+        "relation_status": "PARSED_EXPLICIT",
+        "registry_number": "260"
+      },
+      "B": {
+        "domains": [
+          "www.ibroker.es",
+          "www.ibrokergm.com"
+        ],
+        "clone": true,
+        "target": null
+      }
+    },
+    "disputes": [
+      {
+        "field": "domains",
+        "A": [
+          "www.ibrokergm.com"
+        ],
+        "B": [
+          "www.ibroker.es",
+          "www.ibrokergm.com"
+        ]
+      }
+    ],
+    "label_status": "DISPUTED",
+    "label": null
+  },
+  {
+    "notice_id": "220c7fd2c1a460fe53631abcc9520a61c5bdfb7bbfa43a5d31b020e2d7dc4e41",
+    "raw": {
+      "tipo_raw": "NOAUTO",
+      "fecha_raw": "31/08/2026",
+      "entidad_raw": "https://web.asviaventure.com/ (CLON)",
+      "entidad_secundaria_raw": "https://aseviia-venture.com/",
+      "observaciones_raw": "No guarda relación con ASEVIA TECHNOLOGY VENTURES, FCRE, SA debidamente registrada en España como Fondo de Capital Riesgo Europeo con el número 255.",
+      "fecha_baja_raw": null
+    },
+    "buckets": [
+      "recent_100"
+    ],
+    "passes": {
+      "A": {
+        "domains": [
+          "aseviia-venture.com",
+          "web.asviaventure.com"
+        ],
+        "clone": true,
+        "target": null,
+        "relation_status": "PARSED_EXPLICIT",
+        "registry_number": "255"
+      },
+      "B": {
+        "domains": [
+          "aseviia-venture.com",
+          "web.asviaventure.com"
+        ],
+        "clone": true,
+        "target": null
+      }
+    },
+    "disputes": [],
+    "label_status": "CONFIRMED",
+    "label": null
+  },
+  {
+    "notice_id": "1355d297523b6a647c23c4f27a853cf93dfe7f8f73f7dc0688ee7ff6e8fc7281",
+    "raw": {
+      "tipo_raw": "NOAUTO",
+      "fecha_raw": "31/08/2026",
+      "entidad_raw": "https://web.asviaventure.com/ (CLON)",
+      "entidad_secundaria_raw": "ASEVIAVENTURE (CLON)",
+      "observaciones_raw": "No guarda relación con ASEVIA TECHNOLOGY VENTURES, FCRE, SA debidamente registrada en España como Fondo de Capital Riesgo Europeo con el número 255.",
+      "fecha_baja_raw": null
+    },
+    "buckets": [
+      "recent_100"
+    ],
+    "passes": {
+      "A": {
+        "domains": [
+          "web.asviaventure.com"
+        ],
+        "clone": true,
+        "target": null,
+        "relation_status": "PARSED_EXPLICIT",
+        "registry_number": "255"
+      },
+      "B": {
+        "domains": [
+          "web.asviaventure.com"
+        ],
+        "clone": true,
+        "target": null
+      }
+    },
+    "disputes": [],
+    "label_status": "CONFIRMED",
+    "label": null
+  },
+  {
+    "notice_id": "62fe55125efe3172ea4d7ca5a6a161275d6b9fc0b458b42c38bd69dbf14e0141",
+    "raw": {
+      "tipo_raw": "NOAUTO",
+      "fecha_raw": "26/08/2026",
+      "entidad_raw": "GTI APP",
+      "entidad_secundaria_raw": null,
+      "observaciones_raw": "La FSMA advierte sobre grupos fraudulentos de WhatsApp promocionados mediante anuncios en redes sociales que suplantan la identidad de entidades legítimas, en este caso Bolero (KBC Bank NV) y GuardCap Asset Management Limited. Estos grupos ofrecen supuestos planes de inversión de alta rentabilidad y promocionan la falsa aplicación GTI, cuyo acceso requiere un pago previo. Bolero y GuardCap no guardan ninguna relación con dichos grupos ni con la aplicación",
+      "fecha_baja_raw": null
+    },
+    "buckets": [
+      "recent_100"
+    ],
+    "passes": {
+      "A": {
+        "domains": [],
+        "clone": true,
+        "target": "identidad de entidades legítimas, en este caso Bolero (KBC Bank NV) y GuardCap Asset Management Limited",
+        "relation_status": "EXPLICIT_SOURCE",
+        "registry_number": null
+      },
+      "B": {
+        "domains": [],
+        "clone": true,
+        "target": "identidad de entidades legítimas, en este caso Bolero (KBC Bank NV) y GuardCap Asset Management Limited"
+      }
+    },
+    "disputes": [],
+    "label_status": "CONFIRMED",
+    "label": null
+  },
+  {
+    "notice_id": "4cf3812412bf35a0635fc63bc7f1d054ce04cddc8d51c66ca5953642c365d71f",
+    "raw": {
+      "tipo_raw": "NOAUTO",
+      "fecha_raw": "26/08/2026",
+      "entidad_raw": "AIVORIS",
+      "entidad_secundaria_raw": "HTTPS://AIVORIS.NET/EN",
+      "observaciones_raw": null,
+      "fecha_baja_raw": null
+    },
+    "buckets": [
+      "recent_100"
+    ],
+    "passes": {
+      "A": {
+        "domains": [
+          "aivoris.net"
+        ],
+        "clone": false,
+        "target": null,
+        "relation_status": null,
+        "registry_number": null
+      },
+      "B": {
+        "domains": [
+          "aivoris.net"
+        ],
+        "clone": false,
+        "target": null
+      }
+    },
+    "disputes": [],
+    "label_status": "CONFIRMED",
+    "label": null
+  },
+  {
+    "notice_id": "28ac477e1e1bb577ca16c389a9354cbd51fdc003f8a88fc8991a29b149238b01",
+    "raw": {
+      "tipo_raw": "NOAUTO",
+      "fecha_raw": "26/08/2026",
+      "entidad_raw": "QNBFINANCIALGROUP",
+      "entidad_secundaria_raw": "HTTPS://WWW.QNBFINANCIALGROUP.COM",
+      "observaciones_raw": null,
+      "fecha_baja_raw": null
+    },
+    "buckets": [
+      "recent_100"
+    ],
+    "passes": {
+      "A": {
+        "domains": [
+          "www.qnbfinancialgroup.com"
+        ],
+        "clone": false,
+        "target": null,
+        "relation_status": null,
+        "registry_number": null
+      },
+      "B": {
+        "domains": [
+          "www.qnbfinancialgroup.com"
+        ],
+        "clone": false,
+        "target": null
+      }
+    },
+    "disputes": [],
+    "label_status": "CONFIRMED",
+    "label": null
+  },
+  {
+    "notice_id": "20ab30e572adc28b2a18325413a5e6d439533e54cc20d8a18ac5c13183bd5781",
+    "raw": {
+      "tipo_raw": "NOAUTO",
+      "fecha_raw": "26/08/2026",
+      "entidad_raw": "CORPHOLDING INC.",
+      "entidad_secundaria_raw": "HTTPS://CORPHOLDING.COM/",
+      "observaciones_raw": null,
+      "fecha_baja_raw": null
+    },
+    "buckets": [
+      "recent_100"
+    ],
+    "passes": {
+      "A": {
+        "domains": [
+          "corpholding.com"
+        ],
+        "clone": false,
+        "target": null,
+        "relation_status": null,
+        "registry_number": null
+      },
+      "B": {
+        "domains": [
+          "corpholding.com"
+        ],
+        "clone": false,
+        "target": null
+      }
+    },
+    "disputes": [],
+    "label_status": "CONFIRMED",
+    "label": null
+  },
+  {
+    "notice_id": "18a9d5bd4a13c32f9db321a617983afd87400bfdf8b553120193efc86a8afdca",
+    "raw": {
+      "tipo_raw": "NOAUTO",
+      "fecha_raw": "26/08/2026",
+      "entidad_raw": "EASY NORR",
+      "entidad_secundaria_raw": "HTTPS://EASYNORR.COM/INDEX.HTML",
+      "observaciones_raw": null,
+      "fecha_baja_raw": null
+    },
+    "buckets": [
+      "recent_100"
+    ],
+    "passes": {
+      "A": {
+        "domains": [
+          "easynorr.com"
+        ],
+        "clone": false,
+        "target": null,
+        "relation_status": null,
+        "registry_number": null
+      },
+      "B": {
+        "domains": [
+          "easynorr.com"
+        ],
+        "clone": false,
+        "target": null
+      }
+    },
+    "disputes": [],
+    "label_status": "CONFIRMED",
+    "label": null
+  },
+  {
+    "notice_id": "14f502302fd7f78c43b25d442a79114e9d5fe78a4f3e0f53df3b5a789431821e",
+    "raw": {
+      "tipo_raw": "NOAUTO",
+      "fecha_raw": "26/08/2026",
+      "entidad_raw": "NORDPEAK",
+      "entidad_secundaria_raw": "HTTPS://NORDPEAKINVEST.COM",
+      "observaciones_raw": null,
+      "fecha_baja_raw": null
+    },
+    "buckets": [
+      "recent_100"
+    ],
+    "passes": {
+      "A": {
+        "domains": [
+          "nordpeakinvest.com"
+        ],
+        "clone": false,
+        "target": null,
+        "relation_status": null,
+        "registry_number": null
+      },
+      "B": {
+        "domains": [
+          "nordpeakinvest.com"
+        ],
+        "clone": false,
+        "target": null
+      }
+    },
+    "disputes": [],
+    "label_status": "CONFIRMED",
+    "label": null
+  },
+  {
+    "notice_id": "ff0d9550d031bbbfbdc02a25bbed05685ae75827639dc6a27c278f4cee7a8af7",
+    "raw": {
+      "tipo_raw": "NOAUTO",
+      "fecha_raw": "19/08/2026",
+      "entidad_raw": "WERTOVIA",
+      "entidad_secundaria_raw": "WWW.WERTOVIA.COM",
+      "observaciones_raw": null,
+      "fecha_baja_raw": null
+    },
+    "buckets": [
+      "recent_100"
+    ],
+    "passes": {
+      "A": {
+        "domains": [
+          "www.wertovia.com"
+        ],
+        "clone": false,
+        "target": null,
+        "relation_status": null,
+        "registry_number": null
+      },
+      "B": {
+        "domains": [
+          "www.wertovia.com"
+        ],
+        "clone": false,
+        "target": null
+      }
+    },
+    "disputes": [],
+    "label_status": "CONFIRMED",
+    "label": null
+  },
+  {
+    "notice_id": "fcd7773fe9cbec248adb48f240c61385f16d72fd2a168b9f4342561b15e1300a",
+    "raw": {
+      "tipo_raw": "NOAUTO",
+      "fecha_raw": "19/08/2026",
+      "entidad_raw": "LAGO KAPITAL GLOBAL",
+      "entidad_secundaria_raw": "HTTPS://LAGO-TRADING.COM",
+      "observaciones_raw": null,
+      "fecha_baja_raw": null
+    },
+    "buckets": [
+      "recent_100"
+    ],
+    "passes": {
+      "A": {
+        "domains": [
+          "lago-trading.com"
+        ],
+        "clone": false,
+        "target": null,
+        "relation_status": null,
+        "registry_number": null
+      },
+      "B": {
+        "domains": [
+          "lago-trading.com"
+        ],
+        "clone": false,
+        "target": null
+      }
+    },
+    "disputes": [],
+    "label_status": "CONFIRMED",
+    "label": null
+  },
+  {
+    "notice_id": "f3cf8f4ebc9c23968024cbcb05b21ab0e55356692e3c69914038d3542e6da964",
+    "raw": {
+      "tipo_raw": "NOAUTO",
+      "fecha_raw": "19/08/2026",
+      "entidad_raw": "BITKELTTRADE",
+      "entidad_secundaria_raw": "BITKELTTRADE.COM",
+      "observaciones_raw": null,
+      "fecha_baja_raw": null
+    },
+    "buckets": [
+      "recent_100"
+    ],
+    "passes": {
+      "A": {
+        "domains": [
+          "bitkelttrade.com"
+        ],
+        "clone": false,
+        "target": null,
+        "relation_status": null,
+        "registry_number": null
+      },
+      "B": {
+        "domains": [
+          "bitkelttrade.com"
+        ],
+        "clone": false,
+        "target": null
+      }
+    },
+    "disputes": [],
+    "label_status": "CONFIRMED",
+    "label": null
+  },
+  {
+    "notice_id": "e7e75b4404c19b04973b8a40720838c410caff80689718e052623e8de5996c26",
+    "raw": {
+      "tipo_raw": "NOAUTO",
+      "fecha_raw": "19/08/2026",
+      "entidad_raw": "LAGO KAPITAL GLOBAL",
+      "entidad_secundaria_raw": "HTTPS://LAGO-INVEST.COM",
+      "observaciones_raw": null,
+      "fecha_baja_raw": null
+    },
+    "buckets": [
+      "recent_100"
+    ],
+    "passes": {
+      "A": {
+        "domains": [
+          "lago-invest.com"
+        ],
+        "clone": false,
+        "target": null,
+        "relation_status": null,
+        "registry_number": null
+      },
+      "B": {
+        "domains": [
+          "lago-invest.com"
+        ],
+        "clone": false,
+        "target": null
+      }
+    },
+    "disputes": [],
+    "label_status": "CONFIRMED",
+    "label": null
+  },
+  {
+    "notice_id": "d64d9256d801ef0428a9ddc1a3d232b3a4cbf051d0795e39d2dfe4661a157e64",
+    "raw": {
+      "tipo_raw": "NOAUTO",
+      "fecha_raw": "19/08/2026",
+      "entidad_raw": "TALVURIEKS",
+      "entidad_secundaria_raw": "HTTPS://TALVURIEKS.AT",
+      "observaciones_raw": null,
+      "fecha_baja_raw": null
+    },
+    "buckets": [
+      "recent_100"
+    ],
+    "passes": {
+      "A": {
+        "domains": [
+          "talvurieks.at"
+        ],
+        "clone": false,
+        "target": null,
+        "relation_status": null,
+        "registry_number": null
+      },
+      "B": {
+        "domains": [
+          "talvurieks.at"
+        ],
+        "clone": false,
+        "target": null
+      }
+    },
+    "disputes": [],
+    "label_status": "CONFIRMED",
+    "label": null
+  },
+  {
+    "notice_id": "d218045cf6068e28850093857936ad2cab5972beda79536e19f96aedf4118776",
+    "raw": {
+      "tipo_raw": "NOAUTO",
+      "fecha_raw": "19/08/2026",
+      "entidad_raw": "BITKELTTRADE",
+      "entidad_secundaria_raw": "MIZINLOLOM.CYOU",
+      "observaciones_raw": null,
+      "fecha_baja_raw": null
+    },
+    "buckets": [
+      "recent_100"
+    ],
+    "passes": {
+      "A": {
+        "domains": [
+          "mizinlolom.cyou"
+        ],
+        "clone": false,
+        "target": null,
+        "relation_status": null,
+        "registry_number": null
+      },
+      "B": {
+        "domains": [
+          "mizinlolom.cyou"
+        ],
+        "clone": false,
+        "target": null
+      }
+    },
+    "disputes": [],
+    "label_status": "CONFIRMED",
+    "label": null
+  },
+  {
+    "notice_id": "c6ca8b318b931b215248b66b38d01eaa70950ae380ffdd9f9bde1d35856c13e3",
+    "raw": {
+      "tipo_raw": "NOAUTO",
+      "fecha_raw": "19/08/2026",
+      "entidad_raw": "ZUKUNFT TREUHAND",
+      "entidad_secundaria_raw": "WWW.ZUKUNFTTREUHAND.COM",
+      "observaciones_raw": null,
+      "fecha_baja_raw": null
+    },
+    "buckets": [
+      "recent_100"
+    ],
+    "passes": {
+      "A": {
+        "domains": [
+          "www.zukunfttreuhand.com"
+        ],
+        "clone": false,
+        "target": null,
+        "relation_status": null,
+        "registry_number": null
+      },
+      "B": {
+        "domains": [
+          "www.zukunfttreuhand.com"
+        ],
+        "clone": false,
+        "target": null
+      }
+    },
+    "disputes": [],
+    "label_status": "CONFIRMED",
+    "label": null
+  },
+  {
+    "notice_id": "c36bddec290c8c0f39a18f76ecd20996ea22a6f1e73937c28748d5fdd0b71f6a",
+    "raw": {
+      "tipo_raw": "NOAUTO",
+      "fecha_raw": "19/08/2026",
+      "entidad_raw": "BITKELTTRADE",
+      "entidad_secundaria_raw": "MOFNVEXA.CYOU",
+      "observaciones_raw": null,
+      "fecha_baja_raw": null
+    },
+    "buckets": [
+      "recent_100"
+    ],
+    "passes": {
+      "A": {
+        "domains": [
+          "mofnvexa.cyou"
+        ],
+        "clone": false,
+        "target": null,
+        "relation_status": null,
+        "registry_number": null
+      },
+      "B": {
+        "domains": [
+          "mofnvexa.cyou"
+        ],
+        "clone": false,
+        "target": null
+      }
+    },
+    "disputes": [],
+    "label_status": "CONFIRMED",
+    "label": null
+  },
+  {
+    "notice_id": "b55d77b8234c806cec456424ecd3d966e8b888291fa1a2d3b3e294c27d698a9e",
+    "raw": {
+      "tipo_raw": "NOAUTO",
+      "fecha_raw": "19/08/2026",
+      "entidad_raw": "LAGO KAPITAL GLOBAL",
+      "entidad_secundaria_raw": "HTTPS://LCMINVESTING.COM",
+      "observaciones_raw": null,
+      "fecha_baja_raw": null
+    },
+    "buckets": [
+      "recent_100"
+    ],
+    "passes": {
+      "A": {
+        "domains": [
+          "lcminvesting.com"
+        ],
+        "clone": false,
+        "target": null,
+        "relation_status": null,
+        "registry_number": null
+      },
+      "B": {
+        "domains": [
+          "lcminvesting.com"
+        ],
+        "clone": false,
+        "target": null
+      }
+    },
+    "disputes": [],
+    "label_status": "CONFIRMED",
+    "label": null
+  },
+  {
+    "notice_id": "b130371f84facde666c0805125f09e8ce17b32b0fb802043b4bc527fa5084f14",
+    "raw": {
+      "tipo_raw": "NOAUTO",
+      "fecha_raw": "19/08/2026",
+      "entidad_raw": "BITKELTTRADE",
+      "entidad_secundaria_raw": "RADOLOVBELOGOR.CLICK",
+      "observaciones_raw": null,
+      "fecha_baja_raw": null
+    },
+    "buckets": [
+      "recent_100"
+    ],
+    "passes": {
+      "A": {
+        "domains": [
+          "radolovbelogor.click"
+        ],
+        "clone": false,
+        "target": null,
+        "relation_status": null,
+        "registry_number": null
+      },
+      "B": {
+        "domains": [
+          "radolovbelogor.click"
+        ],
+        "clone": false,
+        "target": null
+      }
+    },
+    "disputes": [],
+    "label_status": "CONFIRMED",
+    "label": null
+  },
+  {
+    "notice_id": "9fd0ba8aa1c79bf2f4d4da92a8f4284d8fdf0ecc51084407192d29a20614c694",
+    "raw": {
+      "tipo_raw": "NOAUTO",
+      "fecha_raw": "19/08/2026",
+      "entidad_raw": "HEXTRYX STORM",
+      "entidad_secundaria_raw": "HTTPS://HEXTRYXSTORM.DIGITAL",
+      "observaciones_raw": null,
+      "fecha_baja_raw": null
+    },
+    "buckets": [
+      "recent_100"
+    ],
+    "passes": {
+      "A": {
+        "domains": [
+          "hextryxstorm.digital"
+        ],
+        "clone": false,
+        "target": null,
+        "relation_status": null,
+        "registry_number": null
+      },
+      "B": {
+        "domains": [
+          "hextryxstorm.digital"
+        ],
+        "clone": false,
+        "target": null
+      }
+    },
+    "disputes": [],
+    "label_status": "CONFIRMED",
+    "label": null
+  },
+  {
+    "notice_id": "90878f41829ee5fffd8f4a8ab6a845601b30c24af16ff9b5a30ece0dd52b8514",
+    "raw": {
+      "tipo_raw": "NOAUTO",
+      "fecha_raw": "19/08/2026",
+      "entidad_raw": "FUNDORA",
+      "entidad_secundaria_raw": "HTTPS://FUNDORA.AT/",
+      "observaciones_raw": null,
+      "fecha_baja_raw": null
+    },
+    "buckets": [
+      "recent_100"
+    ],
+    "passes": {
+      "A": {
+        "domains": [
+          "fundora.at"
+        ],
+        "clone": false,
+        "target": null,
+        "relation_status": null,
+        "registry_number": null
+      },
+      "B": {
+        "domains": [
+          "fundora.at"
+        ],
+        "clone": false,
+        "target": null
+      }
+    },
+    "disputes": [],
+    "label_status": "CONFIRMED",
+    "label": null
+  },
+  {
+    "notice_id": "8714be9ad1c4e4efe6ef9e895b179e92e7381fd4aa10a0d434fd621124f1445d",
+    "raw": {
+      "tipo_raw": "NOAUTO",
+      "fecha_raw": "19/08/2026",
+      "entidad_raw": "ALPIVESTA",
+      "entidad_secundaria_raw": "WWW.ALPIVESTA.NET",
+      "observaciones_raw": null,
+      "fecha_baja_raw": null
+    },
+    "buckets": [
+      "recent_100"
+    ],
+    "passes": {
+      "A": {
+        "domains": [
+          "www.alpivesta.net"
+        ],
+        "clone": false,
+        "target": null,
+        "relation_status": null,
+        "registry_number": null
+      },
+      "B": {
+        "domains": [
+          "www.alpivesta.net"
+        ],
+        "clone": false,
+        "target": null
+      }
+    },
+    "disputes": [],
+    "label_status": "CONFIRMED",
+    "label": null
+  },
+  {
+    "notice_id": "5ee17217fbc8bc36de616cd05dfd482baba53ac5df7370b1fae0d4760fed3b5e",
+    "raw": {
+      "tipo_raw": "NOAUTO",
+      "fecha_raw": "19/08/2026",
+      "entidad_raw": "CAUSWAI (APP)",
+      "entidad_secundaria_raw": null,
+      "observaciones_raw": null,
+      "fecha_baja_raw": null
+    },
+    "buckets": [
+      "recent_100"
+    ],
+    "passes": {
+      "A": {
+        "domains": [],
+        "clone": false,
+        "target": null,
+        "relation_status": null,
+        "registry_number": null
+      },
+      "B": {
+        "domains": [],
+        "clone": false,
+        "target": null
+      }
+    },
+    "disputes": [],
+    "label_status": "CONFIRMED",
+    "label": null
+  },
+  {
+    "notice_id": "6f21839694771bfaeaf791d40f4505c8db6dfeb2f8310ac5d812b7e91f5f4cdc",
+    "raw": {
+      "tipo_raw": "NOAUTO",
+      "fecha_raw": "21/01/2026",
+      "entidad_raw": "SOLUNAR FINANCE HOLDINGS LIMITED (CLONE)",
+      "entidad_secundaria_raw": "HTTPS://SOLUNARFINANCEHOLDINGSLIMITED.COM/ (CLONE)",
+      "observaciones_raw": "La entidad advertida, que usa la dirección de correo electrónico info@solunarlimited.com, ha clonado algunos datos de la entidad registrada Solunar Finance Holdings Limited, incluyendo su nombre y dirección, con el fin de engañar a los inversores. La entidad advertida no guarda ninguna relación con la firma legítima",
+      "fecha_baja_raw": null
+    },
+    "buckets": [
+      "clones_25"
+    ],
+    "passes": {
+      "A": {
+        "domains": [
+          "solunarfinanceholdingslimited.com"
+        ],
+        "clone": true,
+        "target": null,
+        "relation_status": "UNRESOLVED",
+        "registry_number": null
+      },
+      "B": {
+        "domains": [
+          "solunarfinanceholdingslimited.com"
+        ],
+        "clone": true,
+        "target": null
+      }
+    },
+    "disputes": [],
+    "label_status": "CONFIRMED",
+    "label": null
+  },
+  {
+    "notice_id": "ea54f69b226873407791f48f7dda7b22293877b5885e8368dd76312cb3e68ad8",
+    "raw": {
+      "tipo_raw": "NOAUTO",
+      "fecha_raw": "02/08/2023",
+      "entidad_raw": "BANQUE INTERNATIONALE À LUXEMBOURG (BIL) (CLONE)",
+      "entidad_secundaria_raw": "WWW.BILOSERCLIENT.COM (CLONE)",
+      "observaciones_raw": "La entidad autorizada en Luxemburgo Banque Internationale à Luxembourg (BIL) no guarda relación con la página web advertida.",
+      "fecha_baja_raw": null
+    },
+    "buckets": [
+      "clones_25"
+    ],
+    "passes": {
+      "A": {
+        "domains": [
+          "www.biloserclient.com"
+        ],
+        "clone": true,
+        "target": null,
+        "relation_status": "UNRESOLVED",
+        "registry_number": null
+      },
+      "B": {
+        "domains": [
+          "www.biloserclient.com"
+        ],
+        "clone": true,
+        "target": null
+      }
+    },
+    "disputes": [],
+    "label_status": "CONFIRMED",
+    "label": null
+  },
+  {
+    "notice_id": "dd747199d3e337f8d446b596f3d55102737fe797f7ad8ec72f3ce875ec2d9b86",
+    "raw": {
+      "tipo_raw": "NOAUTO",
+      "fecha_raw": "02/12/2024",
+      "entidad_raw": "HTTPS://WWW.IBSASSET.ORG (CLON)",
+      "entidad_secundaria_raw": "IBS ASSET (CLON)",
+      "observaciones_raw": "No guarda relación con IBS ASSET MANAGEMENT, B.V. debidamente registrada en España como Empresa de Servicios de Inversión que opera en el Espacio Económico Europeo en régimen de Libre Prestación de Servicios con el nº 3566.",
+      "fecha_baja_raw": null
+    },
+    "buckets": [
+      "clones_25"
+    ],
+    "passes": {
+      "A": {
+        "domains": [
+          "www.ibsasset.org"
+        ],
+        "clone": true,
+        "target": null,
+        "relation_status": "PARSED_EXPLICIT",
+        "registry_number": "3566"
+      },
+      "B": {
+        "domains": [
+          "www.ibsasset.org"
+        ],
+        "clone": true,
+        "target": null
+      }
+    },
+    "disputes": [],
+    "label_status": "CONFIRMED",
+    "label": null
+  },
+  {
+    "notice_id": "e15f657dfadfabd7d36af5ba3f8ff1b27dda092aa203713edb54249238f07462",
+    "raw": {
+      "tipo_raw": "NOAUTO",
+      "fecha_raw": "22/03/2023",
+      "entidad_raw": "TITANCFD.COM (CLONE)",
+      "entidad_secundaria_raw": "TITAN-CFD.COM (CLONE)",
+      "observaciones_raw": "Los dominios que aparecen en el listado no guardan relación con la entidad de nombre VIE FINANCE AEPEY.",
+      "fecha_baja_raw": null
+    },
+    "buckets": [
+      "clones_25"
+    ],
+    "passes": {
+      "A": {
+        "domains": [
+          "titan-cfd.com",
+          "titancfd.com"
+        ],
+        "clone": true,
+        "target": null,
+        "relation_status": "UNRESOLVED",
+        "registry_number": null
+      },
+      "B": {
+        "domains": [
+          "titan-cfd.com",
+          "titancfd.com"
+        ],
+        "clone": true,
+        "target": null
+      }
+    },
+    "disputes": [],
+    "label_status": "CONFIRMED",
+    "label": null
+  },
+  {
+    "notice_id": "361b79aa40fbc9e26b102ed4ae4bd896c7c2e695cc36b44ecdb85b8ef5365b42",
+    "raw": {
+      "tipo_raw": "NOAUTO",
+      "fecha_raw": "13/08/2025",
+      "entidad_raw": "LOAN 365 (CLONE)",
+      "entidad_secundaria_raw": null,
+      "observaciones_raw": "La entidad, que actúa a través del correo electrónico info@lending-loans.com, ha clonado de manera ilegítima detalles de la entidad autorizada por el CBI Stalwart Investments Limited, que usa la marca LOAN 365. No hay ninguna relación entre la entidad advertida y la autorizada.",
+      "fecha_baja_raw": null
+    },
+    "buckets": [
+      "clones_25"
+    ],
+    "passes": {
+      "A": {
+        "domains": [],
+        "clone": true,
+        "target": "manera ilegítima detalles de la entidad autorizada por el CBI Stalwart Investments Limited, que usa la marca LOAN 365",
+        "relation_status": "EXPLICIT_SOURCE",
+        "registry_number": null
+      },
+      "B": {
+        "domains": [],
+        "clone": true,
+        "target": "manera ilegítima detalles de la entidad autorizada por el CBI Stalwart Investments Limited, que usa la marca LOAN 365"
+      }
+    },
+    "disputes": [],
+    "label_status": "CONFIRMED",
+    "label": null
+  },
+  {
+    "notice_id": "3aa626981106f6ed2ffc98e90b0d10d66f1b282f19ae29bb68a167d934db3e6c",
+    "raw": {
+      "tipo_raw": "NOAUTO",
+      "fecha_raw": "18/11/2024",
+      "entidad_raw": "TRADITION-FS.COM (CLON)",
+      "entidad_secundaria_raw": null,
+      "observaciones_raw": "no guarda relación con TRADITION FINANCIAL SERVICES ESPAÑA, SOCIEDAD DE VALORES, S.A.U., debidamente registrada en España como empresa de servicios de inversión con el nº 303.",
+      "fecha_baja_raw": null
+    },
+    "buckets": [
+      "clones_25"
+    ],
+    "passes": {
+      "A": {
+        "domains": [
+          "tradition-fs.com"
+        ],
+        "clone": true,
+        "target": null,
+        "relation_status": "PARSED_EXPLICIT",
+        "registry_number": "303"
+      },
+      "B": {
+        "domains": [
+          "tradition-fs.com"
+        ],
+        "clone": true,
+        "target": null
+      }
+    },
+    "disputes": [],
+    "label_status": "CONFIRMED",
+    "label": null
+  },
+  {
+    "notice_id": "231c59bf70f78f1b2812b0b224a6352851759328bf4f1f0bdf358a64cc4fddb6",
+    "raw": {
+      "tipo_raw": "NOAUTO",
+      "fecha_raw": "03/04/2025",
+      "entidad_raw": "2BFX TRADING (CLONE)",
+      "entidad_secundaria_raw": "HTTPS://2BFX.EU (CLONE)",
+      "observaciones_raw": "La entidad advertida utiliza de manera fraudulenta el nombre de la entidad holandesa 2B Trading B.V., con quien no guarda relación",
+      "fecha_baja_raw": null
+    },
+    "buckets": [
+      "clones_25"
+    ],
+    "passes": {
+      "A": {
+        "domains": [
+          "2bfx.eu"
+        ],
+        "clone": true,
+        "target": null,
+        "relation_status": "UNRESOLVED",
+        "registry_number": null
+      },
+      "B": {
+        "domains": [
+          "2bfx.eu"
+        ],
+        "clone": true,
+        "target": null
+      }
+    },
+    "disputes": [],
+    "label_status": "CONFIRMED",
+    "label": null
+  },
+  {
+    "notice_id": "dedbb9e72effaf49005788ed6ed3fefd60dca0a84a2d6cd162613d20bbfc5675",
+    "raw": {
+      "tipo_raw": "NOAUTO",
+      "fecha_raw": "03/08/2026",
+      "entidad_raw": "https://webtrader.alantrafx.com (CLON)",
+      "entidad_secundaria_raw": null,
+      "observaciones_raw": "No guarda relación con ALANTRA EQUITIES SOCIEDAD DE VALORES, S.A. (https://www.alantra.com), debidamente registrada en España como empresa de Servicios de Inversión con el Nº 245. ",
+      "fecha_baja_raw": null
+    },
+    "buckets": [
+      "clones_25"
+    ],
+    "passes": {
+      "A": {
+        "domains": [
+          "webtrader.alantrafx.com",
+          "www.alantra.com"
+        ],
+        "clone": true,
+        "target": null,
+        "relation_status": "PARSED_EXPLICIT",
+        "registry_number": "245"
+      },
+      "B": {
+        "domains": [
+          "webtrader.alantrafx.com",
+          "www.alantra.com"
+        ],
+        "clone": true,
+        "target": null
+      }
+    },
+    "disputes": [],
+    "label_status": "CONFIRMED",
+    "label": null
+  },
+  {
+    "notice_id": "2242617616ec59bceac039d7e8e72a36565cd148e7d5641829b693dbfa93c0db",
+    "raw": {
+      "tipo_raw": "NOAUTO",
+      "fecha_raw": "07/07/2025",
+      "entidad_raw": "NOVA TRADE CORE (CLON)",
+      "entidad_secundaria_raw": null,
+      "observaciones_raw": "No guarda relación con XTB S.A., SUCURSAL EN ESPAÑA, y su web https://www.xtb.com/es, debidamente registrada en España como Empresa de Servicios de Inversión con el nº 40",
+      "fecha_baja_raw": null
+    },
+    "buckets": [
+      "clones_25"
+    ],
+    "passes": {
+      "A": {
+        "domains": [],
+        "clone": true,
+        "target": null,
+        "relation_status": "UNRESOLVED",
+        "registry_number": null
+      },
+      "B": {
+        "domains": [
+          "www.xtb.com"
+        ],
+        "clone": true,
+        "target": null
+      }
+    },
+    "disputes": [
+      {
+        "field": "domains",
+        "A": [],
+        "B": [
+          "www.xtb.com"
+        ]
+      }
+    ],
+    "label_status": "DISPUTED",
+    "label": null
+  },
+  {
+    "notice_id": "9d286f16a2cf14361cf34ba882a10cef862aebd7fc26e5ffc9ec416093a86123",
+    "raw": {
+      "tipo_raw": "NOAUTO",
+      "fecha_raw": "18/05/2026",
+      "entidad_raw": "https://profaro-trade.com (CLON)",
+      "entidad_secundaria_raw": "PROFARO TRADE (CLON)",
+      "observaciones_raw": "No guarda relación con INNAT INVERSIONES SICAV S.A. (antes denominada PROFIT INVERSIONES SICAV, S.A.), debidamente registrada en España como Sociedad de Inversión de Capital Variable no armonizada, con el nº 3079",
+      "fecha_baja_raw": null
+    },
+    "buckets": [
+      "clones_25"
+    ],
+    "passes": {
+      "A": {
+        "domains": [
+          "profaro-trade.com"
+        ],
+        "clone": true,
+        "target": null,
+        "relation_status": "PARSED_EXPLICIT",
+        "registry_number": "3079"
+      },
+      "B": {
+        "domains": [
+          "profaro-trade.com"
+        ],
+        "clone": true,
+        "target": null
+      }
+    },
+    "disputes": [],
+    "label_status": "CONFIRMED",
+    "label": null
+  },
+  {
+    "notice_id": "3cee21d5399e2471dad4435847b64d8c3b07e22c60af5788d09ed1e404e4e725",
+    "raw": {
+      "tipo_raw": "NOAUTO",
+      "fecha_raw": "15/02/2023",
+      "entidad_raw": "BARCLAY PRIVATE EQUITY (CLONE)",
+      "entidad_secundaria_raw": "WWW.BARCLAY-PRIVATEEQUITY.COM (CLONE)",
+      "observaciones_raw": "LA ENTIDAD ADVERTIDA NO GUARDA CONEXIÓN CON LA ENTIDAD BARCLAYS PLC",
+      "fecha_baja_raw": null
+    },
+    "buckets": [
+      "clones_25"
+    ],
+    "passes": {
+      "A": {
+        "domains": [
+          "www.barclay-privateequity.com"
+        ],
+        "clone": true,
+        "target": null,
+        "relation_status": "UNRESOLVED",
+        "registry_number": null
+      },
+      "B": {
+        "domains": [
+          "www.barclay-privateequity.com"
+        ],
+        "clone": true,
+        "target": null
+      }
+    },
+    "disputes": [],
+    "label_status": "CONFIRMED",
+    "label": null
+  },
+  {
+    "notice_id": "37d3a3c7b13ecd95be22a74adaf681fab928bf5732510ef02a0575b6584caf8b",
+    "raw": {
+      "tipo_raw": "NOAUTO",
+      "fecha_raw": "19/06/2024",
+      "entidad_raw": "DEUTSCHE BANK  (CLONE)",
+      "entidad_secundaria_raw": null,
+      "observaciones_raw": "La FSMA ha recibido informes de entidades que suplantan la identidad de bancos",
+      "fecha_baja_raw": null
+    },
+    "buckets": [
+      "clones_25"
+    ],
+    "passes": {
+      "A": {
+        "domains": [],
+        "clone": true,
+        "target": "identidad de bancos",
+        "relation_status": "EXPLICIT_SOURCE",
+        "registry_number": null
+      },
+      "B": {
+        "domains": [],
+        "clone": true,
+        "target": "identidad de bancos"
+      }
+    },
+    "disputes": [],
+    "label_status": "CONFIRMED",
+    "label": null
+  },
+  {
+    "notice_id": "5877c672440e3869880fe2b6a32b3f34d25488f0e59cdf8a1612a60efcc8ee5f",
+    "raw": {
+      "tipo_raw": "NOAUTO",
+      "fecha_raw": "05/06/2024",
+      "entidad_raw": "INCENTIVE INVESTMENT FUNDS PLC (CLONE)",
+      "entidad_secundaria_raw": "HTTPS://INCENTIVEPLC.IE (CLONE)",
+      "observaciones_raw": "La entidad advertida, que ha usado direcciones de correo electrónico con la estructura cargo.nombre@incentiveinvest.com y otras como  accounts@incentiveinvest.com , info@incentiveplc.ie  e info@incentiveinvest.com  HA SUPLANTADO LA IDENTIDAD DE LA ENTIDAD legítima Incentive Investment Funds plc (CBI00134801), CON QUIEN no guarda ninguna relación.",
+      "fecha_baja_raw": null
+    },
+    "buckets": [
+      "clones_25"
+    ],
+    "passes": {
+      "A": {
+        "domains": [
+          "incentiveplc.ie"
+        ],
+        "clone": true,
+        "target": "IDENTIDAD DE LA ENTIDAD legítima Incentive Investment Funds plc (CBI00134801), CON QUIEN no guarda ninguna relación",
+        "relation_status": "EXPLICIT_SOURCE",
+        "registry_number": null
+      },
+      "B": {
+        "domains": [
+          "incentiveplc.ie"
+        ],
+        "clone": true,
+        "target": "IDENTIDAD DE LA ENTIDAD legítima Incentive Investment Funds plc (CBI00134801), CON QUIEN no guarda ninguna relación"
+      }
+    },
+    "disputes": [],
+    "label_status": "CONFIRMED",
+    "label": null
+  },
+  {
+    "notice_id": "e6ce67acaa21ca9c86ea5c3ce9bb00dac1f123335faceb0c582bf667e1a714ce",
+    "raw": {
+      "tipo_raw": "NOAUTO",
+      "fecha_raw": "20/03/2024",
+      "entidad_raw": "BITCOINEER",
+      "entidad_secundaria_raw": "ASSETS PREMIUM (CLONED)",
+      "observaciones_raw": null,
+      "fecha_baja_raw": null
+    },
+    "buckets": [
+      "clones_25"
+    ],
+    "passes": {
+      "A": {
+        "domains": [],
+        "clone": true,
+        "target": null,
+        "relation_status": "UNRESOLVED",
+        "registry_number": null
+      },
+      "B": {
+        "domains": [],
+        "clone": true,
+        "target": null
+      }
+    },
+    "disputes": [],
+    "label_status": "CONFIRMED",
+    "label": null
+  },
+  {
+    "notice_id": "fc88be0b450502f6e71c67181651df7cc2a5255827e73e2a5d175829fbfc5b03",
+    "raw": {
+      "tipo_raw": "NOAUTO",
+      "fecha_raw": "28/08/2024",
+      "entidad_raw": "MACQUARIE (CLONE)",
+      "entidad_secundaria_raw": "WWW.MACQUARIECAP.COM (CLONE)",
+      "observaciones_raw": "LA ENTIDAD ADVERTIDA, QUE UTILIZA LA DIRECCIÓN DE CORREO ELECTRÓNICO HA SUPLANTADO LOS DETALLES DE UNA ENTIDAD AUTORIZADA POR EL BANCO CENTRAL DE IRLANDA, Macquarie Bank Europe Designated Activity Company. LA ENTIDAD AUTORIZADA NO GUARDA RELACIÓN CON LA ADVERTIDA.",
+      "fecha_baja_raw": null
+    },
+    "buckets": [
+      "clones_25"
+    ],
+    "passes": {
+      "A": {
+        "domains": [
+          "www.macquariecap.com"
+        ],
+        "clone": true,
+        "target": "LOS DETALLES DE UNA ENTIDAD AUTORIZADA POR EL BANCO CENTRAL DE IRLANDA, Macquarie Bank Europe Designated Activity Company",
+        "relation_status": "EXPLICIT_SOURCE",
+        "registry_number": null
+      },
+      "B": {
+        "domains": [
+          "www.macquariecap.com"
+        ],
+        "clone": true,
+        "target": "LOS DETALLES DE UNA ENTIDAD AUTORIZADA POR EL BANCO CENTRAL DE IRLANDA, Macquarie Bank Europe Designated Activity Company"
+      }
+    },
+    "disputes": [],
+    "label_status": "CONFIRMED",
+    "label": null
+  },
+  {
+    "notice_id": "2eedfc215f661298888638a167a2866465ff7eaa80839e19ed47458bac15e044",
+    "raw": {
+      "tipo_raw": "NOAUTO",
+      "fecha_raw": "20/05/2026",
+      "entidad_raw": "PIMCO GLOBAL WEALTH / PIMCO (IRELAND) (CLONE)",
+      "entidad_secundaria_raw": "WWW.PIMCOGLOBALWEALTH.COM (CLONE)",
+      "observaciones_raw": "La entidad advertida, que utiliza la dirección de correo electrónico admin@pimcoglobalwealth.com, ha tomado el nombre de una entidad autorizada por el CBI, Pimco Global Advisors (Ireland) Limited, con el fin de engañar a los inversores. La entidad advertida no guarda ninguna relación con la firma autorizada por el CBI",
+      "fecha_baja_raw": null
+    },
+    "buckets": [
+      "clones_25"
+    ],
+    "passes": {
+      "A": {
+        "domains": [
+          "www.pimcoglobalwealth.com"
+        ],
+        "clone": true,
+        "target": null,
+        "relation_status": "UNRESOLVED",
+        "registry_number": null
+      },
+      "B": {
+        "domains": [
+          "www.pimcoglobalwealth.com"
+        ],
+        "clone": true,
+        "target": null
+      }
+    },
+    "disputes": [],
+    "label_status": "CONFIRMED",
+    "label": null
+  },
+  {
+    "notice_id": "7fee3175fed644518dda0280a9dd10da10f87ca26e0939d2d3475b093e0869f1",
+    "raw": {
+      "tipo_raw": "NOAUTO",
+      "fecha_raw": "10/07/2024",
+      "entidad_raw": "AURUM CAR INSURANCE (CLONE)",
+      "entidad_secundaria_raw": null,
+      "observaciones_raw": "LA ENTIDAD ADVERTIDA DICE ESTAR AFILIADA CON LA ENTIDAD AUTORIZADA POR EL BANCO CENTRAL DE IRLANDA  XL insurance Company SE, CON QUIEN NO GUARDA NINGUNA RELACIÓN.",
+      "fecha_baja_raw": null
+    },
+    "buckets": [
+      "clones_25"
+    ],
+    "passes": {
+      "A": {
+        "domains": [],
+        "clone": true,
+        "target": null,
+        "relation_status": "UNRESOLVED",
+        "registry_number": null
+      },
+      "B": {
+        "domains": [],
+        "clone": true,
+        "target": null
+      }
+    },
+    "disputes": [],
+    "label_status": "CONFIRMED",
+    "label": null
+  },
+  {
+    "notice_id": "5879af6de6d19ea029b0bbff5d36a6b6fa1043b34c906ca0d13532537656b684",
+    "raw": {
+      "tipo_raw": "NOAUTO",
+      "fecha_raw": "24/04/2024",
+      "entidad_raw": "HTTPS://TOLOT-EPARGNE.FR/ (CLONE)",
+      "entidad_secundaria_raw": null,
+      "observaciones_raw": "Personas desconocidas, usando direcciones de correos electrónicos con la estructura nombre.apellido@amvontobel.com  están suplantando de manera fraudulenta la identidad de la sociedad registrada en Luxemburgo Vontobel Asset Management S.A., con quien no guardan ninguna relación.",
+      "fecha_baja_raw": null
+    },
+    "buckets": [
+      "clones_25"
+    ],
+    "passes": {
+      "A": {
+        "domains": [
+          "tolot-epargne.fr"
+        ],
+        "clone": true,
+        "target": "de manera fraudulenta la identidad de la sociedad registrada en Luxemburgo Vontobel Asset Management S.A., con quien no guardan ninguna relación",
+        "relation_status": "EXPLICIT_SOURCE",
+        "registry_number": null
+      },
+      "B": {
+        "domains": [
+          "tolot-epargne.fr"
+        ],
+        "clone": true,
+        "target": "de manera fraudulenta la identidad de la sociedad registrada en Luxemburgo Vontobel Asset Management S.A., con quien no guardan ninguna relación"
+      }
+    },
+    "disputes": [],
+    "label_status": "CONFIRMED",
+    "label": null
+  },
+  {
+    "notice_id": "1ba42f7f2ac75d860d6b1c65f215bec6b269f4cc9f0e0db5ffa7eea782e14568",
+    "raw": {
+      "tipo_raw": "NOAUTO",
+      "fecha_raw": "04/05/2026",
+      "entidad_raw": "https://olympus-capitallimited.com (CLON)",
+      "entidad_secundaria_raw": "OLYMPUSCAPITAL (CLON)",
+      "observaciones_raw": "No guarda relación con ALANTRA CAPITAL MARKETS, SV, S.A. (https://www.alantra.com), debidamente registrada en España como empresa de Servicios de Inversión con el Nº 258.",
+      "fecha_baja_raw": null
+    },
+    "buckets": [
+      "clones_25"
+    ],
+    "passes": {
+      "A": {
+        "domains": [
+          "olympus-capitallimited.com",
+          "www.alantra.com"
+        ],
+        "clone": true,
+        "target": null,
+        "relation_status": "PARSED_EXPLICIT",
+        "registry_number": "258"
+      },
+      "B": {
+        "domains": [
+          "olympus-capitallimited.com",
+          "www.alantra.com"
+        ],
+        "clone": true,
+        "target": null
+      }
+    },
+    "disputes": [],
+    "label_status": "CONFIRMED",
+    "label": null
+  },
+  {
+    "notice_id": "d32c14a86a49d28c88f2f629b6d12a660f5f537dfd19c31119bcf5dd1126a1d2",
+    "raw": {
+      "tipo_raw": "NOAUTO",
+      "fecha_raw": "28/05/2025",
+      "entidad_raw": "BEINFINITY (CLONE)",
+      "entidad_secundaria_raw": "HTTPS://BEINFINITY.NET/ (CLONE)",
+      "observaciones_raw": "La entidad advertida ha tomado los datos de una entidad autorizada por el CBI, Waystone Asset Management (IE) Limited (C39544), para engañar a los inversores. La entidad advertida no guarda relación con ninguna firma autorizada por el CBI.",
+      "fecha_baja_raw": null
+    },
+    "buckets": [
+      "clones_25"
+    ],
+    "passes": {
+      "A": {
+        "domains": [
+          "beinfinity.net"
+        ],
+        "clone": true,
+        "target": null,
+        "relation_status": "UNRESOLVED",
+        "registry_number": null
+      },
+      "B": {
+        "domains": [
+          "beinfinity.net"
+        ],
+        "clone": true,
+        "target": null
+      }
+    },
+    "disputes": [],
+    "label_status": "CONFIRMED",
+    "label": null
+  },
+  {
+    "notice_id": "a3198c63565f20a1876033a74476a1434f17b002d4a0a8aa7f8654d838728945",
+    "raw": {
+      "tipo_raw": "NOAUTO",
+      "fecha_raw": "11/03/2024",
+      "entidad_raw": "EVER-SALES.COM (CLON)",
+      "entidad_secundaria_raw": null,
+      "observaciones_raw": "que opera a través de la dirección de correo electrónico nombre.apellidos@ever-sales.com, no guardan relación con EVER CAPITAL INVESTMENTS, S.V., S.A., y su web https://evercapitalsv.com, debidamente registrada en España como empresa de servicios de inversión (Sociedad de valores) con el nº 259",
+      "fecha_baja_raw": null
+    },
+    "buckets": [
+      "clones_25"
+    ],
+    "passes": {
+      "A": {
+        "domains": [
+          "ever-sales.com"
+        ],
+        "clone": true,
+        "target": null,
+        "relation_status": "PARSED_EXPLICIT",
+        "registry_number": "259"
+      },
+      "B": {
+        "domains": [
+          "ever-sales.com",
+          "evercapitalsv.com"
+        ],
+        "clone": true,
+        "target": null
+      }
+    },
+    "disputes": [
+      {
+        "field": "domains",
+        "A": [
+          "ever-sales.com"
+        ],
+        "B": [
+          "ever-sales.com",
+          "evercapitalsv.com"
+        ]
+      }
+    ],
+    "label_status": "DISPUTED",
+    "label": null
+  },
+  {
+    "notice_id": "a696742495af95d957e899cfb35ac89e012160649cdbf1067a8269e7f63ab21e",
+    "raw": {
+      "tipo_raw": "NOAUTO",
+      "fecha_raw": "02/11/2023",
+      "entidad_raw": "TITANCFD.COM (CLONE)",
+      "entidad_secundaria_raw": "BITBARRY.COM (CLONE)",
+      "observaciones_raw": "La entidad registrada en Grecia VIE FINANCE AEPEY no guarda relación con ninguna de las páginas web advertidas.",
+      "fecha_baja_raw": null
+    },
+    "buckets": [
+      "clones_25"
+    ],
+    "passes": {
+      "A": {
+        "domains": [
+          "bitbarry.com",
+          "titancfd.com"
+        ],
+        "clone": true,
+        "target": null,
+        "relation_status": "UNRESOLVED",
+        "registry_number": null
+      },
+      "B": {
+        "domains": [
+          "bitbarry.com",
+          "titancfd.com"
+        ],
+        "clone": true,
+        "target": null
+      }
+    },
+    "disputes": [],
+    "label_status": "CONFIRMED",
+    "label": null
+  },
+  {
+    "notice_id": "fcc9bf6f30039b879c0db56bab9e3b52e4ab3ebba9d1fd8ee42e6f6b0ad44724",
+    "raw": {
+      "tipo_raw": "NOAUTO",
+      "fecha_raw": "26/07/2023",
+      "entidad_raw": "TITANCFD.COM (CLONE)",
+      "entidad_secundaria_raw": "EXCHANGE-PRO.ONLINE.COM (CLONE)",
+      "observaciones_raw": "LOS DOMINIOS QUE APARECEN EN EL LISTADO NO GUARDAN RELACIÓN CON LA ENTIDAD DE NOMBRE VIE FINANCE AEPEY.",
+      "fecha_baja_raw": null
+    },
+    "buckets": [
+      "clones_25"
+    ],
+    "passes": {
+      "A": {
+        "domains": [
+          "exchange-pro.online.com",
+          "titancfd.com"
+        ],
+        "clone": true,
+        "target": null,
+        "relation_status": "UNRESOLVED",
+        "registry_number": null
+      },
+      "B": {
+        "domains": [
+          "exchange-pro.online.com",
+          "titancfd.com"
+        ],
+        "clone": true,
+        "target": null
+      }
+    },
+    "disputes": [],
+    "label_status": "CONFIRMED",
+    "label": null
+  },
+  {
+    "notice_id": "1cf3681dbcbae48f1668d5a1b96fa1cdac2211e826243ba34380d12d35bfe61f",
+    "raw": {
+      "tipo_raw": "NOAUTO",
+      "fecha_raw": "22/10/2025",
+      "entidad_raw": "CHILLA CAPITAL (CLONE)",
+      "entidad_secundaria_raw": "FXBEXCHANGE.COM (CLONE)",
+      "observaciones_raw": null,
+      "fecha_baja_raw": null
+    },
+    "buckets": [
+      "clones_25"
+    ],
+    "passes": {
+      "A": {
+        "domains": [
+          "fxbexchange.com"
+        ],
+        "clone": true,
+        "target": null,
+        "relation_status": "UNRESOLVED",
+        "registry_number": null
+      },
+      "B": {
+        "domains": [
+          "fxbexchange.com"
+        ],
+        "clone": true,
+        "target": null
+      }
+    },
+    "disputes": [],
+    "label_status": "CONFIRMED",
+    "label": null
+  },
+  {
+    "notice_id": "1c4b739954b005a398b13d9a6b360f814cabd9728e283c45157f146429b8d9a4",
+    "raw": {
+      "tipo_raw": "NOAUTO",
+      "fecha_raw": "20/03/2024",
+      "entidad_raw": "COSCOIN",
+      "entidad_secundaria_raw": "HTTPS://FUNDIZA.COM/",
+      "observaciones_raw": null,
+      "fecha_baja_raw": null
+    },
+    "buckets": [
+      "domains_20"
+    ],
+    "passes": {
+      "A": {
+        "domains": [
+          "fundiza.com"
+        ],
+        "clone": false,
+        "target": null,
+        "relation_status": null,
+        "registry_number": null
+      },
+      "B": {
+        "domains": [
+          "fundiza.com"
+        ],
+        "clone": false,
+        "target": null
+      }
+    },
+    "disputes": [],
+    "label_status": "CONFIRMED",
+    "label": null
+  },
+  {
+    "notice_id": "37756d772614aa091e8644e310f2fb502fefd03993359bf90c570d3daa5f0d85",
+    "raw": {
+      "tipo_raw": "NOAUTO",
+      "fecha_raw": "29/10/2025",
+      "entidad_raw": "GLOBAL MARKETS LTD",
+      "entidad_secundaria_raw": "HTTPS://GLOBALMARKETLTD.COM/",
+      "observaciones_raw": null,
+      "fecha_baja_raw": null
+    },
+    "buckets": [
+      "domains_20"
+    ],
+    "passes": {
+      "A": {
+        "domains": [
+          "globalmarketltd.com"
+        ],
+        "clone": false,
+        "target": null,
+        "relation_status": null,
+        "registry_number": null
+      },
+      "B": {
+        "domains": [
+          "globalmarketltd.com"
+        ],
+        "clone": false,
+        "target": null
+      }
+    },
+    "disputes": [],
+    "label_status": "CONFIRMED",
+    "label": null
+  },
+  {
+    "notice_id": "b0ea40ceb519f7941a28c611f86d49a0d8a5b709f69b55024cc18d1d2e7fa566",
+    "raw": {
+      "tipo_raw": "NOAUTO",
+      "fecha_raw": "13/10/2020",
+      "entidad_raw": "KLEINMAN ENTERPRISE LTD",
+      "entidad_secundaria_raw": "HTTPS://THECAPITALSTOCKS.COM",
+      "observaciones_raw": null,
+      "fecha_baja_raw": null
+    },
+    "buckets": [
+      "domains_20"
+    ],
+    "passes": {
+      "A": {
+        "domains": [
+          "thecapitalstocks.com"
+        ],
+        "clone": false,
+        "target": null,
+        "relation_status": null,
+        "registry_number": null
+      },
+      "B": {
+        "domains": [
+          "thecapitalstocks.com"
+        ],
+        "clone": false,
+        "target": null
+      }
+    },
+    "disputes": [],
+    "label_status": "CONFIRMED",
+    "label": null
+  },
+  {
+    "notice_id": "aecb835444c9c4fe773077a86e46b576e4869cce5d1c9b5b2ee6037e2e2d110b",
+    "raw": {
+      "tipo_raw": "NOAUTO",
+      "fecha_raw": "22/06/2020",
+      "entidad_raw": "BROKERMASTERS",
+      "entidad_secundaria_raw": "WWW.BROKERMASTERS.NET",
+      "observaciones_raw": null,
+      "fecha_baja_raw": null
+    },
+    "buckets": [
+      "domains_20"
+    ],
+    "passes": {
+      "A": {
+        "domains": [
+          "www.brokermasters.net"
+        ],
+        "clone": false,
+        "target": null,
+        "relation_status": null,
+        "registry_number": null
+      },
+      "B": {
+        "domains": [
+          "www.brokermasters.net"
+        ],
+        "clone": false,
+        "target": null
+      }
+    },
+    "disputes": [],
+    "label_status": "CONFIRMED",
+    "label": null
+  },
+  {
+    "notice_id": "47431b4cfd2d44e4fd95f277737e354625c397a04b31aaf9784bcbabb7981077",
+    "raw": {
+      "tipo_raw": "NOAUTO",
+      "fecha_raw": "10/07/2024",
+      "entidad_raw": "BASIK FINANCES",
+      "entidad_secundaria_raw": "HTTPS://BASIKFINANCES.COM/",
+      "observaciones_raw": null,
+      "fecha_baja_raw": null
+    },
+    "buckets": [
+      "domains_20"
+    ],
+    "passes": {
+      "A": {
+        "domains": [
+          "basikfinances.com"
+        ],
+        "clone": false,
+        "target": null,
+        "relation_status": null,
+        "registry_number": null
+      },
+      "B": {
+        "domains": [
+          "basikfinances.com"
+        ],
+        "clone": false,
+        "target": null
+      }
+    },
+    "disputes": [],
+    "label_status": "CONFIRMED",
+    "label": null
+  },
+  {
+    "notice_id": "0d6ed7817be588c89f3b395accb3106592d2754713a9834ae9a077ac1e626974",
+    "raw": {
+      "tipo_raw": "NOAUTO",
+      "fecha_raw": "25/09/2023",
+      "entidad_raw": "HTTPS://ALPHACAPITAL.SPACE/ES",
+      "entidad_secundaria_raw": "NEXUS LLC",
+      "observaciones_raw": null,
+      "fecha_baja_raw": null
+    },
+    "buckets": [
+      "domains_20"
+    ],
+    "passes": {
+      "A": {
+        "domains": [
+          "alphacapital.space"
+        ],
+        "clone": false,
+        "target": null,
+        "relation_status": null,
+        "registry_number": null
+      },
+      "B": {
+        "domains": [
+          "alphacapital.space"
+        ],
+        "clone": false,
+        "target": null
+      }
+    },
+    "disputes": [],
+    "label_status": "CONFIRMED",
+    "label": null
+  },
+  {
+    "notice_id": "e9eb37e079e922b614cef21ddbf4798fb40165a1513012e160e6321c6af70b2e",
+    "raw": {
+      "tipo_raw": "NOAUTO",
+      "fecha_raw": "03/11/2020",
+      "entidad_raw": "FXT PREMIER",
+      "entidad_secundaria_raw": "HTTPS://FXTPREMIER.COM/",
+      "observaciones_raw": null,
+      "fecha_baja_raw": null
+    },
+    "buckets": [
+      "domains_20"
+    ],
+    "passes": {
+      "A": {
+        "domains": [
+          "fxtpremier.com"
+        ],
+        "clone": false,
+        "target": null,
+        "relation_status": null,
+        "registry_number": null
+      },
+      "B": {
+        "domains": [
+          "fxtpremier.com"
+        ],
+        "clone": false,
+        "target": null
+      }
+    },
+    "disputes": [],
+    "label_status": "CONFIRMED",
+    "label": null
+  },
+  {
+    "notice_id": "0649f908fcc2ca031170d489933665291b062faa49af20a853862ea892134572",
+    "raw": {
+      "tipo_raw": "NOAUTO",
+      "fecha_raw": "03/10/2022",
+      "entidad_raw": "HTTPS://CAPARTNERS.LTD",
+      "entidad_secundaria_raw": "INCANDECENT CONSULTING LLC",
+      "observaciones_raw": null,
+      "fecha_baja_raw": null
+    },
+    "buckets": [
+      "domains_20"
+    ],
+    "passes": {
+      "A": {
+        "domains": [
+          "capartners.ltd"
+        ],
+        "clone": false,
+        "target": null,
+        "relation_status": null,
+        "registry_number": null
+      },
+      "B": {
+        "domains": [
+          "capartners.ltd"
+        ],
+        "clone": false,
+        "target": null
+      }
+    },
+    "disputes": [],
+    "label_status": "CONFIRMED",
+    "label": null
+  },
+  {
+    "notice_id": "1cf3e8ecf11eaf4f59f479b56b55766608d726d360e9700e513962fef1eaf4c3",
+    "raw": {
+      "tipo_raw": "NOAUTO",
+      "fecha_raw": "23/10/2024",
+      "entidad_raw": "FIRST STATE INVESTMENTS (IRELAND) LIMITED",
+      "entidad_secundaria_raw": "WWW.FSI247.IO",
+      "observaciones_raw": "LA CONSOB ORDENA A LOS OPERADORES DE INTERNET EL BLOQUEO DE ACCESO DESDE ITALIA A PAGINAS WEB QUE OFRECEN SERVICIOS DE INVERSION SIN ESTAR AUTORIZADAS",
+      "fecha_baja_raw": null
+    },
+    "buckets": [
+      "domains_20"
+    ],
+    "passes": {
+      "A": {
+        "domains": [
+          "www.fsi247.io"
+        ],
+        "clone": false,
+        "target": null,
+        "relation_status": null,
+        "registry_number": null
+      },
+      "B": {
+        "domains": [
+          "www.fsi247.io"
+        ],
+        "clone": false,
+        "target": null
+      }
+    },
+    "disputes": [],
+    "label_status": "CONFIRMED",
+    "label": null
+  },
+  {
+    "notice_id": "31340717e826b8baf4cd8611ba843943bb0889941f1e11f154ce2c10aaf4d776",
+    "raw": {
+      "tipo_raw": "NOAUTO",
+      "fecha_raw": "29/03/2023",
+      "entidad_raw": "BESTPAYOUTFX / BEST PAY OUT FX",
+      "entidad_secundaria_raw": "HTTPS://BESTPAYOUTFX.COM/",
+      "observaciones_raw": null,
+      "fecha_baja_raw": null
+    },
+    "buckets": [
+      "domains_20"
+    ],
+    "passes": {
+      "A": {
+        "domains": [
+          "bestpayoutfx.com"
+        ],
+        "clone": false,
+        "target": null,
+        "relation_status": null,
+        "registry_number": null
+      },
+      "B": {
+        "domains": [
+          "bestpayoutfx.com"
+        ],
+        "clone": false,
+        "target": null
+      }
+    },
+    "disputes": [],
+    "label_status": "CONFIRMED",
+    "label": null
+  },
+  {
+    "notice_id": "ef6a398e962e5ef7547d1a8b672913ff7085c6b2c44a218e42ad62b2c5c60c14",
+    "raw": {
+      "tipo_raw": "NOAUTO",
+      "fecha_raw": "28/05/2025",
+      "entidad_raw": "AIO MARKETS",
+      "entidad_secundaria_raw": "HTTPS://AIOMARKETS.COM",
+      "observaciones_raw": null,
+      "fecha_baja_raw": null
+    },
+    "buckets": [
+      "domains_20"
+    ],
+    "passes": {
+      "A": {
+        "domains": [
+          "aiomarkets.com"
+        ],
+        "clone": false,
+        "target": null,
+        "relation_status": null,
+        "registry_number": null
+      },
+      "B": {
+        "domains": [
+          "aiomarkets.com"
+        ],
+        "clone": false,
+        "target": null
+      }
+    },
+    "disputes": [],
+    "label_status": "CONFIRMED",
+    "label": null
+  },
+  {
+    "notice_id": "a2aaa1782f996fb199187dfd4233353edaf2462207210fd5ebd319524acffe85",
+    "raw": {
+      "tipo_raw": "NOAUTO",
+      "fecha_raw": "19/01/2026",
+      "entidad_raw": "https://autoprofit.app/",
+      "entidad_secundaria_raw": "AUTO PROFIT HUB",
+      "observaciones_raw": null,
+      "fecha_baja_raw": null
+    },
+    "buckets": [
+      "domains_20"
+    ],
+    "passes": {
+      "A": {
+        "domains": [
+          "autoprofit.app"
+        ],
+        "clone": false,
+        "target": null,
+        "relation_status": null,
+        "registry_number": null
+      },
+      "B": {
+        "domains": [
+          "autoprofit.app"
+        ],
+        "clone": false,
+        "target": null
+      }
+    },
+    "disputes": [],
+    "label_status": "CONFIRMED",
+    "label": null
+  },
+  {
+    "notice_id": "27141e49ca8155f3abcb1ca3dafc0059f5dde44022d42c4d229d8241520b92b6",
+    "raw": {
+      "tipo_raw": "NOAUTO",
+      "fecha_raw": "20/05/2024",
+      "entidad_raw": "https://tradeduac.co/",
+      "entidad_secundaria_raw": "TRADE DUAC 4.0",
+      "observaciones_raw": null,
+      "fecha_baja_raw": null
+    },
+    "buckets": [
+      "domains_20"
+    ],
+    "passes": {
+      "A": {
+        "domains": [
+          "tradeduac.co"
+        ],
+        "clone": false,
+        "target": null,
+        "relation_status": null,
+        "registry_number": null
+      },
+      "B": {
+        "domains": [
+          "tradeduac.co"
+        ],
+        "clone": false,
+        "target": null
+      }
+    },
+    "disputes": [],
+    "label_status": "CONFIRMED",
+    "label": null
+  },
+  {
+    "notice_id": "0556c7fe452df9b1bf3ab0233c3f05c46d6d3ea3895baaeb1757b9fec343a4cf",
+    "raw": {
+      "tipo_raw": "NOAUTO",
+      "fecha_raw": "03/06/2019",
+      "entidad_raw": "CRYPTO GENIUS",
+      "entidad_secundaria_raw": "WWW.THE-CRYPTO-GENIUS.NET",
+      "observaciones_raw": null,
+      "fecha_baja_raw": null
+    },
+    "buckets": [
+      "domains_20"
+    ],
+    "passes": {
+      "A": {
+        "domains": [
+          "www.the-crypto-genius.net"
+        ],
+        "clone": false,
+        "target": null,
+        "relation_status": null,
+        "registry_number": null
+      },
+      "B": {
+        "domains": [
+          "www.the-crypto-genius.net"
+        ],
+        "clone": false,
+        "target": null
+      }
+    },
+    "disputes": [],
+    "label_status": "CONFIRMED",
+    "label": null
+  },
+  {
+    "notice_id": "afe9a354ef2f2d88045bf9b091126539d555aca73bbb9c51882f4da8e9a9b858",
+    "raw": {
+      "tipo_raw": "NOAUTO",
+      "fecha_raw": "04/10/2023",
+      "entidad_raw": "FX-VITA",
+      "entidad_secundaria_raw": "HTTPS://TRADING.FX-VITA.COM",
+      "observaciones_raw": "LA CONSOB ORDENA A LOS OPERADORES DE INTERNET EL BLOQUEO DE ACCESO DESDE ITALIA A PAGINAS WEB QUE OFRECEN SERVICIOS DE INVERSION SIN ESTAR AUTORIZADAS",
+      "fecha_baja_raw": null
+    },
+    "buckets": [
+      "domains_20"
+    ],
+    "passes": {
+      "A": {
+        "domains": [
+          "trading.fx-vita.com"
+        ],
+        "clone": false,
+        "target": null,
+        "relation_status": null,
+        "registry_number": null
+      },
+      "B": {
+        "domains": [
+          "trading.fx-vita.com"
+        ],
+        "clone": false,
+        "target": null
+      }
+    },
+    "disputes": [],
+    "label_status": "CONFIRMED",
+    "label": null
+  },
+  {
+    "notice_id": "6bc49cb7c79d7245123997934024183fb2ee21b21e9579f5babff5cf0ccec557",
+    "raw": {
+      "tipo_raw": "NOAUTO",
+      "fecha_raw": "04/10/2021",
+      "entidad_raw": "HTTPS://UGPAY.GROUP/ES/",
+      "entidad_secundaria_raw": "UGPAY GROUP A.G.",
+      "observaciones_raw": null,
+      "fecha_baja_raw": null
+    },
+    "buckets": [
+      "domains_20"
+    ],
+    "passes": {
+      "A": {
+        "domains": [
+          "ugpay.group"
+        ],
+        "clone": false,
+        "target": null,
+        "relation_status": null,
+        "registry_number": null
+      },
+      "B": {
+        "domains": [
+          "ugpay.group"
+        ],
+        "clone": false,
+        "target": null
+      }
+    },
+    "disputes": [],
+    "label_status": "CONFIRMED",
+    "label": null
+  },
+  {
+    "notice_id": "0261caef3800a23378c138b2549423ef6846f8dfa16c7451010c8d3608bf248d",
+    "raw": {
+      "tipo_raw": "NOAUTO",
+      "fecha_raw": "11/10/2023",
+      "entidad_raw": "AMADEUS MARKETS",
+      "entidad_secundaria_raw": "CFD.AMADEUS-MARKETS.COM",
+      "observaciones_raw": null,
+      "fecha_baja_raw": null
+    },
+    "buckets": [
+      "domains_20"
+    ],
+    "passes": {
+      "A": {
+        "domains": [
+          "cfd.amadeus-markets.com"
+        ],
+        "clone": false,
+        "target": null,
+        "relation_status": null,
+        "registry_number": null
+      },
+      "B": {
+        "domains": [
+          "cfd.amadeus-markets.com"
+        ],
+        "clone": false,
+        "target": null
+      }
+    },
+    "disputes": [],
+    "label_status": "CONFIRMED",
+    "label": null
+  },
+  {
+    "notice_id": "46fb14ba190142c91d3530d9aa07d71f67618c81ed71fabdfde498f816e4cc59",
+    "raw": {
+      "tipo_raw": "NOAUTO",
+      "fecha_raw": "29/04/2019",
+      "entidad_raw": "DUBAI FXM LIMITED",
+      "entidad_secundaria_raw": "WWW.DUBAIFXM.TRADE",
+      "observaciones_raw": null,
+      "fecha_baja_raw": null
+    },
+    "buckets": [
+      "domains_20"
+    ],
+    "passes": {
+      "A": {
+        "domains": [
+          "www.dubaifxm.trade"
+        ],
+        "clone": false,
+        "target": null,
+        "relation_status": null,
+        "registry_number": null
+      },
+      "B": {
+        "domains": [
+          "www.dubaifxm.trade"
+        ],
+        "clone": false,
+        "target": null
+      }
+    },
+    "disputes": [],
+    "label_status": "CONFIRMED",
+    "label": null
+  },
+  {
+    "notice_id": "aeaf832a3bf983c1dcce7ae015bb4e88880605db8ad8b3ab717d0f38b6c34e91",
+    "raw": {
+      "tipo_raw": "NOAUTO",
+      "fecha_raw": "10/12/2019",
+      "entidad_raw": "BITCOIN ERA",
+      "entidad_secundaria_raw": "HTTPS://BITCOINERA.COM/ES/",
+      "observaciones_raw": null,
+      "fecha_baja_raw": null
+    },
+    "buckets": [
+      "domains_20"
+    ],
+    "passes": {
+      "A": {
+        "domains": [
+          "bitcoinera.com"
+        ],
+        "clone": false,
+        "target": null,
+        "relation_status": null,
+        "registry_number": null
+      },
+      "B": {
+        "domains": [
+          "bitcoinera.com"
+        ],
+        "clone": false,
+        "target": null
+      }
+    },
+    "disputes": [],
+    "label_status": "CONFIRMED",
+    "label": null
+  },
+  {
+    "notice_id": "3c372bb1fe29ac7758d9ab8b4452a829a259e25fcef2852b0fe6cfd545d83e6a",
+    "raw": {
+      "tipo_raw": "NOAUTO",
+      "fecha_raw": "14/01/2026",
+      "entidad_raw": "ARK INVESTMENTS",
+      "entidad_secundaria_raw": "WWW.ARKINVESTMENTS.ORG",
+      "observaciones_raw": null,
+      "fecha_baja_raw": null
+    },
+    "buckets": [
+      "domains_20"
+    ],
+    "passes": {
+      "A": {
+        "domains": [
+          "www.arkinvestments.org"
+        ],
+        "clone": false,
+        "target": null,
+        "relation_status": null,
+        "registry_number": null
+      },
+      "B": {
+        "domains": [
+          "www.arkinvestments.org"
+        ],
+        "clone": false,
+        "target": null
+      }
+    },
+    "disputes": [],
+    "label_status": "CONFIRMED",
+    "label": null
+  },
+  {
+    "notice_id": "d9722e7ab90a4bdb5131d9b72f690f251249c24f5025a0fffb447a10ac70b216",
+    "raw": {
+      "tipo_raw": "NOAUTO",
+      "fecha_raw": "02/11/2023",
+      "entidad_raw": "TITANCFD.COM (CLONE)",
+      "entidad_secundaria_raw": "AXICAPITALCFD.COM (CLONE)",
+      "observaciones_raw": "La entidad registrada en Grecia VIE FINANCE AEPEY no guarda relación con ninguna de las páginas web advertidas.",
+      "fecha_baja_raw": null
+    },
+    "buckets": [
+      "difficult_14"
+    ],
+    "passes": {
+      "A": {
+        "domains": [
+          "axicapitalcfd.com",
+          "titancfd.com"
+        ],
+        "clone": true,
+        "target": null,
+        "relation_status": "UNRESOLVED",
+        "registry_number": null
+      },
+      "B": {
+        "domains": [
+          "axicapitalcfd.com",
+          "titancfd.com"
+        ],
+        "clone": true,
+        "target": null
+      }
+    },
+    "disputes": [],
+    "label_status": "CONFIRMED",
+    "label": null
+  },
+  {
+    "notice_id": "1abc1bf126fc8850a095448416453001c1e09165078538cf5c18bb7aab364bd6",
+    "raw": {
+      "tipo_raw": "NOAUTO",
+      "fecha_raw": "02/11/2023",
+      "entidad_raw": "TITANCFD.COM (CLONE)",
+      "entidad_secundaria_raw": "AXICAPITALS.COM (CLONE)",
+      "observaciones_raw": "La entidad registrada en Grecia VIE FINANCE AEPEY no guarda relación con ninguna de las páginas web advertidas.",
+      "fecha_baja_raw": null
+    },
+    "buckets": [
+      "difficult_14"
+    ],
+    "passes": {
+      "A": {
+        "domains": [
+          "axicapitals.com",
+          "titancfd.com"
+        ],
+        "clone": true,
+        "target": null,
+        "relation_status": "UNRESOLVED",
+        "registry_number": null
+      },
+      "B": {
+        "domains": [
+          "axicapitals.com",
+          "titancfd.com"
+        ],
+        "clone": true,
+        "target": null
+      }
+    },
+    "disputes": [],
+    "label_status": "CONFIRMED",
+    "label": null
+  },
+  {
+    "notice_id": "950b3cc81450277a9df9c016ef84780ed921f17d1b17bce772da7c3a920a9cdf",
+    "raw": {
+      "tipo_raw": "NOAUTO",
+      "fecha_raw": "02/11/2023",
+      "entidad_raw": "TITANCFD.COM (CLONE)",
+      "entidad_secundaria_raw": "BBIT.SPACE (CLONE)",
+      "observaciones_raw": "La entidad registrada en Grecia VIE FINANCE AEPEY no guarda relación con ninguna de las páginas web advertidas.",
+      "fecha_baja_raw": null
+    },
+    "buckets": [
+      "difficult_14"
+    ],
+    "passes": {
+      "A": {
+        "domains": [
+          "bbit.space",
+          "titancfd.com"
+        ],
+        "clone": true,
+        "target": null,
+        "relation_status": "UNRESOLVED",
+        "registry_number": null
+      },
+      "B": {
+        "domains": [
+          "bbit.space",
+          "titancfd.com"
+        ],
+        "clone": true,
+        "target": null
+      }
+    },
+    "disputes": [],
+    "label_status": "CONFIRMED",
+    "label": null
+  },
+  {
+    "notice_id": "eb476d921d479a3a94453c49b24524e0fc796e3e1e94f1ca5a75a24e2226b81d",
+    "raw": {
+      "tipo_raw": "NOAUTO",
+      "fecha_raw": "13/12/2023",
+      "entidad_raw": "7SOLUTIONS",
+      "entidad_secundaria_raw": "AES",
+      "observaciones_raw": null,
+      "fecha_baja_raw": null
+    },
+    "buckets": [
+      "difficult_14"
+    ],
+    "passes": {
+      "A": {
+        "domains": [],
+        "clone": false,
+        "target": null,
+        "relation_status": null,
+        "registry_number": null
+      },
+      "B": {
+        "domains": [],
+        "clone": false,
+        "target": null
+      }
+    },
+    "disputes": [],
+    "label_status": "CONFIRMED",
+    "label": null
+  },
+  {
+    "notice_id": "2c1e3e3268bed637cbe988f4ed99df42ae727b1011045fdee4f782e655b61192",
+    "raw": {
+      "tipo_raw": "NOAUTO",
+      "fecha_raw": "13/12/2023",
+      "entidad_raw": "7SOLUTIONS",
+      "entidad_secundaria_raw": "APPEX FINANCE",
+      "observaciones_raw": null,
+      "fecha_baja_raw": null
+    },
+    "buckets": [
+      "difficult_14"
+    ],
+    "passes": {
+      "A": {
+        "domains": [],
+        "clone": false,
+        "target": null,
+        "relation_status": null,
+        "registry_number": null
+      },
+      "B": {
+        "domains": [],
+        "clone": false,
+        "target": null
+      }
+    },
+    "disputes": [],
+    "label_status": "CONFIRMED",
+    "label": null
+  },
+  {
+    "notice_id": "439567f1e7c9e8c2cd25194f698566c41fee34d545de5cc7535c451a37cd8804",
+    "raw": {
+      "tipo_raw": "NOAUTO",
+      "fecha_raw": "02/11/2023",
+      "entidad_raw": "GROXBITLY.COM (CLONE)",
+      "entidad_secundaria_raw": "APTEVEX.COM (CLONE)",
+      "observaciones_raw": "La entidad registrada en Grecia VIE FINANCE AEPEY no guarda relación con ninguna de las páginas web advertidas.",
+      "fecha_baja_raw": null
+    },
+    "buckets": [
+      "difficult_14"
+    ],
+    "passes": {
+      "A": {
+        "domains": [
+          "aptevex.com",
+          "groxbitly.com"
+        ],
+        "clone": true,
+        "target": null,
+        "relation_status": "UNRESOLVED",
+        "registry_number": null
+      },
+      "B": {
+        "domains": [
+          "aptevex.com",
+          "groxbitly.com"
+        ],
+        "clone": true,
+        "target": null
+      }
+    },
+    "disputes": [],
+    "label_status": "CONFIRMED",
+    "label": null
+  },
+  {
+    "notice_id": "75a1c4c0361520e867e4fe127dbb58200a451cff8c12e70a06c0b8b153da35d2",
+    "raw": {
+      "tipo_raw": "NOAUTO",
+      "fecha_raw": "02/11/2023",
+      "entidad_raw": "GROXBITLY.COM (CLONE)",
+      "entidad_secundaria_raw": "BIT24HR.COM (CLONE)",
+      "observaciones_raw": "La entidad registrada en Grecia VIE FINANCE AEPEY no guarda relación con ninguna de las páginas web advertidas.",
+      "fecha_baja_raw": null
+    },
+    "buckets": [
+      "difficult_14"
+    ],
+    "passes": {
+      "A": {
+        "domains": [
+          "bit24hr.com",
+          "groxbitly.com"
+        ],
+        "clone": true,
+        "target": null,
+        "relation_status": "UNRESOLVED",
+        "registry_number": null
+      },
+      "B": {
+        "domains": [
+          "bit24hr.com",
+          "groxbitly.com"
+        ],
+        "clone": true,
+        "target": null
+      }
+    },
+    "disputes": [],
+    "label_status": "CONFIRMED",
+    "label": null
+  },
+  {
+    "notice_id": "00182cab417426d1559aa8030decc8dc23b9b12f5a29d0d4ae497ac1e0a56770",
+    "raw": {
+      "tipo_raw": "NOAUTO",
+      "fecha_raw": "26/07/2023",
+      "entidad_raw": "TITANCFD.COM (CLONE)",
+      "entidad_secundaria_raw": "BITLYCIAX.COM (CLONE)",
+      "observaciones_raw": "LOS DOMINIOS QUE APARECEN EN EL LISTADO NO GUARDAN RELACIÓN CON LA ENTIDAD DE NOMBRE VIE FINANCE AEPEY.",
+      "fecha_baja_raw": null
+    },
+    "buckets": [
+      "difficult_14"
+    ],
+    "passes": {
+      "A": {
+        "domains": [
+          "bitlyciax.com",
+          "titancfd.com"
+        ],
+        "clone": true,
+        "target": null,
+        "relation_status": "UNRESOLVED",
+        "registry_number": null
+      },
+      "B": {
+        "domains": [
+          "bitlyciax.com",
+          "titancfd.com"
+        ],
+        "clone": true,
+        "target": null
+      }
+    },
+    "disputes": [],
+    "label_status": "CONFIRMED",
+    "label": null
+  },
+  {
+    "notice_id": "00678443e904342728090a7214cfdae610cbc64010a3e4aaf24f4104776d5058",
+    "raw": {
+      "tipo_raw": "NOAUTO",
+      "fecha_raw": "26/07/2023",
+      "entidad_raw": "TITANCFD.COM (CLONE)",
+      "entidad_secundaria_raw": "NEXUSCHANGE.IO (CLONE)",
+      "observaciones_raw": "LOS DOMINIOS QUE APARECEN EN EL LISTADO NO GUARDAN RELACIÓN CON LA ENTIDAD DE NOMBRE VIE FINANCE AEPEY.",
+      "fecha_baja_raw": null
+    },
+    "buckets": [
+      "difficult_14"
+    ],
+    "passes": {
+      "A": {
+        "domains": [
+          "nexuschange.io",
+          "titancfd.com"
+        ],
+        "clone": true,
+        "target": null,
+        "relation_status": "UNRESOLVED",
+        "registry_number": null
+      },
+      "B": {
+        "domains": [
+          "nexuschange.io",
+          "titancfd.com"
+        ],
+        "clone": true,
+        "target": null
+      }
+    },
+    "disputes": [],
+    "label_status": "CONFIRMED",
+    "label": null
+  },
+  {
+    "notice_id": "857ffdd4381a094a639064eda8253930ca9ba25239d520f14f68c846e95dc2ac",
+    "raw": {
+      "tipo_raw": "OTRADV",
+      "fecha_raw": "22/03/2023",
+      "entidad_raw": "VARIOS GRECIA",
+      "entidad_secundaria_raw": null,
+      "observaciones_raw": "La HCMC advierte del casos de plataformas de negociación online o sitios web donde se proporciona información engañosa (como nombre, domicilio social, etc.) que son idénticos o similares a la información de las entidades debidamente registradas.",
+      "fecha_baja_raw": null
+    },
+    "buckets": [
+      "difficult_14"
+    ],
+    "passes": {
+      "A": {
+        "domains": [],
+        "clone": false,
+        "target": null,
+        "relation_status": null,
+        "registry_number": null
+      },
+      "B": {
+        "domains": [],
+        "clone": false,
+        "target": null
+      }
+    },
+    "disputes": [],
+    "label_status": "CONFIRMED",
+    "label": null
+  }
+]

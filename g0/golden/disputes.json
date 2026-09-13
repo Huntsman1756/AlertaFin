@@ -1,0 +1,1827 @@
+[
+  {
+    "notice_id": "ee7cb90159ef6bb7068177fa7cbbaa3e1c6c7b46b63a0a92597d6ee729052f3b",
+    "raw": {
+      "tipo_raw": "NOAUTO",
+      "fecha_raw": "09/09/2026",
+      "entidad_raw": "WWW.ACCES-ANGELMAR.COM (CLONE)",
+      "entidad_secundaria_raw": null,
+      "observaciones_raw": "La página web advertida se hace pasar de manera fraudulenta por la entidad ANGELMAR Corp S.A., con la que no guarda relación",
+      "fecha_baja_raw": null
+    },
+    "buckets": [
+      "recent_100"
+    ],
+    "passes": {
+      "A": {
+        "domains": [
+          "www.acces-angelmar.com"
+        ],
+        "clone": true,
+        "target": "ANGELMAR Corp S.A.",
+        "relation_status": "EXPLICIT_SOURCE",
+        "registry_number": null
+      },
+      "B": {
+        "domains": [
+          "www.acces-angelmar.com"
+        ],
+        "clone": true,
+        "target": null
+      }
+    },
+    "disputes": [
+      {
+        "field": "clone_target",
+        "A": "ANGELMAR Corp S.A.",
+        "B": null
+      }
+    ],
+    "label_status": "DISPUTED",
+    "label": null
+  },
+  {
+    "notice_id": "e9fdd9533bd282b6bf856b5a5a698489a617ee1d5629848be3adfaaa344fd903",
+    "raw": {
+      "tipo_raw": "NOAUTO",
+      "fecha_raw": "09/09/2026",
+      "entidad_raw": "WWW.TOPFORCECOMPANY.COM (CLONE)",
+      "entidad_secundaria_raw": "WWW.TOPFORCECOMPANY.NET (CLONE)",
+      "observaciones_raw": "Las páginas web advertidas se hacen pasar de manera fraudulenta por la entidad FORCE MANAGEMENT, con la que no guardan relación",
+      "fecha_baja_raw": null
+    },
+    "buckets": [
+      "recent_100"
+    ],
+    "passes": {
+      "A": {
+        "domains": [
+          "www.topforcecompany.com",
+          "www.topforcecompany.net"
+        ],
+        "clone": true,
+        "target": "FORCE MANAGEMENT",
+        "relation_status": "EXPLICIT_SOURCE",
+        "registry_number": null
+      },
+      "B": {
+        "domains": [
+          "www.topforcecompany.com",
+          "www.topforcecompany.net"
+        ],
+        "clone": true,
+        "target": null
+      }
+    },
+    "disputes": [
+      {
+        "field": "clone_target",
+        "A": "FORCE MANAGEMENT",
+        "B": null
+      }
+    ],
+    "label_status": "DISPUTED",
+    "label": null
+  },
+  {
+    "notice_id": "e84849e05e511a1110e345aa12b537d1e6b0fc7b50c667ef92506baefb96f22e",
+    "raw": {
+      "tipo_raw": "NOAUTO",
+      "fecha_raw": "09/09/2026",
+      "entidad_raw": "WWW.BVFCAPITAL.COM (CLONE)",
+      "entidad_secundaria_raw": null,
+      "observaciones_raw": "LA web advertida se hace pasar de manera fraudulenta por la entidad BVF CAPITAL S.à r.l., con la que no guarda relación.",
+      "fecha_baja_raw": null
+    },
+    "buckets": [
+      "recent_100"
+    ],
+    "passes": {
+      "A": {
+        "domains": [
+          "www.bvfcapital.com"
+        ],
+        "clone": true,
+        "target": "BVF CAPITAL S.à r.l.",
+        "relation_status": "EXPLICIT_SOURCE",
+        "registry_number": null
+      },
+      "B": {
+        "domains": [
+          "www.bvfcapital.com"
+        ],
+        "clone": true,
+        "target": null
+      }
+    },
+    "disputes": [
+      {
+        "field": "clone_target",
+        "A": "BVF CAPITAL S.à r.l.",
+        "B": null
+      }
+    ],
+    "label_status": "DISPUTED",
+    "label": null
+  },
+  {
+    "notice_id": "e7a6f479724e390fd14b8666d7f5afe87419e47a225e52d9906518cf92f69c94",
+    "raw": {
+      "tipo_raw": "NOAUTO",
+      "fecha_raw": "09/09/2026",
+      "entidad_raw": "EUROPEAN BROKER S.A. LUXEMBOURG (CLONE)",
+      "entidad_secundaria_raw": null,
+      "observaciones_raw": "Se han detectado personas desconocidas, que utilizan direcciones de correo electrónico con la estructura  nombre.apellido@pro-trx.net, que se hacen pasar de manera fraudulenta por la entidad autorizada EUROPEAN BROKER S.A. LUXEMBOURG, con la que no guardan relación.",
+      "fecha_baja_raw": null
+    },
+    "buckets": [
+      "recent_100"
+    ],
+    "passes": {
+      "A": {
+        "domains": [],
+        "clone": true,
+        "target": "EUROPEAN BROKER S.A",
+        "relation_status": "EXPLICIT_SOURCE",
+        "registry_number": null
+      },
+      "B": {
+        "domains": [],
+        "clone": true,
+        "target": null
+      }
+    },
+    "disputes": [
+      {
+        "field": "clone_target",
+        "A": "EUROPEAN BROKER S.A",
+        "B": null
+      }
+    ],
+    "label_status": "DISPUTED",
+    "label": null
+  },
+  {
+    "notice_id": "e33bc8e5e3a8b61e63f6c41c526f3d0417463a2b73fcf65b6d19ddbca4b365b9",
+    "raw": {
+      "tipo_raw": "NOAUTO",
+      "fecha_raw": "09/09/2026",
+      "entidad_raw": "WWW.CREST-INVEST.LU (CLONE)",
+      "entidad_secundaria_raw": null,
+      "observaciones_raw": "LA web advertida se hace pasar de manera fraudulenta por la entidad autorizada  CREST INVEST S.A., con la que no guarda relación.",
+      "fecha_baja_raw": null
+    },
+    "buckets": [
+      "recent_100"
+    ],
+    "passes": {
+      "A": {
+        "domains": [
+          "www.crest-invest.lu"
+        ],
+        "clone": true,
+        "target": "CREST INVEST S.A.",
+        "relation_status": "EXPLICIT_SOURCE",
+        "registry_number": null
+      },
+      "B": {
+        "domains": [
+          "www.crest-invest.lu"
+        ],
+        "clone": true,
+        "target": null
+      }
+    },
+    "disputes": [
+      {
+        "field": "clone_target",
+        "A": "CREST INVEST S.A.",
+        "B": null
+      }
+    ],
+    "label_status": "DISPUTED",
+    "label": null
+  },
+  {
+    "notice_id": "d69bfb1938d48c89951d4f77ac9ae7bc03806acf9ea5c2f16b302b19b254a53f",
+    "raw": {
+      "tipo_raw": "NOAUTO",
+      "fecha_raw": "09/09/2026",
+      "entidad_raw": "INTERNATIONAL FUND SERVICES & ASSET MANAGEMENT S.A. (CLONE)",
+      "entidad_secundaria_raw": null,
+      "observaciones_raw": "Personas desconocidas, que utilizan el correo electrónico ifsam@eclipso.eu se hacen pasar de manera fraudulenta por la entidad autorizada INTERNATIONAL FUND SERVICES & ASSET MANAGEMENT S.A., con la que no guardan relación.",
+      "fecha_baja_raw": null
+    },
+    "buckets": [
+      "recent_100"
+    ],
+    "passes": {
+      "A": {
+        "domains": [],
+        "clone": true,
+        "target": "INTERNATIONAL FUND SERVICES & ASSET MANAGEMENT S.A.",
+        "relation_status": "EXPLICIT_SOURCE",
+        "registry_number": null
+      },
+      "B": {
+        "domains": [],
+        "clone": true,
+        "target": null
+      }
+    },
+    "disputes": [
+      {
+        "field": "clone_target",
+        "A": "INTERNATIONAL FUND SERVICES & ASSET MANAGEMENT S.A.",
+        "B": null
+      }
+    ],
+    "label_status": "DISPUTED",
+    "label": null
+  },
+  {
+    "notice_id": "bedf63e2f2f98ae0bf56f63db4ce78d89334f9475ad59e5f415dc10cdd446a84",
+    "raw": {
+      "tipo_raw": "NOAUTO",
+      "fecha_raw": "09/09/2026",
+      "entidad_raw": "WWW.GABLAU-INVEST.LU (CLONE)",
+      "entidad_secundaria_raw": null,
+      "observaciones_raw": "LA web advertida se hace pasar de manera fraudulenta por la entidad Molentis S.A., con la que no guarda relación.",
+      "fecha_baja_raw": null
+    },
+    "buckets": [
+      "recent_100"
+    ],
+    "passes": {
+      "A": {
+        "domains": [
+          "www.gablau-invest.lu"
+        ],
+        "clone": true,
+        "target": "Molentis S.A.",
+        "relation_status": "EXPLICIT_SOURCE",
+        "registry_number": null
+      },
+      "B": {
+        "domains": [
+          "www.gablau-invest.lu"
+        ],
+        "clone": true,
+        "target": null
+      }
+    },
+    "disputes": [
+      {
+        "field": "clone_target",
+        "A": "Molentis S.A.",
+        "B": null
+      }
+    ],
+    "label_status": "DISPUTED",
+    "label": null
+  },
+  {
+    "notice_id": "b9e78066233063ead039c3cd1a0349cfda0d6b8eecfc59faec13f67a7cf7e953",
+    "raw": {
+      "tipo_raw": "NOAUTO",
+      "fecha_raw": "09/09/2026",
+      "entidad_raw": "WWW.ALPHAWEALTHMANAGEMENT.CAPITAL (CLONE)",
+      "entidad_secundaria_raw": null,
+      "observaciones_raw": "LA web advertida se hace pasar de manera fraudulenta por la entidad autorizada Alpha Wealth Management Luxembourg, con la que  no guarda relación.",
+      "fecha_baja_raw": null
+    },
+    "buckets": [
+      "recent_100"
+    ],
+    "passes": {
+      "A": {
+        "domains": [
+          "www.alphawealthmanagement.capital"
+        ],
+        "clone": true,
+        "target": "Alpha Wealth Management Luxembourg",
+        "relation_status": "EXPLICIT_SOURCE",
+        "registry_number": null
+      },
+      "B": {
+        "domains": [
+          "www.alphawealthmanagement.capital"
+        ],
+        "clone": true,
+        "target": null
+      }
+    },
+    "disputes": [
+      {
+        "field": "clone_target",
+        "A": "Alpha Wealth Management Luxembourg",
+        "B": null
+      }
+    ],
+    "label_status": "DISPUTED",
+    "label": null
+  },
+  {
+    "notice_id": "b2e65c53f1dcb254c6eefd2ec5da77a6c58f4123a2895cccdfd6a0702f347a66",
+    "raw": {
+      "tipo_raw": "NOAUTO",
+      "fecha_raw": "09/09/2026",
+      "entidad_raw": "WWW.EURIZONINVESTMENT.COM (CLONE)",
+      "entidad_secundaria_raw": null,
+      "observaciones_raw": "Se han detectado personas desconocidas, que utilizan la dirección de correo electrónico info@eurizoninvestment.com, que se hacen pasar de manera fraudulenta por la entidad autorizada EURIZON CAPITAL SGR S.P.A., sucursal de Luxemburgo, con la que no guardan ninguna relación.",
+      "fecha_baja_raw": null
+    },
+    "buckets": [
+      "recent_100"
+    ],
+    "passes": {
+      "A": {
+        "domains": [
+          "www.eurizoninvestment.com"
+        ],
+        "clone": true,
+        "target": "EURIZON CAPITAL SGR S.P.A., sucursal de Luxemburgo",
+        "relation_status": "EXPLICIT_SOURCE",
+        "registry_number": null
+      },
+      "B": {
+        "domains": [
+          "www.eurizoninvestment.com"
+        ],
+        "clone": true,
+        "target": null
+      }
+    },
+    "disputes": [
+      {
+        "field": "clone_target",
+        "A": "EURIZON CAPITAL SGR S.P.A., sucursal de Luxemburgo",
+        "B": null
+      }
+    ],
+    "label_status": "DISPUTED",
+    "label": null
+  },
+  {
+    "notice_id": "aa431f3afdfb58e4f72b0484516f598f5748508a0627b1e390c68f8175c903e6",
+    "raw": {
+      "tipo_raw": "NOAUTO",
+      "fecha_raw": "09/09/2026",
+      "entidad_raw": "WWW.NEVENTALUX.COM (CLONE)",
+      "entidad_secundaria_raw": null,
+      "observaciones_raw": "LA web advertida se hace pasar de manera fraudulenta por la entidad NEVENTA MANAGEMENT, con la que no guarda relación.",
+      "fecha_baja_raw": null
+    },
+    "buckets": [
+      "recent_100"
+    ],
+    "passes": {
+      "A": {
+        "domains": [
+          "www.neventalux.com"
+        ],
+        "clone": true,
+        "target": "NEVENTA MANAGEMENT",
+        "relation_status": "EXPLICIT_SOURCE",
+        "registry_number": null
+      },
+      "B": {
+        "domains": [
+          "www.neventalux.com"
+        ],
+        "clone": true,
+        "target": null
+      }
+    },
+    "disputes": [
+      {
+        "field": "clone_target",
+        "A": "NEVENTA MANAGEMENT",
+        "B": null
+      }
+    ],
+    "label_status": "DISPUTED",
+    "label": null
+  },
+  {
+    "notice_id": "84c34b16eaa7f679d4226972c759508e5eb29683a9d3a0e084d69ae6e865d333",
+    "raw": {
+      "tipo_raw": "NOAUTO",
+      "fecha_raw": "09/09/2026",
+      "entidad_raw": "WWW.ROBUSUMBRELLA.COM (CLONE)",
+      "entidad_secundaria_raw": null,
+      "observaciones_raw": "LA web advertida se hace pasar de manera fraudulenta por la entidad autorizada Robus Umbrella, con la que no guarda relación.",
+      "fecha_baja_raw": null
+    },
+    "buckets": [
+      "recent_100"
+    ],
+    "passes": {
+      "A": {
+        "domains": [
+          "www.robusumbrella.com"
+        ],
+        "clone": true,
+        "target": "Robus Umbrella",
+        "relation_status": "EXPLICIT_SOURCE",
+        "registry_number": null
+      },
+      "B": {
+        "domains": [
+          "www.robusumbrella.com"
+        ],
+        "clone": true,
+        "target": null
+      }
+    },
+    "disputes": [
+      {
+        "field": "clone_target",
+        "A": "Robus Umbrella",
+        "B": null
+      }
+    ],
+    "label_status": "DISPUTED",
+    "label": null
+  },
+  {
+    "notice_id": "83e7948f9c3c695c0ab230e3026b53ae2aba28ed77e678ebbb0a0c0f03b7f9b0",
+    "raw": {
+      "tipo_raw": "NOAUTO",
+      "fecha_raw": "09/09/2026",
+      "entidad_raw": "NORDEA INVESTMENT FUNDS S.A. (CLONE)",
+      "entidad_secundaria_raw": null,
+      "observaciones_raw": "Se han detectado personas desconocidas, que utilizan direcciones de correo electrónico utilizando las estructuras “inicial del nombre\\n.apellido@nordea-am.com”,“Inicial del nombre.apellido@nordea-ifs.com”, y“Nombre.Apellido@fundsnordea.com”, que se hacen pasar de manera fraudulenta por la entidad autorizada Nordea Investment Funds S.A., con la que no guardan ninguna relación.",
+      "fecha_baja_raw": null
+    },
+    "buckets": [
+      "recent_100"
+    ],
+    "passes": {
+      "A": {
+        "domains": [],
+        "clone": true,
+        "target": "Nordea Investment Funds S.A.",
+        "relation_status": "EXPLICIT_SOURCE",
+        "registry_number": null
+      },
+      "B": {
+        "domains": [],
+        "clone": true,
+        "target": null
+      }
+    },
+    "disputes": [
+      {
+        "field": "clone_target",
+        "A": "Nordea Investment Funds S.A.",
+        "B": null
+      }
+    ],
+    "label_status": "DISPUTED",
+    "label": null
+  },
+  {
+    "notice_id": "77ab3682edfc732490ca7e529c37c8d81e412cc800e395b200a4632fe598a3d4",
+    "raw": {
+      "tipo_raw": "NOAUTO",
+      "fecha_raw": "09/09/2026",
+      "entidad_raw": "WWW.ICI-INVEST.LU (CLONE)",
+      "entidad_secundaria_raw": null,
+      "observaciones_raw": "LA web advertida se hace pasar de manera fraudulenta por la entidad autorizada ICI Invest S.A., con la que no guarda relación.",
+      "fecha_baja_raw": null
+    },
+    "buckets": [
+      "recent_100"
+    ],
+    "passes": {
+      "A": {
+        "domains": [
+          "www.ici-invest.lu"
+        ],
+        "clone": true,
+        "target": "ICI Invest S.A.",
+        "relation_status": "EXPLICIT_SOURCE",
+        "registry_number": null
+      },
+      "B": {
+        "domains": [
+          "www.ici-invest.lu"
+        ],
+        "clone": true,
+        "target": null
+      }
+    },
+    "disputes": [
+      {
+        "field": "clone_target",
+        "A": "ICI Invest S.A.",
+        "B": null
+      }
+    ],
+    "label_status": "DISPUTED",
+    "label": null
+  },
+  {
+    "notice_id": "73062128772ccbe774cce46970d83bb54a3e887c9f02840f4c68e30344c719ae",
+    "raw": {
+      "tipo_raw": "NOAUTO",
+      "fecha_raw": "09/09/2026",
+      "entidad_raw": "WWW.GEKKO-FUND.COM (CLONE)",
+      "entidad_secundaria_raw": null,
+      "observaciones_raw": "LA web advertida se hace pasar de manera fraudulenta por la entidad autorizada Gekko Fund SICAV, con la que no guarda relación",
+      "fecha_baja_raw": null
+    },
+    "buckets": [
+      "recent_100"
+    ],
+    "passes": {
+      "A": {
+        "domains": [
+          "www.gekko-fund.com"
+        ],
+        "clone": true,
+        "target": "Gekko Fund SICAV",
+        "relation_status": "EXPLICIT_SOURCE",
+        "registry_number": null
+      },
+      "B": {
+        "domains": [
+          "www.gekko-fund.com"
+        ],
+        "clone": true,
+        "target": null
+      }
+    },
+    "disputes": [
+      {
+        "field": "clone_target",
+        "A": "Gekko Fund SICAV",
+        "B": null
+      }
+    ],
+    "label_status": "DISPUTED",
+    "label": null
+  },
+  {
+    "notice_id": "71e1540fd8b43f882d6035d39f9cf1c49231a7187e19bf3bacd6e79b982eeb20",
+    "raw": {
+      "tipo_raw": "NOAUTO",
+      "fecha_raw": "09/09/2026",
+      "entidad_raw": "LUXEMPART S.A. (CLONE)",
+      "entidad_secundaria_raw": null,
+      "observaciones_raw": "Se han detectado personas desconocidas, que utilizan direcciones de correo electrónico con la estructura   nombre.apellido@client-luxempart.lu, que se hacen pasar de manera fraudulenta por la entidad autorizada LUXEMPART S.A., con la que no guardan relación.",
+      "fecha_baja_raw": null
+    },
+    "buckets": [
+      "recent_100"
+    ],
+    "passes": {
+      "A": {
+        "domains": [],
+        "clone": true,
+        "target": "LUXEMPART S.A.",
+        "relation_status": "EXPLICIT_SOURCE",
+        "registry_number": null
+      },
+      "B": {
+        "domains": [],
+        "clone": true,
+        "target": null
+      }
+    },
+    "disputes": [
+      {
+        "field": "clone_target",
+        "A": "LUXEMPART S.A.",
+        "B": null
+      }
+    ],
+    "label_status": "DISPUTED",
+    "label": null
+  },
+  {
+    "notice_id": "63578259ba0c6bb8f42df93b9f3beeb38e06ea32e174e36756e6c0c47eb761cc",
+    "raw": {
+      "tipo_raw": "NOAUTO",
+      "fecha_raw": "09/09/2026",
+      "entidad_raw": "WWW.MOLENTIS-SA.COM (CLONE)",
+      "entidad_secundaria_raw": null,
+      "observaciones_raw": "LA web advertida se hace pasar de manera fraudulenta por la entidad Molentis S.A., con la que no guarda relación.",
+      "fecha_baja_raw": null
+    },
+    "buckets": [
+      "recent_100"
+    ],
+    "passes": {
+      "A": {
+        "domains": [
+          "www.molentis-sa.com"
+        ],
+        "clone": true,
+        "target": "Molentis S.A.",
+        "relation_status": "EXPLICIT_SOURCE",
+        "registry_number": null
+      },
+      "B": {
+        "domains": [
+          "www.molentis-sa.com"
+        ],
+        "clone": true,
+        "target": null
+      }
+    },
+    "disputes": [
+      {
+        "field": "clone_target",
+        "A": "Molentis S.A.",
+        "B": null
+      }
+    ],
+    "label_status": "DISPUTED",
+    "label": null
+  },
+  {
+    "notice_id": "49f3262c81fd532c62bbea67b31f9d36bb125ad47d656cc2ff6cdb555ee7c371",
+    "raw": {
+      "tipo_raw": "NOAUTO",
+      "fecha_raw": "09/09/2026",
+      "entidad_raw": "CLEARSTREAM BANKING S.A. (CLONE)",
+      "entidad_secundaria_raw": null,
+      "observaciones_raw": "Se han detectado personas desconocidas, que utilizan direcciones de correo electrónico con la estructura  nombre.apellido@clearstream-global.pro y otras como compliance@clearstream-global.pro, que se hacen pasar de manera fraudulenta por la entidad autorizada Clearstream Banking S.A., con las que no guardan relación.",
+      "fecha_baja_raw": null
+    },
+    "buckets": [
+      "recent_100"
+    ],
+    "passes": {
+      "A": {
+        "domains": [],
+        "clone": true,
+        "target": "Clearstream Banking S.A., con las que no guardan relación",
+        "relation_status": "EXPLICIT_SOURCE",
+        "registry_number": null
+      },
+      "B": {
+        "domains": [],
+        "clone": true,
+        "target": null
+      }
+    },
+    "disputes": [
+      {
+        "field": "clone_target",
+        "A": "Clearstream Banking S.A., con las que no guardan relación",
+        "B": null
+      }
+    ],
+    "label_status": "DISPUTED",
+    "label": null
+  },
+  {
+    "notice_id": "4440fedeb9e848dea395e42a2049fa1b2e9e7338f06181f000ea2490837118b9",
+    "raw": {
+      "tipo_raw": "NOAUTO",
+      "fecha_raw": "09/09/2026",
+      "entidad_raw": "WWW.IMGPARTNERS.CM (CLONE)",
+      "entidad_secundaria_raw": "WWW.LOOM-HELLO-95431323.FIGMA.SITE (CLONE)",
+      "observaciones_raw": "LA web advertida se hace pasar de manera fraudulenta por la entidad autorizada iM Global Partner Asset Management S.A., con la que no guarda relación",
+      "fecha_baja_raw": null
+    },
+    "buckets": [
+      "recent_100"
+    ],
+    "passes": {
+      "A": {
+        "domains": [
+          "www.imgpartners.cm",
+          "www.loom-hello-95431323.figma.site"
+        ],
+        "clone": true,
+        "target": "iM Global Partner Asset Management S.A.",
+        "relation_status": "EXPLICIT_SOURCE",
+        "registry_number": null
+      },
+      "B": {
+        "domains": [
+          "www.imgpartners.cm",
+          "www.loom-hello-95431323.figma.site"
+        ],
+        "clone": true,
+        "target": null
+      }
+    },
+    "disputes": [
+      {
+        "field": "clone_target",
+        "A": "iM Global Partner Asset Management S.A.",
+        "B": null
+      }
+    ],
+    "label_status": "DISPUTED",
+    "label": null
+  },
+  {
+    "notice_id": "39911276b3f86beb17a72fe98ae8652f145fc4df0bac818e2128ceacfcd25252",
+    "raw": {
+      "tipo_raw": "NOAUTO",
+      "fecha_raw": "09/09/2026",
+      "entidad_raw": "WWW.VISIONFUNDLU.COM (CLONE)",
+      "entidad_secundaria_raw": null,
+      "observaciones_raw": "LA web advertida se hace pasar de manera fraudulenta por la entidad autorizada RBC Funds (Lux), con la que  no guarda relación.",
+      "fecha_baja_raw": null
+    },
+    "buckets": [
+      "recent_100"
+    ],
+    "passes": {
+      "A": {
+        "domains": [
+          "www.visionfundlu.com"
+        ],
+        "clone": true,
+        "target": "RBC Funds (Lux)",
+        "relation_status": "EXPLICIT_SOURCE",
+        "registry_number": null
+      },
+      "B": {
+        "domains": [
+          "www.visionfundlu.com"
+        ],
+        "clone": true,
+        "target": null
+      }
+    },
+    "disputes": [
+      {
+        "field": "clone_target",
+        "A": "RBC Funds (Lux)",
+        "B": null
+      }
+    ],
+    "label_status": "DISPUTED",
+    "label": null
+  },
+  {
+    "notice_id": "2b5ce4ed55d6a80377ff24bade1fbf25882f988b090623dc89a4b7638f54cb01",
+    "raw": {
+      "tipo_raw": "NOAUTO",
+      "fecha_raw": "09/09/2026",
+      "entidad_raw": "WWW.HAUTFORTPARTNERS.COM (CLONE)",
+      "entidad_secundaria_raw": null,
+      "observaciones_raw": "LA web advertida se hace pasar de manera fraudulenta por la entidad autorizada Hautfort Partners S.à r.l., con la que no guarda relación",
+      "fecha_baja_raw": null
+    },
+    "buckets": [
+      "recent_100"
+    ],
+    "passes": {
+      "A": {
+        "domains": [
+          "www.hautfortpartners.com"
+        ],
+        "clone": true,
+        "target": "Hautfort Partners S.à r.l.",
+        "relation_status": "EXPLICIT_SOURCE",
+        "registry_number": null
+      },
+      "B": {
+        "domains": [
+          "www.hautfortpartners.com"
+        ],
+        "clone": true,
+        "target": null
+      }
+    },
+    "disputes": [
+      {
+        "field": "clone_target",
+        "A": "Hautfort Partners S.à r.l.",
+        "B": null
+      }
+    ],
+    "label_status": "DISPUTED",
+    "label": null
+  },
+  {
+    "notice_id": "1971a394ca3b197b1cb4f734b5d62ccc76c4d9717695d7ccbc38a27a58d6440f",
+    "raw": {
+      "tipo_raw": "NOAUTO",
+      "fecha_raw": "09/09/2026",
+      "entidad_raw": "WWW.WINVEST.INTERNATIONAL (CLONE)",
+      "entidad_secundaria_raw": "WWW.WINVEST-INTERNATIONAL.ONLINE (CLONE)",
+      "observaciones_raw": "Las páginas web advertidas se hacen pasar de manera fraudulenta por la entidad autorizada Winvest International S.C.S., FIAR.. con la que no guardan relación",
+      "fecha_baja_raw": null
+    },
+    "buckets": [
+      "recent_100"
+    ],
+    "passes": {
+      "A": {
+        "domains": [
+          "www.winvest-international.online",
+          "www.winvest.international"
+        ],
+        "clone": true,
+        "target": "Winvest International S.C.S., FIAR.",
+        "relation_status": "EXPLICIT_SOURCE",
+        "registry_number": null
+      },
+      "B": {
+        "domains": [
+          "www.winvest-international.online",
+          "www.winvest.international"
+        ],
+        "clone": true,
+        "target": null
+      }
+    },
+    "disputes": [
+      {
+        "field": "clone_target",
+        "A": "Winvest International S.C.S., FIAR.",
+        "B": null
+      }
+    ],
+    "label_status": "DISPUTED",
+    "label": null
+  },
+  {
+    "notice_id": "0414d4a27d43bdd6e0d06439a1fd5635c53e066ddfb1770ea586222bd4e6d09f",
+    "raw": {
+      "tipo_raw": "NOAUTO",
+      "fecha_raw": "09/09/2026",
+      "entidad_raw": "WWW.CARRERA-FINANCE.DIGITAL (CLONE)",
+      "entidad_secundaria_raw": null,
+      "observaciones_raw": "LA web advertida se hace pasar de manera fraudulenta por la entidad autorizada Carrera Finance S.A., con la que no guarda relación",
+      "fecha_baja_raw": null
+    },
+    "buckets": [
+      "recent_100"
+    ],
+    "passes": {
+      "A": {
+        "domains": [
+          "www.carrera-finance.digital"
+        ],
+        "clone": true,
+        "target": "Carrera Finance S.A.",
+        "relation_status": "EXPLICIT_SOURCE",
+        "registry_number": null
+      },
+      "B": {
+        "domains": [
+          "www.carrera-finance.digital"
+        ],
+        "clone": true,
+        "target": null
+      }
+    },
+    "disputes": [
+      {
+        "field": "clone_target",
+        "A": "Carrera Finance S.A.",
+        "B": null
+      }
+    ],
+    "label_status": "DISPUTED",
+    "label": null
+  },
+  {
+    "notice_id": "cae15d15d391fe0b4bf163bc92409c25b699abba81ea29cdeb0e56d65a8133ed",
+    "raw": {
+      "tipo_raw": "NOAUTO",
+      "fecha_raw": "02/09/2026",
+      "entidad_raw": "A&P SELECTIVE INVESTMENT FUND S.C.A., SICAV-FIAR (CLONE)",
+      "entidad_secundaria_raw": null,
+      "observaciones_raw": "Se han detectado personas desconocidas que utilizan direcciones de correo electrónico con la estructura Nombre.Apellido@ap-selective-investment-fund.com para hacerse pasar de manera fraudulenta por la entidad autorizada A&P Selective Investment Fund S.C.A., SICAV-FIAR, con la que no guardan relación alguna.",
+      "fecha_baja_raw": null
+    },
+    "buckets": [
+      "recent_100"
+    ],
+    "passes": {
+      "A": {
+        "domains": [],
+        "clone": true,
+        "target": "A&P Selective Investment Fund S.C.A., SICAV-FIAR",
+        "relation_status": "EXPLICIT_SOURCE",
+        "registry_number": null
+      },
+      "B": {
+        "domains": [],
+        "clone": true,
+        "target": null
+      }
+    },
+    "disputes": [
+      {
+        "field": "clone_target",
+        "A": "A&P Selective Investment Fund S.C.A., SICAV-FIAR",
+        "B": null
+      }
+    ],
+    "label_status": "DISPUTED",
+    "label": null
+  },
+  {
+    "notice_id": "c9bf5f53b1ab18a0c0e97331ce8ed5f7b3d7b6fafa8bb81484c6df964ae00949",
+    "raw": {
+      "tipo_raw": "NOAUTO",
+      "fecha_raw": "02/09/2026",
+      "entidad_raw": "WWW.NEXUSGROUP.EU.COM (CLONE)",
+      "entidad_secundaria_raw": null,
+      "observaciones_raw": "La página web advertida se hace pasar de manera fraudulenta por la entidad autorizada Nexus Global Group S.A., con la que no guarda relación",
+      "fecha_baja_raw": null
+    },
+    "buckets": [
+      "recent_100"
+    ],
+    "passes": {
+      "A": {
+        "domains": [
+          "www.nexusgroup.eu.com"
+        ],
+        "clone": true,
+        "target": "Nexus Global Group S.A.",
+        "relation_status": "EXPLICIT_SOURCE",
+        "registry_number": null
+      },
+      "B": {
+        "domains": [
+          "www.nexusgroup.eu.com"
+        ],
+        "clone": true,
+        "target": null
+      }
+    },
+    "disputes": [
+      {
+        "field": "clone_target",
+        "A": "Nexus Global Group S.A.",
+        "B": null
+      }
+    ],
+    "label_status": "DISPUTED",
+    "label": null
+  },
+  {
+    "notice_id": "c3b49cee2b2f892f8c4c5513ecbb117c9474b0578050e97b2f6188d41638db61",
+    "raw": {
+      "tipo_raw": "NOAUTO",
+      "fecha_raw": "02/09/2026",
+      "entidad_raw": "WWW.ESPACECLIENT.BCEEGESTION.COM (CLONE)",
+      "entidad_secundaria_raw": null,
+      "observaciones_raw": "La página web advertida se hace pasar de manera fraudulenta por la entidad autorizada Banque et Caisse d’Epargne de l’Etat Luxembourg, con la que no guarda relación",
+      "fecha_baja_raw": null
+    },
+    "buckets": [
+      "recent_100"
+    ],
+    "passes": {
+      "A": {
+        "domains": [
+          "www.espaceclient.bceegestion.com"
+        ],
+        "clone": true,
+        "target": "Banque et Caisse d’Epargne de l’Etat Luxembourg",
+        "relation_status": "EXPLICIT_SOURCE",
+        "registry_number": null
+      },
+      "B": {
+        "domains": [
+          "www.espaceclient.bceegestion.com"
+        ],
+        "clone": true,
+        "target": null
+      }
+    },
+    "disputes": [
+      {
+        "field": "clone_target",
+        "A": "Banque et Caisse d’Epargne de l’Etat Luxembourg",
+        "B": null
+      }
+    ],
+    "label_status": "DISPUTED",
+    "label": null
+  },
+  {
+    "notice_id": "c00b7ccd6d06f86c1fe0c1a4c5f682b73f903595f35661e8310d24ae6e3741f8",
+    "raw": {
+      "tipo_raw": "NOAUTO",
+      "fecha_raw": "02/09/2026",
+      "entidad_raw": "MERITUM CAPITAL (CLONE)",
+      "entidad_secundaria_raw": null,
+      "observaciones_raw": "Se han detectado personas desconocidas, que utilizan direcciones de correo electrónico con la estructura NombreApellido@meritumcapital-intl.com y otras como contact@meritumcapital-intl.com, que se hacen pasar de manera fraudulenta por la entidad autorizada MERITUM CAPITAL, con la que no guardan relación.",
+      "fecha_baja_raw": null
+    },
+    "buckets": [
+      "recent_100"
+    ],
+    "passes": {
+      "A": {
+        "domains": [],
+        "clone": true,
+        "target": "MERITUM CAPITAL",
+        "relation_status": "EXPLICIT_SOURCE",
+        "registry_number": null
+      },
+      "B": {
+        "domains": [],
+        "clone": true,
+        "target": null
+      }
+    },
+    "disputes": [
+      {
+        "field": "clone_target",
+        "A": "MERITUM CAPITAL",
+        "B": null
+      }
+    ],
+    "label_status": "DISPUTED",
+    "label": null
+  },
+  {
+    "notice_id": "b972dba12c586827db07ac28507246c57e831e2345a70f7a36de72c4e2f583d2",
+    "raw": {
+      "tipo_raw": "NOAUTO",
+      "fecha_raw": "02/09/2026",
+      "entidad_raw": "WWW.GERMAN-LION-SA.EU (CLONE)",
+      "entidad_secundaria_raw": "WWW.GERMAN-LION-SA.COM.DE (CLONE)",
+      "observaciones_raw": "Las páginas web advertidas se hacen pasar de manera fraudulenta por la entidad autorizada German Lion S.A., con la que no guardan relación.",
+      "fecha_baja_raw": null
+    },
+    "buckets": [
+      "recent_100"
+    ],
+    "passes": {
+      "A": {
+        "domains": [
+          "www.german-lion-sa.com.de",
+          "www.german-lion-sa.eu"
+        ],
+        "clone": true,
+        "target": "German Lion S.A.",
+        "relation_status": "EXPLICIT_SOURCE",
+        "registry_number": null
+      },
+      "B": {
+        "domains": [
+          "www.german-lion-sa.com.de",
+          "www.german-lion-sa.eu"
+        ],
+        "clone": true,
+        "target": null
+      }
+    },
+    "disputes": [
+      {
+        "field": "clone_target",
+        "A": "German Lion S.A.",
+        "B": null
+      }
+    ],
+    "label_status": "DISPUTED",
+    "label": null
+  },
+  {
+    "notice_id": "a4f525d34c5ca335c963fce9b41922ab2509b619310a881cf720a7b726cd5846",
+    "raw": {
+      "tipo_raw": "NOAUTO",
+      "fecha_raw": "02/09/2026",
+      "entidad_raw": "WWW.GERMAN-LION-SA.EU (CLONE)",
+      "entidad_secundaria_raw": "WWW.GERMAN-LION.DE (CLONE)",
+      "observaciones_raw": "Las páginas web advertidas se hacen pasar de manera fraudulenta por la entidad autorizada German Lion S.A., con la que no guardan relación.",
+      "fecha_baja_raw": null
+    },
+    "buckets": [
+      "recent_100"
+    ],
+    "passes": {
+      "A": {
+        "domains": [
+          "www.german-lion-sa.eu",
+          "www.german-lion.de"
+        ],
+        "clone": true,
+        "target": "German Lion S.A.",
+        "relation_status": "EXPLICIT_SOURCE",
+        "registry_number": null
+      },
+      "B": {
+        "domains": [
+          "www.german-lion-sa.eu",
+          "www.german-lion.de"
+        ],
+        "clone": true,
+        "target": null
+      }
+    },
+    "disputes": [
+      {
+        "field": "clone_target",
+        "A": "German Lion S.A.",
+        "B": null
+      }
+    ],
+    "label_status": "DISPUTED",
+    "label": null
+  },
+  {
+    "notice_id": "96836559bb520baddf190198a9a9b15bff937dd17aca0f0caca48fe290d1078a",
+    "raw": {
+      "tipo_raw": "NOAUTO",
+      "fecha_raw": "02/09/2026",
+      "entidad_raw": "WWW.CBNFINANCESSUPPORT.INFO (CLONE)",
+      "entidad_secundaria_raw": "WWW.CENTRESINFO.ME (CLONE)",
+      "observaciones_raw": "Las páginas web advertidas se hacen pasar de manera fraudulenta por la entidad autorizada Coinbase Luxembourg S.A., con la que no guardan relación.",
+      "fecha_baja_raw": null
+    },
+    "buckets": [
+      "recent_100"
+    ],
+    "passes": {
+      "A": {
+        "domains": [
+          "www.cbnfinancessupport.info",
+          "www.centresinfo.me"
+        ],
+        "clone": true,
+        "target": "Coinbase Luxembourg S.A.",
+        "relation_status": "EXPLICIT_SOURCE",
+        "registry_number": null
+      },
+      "B": {
+        "domains": [
+          "www.cbnfinancessupport.info",
+          "www.centresinfo.me"
+        ],
+        "clone": true,
+        "target": null
+      }
+    },
+    "disputes": [
+      {
+        "field": "clone_target",
+        "A": "Coinbase Luxembourg S.A.",
+        "B": null
+      }
+    ],
+    "label_status": "DISPUTED",
+    "label": null
+  },
+  {
+    "notice_id": "7d0c499519a4c36379d593508df679ade43a9b383599efe88b89b6fcd54745a4",
+    "raw": {
+      "tipo_raw": "NOAUTO",
+      "fecha_raw": "02/09/2026",
+      "entidad_raw": "WWW.SMTBEUROPE.COM (CLONE)",
+      "entidad_secundaria_raw": null,
+      "observaciones_raw": "La web advertida se hace pasar de manera fraudulenta por la entidad autorizada Sumitomo Mitsui Trust Bank (Luxembourg) S.A., con la que no guarda relación",
+      "fecha_baja_raw": null
+    },
+    "buckets": [
+      "recent_100"
+    ],
+    "passes": {
+      "A": {
+        "domains": [
+          "www.smtbeurope.com"
+        ],
+        "clone": true,
+        "target": "Sumitomo Mitsui Trust Bank (Luxembourg) S.A.",
+        "relation_status": "EXPLICIT_SOURCE",
+        "registry_number": null
+      },
+      "B": {
+        "domains": [
+          "www.smtbeurope.com"
+        ],
+        "clone": true,
+        "target": null
+      }
+    },
+    "disputes": [
+      {
+        "field": "clone_target",
+        "A": "Sumitomo Mitsui Trust Bank (Luxembourg) S.A.",
+        "B": null
+      }
+    ],
+    "label_status": "DISPUTED",
+    "label": null
+  },
+  {
+    "notice_id": "793790f74b86706b8584d2c7ce4594b7843f559f82eae2b5ae561bfb2363a2fa",
+    "raw": {
+      "tipo_raw": "NOAUTO",
+      "fecha_raw": "02/09/2026",
+      "entidad_raw": "WWW.VIVID-MONEY.LU (CLONE)",
+      "entidad_secundaria_raw": null,
+      "observaciones_raw": "LA web advertida se hace pasar de manera fraudulenta por la entidad autorizada VIVID MONEY S.A., con la que no guarda relación.",
+      "fecha_baja_raw": null
+    },
+    "buckets": [
+      "recent_100"
+    ],
+    "passes": {
+      "A": {
+        "domains": [
+          "www.vivid-money.lu"
+        ],
+        "clone": true,
+        "target": "VIVID MONEY S.A.",
+        "relation_status": "EXPLICIT_SOURCE",
+        "registry_number": null
+      },
+      "B": {
+        "domains": [
+          "www.vivid-money.lu"
+        ],
+        "clone": true,
+        "target": null
+      }
+    },
+    "disputes": [
+      {
+        "field": "clone_target",
+        "A": "VIVID MONEY S.A.",
+        "B": null
+      }
+    ],
+    "label_status": "DISPUTED",
+    "label": null
+  },
+  {
+    "notice_id": "6719c4ab5a8963123b29793e0f244776eb9b875d2488fac18f1de944709eb7b0",
+    "raw": {
+      "tipo_raw": "NOAUTO",
+      "fecha_raw": "02/09/2026",
+      "entidad_raw": "WWW.CAPMAN-HOLDING.COM (CLONE)",
+      "entidad_secundaria_raw": null,
+      "observaciones_raw": "La web advertida, que utiliza correos electrónicos con la estructura apellido@capman-holding.com se hace pasar de manera fraudulenta por la entidad autorizada CapMan Lynx SCA, SICAR, con la que no guarda relación.",
+      "fecha_baja_raw": null
+    },
+    "buckets": [
+      "recent_100"
+    ],
+    "passes": {
+      "A": {
+        "domains": [
+          "www.capman-holding.com"
+        ],
+        "clone": true,
+        "target": "CapMan Lynx SCA, SICAR",
+        "relation_status": "EXPLICIT_SOURCE",
+        "registry_number": null
+      },
+      "B": {
+        "domains": [
+          "www.capman-holding.com"
+        ],
+        "clone": true,
+        "target": null
+      }
+    },
+    "disputes": [
+      {
+        "field": "clone_target",
+        "A": "CapMan Lynx SCA, SICAR",
+        "B": null
+      }
+    ],
+    "label_status": "DISPUTED",
+    "label": null
+  },
+  {
+    "notice_id": "4b514cd3d2311351a04b874cb3b165fdd8a08e08457247100ccb09d9c5d35160",
+    "raw": {
+      "tipo_raw": "NOAUTO",
+      "fecha_raw": "02/09/2026",
+      "entidad_raw": "JPMORGAN ASSET MANAGEMENT (EUROPE) S.À R.L. (CLONE)",
+      "entidad_secundaria_raw": null,
+      "observaciones_raw": "Se han detectado personas desconocidas que utilizan direcciones de correo electrónico con la estructura Nombre.Apellido@jpm-savings.com y otras como client.services@jpm-savings.com para hacerse pasar de manera fraudulenta por la entidad autorizada JPMorgan Asset Management (Europe) S.à r.l., con la que no guardan relación.",
+      "fecha_baja_raw": null
+    },
+    "buckets": [
+      "recent_100"
+    ],
+    "passes": {
+      "A": {
+        "domains": [],
+        "clone": true,
+        "target": "JPMorgan Asset Management (Europe) S.à r.l.",
+        "relation_status": "EXPLICIT_SOURCE",
+        "registry_number": null
+      },
+      "B": {
+        "domains": [],
+        "clone": true,
+        "target": null
+      }
+    },
+    "disputes": [
+      {
+        "field": "clone_target",
+        "A": "JPMorgan Asset Management (Europe) S.à r.l.",
+        "B": null
+      }
+    ],
+    "label_status": "DISPUTED",
+    "label": null
+  },
+  {
+    "notice_id": "498a01a900884c15bc25759c2176cfbdcb0fc98220b588031ced7ba772865716",
+    "raw": {
+      "tipo_raw": "NOAUTO",
+      "fecha_raw": "02/09/2026",
+      "entidad_raw": "WWW.PAREFTURN.FUND (CLONE)",
+      "entidad_secundaria_raw": null,
+      "observaciones_raw": "LA web advertida se hace pasar de manera fraudulenta por la entidad autorizada PARETURN, con la que no guarda relación.",
+      "fecha_baja_raw": null
+    },
+    "buckets": [
+      "recent_100"
+    ],
+    "passes": {
+      "A": {
+        "domains": [
+          "www.parefturn.fund"
+        ],
+        "clone": true,
+        "target": "PARETURN",
+        "relation_status": "EXPLICIT_SOURCE",
+        "registry_number": null
+      },
+      "B": {
+        "domains": [
+          "www.parefturn.fund"
+        ],
+        "clone": true,
+        "target": null
+      }
+    },
+    "disputes": [
+      {
+        "field": "clone_target",
+        "A": "PARETURN",
+        "B": null
+      }
+    ],
+    "label_status": "DISPUTED",
+    "label": null
+  },
+  {
+    "notice_id": "39bba94d90bd06a75ba7c941d0a55319e401b49df1976330e8fc37464152d797",
+    "raw": {
+      "tipo_raw": "NOAUTO",
+      "fecha_raw": "02/09/2026",
+      "entidad_raw": "WWW.MOTIONASSET.IO (CLONE)",
+      "entidad_secundaria_raw": null,
+      "observaciones_raw": "La página web advertida se hace pasar de manera fraudulenta por la entidad autorizada  Finance in Motion Asset Management S.à r.l., con la que no guarda relación",
+      "fecha_baja_raw": null
+    },
+    "buckets": [
+      "recent_100"
+    ],
+    "passes": {
+      "A": {
+        "domains": [
+          "www.motionasset.io"
+        ],
+        "clone": true,
+        "target": "Finance in Motion Asset Management S.à r.l.",
+        "relation_status": "EXPLICIT_SOURCE",
+        "registry_number": null
+      },
+      "B": {
+        "domains": [
+          "www.motionasset.io"
+        ],
+        "clone": true,
+        "target": null
+      }
+    },
+    "disputes": [
+      {
+        "field": "clone_target",
+        "A": "Finance in Motion Asset Management S.à r.l.",
+        "B": null
+      }
+    ],
+    "label_status": "DISPUTED",
+    "label": null
+  },
+  {
+    "notice_id": "38cfa8291c0efe0a0cde044f8d9d817fae9a79d7c38615fd6ae6f011c871ce6e",
+    "raw": {
+      "tipo_raw": "NOAUTO",
+      "fecha_raw": "02/09/2026",
+      "entidad_raw": "WWW.QUASIR-INVESTMENTS.LU (CLONE)",
+      "entidad_secundaria_raw": null,
+      "observaciones_raw": "La web advertida se hace pasar de manera fraudulenta por la entidad autorizada Quasir Investments Limited, con la que no guarda relación alguna.",
+      "fecha_baja_raw": null
+    },
+    "buckets": [
+      "recent_100"
+    ],
+    "passes": {
+      "A": {
+        "domains": [
+          "www.quasir-investments.lu"
+        ],
+        "clone": true,
+        "target": "Quasir Investments Limited",
+        "relation_status": "EXPLICIT_SOURCE",
+        "registry_number": null
+      },
+      "B": {
+        "domains": [
+          "www.quasir-investments.lu"
+        ],
+        "clone": true,
+        "target": null
+      }
+    },
+    "disputes": [
+      {
+        "field": "clone_target",
+        "A": "Quasir Investments Limited",
+        "B": null
+      }
+    ],
+    "label_status": "DISPUTED",
+    "label": null
+  },
+  {
+    "notice_id": "37ae2e18bf9db2495c5bdf2b02f8227a4fe26cdd3115b2e75b04aab84808071d",
+    "raw": {
+      "tipo_raw": "NOAUTO",
+      "fecha_raw": "02/09/2026",
+      "entidad_raw": "WWW.GERMAN-LION-SA.EU (CLONE)",
+      "entidad_secundaria_raw": "WWW.GERMAN-LION-SA.COM (CLONE)",
+      "observaciones_raw": "Las páginas web advertidas se hacen pasar de manera fraudulenta por la entidad autorizada German Lion S.A., con la que no guardan relación.",
+      "fecha_baja_raw": null
+    },
+    "buckets": [
+      "recent_100"
+    ],
+    "passes": {
+      "A": {
+        "domains": [
+          "www.german-lion-sa.com",
+          "www.german-lion-sa.eu"
+        ],
+        "clone": true,
+        "target": "German Lion S.A.",
+        "relation_status": "EXPLICIT_SOURCE",
+        "registry_number": null
+      },
+      "B": {
+        "domains": [
+          "www.german-lion-sa.com",
+          "www.german-lion-sa.eu"
+        ],
+        "clone": true,
+        "target": null
+      }
+    },
+    "disputes": [
+      {
+        "field": "clone_target",
+        "A": "German Lion S.A.",
+        "B": null
+      }
+    ],
+    "label_status": "DISPUTED",
+    "label": null
+  },
+  {
+    "notice_id": "1393ced89b7fa295103a54ed1a789369366142e9918dd7ec196e857f56a534d4",
+    "raw": {
+      "tipo_raw": "NOAUTO",
+      "fecha_raw": "02/09/2026",
+      "entidad_raw": "WWW.JFL-INVEST.COM (CLONE)",
+      "entidad_secundaria_raw": null,
+      "observaciones_raw": "LA web advertida, que utiliza correos electrónicos con la estructura xxx@jfl-invest.com se hace pasar de manera fraudulenta por la entidad autorizada JFL Invest S.A., con la que no guarda relación.",
+      "fecha_baja_raw": null
+    },
+    "buckets": [
+      "recent_100"
+    ],
+    "passes": {
+      "A": {
+        "domains": [
+          "www.jfl-invest.com"
+        ],
+        "clone": true,
+        "target": "JFL Invest S.A.",
+        "relation_status": "EXPLICIT_SOURCE",
+        "registry_number": null
+      },
+      "B": {
+        "domains": [
+          "www.jfl-invest.com"
+        ],
+        "clone": true,
+        "target": null
+      }
+    },
+    "disputes": [
+      {
+        "field": "clone_target",
+        "A": "JFL Invest S.A.",
+        "B": null
+      }
+    ],
+    "label_status": "DISPUTED",
+    "label": null
+  },
+  {
+    "notice_id": "bac12ac9dc24117a85ae4f58f4180edd4d4fa9a5b3c98e9ca3883372ee701d3f",
+    "raw": {
+      "tipo_raw": "NOAUTO",
+      "fecha_raw": "31/08/2026",
+      "entidad_raw": "HTTPS://WWW.SOLLVENTIS.COM/ (CLON)",
+      "entidad_secundaria_raw": "HTTPS://WWW.SOLLVENTIS.NET/ (CLON)",
+      "observaciones_raw": "No guarda relación con SOLVENTIS, SV, SA, (https://solventis.es/) debidamente registrada en España como Empresa de Servicios de Inversión (Sociedad de Valores) con el nº 244",
+      "fecha_baja_raw": null
+    },
+    "buckets": [
+      "recent_100"
+    ],
+    "passes": {
+      "A": {
+        "domains": [
+          "www.sollventis.com",
+          "www.sollventis.net"
+        ],
+        "clone": true,
+        "target": null,
+        "relation_status": "PARSED_EXPLICIT",
+        "registry_number": "244"
+      },
+      "B": {
+        "domains": [
+          "solventis.es",
+          "www.sollventis.com",
+          "www.sollventis.net"
+        ],
+        "clone": true,
+        "target": null
+      }
+    },
+    "disputes": [
+      {
+        "field": "domains",
+        "A": [
+          "www.sollventis.com",
+          "www.sollventis.net"
+        ],
+        "B": [
+          "solventis.es",
+          "www.sollventis.com",
+          "www.sollventis.net"
+        ]
+      }
+    ],
+    "label_status": "DISPUTED",
+    "label": null
+  },
+  {
+    "notice_id": "5bdfce7b4d7df84a1374c17d2c0e82d1bcede2bfbb276cbdc9dae05ef4335dc2",
+    "raw": {
+      "tipo_raw": "NOAUTO",
+      "fecha_raw": "31/08/2026",
+      "entidad_raw": "HTTPS://WWW.SOLLVENTIS.COM/ (CLON)",
+      "entidad_secundaria_raw": "SOLLVENTIS (CLON)",
+      "observaciones_raw": "No guarda relación con SOLVENTIS, SV, SA, (https://solventis.es/) debidamente registrada en España como Empresa de Servicios de Inversión (Sociedad de Valores) con el nº 244",
+      "fecha_baja_raw": null
+    },
+    "buckets": [
+      "recent_100"
+    ],
+    "passes": {
+      "A": {
+        "domains": [
+          "www.sollventis.com"
+        ],
+        "clone": true,
+        "target": null,
+        "relation_status": "PARSED_EXPLICIT",
+        "registry_number": "244"
+      },
+      "B": {
+        "domains": [
+          "solventis.es",
+          "www.sollventis.com"
+        ],
+        "clone": true,
+        "target": null
+      }
+    },
+    "disputes": [
+      {
+        "field": "domains",
+        "A": [
+          "www.sollventis.com"
+        ],
+        "B": [
+          "solventis.es",
+          "www.sollventis.com"
+        ]
+      }
+    ],
+    "label_status": "DISPUTED",
+    "label": null
+  },
+  {
+    "notice_id": "35b2197eb44946a7b0a5108c0b769a68a7a3b3954d1fa04d5200670e5d1e8cbd",
+    "raw": {
+      "tipo_raw": "NOAUTO",
+      "fecha_raw": "31/08/2026",
+      "entidad_raw": "HTTPS://WWW.SOLLVENTIS.COM/ (CLON)",
+      "entidad_secundaria_raw": "HTTPS://WEBTRADER.RIGGILY-UNFROZIS.COM/ (CLON)",
+      "observaciones_raw": "No guarda relación con SOLVENTIS, SV, SA, (https://solventis.es/) debidamente registrada en España como Empresa de Servicios de Inversión (Sociedad de Valores) con el nº 244",
+      "fecha_baja_raw": null
+    },
+    "buckets": [
+      "recent_100"
+    ],
+    "passes": {
+      "A": {
+        "domains": [
+          "webtrader.riggily-unfrozis.com",
+          "www.sollventis.com"
+        ],
+        "clone": true,
+        "target": null,
+        "relation_status": "PARSED_EXPLICIT",
+        "registry_number": "244"
+      },
+      "B": {
+        "domains": [
+          "solventis.es",
+          "webtrader.riggily-unfrozis.com",
+          "www.sollventis.com"
+        ],
+        "clone": true,
+        "target": null
+      }
+    },
+    "disputes": [
+      {
+        "field": "domains",
+        "A": [
+          "webtrader.riggily-unfrozis.com",
+          "www.sollventis.com"
+        ],
+        "B": [
+          "solventis.es",
+          "webtrader.riggily-unfrozis.com",
+          "www.sollventis.com"
+        ]
+      }
+    ],
+    "label_status": "DISPUTED",
+    "label": null
+  },
+  {
+    "notice_id": "22d4bdbfdf0fdbc073fc8373f2ba5ca4a3a4c4ca70f98aceea46df2cbb0c6f50",
+    "raw": {
+      "tipo_raw": "NOAUTO",
+      "fecha_raw": "31/08/2026",
+      "entidad_raw": "www.ibrokergm.com (CLON)",
+      "entidad_secundaria_raw": "IBROKERGM (CLON)",
+      "observaciones_raw": "No guarda relación con IBROKER GLOBAL MARKETS, S.V., S.A (https://www.ibroker.es), debidamente registrada en España como empresa de servicios de inversión con el nº 260. ",
+      "fecha_baja_raw": null
+    },
+    "buckets": [
+      "recent_100",
+      "clones_25"
+    ],
+    "passes": {
+      "A": {
+        "domains": [
+          "www.ibrokergm.com"
+        ],
+        "clone": true,
+        "target": null,
+        "relation_status": "PARSED_EXPLICIT",
+        "registry_number": "260"
+      },
+      "B": {
+        "domains": [
+          "www.ibroker.es",
+          "www.ibrokergm.com"
+        ],
+        "clone": true,
+        "target": null
+      }
+    },
+    "disputes": [
+      {
+        "field": "domains",
+        "A": [
+          "www.ibrokergm.com"
+        ],
+        "B": [
+          "www.ibroker.es",
+          "www.ibrokergm.com"
+        ]
+      }
+    ],
+    "label_status": "DISPUTED",
+    "label": null
+  },
+  {
+    "notice_id": "2242617616ec59bceac039d7e8e72a36565cd148e7d5641829b693dbfa93c0db",
+    "raw": {
+      "tipo_raw": "NOAUTO",
+      "fecha_raw": "07/07/2025",
+      "entidad_raw": "NOVA TRADE CORE (CLON)",
+      "entidad_secundaria_raw": null,
+      "observaciones_raw": "No guarda relación con XTB S.A., SUCURSAL EN ESPAÑA, y su web https://www.xtb.com/es, debidamente registrada en España como Empresa de Servicios de Inversión con el nº 40",
+      "fecha_baja_raw": null
+    },
+    "buckets": [
+      "clones_25"
+    ],
+    "passes": {
+      "A": {
+        "domains": [],
+        "clone": true,
+        "target": null,
+        "relation_status": "UNRESOLVED",
+        "registry_number": null
+      },
+      "B": {
+        "domains": [
+          "www.xtb.com"
+        ],
+        "clone": true,
+        "target": null
+      }
+    },
+    "disputes": [
+      {
+        "field": "domains",
+        "A": [],
+        "B": [
+          "www.xtb.com"
+        ]
+      }
+    ],
+    "label_status": "DISPUTED",
+    "label": null
+  },
+  {
+    "notice_id": "a3198c63565f20a1876033a74476a1434f17b002d4a0a8aa7f8654d838728945",
+    "raw": {
+      "tipo_raw": "NOAUTO",
+      "fecha_raw": "11/03/2024",
+      "entidad_raw": "EVER-SALES.COM (CLON)",
+      "entidad_secundaria_raw": null,
+      "observaciones_raw": "que opera a través de la dirección de correo electrónico nombre.apellidos@ever-sales.com, no guardan relación con EVER CAPITAL INVESTMENTS, S.V., S.A., y su web https://evercapitalsv.com, debidamente registrada en España como empresa de servicios de inversión (Sociedad de valores) con el nº 259",
+      "fecha_baja_raw": null
+    },
+    "buckets": [
+      "clones_25"
+    ],
+    "passes": {
+      "A": {
+        "domains": [
+          "ever-sales.com"
+        ],
+        "clone": true,
+        "target": null,
+        "relation_status": "PARSED_EXPLICIT",
+        "registry_number": "259"
+      },
+      "B": {
+        "domains": [
+          "ever-sales.com",
+          "evercapitalsv.com"
+        ],
+        "clone": true,
+        "target": null
+      }
+    },
+    "disputes": [
+      {
+        "field": "domains",
+        "A": [
+          "ever-sales.com"
+        ],
+        "B": [
+          "ever-sales.com",
+          "evercapitalsv.com"
+        ]
+      }
+    ],
+    "label_status": "DISPUTED",
+    "label": null
+  }
+]

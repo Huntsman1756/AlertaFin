@@ -1,0 +1,27 @@
+{
+  "status": "OK",
+  "source_url": "https://www.cnmv.es/WebAPI/datospublicos/PaffNoAutorizadas?format=csv",
+  "query_params": {
+    "format": "csv"
+  },
+  "retrieved_at": "2026-09-13T12:05:00Z",
+  "source_sha256": "1816cd621f96fcbe6a2d138ea6fa52befd27babcb5dfb2c5e8f50a086ecb7049",
+  "size": 1314617,
+  "encoding": "utf-8-sig",
+  "header": [
+    "Tipo",
+    "Fecha",
+    "Entidad",
+    "Entidad Secundaria",
+    "Código regulador",
+    "País regulador",
+    "Código país regulador",
+    "Observaciones",
+    "Fecha Baja"
+  ],
+  "parser_version": "g0-cnmv-1.0.0",
+  "total_rows": 10368,
+  "normalized_notices": 10368,
+  "unparseable_rows": 0,
+  "notice_ids_unique": 10361
+}

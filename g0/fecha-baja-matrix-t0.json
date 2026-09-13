@@ -1,0 +1,206 @@
+{
+  "metric_kind": "observable matrix (NO juridica)",
+  "full_pull": {
+    "sha256": "1816cd621f96fcbe6a2d138ea6fa52befd27babcb5dfb2c5e8f50a086ecb7049",
+    "rows": 10368
+  },
+  "active_pull": {
+    "query_params": {
+      "format": "csv",
+      "estado": "actu"
+    },
+    "sha256": "81c3b1c759905b7ae0c7be9011e653dc514d1ff3d4bc4e50fd4ec698160296c0",
+    "rows": 10338
+  },
+  "matrix": {
+    "fecha_baja_null | aparece_en_ACTIVE=yes": 10338,
+    "fecha_baja_populated | aparece_en_ACTIVE=no": 30
+  },
+  "fecha_baja_populated_fuera_de_active": [
+    {
+      "notice_id": "01c99669a0dd632dccc693dad43e558c6304fb776b7852ffdaf87dcb9239cb23",
+      "entidad_raw": "GLOBAL CAPITAL B.V. (CLONE)",
+      "fecha_raw": "25/02/2026",
+      "fecha_baja_raw": "25/03/2026 0:00:00"
+    },
+    {
+      "notice_id": "e1aaae6fb01d9145f20f55a8885f98f8277dde702b0145015a29e7093148e45e",
+      "entidad_raw": "EURONEXT",
+      "fecha_raw": "17/09/2025",
+      "fecha_baja_raw": "30/10/2025 0:00:00"
+    },
+    {
+      "notice_id": "593e8a054abc4f6f0f186501be63507d8614838e605583508a79cd68ea82e79a",
+      "entidad_raw": "MERCURYO",
+      "fecha_raw": "03/09/2025",
+      "fecha_baja_raw": "16/09/2025 0:00:00"
+    },
+    {
+      "notice_id": "0ba1b0a0334d0f7f890d3aface5832a0f890267e576c4bdbad3a075b60f7cc9d",
+      "entidad_raw": "T.M. Financials Ltd h.o.d. Tag Markets Ltd",
+      "fecha_raw": "16/07/2025",
+      "fecha_baja_raw": "27/08/2025 0:00:00"
+    },
+    {
+      "notice_id": "f539877539782b0e5daecd5e07e7a8f72cef5dcc64df51608e2830eaa6f9cc78",
+      "entidad_raw": "G&S ANTWERP C.S. LLC",
+      "fecha_raw": "07/05/2025",
+      "fecha_baja_raw": "11/05/2026 0:00:00"
+    },
+    {
+      "notice_id": "d32e1586b6a13775574fbc194e458b749668c587700f69fa5b9e8c96a04631fc",
+      "entidad_raw": "HTTPS://WWW.GONCALOMALHEIRO.PT/",
+      "fecha_raw": "20/11/2024",
+      "fecha_baja_raw": "18/11/2025 0:00:00"
+    },
+    {
+      "notice_id": "7915fcf74c69b297b2972552c293f942b11a6caa0b4248b5b5f5c506ad93bcaa",
+      "entidad_raw": "CDF Global S.A.",
+      "fecha_raw": "30/10/2024",
+      "fecha_baja_raw": "07/02/2025 0:00:00"
+    },
+    {
+      "notice_id": "f26514a4c9be4a71f540ff3de383c70b9ae21b56534a7001263546bb88f9a5b1",
+      "entidad_raw": "MP WEALTH CORP GROUP SARL",
+      "fecha_raw": "25/09/2024",
+      "fecha_baja_raw": "08/10/2024 0:00:00"
+    },
+    {
+      "notice_id": "20f34d6b371aa4f3ce5d953f1c2c4270d6f4f8bb7681fa5ccb4434f98022007b",
+      "entidad_raw": "https://www.zfx.com/",
+      "fecha_raw": "11/03/2024",
+      "fecha_baja_raw": "28/02/2025 0:00:00"
+    },
+    {
+      "notice_id": "7eb9338f77ef18797c89dfd3e51b3ff112cc67182b50d37db457b247125cb2ed",
+      "entidad_raw": "https://acy.com",
+      "fecha_raw": "05/02/2024",
+      "fecha_baja_raw": "25/03/2026 0:00:00"
+    },
+    {
+      "notice_id": "eddc7f8a6c9a7e572e49b7db5bf5f6a9f3b5c5fba7f2f0c946dd476c6586bd73",
+      "entidad_raw": "https://www.axiory.com/es",
+      "fecha_raw": "16/10/2023",
+      "fecha_baja_raw": "23/10/2024 0:00:00"
+    },
+    {
+      "notice_id": "034b0cebe8056f73cb2d9a6860946b247e04cdf22605f431cfad36880c175476",
+      "entidad_raw": "https://axiosholding.com",
+      "fecha_raw": "16/01/2023",
+      "fecha_baja_raw": "05/07/2023 0:00:00"
+    },
+    {
+      "notice_id": "6ea2ed5dc57fcea48f222b28205601cb7fff30514bcde45f03ca7f030bf2026a",
+      "entidad_raw": "www.kucoin.com",
+      "fecha_raw": "05/09/2022",
+      "fecha_baja_raw": "13/11/2025 0:00:00"
+    },
+    {
+      "notice_id": "89ebfb4811bc6ac790d59b970f8993b0d5e93fbe69d2f346ac58f6d308244e9a",
+      "entidad_raw": "HTTPS://ALCHEMYMARKETS.COM",
+      "fecha_raw": "04/07/2022",
+      "fecha_baja_raw": "28/11/2024 0:00:00"
+    },
+    {
+      "notice_id": "808f22162e2515e339adb22a8716a8433fb48835b42e52b64c7dcaf34fdce8cd",
+      "entidad_raw": "https://evolutiontradinglimited.com/",
+      "fecha_raw": "09/05/2022",
+      "fecha_baja_raw": "24/05/2023 0:00:00"
+    },
+    {
+      "notice_id": "e719a37dc32e6f786d0f88047493b2c4127cd95bb065d127d12183b41c1aab3c",
+      "entidad_raw": "www.liquid.com",
+      "fecha_raw": "17/01/2022",
+      "fecha_baja_raw": "01/06/2023 0:00:00"
+    },
+    {
+      "notice_id": "48569afce42aa69a06ba1f7e69f82fa7b8b7a7b389f4832d16661605c82084e9",
+      "entidad_raw": "www.bybit.com",
+      "fecha_raw": "16/08/2021",
+      "fecha_baja_raw": "14/07/2023 0:00:00"
+    },
+    {
+      "notice_id": "7312274199120ad3ae47be700f15dca921f3071e3f2cb59487f2ce49705e8d29",
+      "entidad_raw": "www.zeromarkets.com/es/",
+      "fecha_raw": "28/06/2021",
+      "fecha_baja_raw": "20/01/2025 0:00:00"
+    },
+    {
+      "notice_id": "8cbc5dbf9bb5c53acacc140a5c05edfbc7b81c1c99436b0137ebb9ec92e8d5ae",
+      "entidad_raw": "HTTPS://IM.ACADEMY/.",
+      "fecha_raw": "23/03/2020",
+      "fecha_baja_raw": "12/11/2020 0:00:00"
+    },
+    {
+      "notice_id": "151957bec24c5f3dd9b79b3352d89ef500c18100fdc34000731b2a8609eee721",
+      "entidad_raw": "HTTPS://GULFBROKERS.AE",
+      "fecha_raw": "28/10/2019",
+      "fecha_baja_raw": "12/11/2020 0:00:00"
+    },
+    {
+      "notice_id": "95d112222a11057df90fa01ff2ab5efc9d2bc7d733b6a10e8c79b76cffac234b",
+      "entidad_raw": "WWW.JUSTFOREX.COM",
+      "fecha_raw": "29/07/2019",
+      "fecha_baja_raw": "18/03/2022 0:00:00"
+    },
+    {
+      "notice_id": "cbaee7e1c6ef1798e735402614d291a17bc4c0145d77f71babdc7610ce8fd269",
+      "entidad_raw": "HTTPS://NATANRO.COM",
+      "fecha_raw": "20/05/2019",
+      "fecha_baja_raw": "20/02/2020 0:00:00"
+    },
+    {
+      "notice_id": "e1888ef0055f51c777cb2dbd553fc81710229a611d40970df275641e2a7f4e54",
+      "entidad_raw": "WWW.TOP4FX.COM",
+      "fecha_raw": "24/07/2017",
+      "fecha_baja_raw": "07/09/2017 0:00:00"
+    },
+    {
+      "notice_id": "36d3b34e77690acde5b699f8c0956c881ea81798151ab53816063b005bc6a277",
+      "entidad_raw": "WWW.TOP4FX.COM",
+      "fecha_raw": "24/07/2017",
+      "fecha_baja_raw": "07/09/2017 0:00:00"
+    },
+    {
+      "notice_id": "150f4dcb87ea346e786e77f4f17932972c8c86ed445fe8434f6059178226cc39",
+      "entidad_raw": "VITAL MARKETS SOLUTIONS LIMITED (VITAL MARKETS)",
+      "fecha_raw": "08/06/2015",
+      "fecha_baja_raw": "15/07/2022 0:00:00"
+    },
+    {
+      "notice_id": "b52476a95546839a7bfc80a3c444afd02c96a820446084ebceeada18c7b3c5f2",
+      "entidad_raw": "HTTP://ETHIKAGLOBAL.COM/",
+      "fecha_raw": "13/04/2015",
+      "fecha_baja_raw": "08/07/2015 0:00:00"
+    },
+    {
+      "notice_id": "5ccfadf685f0c4dd2e0e313e79faf9cf6921222bba0d8562449c8bd1617188e5",
+      "entidad_raw": "FX GLOBAL MARKETS (FXGM) LTD",
+      "fecha_raw": "09/03/2015",
+      "fecha_baja_raw": "06/04/2021 0:00:00"
+    },
+    {
+      "notice_id": "1d4d9d3b00725851500020c28effd7be63120e1c366fbc3bbe05e6f94bbc5432",
+      "entidad_raw": "WWW.FERRERINVEST. COM",
+      "fecha_raw": "06/08/2012",
+      "fecha_baja_raw": "21/11/2019 0:00:00"
+    },
+    {
+      "notice_id": "637be9081844387a7f49eef2383da9430caf0127911121b1f4edc8a2b581e3c4",
+      "entidad_raw": "GRUS CAPITAL MANAGEMENT",
+      "fecha_raw": "10/10/2011",
+      "fecha_baja_raw": "15/07/2022 0:00:00"
+    },
+    {
+      "notice_id": "7034faba61234668b355a2e323998bdddc30a5451711cb338a8f59e2d0d44735",
+      "entidad_raw": "www.huobi.com",
+      "fecha_raw": "16/08/2011",
+      "fecha_baja_raw": "06/10/2022 0:00:00"
+    }
+  ],
+  "notices_en_active_no_estan_en_full": [],
+  "observaciones": [
+    "observed_in_active_query es un hecho de respuesta HTTP, no un estado juridico del aviso.",
+    "La identidad usa notice_id, estable ante cambios de Fecha Baja/Observaciones por diseno."
+  ]
+}
