@@ -75,6 +75,9 @@ python scripts/golden_corpus.py select|label|finalize   # Paso 4
 python scripts/identity_groups.py          # Evidencia de los 7 grupos de identidad
 python scripts/holdout_sample.py select    # Holdout ciego (parser congelado)
 python scripts/holdout_sample.py verify    # Verifica que el parser no cambio
+python scripts/holdout_labeling.py blind       # Vista ciega para etiquetar
+python scripts/holdout_labeling.py scaffold    # Plantilla de etiquetas humanas
+python scripts/holdout_labeling.py evaluate    # Join + precision/recall
 python scripts/evaluate_gates.py           # Pasos 5-6 -> g0/gates-t0.json
 ```
 
@@ -144,3 +147,12 @@ inspeccionados y extrae del resto una muestra estratificada determinista
 congelada del parser **sin etiquetas**; `verify` demuestra que el parser no
 cambio entre muestreo y etiquetado. Regla: no tocar el parser mientras la
 muestra siga sin etiquetar.
+
+`sample.jsonl` guarda ademas la salida del parser (`domains`, `clone`), asi que
+**no es la vista para etiquetar**: anclaria al humano. El etiquetado se hace
+sobre `labeling-blind.jsonl` (`scripts/holdout_labeling.py blind`), derivada de
+los mismos 210 IDs pero sin ningun output inferido. `stratum_blind` conserva
+solo regulador/tramo porque el estrato original codificaba la prediccion de
+clon. `scaffold` crea la plantilla `labels.jsonl` con campos vacios y
+`evaluate` hace el join por `notice_id` contra `sample.jsonl` y calcula
+precision/recall (con `pending` mientras falten etiquetas).

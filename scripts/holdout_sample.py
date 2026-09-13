@@ -151,17 +151,29 @@ def serializable(n, stratum):
     }
 
 
+def freeze_guard(manifest_path, fingerprint):
+    """Devuelve codigo de salida si el parser ya no coincide con el manifest.
+
+    None significa que se puede continuar (no hay manifest o coincide).
+    """
+    manifest_path = Path(manifest_path)
+    if not manifest_path.exists():
+        return None
+    prev = json.loads(manifest_path.read_text("utf-8"))
+    if prev.get("parser_fingerprint") != fingerprint:
+        print("ABORTADO: el parser cambio respecto al holdout congelado.")
+        print("  manifest :", prev.get("parser_fingerprint"))
+        print("  actual   :", fingerprint)
+        print("Mueve/renombra g0/holdout antes de muestrear de nuevo.")
+        return 2
+    return None
+
+
 def cmd_select():
     fingerprint, per_file = parser_fingerprint()
-    manifest_path = HOLDOUT_DIR / "manifest.json"
-    if manifest_path.exists():
-        prev = json.loads(manifest_path.read_text("utf-8"))
-        if prev.get("parser_fingerprint") != fingerprint:
-            print("ABORTADO: el parser cambio respecto al holdout congelado.")
-            print("  manifest :", prev.get("parser_fingerprint"))
-            print("  actual   :", fingerprint)
-            print("Mueve/renombra g0/holdout antes de muestrear de nuevo.")
-            return 2
+    aborted = freeze_guard(HOLDOUT_DIR / "manifest.json", fingerprint)
+    if aborted is not None:
+        return aborted
 
     summary, res = load_frozen()
     golden = golden_notice_ids()
