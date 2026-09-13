@@ -1,0 +1,27 @@
+{
+  "status": "OK",
+  "model": "g1wi-unified-1.0.0",
+  "sources": {
+    "CNMV": {
+      "notices": 10361,
+      "occurrences": 10368,
+      "domain_assertions": 10216,
+      "clone_evidence": 1015
+    },
+    "DGSFP_UNAUTHORISED": {
+      "notices": 87,
+      "occurrences": 97,
+      "domain_assertions": 0,
+      "clone_evidence": 0
+    },
+    "DGSFP_FRAUDULENT_WEBS": {
+      "notices": 10,
+      "occurrences": 10,
+      "domain_assertions": 10,
+      "clone_evidence": 0
+    }
+  },
+  "total_notices": 10458,
+  "total_occurrences": 10475,
+  "notices_multi_occurrence": 17
+}
