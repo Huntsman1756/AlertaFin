@@ -206,11 +206,29 @@ fabricar 100%), recall 1.0; clones 31/31, precision 1.0; target 25/25,
 cobertura 100%, 0 targets sobre casos no resolubles.
 
 ```text
-G0 blind holdout       FAIL   # historico, inmutable
+G0 blind holdout       FAIL   # historico, inmutable (tag g0-holdout-fail)
 G0-R regression        PASS   # datos conocidos; no es generalizacion
-new blind holdout      PENDING
+holdout-v2             FAIL   # 300 casos ciegos; tag g0-holdout-v2-fail
 G1 DGSFP               BLOCKED
 ```
 
-Un PASS de generalizacion exige un holdout nuevo y disjunto; mientras no
-exista, la tesis del grafo de clones sigue sin rehabilitarse y G1 bloqueado.
+El holdout ciego v2 (300 casos, etiquetas congeladas en `283ab6f` antes de
+evaluar) dio **FAIL**: domain precision 0.9897 (3 FP) y
+`clone_target_exact` 0.5909 (13/22) contra gates 1.00 y >=0.90. Por su
+propio kill criterion (<70%), la tesis del **grafo automatico de clones
+queda RECHAZADA** (`ADR-001-clone-graph-rejected.md`): AlertaFin queda
+como indice auditable de advertencias y detector de clones explicitos;
+`UNRESOLVED` es un estado de producto legitimo y no se completan
+relaciones automaticamente.
+
+## v0.2 — Multi-source Warning Index (G1-WI)
+
+Nueva fase preregistrada en `g1-wi/preregistration.md`: integrar las
+fuentes de advertencias **DGSFP** («Sujetos no autorizados», «Paginas web
+fraudulentas») bajo un contrato nuevo — el antiguo G1 sigue BLOCKED, no
+se desbloquea retrospectivamente. Sin gate de cobertura/exactitud de
+`clone_target` (tesis rechazada); la abstencion `UNRESOLVED` permanece.
+Enrichment opcional via export determinista pinneado de
+`Huntsman1756/OpenDGSFP`, solo por identificador oficial exacto. Primer
+paso: **G1-WI.A Source Probe** read-only (`g1-wi/source-probe.md`), cero
+parser productivo.
