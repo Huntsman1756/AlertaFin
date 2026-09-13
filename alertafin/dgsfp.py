@@ -12,13 +12,17 @@ Reglas congeladas (`g1-wi/pre-ingestion-freeze.md`):
 
 - `warning_date` = ABSENT en ambas fuentes; `Año YYYY` es
   `context_period` con precision YEAR, nunca fecha sintetica.
-- Duplicados de origen preservados: la identidad distingue ocurrencias
-  por seccion + indice de ocurrencia; `record_version_id` =
-  sha256(raw `<p>` bytes).
-- Evidencia de clon solo cuando la fuente la afirma: la nota
-  `(sin vínculos ni relación con X, que es entidad aseguradora
-  autorizada)` marca confusion con entidad autorizada -> clone_detected
-  + EXPLICIT_SOURCE con target determinista. Nunca se inventa.
+- Duplicados de origen preservados: `notice_id` es identidad SEMANTICA
+  (sin contadores ni indices, contrato G0) y `source_occurrence_id`
+  identifica la ocurrencia fisica por seccion + indice;
+  `record_version_id` = sha256(raw `<p>` bytes). Dos filas raw
+  identicas comparten `notice_id`/`record_version_id` y tienen
+  `source_occurrence_id` distintos.
+- `clone_detected` exige afirmacion explicita de clon/suplantacion
+  (semantica G0). Una nota «sin vínculos ni relación con X» es un
+  disclaimer de confusion de nombre: se preserva en `nota_raw` pero NO
+  es evidencia de clon (errata registrada en
+  `g1-wi/pre-ingestion-freeze.md`).
 """
 
 import hashlib
@@ -49,11 +53,8 @@ _NOTA_RE = re.compile(
     r"\(\s*(sin\s+v[íi]nculos\s+ni\s+relaci[oó]n\s+con\s+.+?)\s*\)\s*$",
     re.IGNORECASE | re.DOTALL,
 )
-# Dentro de la nota: 'con X, que es entidad aseguradora autorizada'.
-_NOTA_TARGET_RE = re.compile(
-    r"relaci[oó]n\s+con\s+(?P<t>.+?)\s*,?\s*que\s+es\s+entidad\s+"
-    r"[a-záéíóú\s]*autorizad", re.IGNORECASE | re.DOTALL,
-)
+# Dentro de la nota no se extrae target: bajo la semantica G0 la
+# afirmacion de no-relacion no es evidencia de clon.
 
 
 class ParseError(Exception):
@@ -101,9 +102,19 @@ def _p_elements(region: str):
 
 
 def _notice_id(fields: dict) -> str:
+    """Identidad semantica del aviso: sin contadores ni indices (G0)."""
     keys = ["source_namespace", "source_type", "entidad_raw", "url_raw",
-            "section", "occurrence_index"]
+            "section"]
     payload = {k: (fields.get(k) or None) for k in keys}
+    return hashlib.sha256(json.dumps(
+        payload, ensure_ascii=False, separators=(",", ":")
+    ).encode("utf-8")).hexdigest()
+
+
+def _source_occurrence_id(record_version_id: str, section, index: int) -> str:
+    """Identidad determinista de la ocurrencia fisica en la fuente."""
+    payload = {"record_version_id": record_version_id,
+               "section": section, "occurrence_index": index}
     return hashlib.sha256(json.dumps(
         payload, ensure_ascii=False, separators=(",", ":")
     ).encode("utf-8")).hexdigest()
@@ -131,24 +142,15 @@ def _split_nota(text: str):
     return text[:m.start()].strip(), m.group(1).strip()
 
 
-def _clone_sujetos(nota_raw):
-    """Evidencia explicita de confusion con entidad autorizada (DGSFP)."""
-    if not nota_raw:
-        return {"clone_detected": False, "clone_markers": [],
-                "clone_target_raw": None, "relation_status": None}
-    m = _NOTA_TARGET_RE.search(nota_raw)
-    target = m.group("t").strip(" .,") if m else None
-    return {
-        "clone_detected": True,
-        "clone_markers": ["sin_vinculos_relacion"],
-        "clone_target_raw": target,
-        "relation_status": "EXPLICIT_SOURCE" if target else "UNRESOLVED",
-    }
+_CLONE_NONE = {"clone_detected": False, "clone_markers": [],
+               "clone_target_raw": None, "relation_status": None}
 
 
-def _clone_paginas():
-    return {"clone_detected": False, "clone_markers": [],
-            "clone_target_raw": None, "relation_status": None}
+def _clone_none():
+    """Las fuentes DGSFP observadas no contienen afirmaciones explicitas
+    de clon/suplantacion; cualquier marcador futuro exige patron
+    determinista, nunca inferencia."""
+    return dict(_CLONE_NONE)
 
 
 def parse_sujetos(raw: bytes, provenance: dict | None = None) -> DgsfpResult:
@@ -201,11 +203,13 @@ def parse_sujetos(raw: bytes, provenance: dict | None = None) -> DgsfpResult:
             "warning_date": None,
             "warning_date_status": "ABSENT",
             "domains": [],
-            "clone": _clone_sujetos(nota_raw),
+            "clone": _clone_none(),
             "raw_row_bytes": raw_el.encode("utf-8"),
             "provenance": prov,
         }
         rec["notice_id"] = _notice_id(rec)
+        rec["source_occurrence_id"] = _source_occurrence_id(
+            rec["record_version_id"], rec["section"], occ)
         res.notices.append(rec)
         occ += 1
         records += 1
@@ -261,11 +265,13 @@ def parse_paginas(raw: bytes, provenance: dict | None = None) -> DgsfpResult:
                 "warning_date": None,
                 "warning_date_status": "ABSENT",
                 "domains": domains,
-                "clone": _clone_paginas(),
+                "clone": _clone_none(),
                 "raw_row_bytes": raw_el.encode("utf-8"),
                 "provenance": prov,
             }
             rec["notice_id"] = _notice_id(rec)
+            rec["source_occurrence_id"] = _source_occurrence_id(
+                rec["record_version_id"], rec["section"], occ)
             res.notices.append(rec)
             occ += 1
     if occ == 0:

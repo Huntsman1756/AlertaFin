@@ -37,12 +37,14 @@ def test_sujetos_sections_and_duplicates_preserved():
     for n in res.notices:
         by_sec[n["section"]] = by_sec.get(n["section"], 0) + 1
     assert by_sec == {"ANO_2024": 10, "RESTO": 87}
-    # duplicados de origen preservados: mismo rvid, notice_id distinto
+    # duplicados de origen preservados: 2 ocurrencias, misma identidad
+    # semantica (notice_id/rvid), ocurrencia fisica distinta
     milton = [n for n in res.notices if n["entidad_raw"] == "MILTON GROUP"]
     assert len(milton) == 2
-    assert len({n["notice_id"] for n in milton}) == 2
+    assert len({n["notice_id"] for n in milton}) == 1
     assert len({n["record_version_id"] for n in milton}) == 1
-    assert sorted(n["occurrence_index"] for n in milton) != []
+    assert len({n["source_occurrence_id"] for n in milton}) == 2
+    assert sorted(n["occurrence_index"] for n in milton) == [38, 75]
 
 
 def test_sujetos_warning_date_absent_and_context_period():
@@ -58,16 +60,52 @@ def test_sujetos_warning_date_absent_and_context_period():
                and n["context_period"]["year"] is None for n in resto)
 
 
-def test_sujetos_explicit_clone_evidence():
+def test_sujetos_no_relation_disclaimer_is_not_clone():
+    """Errata pre-C: 'sin vínculos ni relación con X' no es afirmacion
+    explicita de clon bajo la semantica G0. La nota se preserva en
+    nota_raw pero no genera evidencia de clon."""
     res = parse_sujetos(UNAUTH, provenance=PROV)
-    clones = [n for n in res.notices if n["clone"]["clone_detected"]]
-    assert len(clones) == 1
-    barkley = clones[0]
-    assert barkley["entidad_raw"] == "BARKLEY DEVELOPMENT CORPORATION"
+    assert not [n for n in res.notices if n["clone"]["clone_detected"]]
+    barkley = next(n for n in res.notices
+                   if n["entidad_raw"] == "BARKLEY DEVELOPMENT CORPORATION")
     assert barkley["nota_raw"].startswith("sin vínculos ni relación con")
-    assert barkley["clone"]["clone_target_raw"] == (
-        "W.R. BERKLEY INSURANCE (EUROPE) LIMITED SUC. EN ESPAÑA")
-    assert barkley["clone"]["relation_status"] == "EXPLICIT_SOURCE"
+    assert barkley["clone"] == {
+        "clone_detected": False, "clone_markers": [],
+        "clone_target_raw": None, "relation_status": None,
+    }
+
+
+def test_notice_id_stable_under_insertion():
+    """RED: insertar un <p> ajeno antes de un registro no puede cambiar
+    su notice_id (identidad semantica != ocurrencia fisica)."""
+    original = parse_sujetos(UNAUTH, provenance=PROV)
+    marker = next(n for n in original.notices
+                  if n["entidad_raw"] == "MILTON GROUP")
+    text = UNAUTH.decode("utf-8")
+    i = text.find("MILTON GROUP")
+    p_start = text.rfind("<p", 0, i)
+    injected = (text[:p_start]
+                + "<p><span><strong>ENTIDAD INYECTADA ZZZ</strong></span></p>"
+                + text[p_start:])
+    modified = parse_sujetos(injected.encode("utf-8"), provenance=PROV)
+    assert len(modified.notices) == 98
+    after = [n for n in modified.notices
+             if n["entidad_raw"] == "MILTON GROUP"]
+    assert len(after) == 2
+    assert {n["notice_id"] for n in after} == {marker["notice_id"]}
+
+
+def test_duplicate_rows_share_notice_id_distinct_occurrence():
+    """RED: dos filas raw identicas -> mismo notice_id y mismo
+    record_version_id, pero dos source_occurrence_id distintos.
+    Source coverage sigue siendo 97 ocurrencias."""
+    res = parse_sujetos(UNAUTH, provenance=PROV)
+    milton = [n for n in res.notices if n["entidad_raw"] == "MILTON GROUP"]
+    assert len(milton) == 2
+    assert len({n["notice_id"] for n in milton}) == 1
+    assert len({n["record_version_id"] for n in milton}) == 1
+    assert len({n["source_occurrence_id"] for n in milton}) == 2
+    assert len(res.notices) == 97
 
 
 def test_sujetos_no_domains():

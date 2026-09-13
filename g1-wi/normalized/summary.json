@@ -5,17 +5,20 @@
     "dgsfp.sujetos_no_autorizados": {
       "records": 97,
       "row_errors": 0,
-      "notice_ids_unique": 97
+      "notice_ids_unique": 87,
+      "occurrence_ids_unique": 97
     },
     "dgsfp.paginas_web_fraudulentas": {
       "records": 10,
       "row_errors": 0,
-      "notice_ids_unique": 10
+      "notice_ids_unique": 10,
+      "occurrence_ids_unique": 10
     }
   },
   "total_notices": 107,
-  "notice_ids_unique": 107,
-  "clone_detected": 1,
+  "notice_ids_unique": 97,
+  "occurrence_ids_unique": 107,
+  "clone_detected": 0,
   "domains_total": 10,
   "warning_dates_present": 0
 }

@@ -79,11 +79,14 @@ def main() -> int:
             "records": len(res.notices),
             "row_errors": len(res.row_errors),
             "notice_ids_unique": len({n["notice_id"] for n in res.notices}),
+            "occurrence_ids_unique": len(
+                {n["source_occurrence_id"] for n in res.notices}),
         }
         notices.extend(res.notices)
 
     OUT.mkdir(parents=True, exist_ok=True)
-    with (OUT / "notices.jsonl").open("w", encoding="utf-8") as fh:
+    with (OUT / "notices.jsonl").open("w", encoding="utf-8",
+                                      newline="\n") as fh:
         for n in notices:
             fh.write(json.dumps(_notice_for_jsonl(n), ensure_ascii=False)
                      + "\n")
@@ -94,6 +97,8 @@ def main() -> int:
         "sources": per_source,
         "total_notices": len(notices),
         "notice_ids_unique": len({n["notice_id"] for n in notices}),
+        "occurrence_ids_unique": len(
+            {n["source_occurrence_id"] for n in notices}),
         "clone_detected": sum(1 for n in notices
                               if n["clone"]["clone_detected"]),
         "domains_total": sum(len(n["domains"]) for n in notices),
@@ -102,7 +107,7 @@ def main() -> int:
     }
     (OUT / "summary.json").write_text(
         json.dumps(summary, ensure_ascii=False, indent=2) + "\n",
-        encoding="utf-8")
+        encoding="utf-8", newline="\n")
     print(json.dumps(summary, ensure_ascii=False, indent=2))
     return 0
 
