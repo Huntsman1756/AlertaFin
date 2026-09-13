@@ -38,15 +38,44 @@ robots.txt / condiciones tecnicas
 - Snapshot congelado de las respuestas observadas (raw inmutable por
   SHA-256), que pasa a ser el punto de referencia de la fase.
 
+## Criterio de capacidad (por fuente, congelado antes de la primera request)
+
+Para cada una de las dos fuentes DGSFP:
+
+```text
+SOURCE_PROBE_CAPABLE(S) iff:
+
+A. official_source = true
+B. access_reproducible = true
+C. complete_snapshot_enumerable = true
+D. record_boundary_identifiable = true
+E. raw_bytes_snapshotable = true
+F. source_type_preservable = true
+G. provenance_reproducible = true
+```
+
 ## Decision posterior
 
 Con el informe y el snapshot:
 
 ```text
-BUILD    estructura suficiente y reproducible -> G1-WI.B ingestion
-DEGRADE  alcance reducido (p. ej. solo una de las dos fuentes)
-STOP     la fuente no permite corpus evaluable -> INCONCLUSIVE
+BUILD
+    ambas fuentes cumplen A-G
+    -> G1-WI.B ingestion
+
+DEGRADE
+    exactamente una cumple A-G
+    -> el scope de v0.2 se reduce explicitamente a esa fuente
+
+STOP
+    ninguna cumple A-G
+    -> G1-WI = INCONCLUSIVE
 ```
+
+La existencia de historico, dominios o IDs oficiales es **descriptiva**,
+no condicion de BUILD: una fuente perfectamente reproducible sin IDs
+sigue siendo valida para un warning index; simplemente no habra
+enrichment exacto.
 
 Solo tras el probe se fija el tamano minimo del corpus de evaluacion
 DGSFP. Ningun numero artificial a priori.

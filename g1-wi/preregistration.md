@@ -1,8 +1,11 @@
 # G1-WI — AlertaFin v0.2 · Multi-source Warning Index
 
-Preregistracion del contrato de exito. **Docs-only.** Congelado en el
-commit `5b1434879d65ec042ee7423fd4cb1253c5154af7` (hash fijado por esta
-enmienda docs-only, mismo procedimiento que `holdout-v2`).
+Preregistracion del contrato de exito. **Docs-only.**
+
+`preregistration_commit = 5b1434879d65ec042ee7423fd4cb1253c5154af7`
+— el commit que introdujo este fichero —, fijado por el tag anotado
+`g1-wi-prereg-v1`. Un commit no puede contener su propio SHA: la
+referencia es al commit anterior, no una autorreferencia.
 
 - Fase: **AlertaFin v0.2 — Multi-source Warning Index**
 - Gate: **G1-WI** (DGSFP warning-source integration)
@@ -87,6 +90,38 @@ output (por coincidencia):
     clone evidence when explicit
 ```
 
+## Semantica multifuente de `warning_status`
+
+Cada fuente produce su propio estado por consulta:
+
+```text
+source_status[CNMV]
+source_status[DGSFP_UNAUTHORISED]
+source_status[DGSFP_FRAUDULENT_WEBS]
+```
+
+Agregado (precedencia):
+
+```text
+si cualquier fuente = WARNED
+    => WARNED
+       + coverage_complete=false si otra fuente no respondio
+
+si ninguna WARNED y alguna SOURCE_UNAVAILABLE
+    => SOURCE_UNAVAILABLE
+
+si todas disponibles y alguna AMBIGUOUS
+    => AMBIGUOUS
+
+si todas disponibles, ninguna warned ni ambiguous
+    => NO_WARNING_FOUND
+```
+
+Regla heredada de G0, inalterada: varias notices para el mismo dominio
+exacto siguen siendo `WARNED`, no `AMBIGUOUS`; `AMBIGUOUS` es para un
+nombre normalizado exacto que no permite identificar univocamente al
+sujeto.
+
 ## Identity
 
 - Identidad de notice determinista por fuente (mismo principio que G0).
@@ -101,6 +136,12 @@ output (por coincidencia):
 - Export pinneado (SHA-256 / commit).
 - Ninguna advertencia depende de que OpenDGSFP este disponible.
 - Sin join canonico por nombre.
+- OpenDGSFP nunca puede cambiar `warning_status`, `notice_id`, autoridad
+  ni texto de la advertencia. Solo puede anadir
+  `related_authorised_entity`.
+- Si un identificador exacto lleva a conflicto o a multiples candidatos
+  en OpenDGSFP => `CONFLICT/UNRESOLVED`; nunca elegir uno
+  arbitrariamente.
 
 ## Gates (obligatorios)
 
@@ -119,6 +160,51 @@ output (por coincidencia):
 | Explicit clone recall | **>=95%** |
 | False emitted clone target | **0** |
 | Source failure represented as `SOURCE_UNAVAILABLE` | **100%** |
+
+`False emitted clone target = 0` es deliberadamente un **safety gate**:
+cero targets emitidos puede dar PASS. Siempre se reporta
+`targets_emitted`; ese PASS no es evidencia de cobertura — coverage y
+exact recall estan expresamente fuera de gates.
+
+### Recall por fuente/tipo (no solo micro-average global)
+
+Un recall global >=95% podria esconder un parser mediocre en una fuente
+minoritaria. Los gates de recall se evaluan por clase:
+
+```text
+domain recall >=95%:   CNMV · DGSFP_SUJETOS · DGSFP_PAGINAS
+                       cuando el denominador de esa clase sea suficiente
+
+clone recall >=95%:    idem por fuente cuando existan positivos;
+                       fuente con cero clones explicitos => N/A,
+                       nunca PASS 100%
+```
+
+Los denominadores minimos por clase se fijan tras el probe y se congelan
+**antes de implementar el parser productivo y antes de etiquetar** la
+evaluacion.
+
+### Fechas de fuente (definicion independiente del parser)
+
+`Valid source dates parsed = 100%` no puede depender de lo que el propio
+parser considere «valido» — seria circular. Se define asi:
+
+```text
+VALID_SOURCE_DATE =
+    valor no vacio
+    + conforme a una gramatica observada/documentada
+    + fecha calendario valida
+
+valid source date -> parse obligatorio
+ausente           -> ABSENT
+presente pero no interpretable bajo el contrato
+                  -> UNPARSEABLE + raw preservado
+
+Nunca adivinar/corregir una fecha.
+```
+
+El probe descubre las gramaticas reales de cada fuente; se congelan
+antes de G1-WI.B.
 
 Explicitamente **SIN gate**:
 
@@ -153,15 +239,19 @@ Abstencion permitida; invencion no.
 ## Veredicto
 
 ```text
-PASS
-    todos los gates obligatorios pasan.
+MANDATORY_GATES = 16    (13 core + 3 DGSFP-specific)
 
 FAIL
-    cualquier gate de precision, provenance, identidad o semantica falla.
+    cualquier mandatory applicable gate falla.
 
 INCONCLUSIVE
-    la fuente oficial no permite construir un corpus
-    evaluable/reproducible suficiente.
+    ningun gate evaluable falla, pero la fuente/corpus impide
+    evaluar uno o mas gates obligatorios con denominador
+    suficiente.
+
+PASS
+    los 16 gates son PASS o, cuando este explicitamente permitido,
+    N/A por ausencia estructural de la clase.
 ```
 
 Sin minimo artificial de registros DGSFP a priori: el tamano del corpus
@@ -183,7 +273,7 @@ estructura real observada.
 
 ## Freeze
 
-Congelado desde el commit que introduce este fichero. Enmiendas solo
-docs-only, en commits aparte, y antes del primer request a DGSFP. Tras
-el freeze del snapshot del probe, ningun cambio de gates, denominadores
-ni contrato.
+Congelado en `5b1434879d65ec042ee7423fd4cb1253c5154af7`, fijado por el
+tag anotado `g1-wi-prereg-v1`. Enmiendas solo docs-only, en commits
+aparte, y antes del primer request a DGSFP. Tras el freeze del snapshot
+del probe, ningun cambio de gates, denominadores ni contrato.
