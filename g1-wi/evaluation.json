@@ -1,0 +1,172 @@
+{
+  "evaluation": "g1-wi",
+  "code_under_test_commit": "6844e83078e56b27b7b783c51636cdd68cd72a7f",
+  "evaluator_freeze_commit": "6844e83078e56b27b7b783c51636cdd68cd72a7f",
+  "evaluator_unchanged": true,
+  "code_under_test_sha256": {
+    "alertafin/parser.py": "32caf9aeb4855560291aad9b618d23f3421689e2b32cce5a76b82e63edb5d663",
+    "alertafin/domainex.py": "fd7b9155fc50a26ce8caf1272f1b1acf00153724c5e613a7441f94cda9b3dd2b",
+    "alertafin/clones.py": "df86e2f0ecaa7baf4309fe72b2d2a4b07a7c1aad6d455bc8c1274e600699cf2d",
+    "alertafin/identity.py": "cec0d50de371368d80a6468fec9f87654c2f18c26b2d444373da0fa95bf80299",
+    "alertafin/textnorm.py": "24a7afa8e31d751570e3d3812a258a7b2698a4045253d71ad31e43f268f5438f",
+    "alertafin/search.py": "40de3d24bf3ad05856d9d303051458897491fb8d87fdfe912cba6ffaf31154ca",
+    "alertafin/dgsfp.py": "521733081057aa367005b7d0b203de60d713bd37915d8c39b5177d3f7fcf8231",
+    "alertafin/unified.py": "50ae612a38231f87f1d594f73c1f3523fde3d9a2123eb1d14a515d7e8291d8d1"
+  },
+  "evidence_fingerprints": {
+    "cnmv_holdout_v2_evaluation_sha256": "f6fd5b9eba826e0daeec728c896f3382c77c5260f92f015c2b35ad9edae7b24a",
+    "cnmv_code_commit_evaluated": "ab07001b0919ac5694e034fe686f87ac27df732e",
+    "cnmv_code_matches_current": false,
+    "dgsfp_gold_sha256": "8577987ef8f4bfd2a24633d2cd53241024631ae27c10cfd3f7e690e4c17a249e",
+    "dgsfp_snapshot_sha256": "70e52c292c7ae7c41d91c7f43e4e3cecddb1afff9020fa924a6d42a01086be2a",
+    "cnmv_blind_sample_sha256": "f027ceb9424536f02834349f88f80c2eba07e69eee3253e63663d727230969ba",
+    "cnmv_blind_labels_sha256": "0191ed4fe9161210daf3a0a6668baf31f92e0ac90828302fa85f818e90169d3b",
+    "cnmv_blind_evidence_used": true
+  },
+  "gates": {
+    "raw_rows_preserved": {
+      "status": "PASS",
+      "threshold": "10475 ocurrencias",
+      "numerator": 10475,
+      "denominator": 10475,
+      "evidence_source": "census: warning_notices vs rows",
+      "failures": []
+    },
+    "provenance_complete": {
+      "status": "PASS",
+      "threshold": "100%",
+      "numerator": 10475,
+      "denominator": 10475,
+      "evidence_source": "census: provenance por ocurrencia",
+      "failures": []
+    },
+    "valid_source_dates_parsed": {
+      "status": "PASS",
+      "threshold": "100% donde aplica (DGSFP: N/A estructural)",
+      "numerator": 10368,
+      "denominator": 10368,
+      "evidence_source": "CNMV census; DGSFP sin fechas por registro",
+      "failures": []
+    },
+    "determinism": {
+      "status": "PASS",
+      "threshold": "identical inputs -> identical output",
+      "numerator": 1,
+      "denominator": 1,
+      "evidence_source": "build_notices x2 byte-identico",
+      "failures": []
+    },
+    "stable_idempotent_ids": {
+      "status": "PASS",
+      "threshold": "100% notice_id recomputable",
+      "numerator": 10475,
+      "denominator": 10475,
+      "evidence_source": "re-hash de identity_fields",
+      "failures": []
+    },
+    "silent_row_loss": {
+      "status": "PASS",
+      "threshold": "0",
+      "numerator": 0,
+      "denominator": 0,
+      "evidence_source": "rows vs ocurrencias",
+      "failures": []
+    },
+    "false_cross_source_merges": {
+      "status": "PASS",
+      "threshold": "0",
+      "numerator": 0,
+      "denominator": 0,
+      "evidence_source": "namespaces por notice",
+      "failures": []
+    },
+    "source_unavailable_semantics": {
+      "status": "PASS",
+      "threshold": "100%",
+      "numerator": 1,
+      "denominator": 1,
+      "evidence_source": "check_multi con fuentes ausentes -> SOURCE_UNAVAILABLE",
+      "failures": []
+    },
+    "domain_precision": {
+      "status": "FAIL",
+      "threshold": 1.0,
+      "numerator": 311,
+      "denominator": 312,
+      "evidence_source": "g1-wi blind labels (evidencia nueva del CUT, etiquetas congeladas) + censo DGSFP",
+      "failures": [
+        "CNMV fp: [['www.inexxspain.com']]",
+        "DGSFP fp: []"
+      ],
+      "observed": "0.9968"
+    },
+    "domain_recall": {
+      "status": "PASS",
+      "threshold": ">=0.95 por fuente",
+      "numerator": 311,
+      "denominator": 311,
+      "evidence_source": "g1-wi blind labels (evidencia nueva del CUT, etiquetas congeladas) + censo DGSFP",
+      "failures": [
+        "CNMV recall 1.0000",
+        "DGSFP_PAGINAS recall 1.0000",
+        "DGSFP_SUJETOS N/A (0 dominios gold)"
+      ]
+    },
+    "explicit_clone_precision": {
+      "status": "PASS",
+      "threshold": 1.0,
+      "numerator": 21,
+      "denominator": 21,
+      "evidence_source": "g1-wi blind labels (evidencia nueva del CUT, etiquetas congeladas); DGSFP 0 emitidos (N/A)",
+      "failures": [
+        "precision 1.0000"
+      ]
+    },
+    "explicit_clone_recall": {
+      "status": "PASS",
+      "threshold": ">=0.95 por fuente",
+      "numerator": 21,
+      "denominator": 21,
+      "evidence_source": "g1-wi blind labels (evidencia nueva del CUT, etiquetas congeladas); DGSFP N/A (0 positivos gold, errata)",
+      "failures": [
+        "CNMV recall 1.0000",
+        "DGSFP_SUJETOS N/A",
+        "DGSFP_PAGINAS N/A"
+      ]
+    },
+    "false_emitted_clone_target": {
+      "status": "PASS",
+      "threshold": 0,
+      "numerator": 0,
+      "denominator": 0,
+      "evidence_source": "g1-wi blind labels (evidencia nueva del CUT, etiquetas congeladas) + censo DGSFP (safety gate)",
+      "failures": [],
+      "targets_emitted": 7
+    },
+    "dgsfp_source_coverage": {
+      "status": "PASS",
+      "threshold": "97+10",
+      "numerator": 107,
+      "denominator": 107,
+      "evidence_source": "censo gold vs ocurrencias",
+      "failures": []
+    },
+    "dgsfp_source_type_preservation": {
+      "status": "PASS",
+      "threshold": "tipos distintos por fuente",
+      "numerator": 1,
+      "denominator": 1,
+      "evidence_source": "source_type por namespace",
+      "failures": []
+    },
+    "dgsfp_source_limitation": {
+      "status": "PASS",
+      "threshold": "salida + docs preservan no-exhaustividad",
+      "numerator": 2,
+      "denominator": 2,
+      "evidence_source": "contrato DGSFP-G1.3",
+      "failures": []
+    }
+  },
+  "verdict": "FAIL"
+}
