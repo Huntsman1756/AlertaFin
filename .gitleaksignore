@@ -1,0 +1,4 @@
+# Falsos positivos adjudicados: content_sha256 de provenance (hash de
+# evidencia congelada, no credencial) en g1-wi/source-probe-report.md.
+82fbde597cd0091c5b35ba8890f611afe63c638c:g1-wi/source-probe-report.md:generic-api-key:33
+9be003b23889d8d212824903731979a180a3ec9a:g1-wi/source-probe-report.md:generic-api-key:33
