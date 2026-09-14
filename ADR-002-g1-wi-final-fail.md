@@ -81,6 +81,22 @@ legitima.
 
 ## Decision
 
+*Aclaración añadida el 2026-09-14 como enmienda documental posterior al
+resultado. El umbral estaba preregistrado en `g1-wi/preregistration.md`
+(tag `g1-wi-prereg-v1`) antes de la evaluación; esta adición no altera
+resultados, thresholds ni evidencia congelada.*
+
+El umbral de `domain precision = 1.0` responde a una asimetría de riesgo
+definida por el producto. Un fallo de cobertura degrada a abstención —
+el dominio no se emite como aserción y la búsqueda sobre él devuelve
+`NO_WARNING_FOUND` —, que sigue siendo una salida explícita y auditable.
+Una atribución positiva falsa no tiene degradación equivalente: afirmar
+que un dominio pertenece al sujeto advertido cambia el significado del
+hecho regulatorio publicado y atribuye al supervisor una relación que
+la fuente no afirmó. Por ello, el FAIL de `www.inexxspain.com` no invalida
+el umbral; evidencia que el modelo de relación dominio-sujeto era
+insuficiente para sostenerlo.
+
 Se acepta el FAIL definitivo para G1-WI:
 
 ```text
