@@ -1,0 +1,5 @@
+blank_issues_enabled: true
+contact_links:
+  - name: Política de seguridad
+    url: https://github.com/Huntsman1756/AlertaFin/security/policy
+    about: Usa el canal privado de seguridad para vulnerabilidades o detalles sensibles.
