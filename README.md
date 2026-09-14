@@ -1,5 +1,9 @@
 # AlertaFin
 
+[![CI](https://github.com/Huntsman1756/AlertaFin/actions/workflows/tests.yml/badge.svg?branch=main)](https://github.com/Huntsman1756/AlertaFin/actions/workflows/tests.yml)
+
+[Contribuir](CONTRIBUTING.md) · [Seguridad](SECURITY.md) · [Aviso de datos](DATA_NOTICE.md) · [Licencia MIT](LICENSE)
+
 CLI v0.1: índice auditable de advertencias financieras oficiales de la
 **CNMV** (WebAPI `PaffNoAutorizadas`), con provenance byte-exacta. No
 determina si una entidad es segura ni si está autorizada; solo

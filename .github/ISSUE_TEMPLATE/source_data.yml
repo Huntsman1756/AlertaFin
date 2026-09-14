@@ -1,0 +1,77 @@
+name: Source / regulatory data issue
+description: Reporta un cambio o discrepancia observada en una fuente regulatoria o en su provenance.
+title: "[source] "
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Usa esta plantilla para cambios de CNMV/DGSFP, discrepancias de datos o problemas de provenance. No la uses para vulnerabilidades de seguridad.
+
+  - type: dropdown
+    id: source
+    attributes:
+      label: Fuente
+      options:
+        - CNMV
+        - DGSFP — Sujetos no autorizados
+        - DGSFP — Páginas web fraudulentas
+        - Otra fuente oficial
+    validations:
+      required: true
+
+  - type: input
+    id: url
+    attributes:
+      label: URL oficial
+      placeholder: "https://..."
+    validations:
+      required: true
+
+  - type: input
+    id: observed_at
+    attributes:
+      label: Fecha/hora de observación
+      description: Preferiblemente UTC en formato ISO 8601.
+      placeholder: "2026-09-14T03:30:00Z"
+    validations:
+      required: true
+
+  - type: input
+    id: sha
+    attributes:
+      label: SHA-256 / identificador de snapshot
+      description: Si ya existe un snapshot o raw reproducible, indica su hash.
+
+  - type: textarea
+    id: observation
+    attributes:
+      label: Qué ha cambiado o qué discrepa
+      description: Describe solo hechos observables y separa inferencias de observaciones.
+    validations:
+      required: true
+
+  - type: textarea
+    id: expected
+    attributes:
+      label: Comportamiento esperado de AlertaFin
+      description: Explica qué debería preservar, rechazar o marcar como no disponible.
+    validations:
+      required: true
+
+  - type: textarea
+    id: evidence
+    attributes:
+      label: Evidencia reproducible
+      description: Headers allowlisted, fragmento mínimo, hashes, notice_id o pasos de adquisición. No incluyas cookies/tokens.
+
+  - type: checkboxes
+    id: checks
+    attributes:
+      label: Confirmaciones
+      options:
+        - label: La fuente indicada es oficial o he explicado por qué la propongo para revisión.
+          required: true
+        - label: No he incluido credenciales, cookies, tokens ni datos privados innecesarios.
+          required: true
+        - label: Entiendo que la evidencia congelada existente no se reescribe; una corrección requiere una errata/ADR/artefacto posterior explícito.
+          required: true

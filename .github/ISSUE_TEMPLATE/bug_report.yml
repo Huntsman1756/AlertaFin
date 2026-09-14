@@ -1,0 +1,76 @@
+name: Bug report
+description: Reporta un fallo reproducible de la CLI o del código de AlertaFin.
+title: "[bug] "
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Gracias por reportar el problema. No incluyas secretos, credenciales ni datos privados innecesarios.
+
+  - type: dropdown
+    id: area
+    attributes:
+      label: Área
+      options:
+        - CLI
+        - Parser / normalización
+        - Adquisición
+        - Búsqueda
+        - Provenance / integridad
+        - Tests / CI
+        - Otra
+    validations:
+      required: true
+
+  - type: input
+    id: version
+    attributes:
+      label: Versión o commit
+      description: Salida de `alertafin --version` y/o SHA del commit.
+      placeholder: "alertafin 0.1.0 / abc1234"
+    validations:
+      required: true
+
+  - type: textarea
+    id: reproduce
+    attributes:
+      label: Pasos para reproducir
+      description: Incluye el comando mínimo y los datos públicos necesarios.
+      placeholder: |
+        1. ...
+        2. ...
+        3. ...
+    validations:
+      required: true
+
+  - type: textarea
+    id: expected
+    attributes:
+      label: Resultado esperado
+    validations:
+      required: true
+
+  - type: textarea
+    id: actual
+    attributes:
+      label: Resultado observado
+    validations:
+      required: true
+
+  - type: textarea
+    id: evidence
+    attributes:
+      label: Evidencia adicional
+      description: Logs mínimos, traceback, notice_id o URL oficial. Redacta cualquier secreto.
+
+  - type: checkboxes
+    id: checks
+    attributes:
+      label: Confirmaciones
+      options:
+        - label: He buscado issues existentes y no encuentro un duplicado.
+          required: true
+        - label: No he incluido secretos, credenciales, cookies, rutas locales ni datos privados innecesarios.
+          required: true
+        - label: No estoy solicitando reescribir evidencia congelada ni reinterpretar retrospectivamente un veredicto histórico.
+          required: true
