@@ -14,9 +14,12 @@
 # === Overrides (al final: ganan) ===
 # Evidencia congelada byte-exacta: los manifests registran sha256 de
 # los bytes tal cual; cualquier conversion EOL romperia la cadena.
-g0/**    -text
-g0-r/**  -text
-g1-wi/** -text
+# linguist-vendored: contenido de terceros replicado (snapshots HTML
+# regulatorios); excluido de las estadisticas de lenguaje para que el
+# repo clasifique como Python.
+g0/**    -text linguist-vendored
+g0-r/**  -text linguist-vendored
+g1-wi/** -text linguist-vendored
 
 # Fingerprintado como selection_script_sha256 en g0/holdout-v2/manifest.json
 scripts/holdout_v2.py -text

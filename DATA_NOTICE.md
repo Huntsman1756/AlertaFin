@@ -8,7 +8,7 @@ oficiales públicas:
 
 ## Alcance
 
-- La licencia del código (`LICENSE`, MIT) **no relicencian los datos**.
+- La licencia del código (`LICENSE`, MIT) **no relicencia los datos**.
   Los registros, HTML raw, manifests y etiquetas proceden de terceros y
   conservan cualquier condición de reutilización de sus fuentes
   oficiales. Antes de reutilizar los datos, revisa los términos de las
@@ -18,7 +18,7 @@ oficiales públicas:
   denominaciones). Se conserva porque es parte de la evidencia oficial
   y de la auditabilidad del índice; su tratamiento ulterior es
   responsabilidad del reutilizador conforme a la normativa aplicable.
-- Los artefactos bajo `g0/` y `g1-wi/` son **evidencia congelada**: sus
+- Los artefactos bajo `g0/`, `g0-r/` y `g1-wi/` son **evidencia congelada**: sus
   bytes están fingerprintados (SHA-256) en manifests y evaluaciones.
   No deben modificarse, reformatearse ni regenerarse.
 

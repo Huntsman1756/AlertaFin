@@ -5,6 +5,9 @@ on:
     branches: [main]
   pull_request:
 
+permissions:
+  contents: read
+
 jobs:
   pytest:
     runs-on: ubuntu-latest
@@ -14,16 +17,28 @@ jobs:
         python-version: ["3.11", "3.12", "3.13"]
 
     steps:
-      - uses: actions/checkout@v4
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+        with:
+          persist-credentials: false
 
-      - uses: actions/setup-python@v5
+      - uses: actions/setup-python@5fda3b95a4ea91299a34e894583c3862153e4b97 # v7.0.0
         with:
           python-version: ${{ matrix.python-version }}
 
-      # Suite offline: todos los tests corren sobre artefactos
-      # congelados del repo; no hay llamadas live a CNMV/DGSFP.
+      # Tests sin acceso live a las fuentes regulatorias: toda la suite
+      # corre sobre artefactos congelados del repo y no llama a
+      # CNMV/DGSFP. (pip si descarga dependencias de PyPI.)
       - name: Install
         run: pip install -e ".[test]"
 
       - name: Test
         run: pytest
+
+  # Check estable para branch protection: agrega la matriz completa.
+  # Requerir solo "ci" en el ruleset evita reconfigurar la proteccion
+  # al añadir o quitar versiones de Python.
+  ci:
+    needs: pytest
+    runs-on: ubuntu-latest
+    steps:
+      - run: echo "all matrix jobs passed"

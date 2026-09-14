@@ -1,10 +1,16 @@
 # AlertaFin
 
-Índice auditable de advertencias financieras oficiales: **CNMV**
-(WebAPI `PaffNoAutorizadas`) + **DGSFP** (sujetos no autorizados y
-páginas web fraudulentas), con provenance byte-exacta. No determina si
-una entidad es segura ni si está autorizada; solo representa hechos
-regulatorios publicados. Ver `DATA_NOTICE.md` para el aviso de datos.
+CLI v0.1: índice auditable de advertencias financieras oficiales de la
+**CNMV** (WebAPI `PaffNoAutorizadas`), con provenance byte-exacta. No
+determina si una entidad es segura ni si está autorizada; solo
+representa hechos regulatorios publicados. Ver `DATA_NOTICE.md` para el
+aviso de datos.
+
+> La CLI publicada es **CNMV-only**. El repositorio contiene además la
+> investigación multifuente **G1-WI** (CNMV + DGSFP), que no alcanzó
+> release: su contrato v0.2 falló en evaluación — ver
+> [la sección G1-WI](#v02--multi-source-warning-index-g1-wi-fail--cerrado)
+> y `ADR-002-g1-wi-final-fail.md`.
 
 ```bash
 alertafin check nextinversion.com
