@@ -1,8 +1,6 @@
 import hashlib
 import json
 
-import pytest
-
 from alertafin.identity import (
     IDENTITY_FIELDS,
     canonical_bytes,
@@ -41,19 +39,19 @@ def test_canonical_bytes_is_fixed_key_order_compact_utf8():
     b = canonical_bytes(make_fields())
     # Claves en orden fijo, separadores sin espacios, UTF-8.
     expected = (
-        '{"source_namespace":"cnmv.webapi.paff_no_autorizadas",'
-        '"tipo_raw":"NOAUTO","fecha_raw":"09/09/2026",'
-        '"entidad_raw":"MELZAPAY S.A.",'
-        '"entidad_secundaria_raw":"WWW.MELZAPAY.COM",'
-        '"codigo_regulador_raw":"CSSF",'
-        '"pais_regulador_raw":"LUXEMBURGO"}'
-    ).encode("utf-8")
+        b'{"source_namespace":"cnmv.webapi.paff_no_autorizadas",'
+        b'"tipo_raw":"NOAUTO","fecha_raw":"09/09/2026",'
+        b'"entidad_raw":"MELZAPAY S.A.",'
+        b'"entidad_secundaria_raw":"WWW.MELZAPAY.COM",'
+        b'"codigo_regulador_raw":"CSSF",'
+        b'"pais_regulador_raw":"LUXEMBURGO"}'
+    )
     assert b == expected
 
 
 def test_canonical_bytes_preserves_non_ascii_without_escaping():
     b = canonical_bytes(make_fields(entidad_raw="ÑANDÚ CAPITAL S.L."))
-    assert "ÑANDÚ CAPITAL S.L.".encode("utf-8") in b
+    assert "ÑANDÚ CAPITAL S.L.".encode() in b
 
 
 def test_notice_id_is_sha256_of_canonical():

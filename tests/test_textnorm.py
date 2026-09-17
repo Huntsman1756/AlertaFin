@@ -1,6 +1,5 @@
-import pytest
 
-from alertafin.textnorm import normalize_name, collapse_ws
+from alertafin.textnorm import collapse_ws, normalize_name
 
 
 def test_casefold_and_accents():

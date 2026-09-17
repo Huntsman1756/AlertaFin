@@ -4,7 +4,6 @@ Produce g0/gates-t0.json con cada gate, su umbral congelado y su resultado.
 NO modifica umbrales. Marca DISPUTED_UNRESOLVED como no evaluable.
 """
 
-import hashlib
 import json
 import re
 import sys
@@ -13,10 +12,9 @@ from pathlib import Path
 
 sys.path.insert(0, str(Path(__file__).resolve().parents[1]))
 
-from alertafin.identity import notice_id, IDENTITY_FIELDS, canonical_bytes
+from alertafin.identity import IDENTITY_FIELDS, canonical_bytes, notice_id
 from alertafin.pipeline import enrich
 from alertafin.provenance import ByteStore
-from alertafin.textnorm import normalize_name
 
 
 def _norm_target(t):
@@ -56,9 +54,9 @@ def main():
 
     # El dataset real (escrito por acquire) es el artefacto que se audita:
     # sus registros llevan la provenance completa de la adquisicion.
-    dataset = [json.loads(l) for l in
+    dataset = [json.loads(line) for line in
                (out_dir / "normalized" / "notices.jsonl")
-               .read_text(encoding="utf-8").splitlines() if l.strip()]
+               .read_text(encoding="utf-8").splitlines() if line.strip()]
 
     # ---- Provenance 100% (sobre el dataset real) ----
     req = {"source_url", "query_params", "retrieved_at", "source_sha256",
@@ -84,7 +82,7 @@ def main():
     for n in notices:
         groups.setdefault(n["notice_id"], []).append(n)
     collisions = 0
-    for nid, group in groups.items():
+    for group in groups.values():
         identities = {canonical_bytes({k: n[k] for k in IDENTITY_FIELDS})
                       for n in group}
         if len(identities) > 1:
@@ -113,9 +111,9 @@ def main():
     }
 
     # ---- Golden corpus ----
-    corpus = [json.loads(l) for l in
+    corpus = [json.loads(line) for line in
               (out_dir / "golden" / "golden_corpus.jsonl")
-              .read_text("utf-8").splitlines() if l.strip()]
+              .read_text("utf-8").splitlines() if line.strip()]
     usable = [c for c in corpus if c["label"] is not None]
     unresolved = [c for c in corpus if c["label"] is None]
     by_id = {n["notice_id"]: n for n in notices}

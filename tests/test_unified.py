@@ -8,8 +8,6 @@ provenance-backed. Cobertura sobre ocurrencias.
 import json
 from pathlib import Path
 
-import pytest
-
 from alertafin.unified import (
     MultiSourceIndex,
     aggregate_status,
@@ -17,12 +15,12 @@ from alertafin.unified import (
     check_multi,
 )
 
-CNMV_ROWS = [json.loads(l) for l in
-             Path("g1-wi/normalized/cnmv_rows.jsonl").open(
-                 encoding="utf-8") if l.strip()]
-DGSFP_ROWS = [json.loads(l) for l in
-              Path("g1-wi/normalized/notices.jsonl").open(
-                  encoding="utf-8") if l.strip()]
+CNMV_ROWS = [json.loads(line) for line in
+             Path("g1-wi/normalized/cnmv_rows.jsonl")
+             .read_text(encoding="utf-8").splitlines() if line.strip()]
+DGSFP_ROWS = [json.loads(line) for line in
+              Path("g1-wi/normalized/notices.jsonl")
+              .read_text(encoding="utf-8").splitlines() if line.strip()]
 NOTICES = build_notices(CNMV_ROWS + DGSFP_ROWS)
 
 

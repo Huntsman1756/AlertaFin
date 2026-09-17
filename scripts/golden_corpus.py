@@ -24,7 +24,7 @@ sys.path.insert(0, str(Path(__file__).resolve().parents[1]))
 
 from alertafin.pipeline import enrich
 from alertafin.provenance import ByteStore
-from alertafin.textnorm import normalize_name, collapse_ws
+from alertafin.textnorm import normalize_name
 
 GOLD_DIR = Path("g0/golden")
 SEED = 20260913
@@ -295,7 +295,7 @@ def cmd_finalize():
     unresolved_disputes = 0
     for e in labeled:
         if e["label_status"] == "CONFIRMED":
-            a, b = e["passes"]["A"], e["passes"]["B"]
+            a = e["passes"]["A"]
             e["label"] = {
                 "domains": a["domains"], "clone": a["clone"],
                 "target": a["target"],

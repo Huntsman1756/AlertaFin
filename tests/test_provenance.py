@@ -1,4 +1,5 @@
 import json
+
 import pytest
 
 from alertafin.provenance import ByteStore, RetrievalLog

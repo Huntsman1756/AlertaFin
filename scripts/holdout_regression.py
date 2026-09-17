@@ -24,12 +24,12 @@ import hashlib
 import json
 import sys
 from collections import Counter
-from datetime import datetime, timezone
+from datetime import UTC, datetime
 from pathlib import Path
 
 sys.path.insert(0, str(Path(__file__).resolve().parents[1]))
 
-from alertafin.identity import notice_id, IDENTITY_FIELDS, canonical_bytes
+from alertafin.identity import IDENTITY_FIELDS, canonical_bytes, notice_id
 from alertafin.pipeline import enrich
 from alertafin.provenance import ByteStore
 from scripts.evaluate_gates import _norm_target
@@ -113,12 +113,12 @@ def _current_report():
     for n in sorted(res.notices, key=lambda n: n["row_number"]):
         by_id.setdefault(n["notice_id"], n)
     sample, missing = {}, []
-    for l in labeled:
-        n = by_id.get(l["notice_id"])
+    for lbl in labeled:
+        n = by_id.get(lbl["notice_id"])
         if not n:
-            missing.append(l["notice_id"])
+            missing.append(lbl["notice_id"])
             continue
-        sample[l["notice_id"]] = {
+        sample[lbl["notice_id"]] = {
             "domains": sorted(d["host_normalized"]
                               for d in (n.get("domains") or [])),
             "clone": n.get("clone") or {},
@@ -158,7 +158,7 @@ def cmd_baseline():
         return 1
 
     baseline = {
-        "created_at": datetime.now(timezone.utc).strftime("%Y-%m-%dT%H:%M:%SZ"),
+        "created_at": datetime.now(UTC).strftime("%Y-%m-%dT%H:%M:%SZ"),
         "purpose": ("Baseline inmutable de regresion G0-R: estado del parser "
                     "congelado (FAIL historico) antes de la remediacion."),
         "base_commit": (git_state() or {}).get("commit"),
@@ -271,9 +271,9 @@ def _noncorpus_gates(summary, res, raw):
         "threshold": "3/3", "result": len(set(runs)) == 1,
         "observed": f"{len(set(runs))}/3",
     }
-    dataset = [json.loads(l) for l in
+    dataset = [json.loads(line) for line in
                Path("g0/normalized/notices.jsonl")
-               .read_text(encoding="utf-8").splitlines() if l.strip()]
+               .read_text(encoding="utf-8").splitlines() if line.strip()]
     req = {"source_url", "query_params", "retrieved_at", "source_sha256",
            "parser_version", "source_namespace"}
     missing = [n["notice_id"] for n in dataset
@@ -450,7 +450,7 @@ def cmd_golden():
     corpus = _read_jsonl(GOLDEN_CORPUS)
 
     gates_nc = _noncorpus_gates(summary, res, raw)
-    legacy_gates, meta, legacy_exact = _corpus_gates(res, corpus)
+    legacy_gates, meta, _legacy_exact = _corpus_gates(res, corpus)
     adjudicated, adjudications = _apply_adjudications(corpus)
     adj_gates, _, adj_exact = _corpus_gates(res, adjudicated)
 

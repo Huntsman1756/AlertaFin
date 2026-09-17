@@ -102,9 +102,8 @@ def _valid_host(host: str) -> bool:
     # Numero de version/seccion 'X.Y.tld': >=2 labels no-TLD, todos
     # puramente numericos -> no es hostname (causa general del FP
     # '5.3.ai'). Un unico label numerico (163.com) sigue siendo dominio.
-    if len(labels) >= 3 and all(lbl.isdigit() for lbl in labels[:-1]):
-        return False
-    return True
+    return not (
+        len(labels) >= 3 and all(lbl.isdigit() for lbl in labels[:-1]))
 
 
 def _normalize_host(host: str):

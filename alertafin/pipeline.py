@@ -4,9 +4,9 @@ Cada notice lleva: identidad (notice_id, record_version_id), campos raw,
 fechas ISO, dominios extraidos, analisis de clon y provenance completa.
 """
 
-from alertafin.parser import parse_csv
-from alertafin.domainex import extract_domains_from_record
 from alertafin.clones import analyze_clone
+from alertafin.domainex import extract_domains_from_record
+from alertafin.parser import parse_csv
 
 
 def enrich(raw: bytes, provenance: dict | None = None):

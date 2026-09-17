@@ -105,7 +105,7 @@ def cmd_scaffold(force=False):
             row = {"notice_id": entry["notice_id"],
                    "stratum_blind": blind_stratum(entry["stratum"]),
                    "labeled": False}
-            row.update({f: None for f in LABEL_FIELDS})
+            row.update(dict.fromkeys(LABEL_FIELDS))
             fh.write(json.dumps(row, ensure_ascii=False) + "\n")
     print(json.dumps({"written": str(LABELS), "cases": len(sample),
                       "fields": ["labeled", *LABEL_FIELDS]},
@@ -127,21 +127,21 @@ def _ratio(num, den):
 
 def labeled_rows(labels):
     """Solo las filas marcadas explicitamente `labeled: true`."""
-    return [l for l in labels if l.get("labeled") is True]
+    return [lbl for lbl in labels if lbl.get("labeled") is True]
 
 
-def validate_label(l):
+def validate_label(lbl):
     """Tipos obligatorios de una fila etiquetada. Lista de errores (vacia = OK)."""
     errs = []
-    domains = l.get("expected_domains")
+    domains = lbl.get("expected_domains")
     if not isinstance(domains, list) or not all(isinstance(d, str) for d in domains):
         errs.append("expected_domains debe ser lista de strings")
-    if not isinstance(l.get("expected_clone_detected"), bool):
+    if not isinstance(lbl.get("expected_clone_detected"), bool):
         errs.append("expected_clone_detected debe ser bool")
-    target = l.get("expected_clone_target")
+    target = lbl.get("expected_clone_target")
     if target is not None and not isinstance(target, str):
         errs.append("expected_clone_target debe ser str o null")
-    rel = l.get("expected_relation_status")
+    rel = lbl.get("expected_relation_status")
     if rel is not None and not isinstance(rel, str):
         errs.append("expected_relation_status debe ser str o null")
     return errs
@@ -169,21 +169,21 @@ def score(sample, labeled):
     target_hit = target_miss = 0
     target_miss_cases = []
 
-    for l in labeled:
-        e = sample[l["notice_id"]]
-        gold = set(l["expected_domains"])
+    for lbl in labeled:
+        e = sample[lbl["notice_id"]]
+        gold = set(lbl["expected_domains"])
         got = set(e["domains"])
         dtp += len(gold & got)
         dfp += len(got - gold)
         dfn += len(gold - got)
         if got - gold:
-            fp_cases.append({"notice_id": l["notice_id"],
+            fp_cases.append({"notice_id": lbl["notice_id"],
                              "false": sorted(got - gold)})
         if gold - got:
-            fn_cases.append({"notice_id": l["notice_id"],
+            fn_cases.append({"notice_id": lbl["notice_id"],
                              "missed": sorted(gold - got)})
 
-        gold_clone = l["expected_clone_detected"]
+        gold_clone = lbl["expected_clone_detected"]
         got_clone = bool(e["clone"]["clone_detected"])
         if gold_clone and got_clone:
             ctp += 1
@@ -192,12 +192,12 @@ def score(sample, labeled):
         elif not gold_clone and got_clone:
             cfp += 1
         if gold_clone != got_clone:
-            clone_mismatch.append({"notice_id": l["notice_id"],
+            clone_mismatch.append({"notice_id": lbl["notice_id"],
                                    "expected": gold_clone, "got": got_clone})
 
         if gold_clone:
             gold_clone_cases += 1
-            gold_t = _norm_target(l.get("expected_clone_target"))
+            gold_t = _norm_target(lbl.get("expected_clone_target"))
             got_t = _norm_target(e["clone"].get("clone_target_raw"))
             if gold_t:
                 gold_resolvable += 1
@@ -208,26 +208,26 @@ def score(sample, labeled):
                     else:
                         target_miss += 1
                         target_miss_cases.append({
-                            "notice_id": l["notice_id"],
-                            "expected": l.get("expected_clone_target"),
+                            "notice_id": lbl["notice_id"],
+                            "expected": lbl.get("expected_clone_target"),
                             "got": e["clone"].get("clone_target_raw")})
                 else:
                     target_miss += 1
                     target_miss_cases.append({
-                        "notice_id": l["notice_id"],
-                        "expected": l.get("expected_clone_target"),
+                        "notice_id": lbl["notice_id"],
+                        "expected": lbl.get("expected_clone_target"),
                         "got": None})
             elif got_t:
                 parser_on_unresolvable += 1
 
-        if l.get("expected_relation_status") is not None:
+        if lbl.get("expected_relation_status") is not None:
             rel_total += 1
-            if l["expected_relation_status"] == e["clone"]["relation_status"]:
+            if lbl["expected_relation_status"] == e["clone"]["relation_status"]:
                 rel_agree += 1
             else:
                 rel_mismatch.append({
-                    "notice_id": l["notice_id"],
-                    "expected": l["expected_relation_status"],
+                    "notice_id": lbl["notice_id"],
+                    "expected": lbl["expected_relation_status"],
                     "got": e["clone"]["relation_status"]})
 
     dprec = _ratio(dtp, dtp + dfp)
@@ -280,13 +280,13 @@ def cmd_evaluate():
     sample = {e["notice_id"]: e for e in _read_jsonl(SAMPLE)}
     labels = _read_jsonl(LABELS)
 
-    unknown = sorted({l["notice_id"] for l in labels} - set(sample))
+    unknown = sorted({lbl["notice_id"] for lbl in labels} - set(sample))
     if unknown:
         print(json.dumps({"error": "notice_id fuera de la muestra",
                           "unknown": unknown[:10]}, ensure_ascii=False))
         return 2
 
-    counts = Counter(l["notice_id"] for l in labels)
+    counts = Counter(lbl["notice_id"] for lbl in labels)
     duplicates = sorted(k for k, v in counts.items() if v > 1)
     if duplicates:
         print(json.dumps({"error": "notice_id duplicado en labels",
@@ -294,8 +294,8 @@ def cmd_evaluate():
         return 2
 
     labeled = labeled_rows(labels)
-    errors = {l["notice_id"]: errs for l in labeled
-              if (errs := validate_label(l))}
+    errors = {lbl["notice_id"]: errs for lbl in labeled
+              if (errs := validate_label(lbl))}
     if errors:
         print(json.dumps({"error": "etiquetas invalidas",
                           "details": errors}, ensure_ascii=False, indent=2))

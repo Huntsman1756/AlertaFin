@@ -5,10 +5,7 @@ congelado en G1-WI.A — y verifican los hechos congelados en
 `g1-wi/pre-ingestion-freeze.md`.
 """
 
-import json
 from pathlib import Path
-
-import pytest
 
 from alertafin.dgsfp import (
     NS_PAGINAS,

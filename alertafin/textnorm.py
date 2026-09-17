@@ -20,9 +20,7 @@ def normalize_name(value: str) -> str:
     lowered = no_marks.casefold()
     out = []
     for ch in lowered:
-        if ch.isspace() or ch in "-_":
-            out.append(" ")
-        elif unicodedata.category(ch)[0] in _PUNCT_CATS:
+        if ch.isspace() or ch in "-_" or unicodedata.category(ch)[0] in _PUNCT_CATS:
             out.append(" ")
         else:
             out.append(ch)

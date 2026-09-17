@@ -13,10 +13,11 @@ sujetos diferentes -> AMBIGUOUS. No hay fusion persistente de entidades.
 """
 
 import re
-from dataclasses import dataclass, field as dc_field
+from dataclasses import dataclass
+from dataclasses import field as dc_field
 
-from alertafin.domainex import normalize_domain, _HOST_RE
-from alertafin.textnorm import normalize_name, collapse_ws
+from alertafin.domainex import _HOST_RE, normalize_domain
+from alertafin.textnorm import collapse_ws, normalize_name
 
 
 @dataclass

@@ -175,7 +175,7 @@ def test_score_parser_target_on_unresolvable_excluded():
 
 def test_labeled_rows_respects_flag():
     labels = [_label("a", [], True), _label("b", [], True, labeled=False)]
-    assert [l["notice_id"] for l in labeled_rows(labels)] == ["a"]
+    assert [lbl["notice_id"] for lbl in labeled_rows(labels)] == ["a"]
 
 
 def test_validate_label_rejects_partial_rows():
