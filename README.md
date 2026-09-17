@@ -2,7 +2,12 @@
 
 [![CI](https://github.com/Huntsman1756/AlertaFin/actions/workflows/tests.yml/badge.svg?branch=main)](https://github.com/Huntsman1756/AlertaFin/actions/workflows/tests.yml)
 
-[Contribuir](CONTRIBUTING.md) · [Seguridad](SECURITY.md) · [Aviso de datos](DATA_NOTICE.md) · [Licencia MIT](LICENSE)
+[Contribuir](CONTRIBUTING.md) · [Código de conducta](CODE_OF_CONDUCT.md) · [Seguridad](SECURITY.md) · [Aviso de datos](DATA_NOTICE.md) · [Licencia MIT](LICENSE)
+
+> **Estado: mantenimiento.** La CLI v0.1 se mantiene para correcciones de
+> fuentes, seguridad, compatibilidad y dependencias. G0 y G1-WI están cerrados;
+> su evidencia y veredictos permanecen congelados. Una hipótesis nueva requiere
+> una fase nueva con criterios propios.
 
 CLI v0.1: índice auditable de advertencias financieras oficiales de la
 **CNMV** (WebAPI `PaffNoAutorizadas`), con provenance byte-exacta. No
