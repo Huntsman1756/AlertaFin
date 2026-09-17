@@ -11,8 +11,8 @@ import csv
 import io
 from datetime import datetime, timedelta
 
-from alertafin.identity import notice_id
 from alertafin import SOURCE_NAMESPACE
+from alertafin.identity import notice_id
 
 ROWS = [
     # tipo, fecha, entidad, entidad_sec, cod_reg, pais, cpais, observaciones, fecha_baja

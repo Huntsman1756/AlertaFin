@@ -180,9 +180,7 @@ def _looks_like_target(candidate: str) -> bool:
         if unicodedata.category(ch) != "Mn")
     if first in _FUNC_WORDS:
         return False
-    if _MULTI_ENTITY.search(candidate):
-        return False
-    return True
+    return not _MULTI_ENTITY.search(candidate)
 
 
 def _is_urlish(name: str) -> bool:

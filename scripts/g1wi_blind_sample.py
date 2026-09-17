@@ -43,7 +43,7 @@ _RAW_FIELDS = ["tipo_raw", "fecha_raw", "entidad_raw",
 
 def _load_jsonl(path: Path):
     with path.open("r", encoding="utf-8") as fh:
-        return [json.loads(l) for l in fh if l.strip()]
+        return [json.loads(line) for line in fh if line.strip()]
 
 
 def _stratum(row: dict) -> str:
@@ -83,7 +83,7 @@ def main() -> int:
     for stratum in sorted(by_stratum):
         pool = sorted(by_stratum[stratum], key=lambda r: r["row_number"])
         for r in rng.sample(pool, min(alloc[stratum], len(pool))):
-            sample.append({
+            sample.append({  # noqa: PERF401  (cuerpo multi-linea, legibilidad)
                 "notice_id": r["notice_id"],
                 "record_version_id": r["record_version_id"],
                 "case_key": f"{r['notice_id']}:{r['record_version_id']}",

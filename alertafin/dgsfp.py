@@ -29,7 +29,8 @@ import hashlib
 import html as _html
 import json
 import re
-from dataclasses import dataclass, field as dc_field
+from dataclasses import dataclass
+from dataclasses import field as dc_field
 
 from alertafin.domainex import normalize_domain
 
@@ -286,14 +287,14 @@ def _notice_for_jsonl(n: dict) -> dict:
 
 
 __all__ = [
-    "NS_SUJETOS",
     "NS_PAGINAS",
+    "NS_SUJETOS",
     "PARSER_VERSION_DGSFP",
-    "SOURCE_TYPE_SUJETOS",
     "SOURCE_TYPE_PAGINAS",
+    "SOURCE_TYPE_SUJETOS",
     "DgsfpResult",
     "ParseError",
     "content_fields",
-    "parse_sujetos",
     "parse_paginas",
+    "parse_sujetos",
 ]

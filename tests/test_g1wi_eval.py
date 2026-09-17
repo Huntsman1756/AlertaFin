@@ -9,8 +9,6 @@ source limitation FAIL hasta que la salida lo exponga).
 import json
 from pathlib import Path
 
-import pytest
-
 from alertafin.eval_g1wi import (
     HOLDOUT_V2_COMMIT,
     build_evaluation,
@@ -19,12 +17,12 @@ from alertafin.eval_g1wi import (
     verdict,
 )
 
-CNMV_ROWS = [json.loads(l) for l in
-             Path("g1-wi/normalized/cnmv_rows.jsonl").open(
-                 encoding="utf-8") if l.strip()]
-DGSFP_ROWS = [json.loads(l) for l in
-              Path("g1-wi/normalized/notices.jsonl").open(
-                  encoding="utf-8") if l.strip()]
+CNMV_ROWS = [json.loads(line) for line in
+             Path("g1-wi/normalized/cnmv_rows.jsonl")
+             .read_text(encoding="utf-8").splitlines() if line.strip()]
+DGSFP_ROWS = [json.loads(line) for line in
+              Path("g1-wi/normalized/notices.jsonl")
+              .read_text(encoding="utf-8").splitlines() if line.strip()]
 HOLDOUT = json.loads(
     Path("g0/holdout-v2/evaluation.json").read_text("utf-8"))
 GOLD = json.loads(Path("g1-wi/eval/gold.json").read_text("utf-8"))

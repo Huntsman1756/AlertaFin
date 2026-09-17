@@ -8,10 +8,9 @@
 - Filas con numero de columnas incorrecto -> row_error, no se descartan.
 """
 
-import csv
 import hashlib
-import io
-from dataclasses import dataclass, field as dc_field
+from dataclasses import dataclass
+from dataclasses import field as dc_field
 from datetime import datetime
 
 from alertafin import PARSER_VERSION, SOURCE_NAMESPACE
@@ -143,7 +142,13 @@ def _parse_datetime(value):
 
 def parse_csv(raw: bytes, provenance: dict | None = None) -> ParseResult:
     body, encoding = _decode(raw)
-    text = body.decode(encoding)
+    try:
+        # Fail-fast: valida la decodificabilidad antes de procesar filas;
+        # los decodes por campo mas abajo quedan garantizados.
+        body.decode(encoding)
+    except UnicodeDecodeError as exc:
+        raise ParseError(f"payload no decodificable como {encoding}: {exc}") \
+            from exc
 
     records = _split_records(body)
     if not records:
@@ -172,7 +177,8 @@ def parse_csv(raw: bytes, provenance: dict | None = None) -> ParseResult:
             result.row_errors.append({**base_err, "error": "COLUMN_COUNT",
                                       "got_columns": len(decoded)})
             continue
-        record = dict(zip([name for name, _ in _COLUMN_MAP], decoded))
+        record = dict(zip([name for name, _ in _COLUMN_MAP], decoded,
+                          strict=True))
         # Convencion: campo vacio -> None. Los valores no vacios se conservan
         # byte a byte (incluido padding como 'NOAUTO    ').
         record = {k: (v if v != "" else None) for k, v in record.items()}

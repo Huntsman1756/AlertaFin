@@ -1,7 +1,6 @@
 import pytest
 
-from alertafin.parser import parse_csv, ParseError
-
+from alertafin.parser import ParseError, parse_csv
 
 BOM = b"\xef\xbb\xbf"
 HEADER = (

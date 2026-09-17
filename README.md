@@ -28,6 +28,22 @@ Estados: `WARNED` | `NO_WARNING_FOUND` | `AMBIGUOUS` | `SOURCE_UNAVAILABLE`.
 `NO_WARNING_FOUND` significa únicamente que no hubo coincidencia en las
 fuentes consultadas. Un fallo de fuente nunca es `NO_WARNING_FOUND`.
 
+## Instalación
+
+Requiere Python 3.11+:
+
+```bash
+pip install -e .          # desde el repo clonado
+alertafin --version       # verifica la instalación
+```
+
+La CLI consulta el dataset local `g0/normalized/notices.jsonl`
+(generado por `python -m alertafin.acquire` o incluido en el repo).
+Otro dataset con `--dataset <ruta>` antes o después del subcomando.
+
+Para desarrollo: `pip install -e ".[test]"` y lee `CONTRIBUTING.md`.
+Cambios: `CHANGELOG.md`.
+
 ## Decisiones congeladas (G0)
 
 1. **Identidad**: `notice_id = sha256(canonical_json)` de

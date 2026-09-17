@@ -1,4 +1,3 @@
-import pytest
 from alertafin.domainex import extract_domains_from_record
 
 

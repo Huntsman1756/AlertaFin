@@ -7,13 +7,11 @@ scripts/evaluate_gates.py con el mismo nucleo.
 import copy
 import json
 
-from alertafin.identity import notice_id, IDENTITY_FIELDS
+import tests.fixtures.mini_corpus as mini
+from alertafin.identity import IDENTITY_FIELDS, notice_id
 from alertafin.pipeline import enrich
 from alertafin.provenance import ByteStore
 from alertafin.search import SearchIndex, check
-
-import tests.fixtures.mini_corpus as mini
-
 
 PROV = {
     "source_url": "https://www.cnmv.es/WebAPI/datospublicos/PaffNoAutorizadas?format=csv",
@@ -205,5 +203,5 @@ def test_gate_cache_avoids_refetch(tmp_path, monkeypatch):
 def test_pipeline_enrich_shape():
     res = enrich(mini.full_csv_bytes(), provenance=PROV)
     n = res.notices[0]
-    assert set(("domains", "clone")) <= set(n.keys())
+    assert {"domains", "clone"} <= set(n.keys())
     assert copy.deepcopy(n) == n  # datos simples serializables

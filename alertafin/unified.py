@@ -163,14 +163,15 @@ def build_notices(rows) -> list:
 
         domain_assertions = []
         clone_evidence = []
-        for r, occ in zip(group, occs):
-            for d in r.get("domains") or []:
-                domain_assertions.append({
+        for r, occ in zip(group, occs, strict=True):
+            domain_assertions.extend(
+                {
                     "host_normalized": d["host_normalized"],
                     "raw": d.get("raw"),
                     "source_field": d.get("source_field"),
                     "source_occurrence_id": occ["source_occurrence_id"],
-                })
+                }
+                for d in r.get("domains") or [])
             c = r.get("clone") or {}
             if c.get("clone_detected"):
                 clone_evidence.append({
@@ -277,9 +278,15 @@ def notice_for_jsonl(notice: dict) -> dict:
 
 
 __all__ = [
-    "NS_CNMV", "NS_SUJETOS", "NS_PAGINAS",
-    "SOURCE_ORDER", "SOURCE_BY_NAMESPACE",
-    "MultiSourceIndex", "MultiCheckResult",
-    "aggregate_status", "build_notices", "check_multi",
+    "NS_CNMV",
+    "NS_PAGINAS",
+    "NS_SUJETOS",
+    "SOURCE_BY_NAMESPACE",
+    "SOURCE_ORDER",
+    "MultiCheckResult",
+    "MultiSourceIndex",
+    "aggregate_status",
+    "build_notices",
+    "check_multi",
     "notice_for_jsonl",
 ]

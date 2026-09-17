@@ -7,6 +7,7 @@ Gracias por contribuir. AlertaFin combina una CLI pública v0.1 (CNMV) con artef
 - Lee `README.md`, `DATA_NOTICE.md` y los ADR relevantes.
 - La CLI publicada v0.1 es **CNMV-only**. La investigación G1-WI (CNMV + DGSFP) está cerrada y no alcanzó release.
 - `g0/`, `g0-r/` y `g1-wi/` contienen evidencia congelada. **No modifiques, reformatees, regeneres, muevas ni sustituyas archivos existentes en esas rutas.**
+- Además, estos ficheros de evaluación están fingerprinted (SHA-256 registrado en `g0/holdout-v2/manifest.json` y en los tags de evaluación) y tampoco se modifican: `scripts/holdout_v2.py`, `scripts/holdout_sample.py`, `scripts/g1wi_evaluate.py`, `alertafin/eval_g1wi.py`, `alertafin/blind_eval.py`. `ruff` ya los excluye en `pyproject.toml`.
 - Una nueva hipótesis, fuente o experimento debe abrir una fase nueva con alcance y criterios propios; no se corrigen retrospectivamente gates, labels, thresholds ni veredictos históricos.
 
 ## Flujo de trabajo
@@ -18,6 +19,7 @@ Gracias por contribuir. AlertaFin combina una CLI pública v0.1 (CNMV) con artef
    ```bash
    pip install -e ".[test]"
    pytest
+   ruff check .
    ```
 
    La suite no debe depender de llamadas live a CNMV/DGSFP.

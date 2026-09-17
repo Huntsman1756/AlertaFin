@@ -1,9 +1,13 @@
 """Adquisicion G0 de la fuente CNMV (Paso 1).
 
-- CACHE AGRESIVA: si el ultimo intento fue OK y los bytes ya estan en el
-  ByteStore, no se vuelve a pedir la red (max. 1 pull/dia en G0).
+- CACHE AGRESIVA: si el ultimo pull OK fue el mismo dia UTC y los bytes
+  estan en el ByteStore, no se vuelve a pedir la red (max. 1 pull/dia en
+  G0). `--reprocess` re-deriva el dataset desde los bytes cacheados sin
+  red; `--force` fuerza un pull nuevo.
 - Fallo de fuente (excepcion/HTTP != 200) -> estado SOURCE_UNAVAILABLE
   registrado; NUNCA se produce un dataset vacio.
+- Cambio de esquema o payload no decodificable -> estado PARSE_FAILED
+  registrado; el ultimo dataset valido se conserva intacto.
 - Cada retrieval genera su propio evento de observacion (provenance), aun
   con bytes identicos.
 - Se registra un probe del pull 'activo' (estado=actu) solo con hechos
@@ -12,12 +16,13 @@
 """
 
 import json
-from datetime import datetime, timezone
+from datetime import UTC, date, datetime
 from pathlib import Path
 
 import requests
 
-from alertafin import SOURCE_NAMESPACE, PARSER_VERSION
+from alertafin import PARSER_VERSION, SOURCE_NAMESPACE, __version__
+from alertafin.parser import ParseError
 from alertafin.pipeline import enrich
 from alertafin.provenance import ByteStore, RetrievalLog
 
@@ -26,9 +31,11 @@ SOURCE_URL = (
 )
 QUERY_PARAMS = {"format": "csv"}
 
+# UA honesto: identifica el cliente y el proyecto. La fuente no exige
+# emular un navegador (verificado 2026-09).
 USER_AGENT = (
-    "Mozilla/5.0 (Windows NT 10.0; Win64; x64) "
-    "AppleWebKit/537.36 (KHTML, like Gecko) Chrome/125.0.0.0 Safari/537.36"
+    f"alertafin/{__version__} "
+    "(+https://github.com/Huntsman1756/AlertaFin)"
 )
 
 # Candidatos de pull activo. SOLO observables: se registra lo que responde
@@ -42,6 +49,7 @@ ACTIVE_PROBE_PARAMS = [
 
 EXIT_OK = 0
 EXIT_SOURCE_UNAVAILABLE = 3
+EXIT_PARSE_FAILED = 4
 
 
 def fetch_bytes(url, params=None, timeout=60):
@@ -50,8 +58,29 @@ def fetch_bytes(url, params=None, timeout=60):
     return resp.status_code, resp.content
 
 
-def _now_iso():
-    return datetime.now(timezone.utc).strftime("%Y-%m-%dT%H:%M:%SZ")
+def _as_day(value) -> date:
+    """`today`: None -> hoy UTC; str ISO o date -> ese dia."""
+    if value is None:
+        return datetime.now(UTC).date()
+    if isinstance(value, str):
+        return date.fromisoformat(value)
+    return value
+
+
+def _now_iso(today=None):
+    """Reloj de la corrida: con `today` fijado (tests) el instante simulado
+    es el inicio de ese dia UTC; sin `today` es la hora real UTC."""
+    if today is not None:
+        return f"{_as_day(today).isoformat()}T00:00:00Z"
+    return datetime.now(UTC).strftime("%Y-%m-%dT%H:%M:%SZ")
+
+
+def _retrieved_day(iso: str):
+    """Dia UTC de un retrieved_at '%Y-%m-%dT%H:%M:%SZ'; None si no parsea."""
+    try:
+        return datetime.strptime(iso or "", "%Y-%m-%dT%H:%M:%SZ").date()
+    except ValueError:
+        return None
 
 
 def _write_json(path: Path, payload):
@@ -75,22 +104,52 @@ def run_acquisition(store: ByteStore, out_dir, today=None, force=False,
     last_attempt = out_dir / "acquisition" / "last_attempt.json"
     log = RetrievalLog(out_dir / "provenance" / "retrievals.jsonl")
 
+    # --- reprocess: estrictamente offline ---
+    # Invariante: con reprocess=True fetch_bytes NO se ejecuta nunca. Si el
+    # ultimo intento registro bytes utilizables en el ByteStore se
+    # reprocesan; si no hay, error controlado sin tocar la red.
+    if reprocess:
+        prev = {}
+        if last_attempt.exists():
+            prev = json.loads(last_attempt.read_text(encoding="utf-8"))
+        sha = prev.get("source_sha256")
+        if sha and store.has(sha):
+            try:
+                return _process_bytes(
+                    store.get(sha), sha, prev.get("retrieved_at"),
+                    prev.get("retrieval_id"), store, log, out_dir,
+                )
+            except ParseError as exc:
+                _write_json(last_attempt, {
+                    **prev,
+                    "status": "PARSE_FAILED",
+                    "reprocess": True,
+                    "checked_at": _now_iso(today),
+                    "error": f"{type(exc).__name__}: {exc}",
+                })
+                return EXIT_PARSE_FAILED
+        _write_json(last_attempt, {
+            **prev,
+            "status": "SOURCE_UNAVAILABLE",
+            "reprocess": True,
+            "checked_at": _now_iso(today),
+            "error": "reprocess: no hay bytes cacheados utilizables",
+        })
+        return EXIT_SOURCE_UNAVAILABLE
+
     # --- cache agresiva ---
-    if last_attempt.exists() and (not force or reprocess):
+    if last_attempt.exists() and not force:
         prev = json.loads(last_attempt.read_text(encoding="utf-8"))
+        # Max. 1 pull/dia: solo se reutiliza si el ultimo pull OK fue
+        # hoy (UTC). retrieved_at no parseable -> fail-safe: nuevo pull.
         if (
             prev.get("status") == "OK"
             and prev.get("source_sha256")
             and store.has(prev["source_sha256"])
+            and _retrieved_day(prev.get("retrieved_at")) == _as_day(today)
         ):
-            if reprocess:
-                return _process_bytes(
-                    store.get(prev["source_sha256"]),
-                    prev["source_sha256"], prev["retrieved_at"],
-                    prev.get("retrieval_id"), store, log, out_dir,
-                )
             _write_json(last_attempt, {**prev, "reused_cache": True,
-                                       "checked_at": _now_iso()})
+                                       "checked_at": _now_iso(today)})
             return EXIT_OK
 
     # --- adquisicion full pull ---
@@ -101,12 +160,12 @@ def run_acquisition(store: ByteStore, out_dir, today=None, force=False,
             "status": "SOURCE_UNAVAILABLE",
             "source_url": SOURCE_URL,
             "query_params": QUERY_PARAMS,
-            "retrieved_at": _now_iso(),
+            "retrieved_at": _now_iso(today),
             "error": f"{type(exc).__name__}: {exc}",
         })
         return EXIT_SOURCE_UNAVAILABLE
 
-    retrieved_at = _now_iso()
+    retrieved_at = _now_iso(today)
     if status != 200:
         _write_json(last_attempt, {
             "status": "SOURCE_UNAVAILABLE",
@@ -128,8 +187,23 @@ def run_acquisition(store: ByteStore, out_dir, today=None, force=False,
         note="full pull",
         source_namespace=SOURCE_NAMESPACE,
     )
-    code = _process_bytes(body, source_sha256, retrieved_at,
-                          event["retrieval_id"], store, log, out_dir)
+    try:
+        code = _process_bytes(body, source_sha256, retrieved_at,
+                              event["retrieval_id"], store, log, out_dir)
+    except ParseError as exc:
+        # La fuente respondio pero cambio de formato: los bytes quedan
+        # guardados como evidencia; el ultimo dataset valido se conserva.
+        _write_json(last_attempt, {
+            "status": "PARSE_FAILED",
+            "source_url": SOURCE_URL,
+            "query_params": QUERY_PARAMS,
+            "retrieved_at": retrieved_at,
+            "source_sha256": source_sha256,
+            "retrieval_id": event["retrieval_id"],
+            "error": f"{type(exc).__name__}: {exc}",
+        })
+        return EXIT_PARSE_FAILED
+    _run_active_probe(store, log, out_dir, source_sha256, today=today)
     _write_json(last_attempt, {
         "status": "OK",
         "source_url": SOURCE_URL,
@@ -143,7 +217,9 @@ def run_acquisition(store: ByteStore, out_dir, today=None, force=False,
 
 def _process_bytes(body, source_sha256, retrieved_at, retrieval_id,
                    store, log, out_dir):
-    """Parsea, enriquece y escribe el dataset a partir de bytes ya almacenados."""
+    """Parsea, enriquece y escribe el dataset a partir de bytes ya
+    almacenados. Estrictamente offline y determinista: NUNCA ejecuta
+    fetch_bytes; el probe del pull activo vive aparte."""
     out_dir = Path(out_dir)
     prov = {
         "source_url": SOURCE_URL,
@@ -180,8 +256,13 @@ def _process_bytes(body, source_sha256, retrieved_at, retrieval_id,
         "notice_ids_unique": len({n["notice_id"] for n in res.notices}),
     }
     _write_json(out_dir / "normalized" / "summary.json", summary)
+    return EXIT_OK
 
-    # --- probe del pull activo (solo observables) ---
+
+def _run_active_probe(store, log, out_dir, source_sha256, today=None):
+    """Observaciones live del pull 'activo'. SOLO se invoca tras un full
+    pull real; jamas desde el camino --reprocess."""
+    out_dir = Path(out_dir)
     probe = []
     for params in ACTIVE_PROBE_PARAMS:
         try:
@@ -202,7 +283,7 @@ def _process_bytes(body, source_sha256, retrieved_at, retrieval_id,
             log.append(
                 source_url=SOURCE_URL,
                 query_params=params,
-                retrieved_at=_now_iso(),
+                retrieved_at=_now_iso(today),
                 http_status=p_status,
                 source_sha256=entry["sha256"] or "",
                 size=len(p_body),
@@ -212,7 +293,6 @@ def _process_bytes(body, source_sha256, retrieved_at, retrieval_id,
             entry = {"query_params": params, "error": f"{type(exc).__name__}: {exc}"}
         probe.append(entry)
     _write_json(out_dir / "acquisition" / "active_probe.json", probe)
-    return EXIT_OK
 
 
 if __name__ == "__main__":

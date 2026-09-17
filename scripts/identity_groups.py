@@ -21,9 +21,9 @@ from pathlib import Path
 
 sys.path.insert(0, str(Path(__file__).resolve().parents[1]))
 
+from alertafin.identity import IDENTITY_FIELDS, canonical_bytes
 from alertafin.pipeline import enrich
 from alertafin.provenance import ByteStore
-from alertafin.identity import canonical_bytes, IDENTITY_FIELDS
 
 CONTENT_FIELDS = [
     "tipo_raw", "fecha_raw", "entidad_raw", "entidad_secundaria_raw",
