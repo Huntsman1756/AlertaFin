@@ -69,6 +69,29 @@ def test_reprocess_uses_cached_bytes_without_network(tmp_path, monkeypatch):
     assert (tmp_path / "normalized" / "notices.jsonl").exists()
 
 
+def test_reprocess_from_valid_cache_counts_zero_network_calls(
+        tmp_path, monkeypatch):
+    """Reprocess exitoso desde bytes validos cacheados: cero llamadas a
+    fetch_bytes, incluidos los probes del pull activo. Se cuentan las
+    llamadas (no se confia en excepciones, que el probe traga)."""
+    monkeypatch.setattr(acquire, "fetch_bytes", _fake_fetch_ok({"n": 0}))
+    store = ByteStore(tmp_path / "raw")
+    assert acquire.run_acquisition(
+        store=store, out_dir=tmp_path, today="2026-09-13") == 0
+
+    network_calls = []
+
+    def forbidden_fetch(*args, **kwargs):
+        network_calls.append((args, kwargs))
+        return 500, b""
+
+    monkeypatch.setattr(acquire, "fetch_bytes", forbidden_fetch)
+    code = acquire.run_acquisition(
+        store=store, out_dir=tmp_path, today="2026-09-14", reprocess=True)
+    assert code == acquire.EXIT_OK
+    assert network_calls == []
+
+
 def test_parse_failed_preserves_last_valid_dataset(tmp_path, monkeypatch):
     calls = {"n": 0}
     monkeypatch.setattr(acquire, "fetch_bytes", _fake_fetch_ok(calls))

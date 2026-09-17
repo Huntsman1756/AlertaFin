@@ -118,7 +118,6 @@ def run_acquisition(store: ByteStore, out_dir, today=None, force=False,
                 return _process_bytes(
                     store.get(sha), sha, prev.get("retrieved_at"),
                     prev.get("retrieval_id"), store, log, out_dir,
-                    today=today,
                 )
             except ParseError as exc:
                 _write_json(last_attempt, {
@@ -190,8 +189,7 @@ def run_acquisition(store: ByteStore, out_dir, today=None, force=False,
     )
     try:
         code = _process_bytes(body, source_sha256, retrieved_at,
-                              event["retrieval_id"], store, log, out_dir,
-                              today=today)
+                              event["retrieval_id"], store, log, out_dir)
     except ParseError as exc:
         # La fuente respondio pero cambio de formato: los bytes quedan
         # guardados como evidencia; el ultimo dataset valido se conserva.
@@ -205,6 +203,7 @@ def run_acquisition(store: ByteStore, out_dir, today=None, force=False,
             "error": f"{type(exc).__name__}: {exc}",
         })
         return EXIT_PARSE_FAILED
+    _run_active_probe(store, log, out_dir, source_sha256, today=today)
     _write_json(last_attempt, {
         "status": "OK",
         "source_url": SOURCE_URL,
@@ -217,8 +216,10 @@ def run_acquisition(store: ByteStore, out_dir, today=None, force=False,
 
 
 def _process_bytes(body, source_sha256, retrieved_at, retrieval_id,
-                   store, log, out_dir, today=None):
-    """Parsea, enriquece y escribe el dataset a partir de bytes ya almacenados."""
+                   store, log, out_dir):
+    """Parsea, enriquece y escribe el dataset a partir de bytes ya
+    almacenados. Estrictamente offline y determinista: NUNCA ejecuta
+    fetch_bytes; el probe del pull activo vive aparte."""
     out_dir = Path(out_dir)
     prov = {
         "source_url": SOURCE_URL,
@@ -255,8 +256,13 @@ def _process_bytes(body, source_sha256, retrieved_at, retrieval_id,
         "notice_ids_unique": len({n["notice_id"] for n in res.notices}),
     }
     _write_json(out_dir / "normalized" / "summary.json", summary)
+    return EXIT_OK
 
-    # --- probe del pull activo (solo observables) ---
+
+def _run_active_probe(store, log, out_dir, source_sha256, today=None):
+    """Observaciones live del pull 'activo'. SOLO se invoca tras un full
+    pull real; jamas desde el camino --reprocess."""
+    out_dir = Path(out_dir)
     probe = []
     for params in ACTIVE_PROBE_PARAMS:
         try:
@@ -287,7 +293,6 @@ def _process_bytes(body, source_sha256, retrieved_at, retrieval_id,
             entry = {"query_params": params, "error": f"{type(exc).__name__}: {exc}"}
         probe.append(entry)
     _write_json(out_dir / "acquisition" / "active_probe.json", probe)
-    return EXIT_OK
 
 
 if __name__ == "__main__":
