@@ -1,7 +1,8 @@
 import json
+
 import pytest
 
-from alertafin.cli import main, build_index
+from alertafin.cli import main
 
 
 @pytest.fixture
@@ -82,3 +83,109 @@ def test_show_notice_by_id(dataset, capsys):
     assert out["notice"]["entidad_raw"] == "FAKE WEB (CLONE)"
     assert out["notice"]["clone"]["clone_target_raw"] == "BANCO REAL S.A."
     assert out["notice"]["provenance"]["source_sha256"] == "x"
+
+
+def test_show_unknown_notice_id(dataset, capsys):
+    code = main(["show", "noexiste", "--dataset", str(dataset)])
+    out = json.loads(capsys.readouterr().out)
+    assert code == 2
+    assert out["status"] == "NOT_FOUND"
+
+
+def test_dataset_flag_before_subcommand(dataset, capsys):
+    # --dataset a nivel top NO debe ser pisado por el default del subparser
+    code = main(["--dataset", str(dataset), "check", "WWW.MELZAPAY.COM"])
+    out = json.loads(capsys.readouterr().out)
+    assert code == 0
+    assert out["status"] == "WARNED"
+
+
+def test_dataset_flag_both_positions_subcommand_wins(dataset, tmp_path, capsys):
+    # Si se pasa en ambas posiciones, el valor del subcomando (el ultimo
+    # en la linea) gana. El top-level apunta a un dataset inexistente.
+    code = main(["--dataset", str(tmp_path / "nope.jsonl"),
+                 "check", "WWW.MELZAPAY.COM", "--dataset", str(dataset)])
+    out = json.loads(capsys.readouterr().out)
+    assert code == 0
+    assert out["status"] == "WARNED"
+
+
+def test_dataset_flag_only_subcommand(dataset, capsys):
+    code = main(["check", "WWW.MELZAPAY.COM", "--dataset", str(dataset)])
+    out = json.loads(capsys.readouterr().out)
+    assert code == 0
+    assert out["status"] == "WARNED"
+
+
+def test_default_dataset_missing(monkeypatch, tmp_path, capsys):
+    # Sin --dataset: default g0/normalized/notices.jsonl relativo al cwd.
+    # En un cwd sin dataset -> SOURCE_UNAVAILABLE, nunca traceback.
+    monkeypatch.chdir(tmp_path)
+    code = main(["check", "x"])
+    out = json.loads(capsys.readouterr().out)
+    assert code == 3
+    assert out["status"] == "SOURCE_UNAVAILABLE"
+
+
+def test_check_corrupt_dataset(tmp_path, capsys):
+    bad = tmp_path / "bad.jsonl"
+    bad.write_text('{"notice_id": "ok"}\n{no es json}\n', encoding="utf-8")
+    code = main(["check", "x", "--dataset", str(bad)])
+    out = json.loads(capsys.readouterr().out)
+    assert code == 3
+    assert out["status"] == "SOURCE_UNAVAILABLE"
+    assert ":2:" in out["reason"]  # reporta la linea corrupta
+
+
+def test_check_dataset_non_object_line(tmp_path, capsys):
+    bad = tmp_path / "bad.jsonl"
+    bad.write_text('{"notice_id": "ok"}\n42\n', encoding="utf-8")
+    code = main(["check", "x", "--dataset", str(bad)])
+    out = json.loads(capsys.readouterr().out)
+    assert code == 3
+    assert out["status"] == "SOURCE_UNAVAILABLE"
+    assert ":2:" in out["reason"]
+
+
+def test_check_empty_dataset(tmp_path, capsys):
+    empty = tmp_path / "empty.jsonl"
+    empty.write_text("\n\n", encoding="utf-8")
+    code = main(["check", "x", "--dataset", str(empty)])
+    out = json.loads(capsys.readouterr().out)
+    assert code == 3
+    assert out["status"] == "SOURCE_UNAVAILABLE"
+
+
+def test_check_unreadable_dataset(tmp_path, capsys):
+    # Un directorio donde se espera un fichero -> DatasetError, no traceback.
+    code = main(["check", "x", "--dataset", str(tmp_path)])
+    out = json.loads(capsys.readouterr().out)
+    assert code == 3
+    assert out["status"] == "SOURCE_UNAVAILABLE"
+
+
+def test_recent_negative_days(dataset, capsys):
+    code = main(["recent", "--days", "-1", "--dataset", str(dataset)])
+    assert code == 2
+    assert "--days" in capsys.readouterr().err
+
+
+def test_recent_invalid_today(dataset, capsys):
+    code = main(["recent", "--today", "no-es-fecha",
+                 "--dataset", str(dataset)])
+    assert code == 2
+    assert "--today" in capsys.readouterr().err
+
+
+def test_recent_skips_invalid_fecha(dataset, capsys):
+    import json as _json
+    extra = _json.loads(dataset.read_text("utf-8").splitlines()[0])
+    extra["notice_id"] = "cc33"
+    extra["fecha"] = "no-es-una-fecha"
+    with dataset.open("a", encoding="utf-8") as fh:
+        fh.write(_json.dumps(extra, ensure_ascii=False) + "\n")
+    code = main(["recent", "--days", "30", "--today", "2026-09-05",
+                 "--dataset", str(dataset)])
+    out = json.loads(capsys.readouterr().out)
+    assert code == 0
+    assert out["skipped_invalid_fecha"] == 1
