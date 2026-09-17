@@ -119,6 +119,51 @@ def test_reprocess_parse_failed(tmp_path, monkeypatch):
     monkeypatch.setattr(acquire, "enrich", real_enrich)
 
 
+def test_reprocess_never_touches_network_after_failed_attempt(
+        tmp_path, monkeypatch):
+    """Invariante: reprocess=True jamas llama a fetch_bytes, en ningun
+    estado de last_attempt (OK, SOURCE_UNAVAILABLE, PARSE_FAILED o
+    inexistente)."""
+    monkeypatch.setattr(acquire, "fetch_bytes", _fake_fetch_ok({"n": 0}))
+    store = ByteStore(tmp_path / "raw")
+    assert acquire.run_acquisition(
+        store=store, out_dir=tmp_path, today="2026-09-13") == 0
+
+    # Intento de red fallido: last_attempt queda SOURCE_UNAVAILABLE sin sha.
+    def boom(*a, **k):
+        raise ConnectionError("DNS timeout")
+
+    monkeypatch.setattr(acquire, "fetch_bytes", boom)
+    assert acquire.run_acquisition(
+        store=store, out_dir=tmp_path, today="2026-09-14") == 3
+    assert _last_attempt(tmp_path)["status"] == "SOURCE_UNAVAILABLE"
+
+    def explode(*a, **k):
+        raise AssertionError("reprocess toco la red")
+
+    monkeypatch.setattr(acquire, "fetch_bytes", explode)
+    # El ultimo intento no apunta a bytes utilizables -> error controlado,
+    # pero la red jamas se ejecuta.
+    code = acquire.run_acquisition(
+        store=store, out_dir=tmp_path, today="2026-09-14", reprocess=True)
+    assert code == acquire.EXIT_SOURCE_UNAVAILABLE
+    attempt = _last_attempt(tmp_path)
+    assert attempt["status"] == "SOURCE_UNAVAILABLE"
+    assert attempt.get("reprocess") is True
+
+
+def test_reprocess_without_any_attempt_is_offline_error(
+        tmp_path, monkeypatch):
+    def explode(*a, **k):
+        raise AssertionError("reprocess toco la red")
+
+    monkeypatch.setattr(acquire, "fetch_bytes", explode)
+    store = ByteStore(tmp_path / "raw")
+    code = acquire.run_acquisition(
+        store=store, out_dir=tmp_path, today="2026-09-13", reprocess=True)
+    assert code == acquire.EXIT_SOURCE_UNAVAILABLE
+
+
 def test_source_failure_preserves_dataset(tmp_path, monkeypatch):
     monkeypatch.setattr(acquire, "fetch_bytes", _fake_fetch_ok({"n": 0}))
     store = ByteStore(tmp_path / "raw")

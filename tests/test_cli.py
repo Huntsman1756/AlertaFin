@@ -58,6 +58,17 @@ def test_check_source_unavailable(tmp_path, capsys):
     out = json.loads(capsys.readouterr().out)
     assert code == 3
     assert out["status"] == "SOURCE_UNAVAILABLE"
+    # Compat: el campo query se conserva tambien en SOURCE_UNAVAILABLE.
+    assert out["query"] == "x"
+
+
+def test_check_invalid_utf8_dataset(tmp_path, capsys):
+    bad = tmp_path / "bad-utf8.jsonl"
+    bad.write_bytes(b'{"notice_id": "x"}\n\xff\xfe\n')
+    code = main(["check", "x", "--dataset", str(bad)])
+    out = json.loads(capsys.readouterr().out)
+    assert code == 3
+    assert out["status"] == "SOURCE_UNAVAILABLE"
 
 
 def test_recent_filters_by_days(dataset, capsys):

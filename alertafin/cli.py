@@ -52,7 +52,7 @@ def load_notices(dataset_path: Path):
                         "JSON de notice"
                     )
                 notices.append(notice)
-    except OSError as exc:
+    except (OSError, UnicodeDecodeError) as exc:
         raise DatasetError(f"{dataset_path}: {exc}") from exc
     if not notices:
         # Un indice de advertencias vacio no puede responder con
@@ -74,22 +74,23 @@ def _emit(payload: dict):
     sys.stdout.write("\n")
 
 
-def _load_or_report(args):
+def _load_or_report(args, extra=None):
     """Devuelve notices o emite SOURCE_UNAVAILABLE y devuelve None."""
+    base = dict(extra or {})
     try:
         notices = load_notices(args.dataset)
     except DatasetError as exc:
-        _emit({"status": "SOURCE_UNAVAILABLE", "reason": str(exc)})
+        _emit({**base, "status": "SOURCE_UNAVAILABLE", "reason": str(exc)})
         return None
     if notices is None:
-        _emit({"status": "SOURCE_UNAVAILABLE",
+        _emit({**base, "status": "SOURCE_UNAVAILABLE",
                "reason": f"dataset not found: {args.dataset}"})
         return None
     return notices
 
 
 def cmd_check(args):
-    notices = _load_or_report(args)
+    notices = _load_or_report(args, extra={"query": args.query})
     if notices is None:
         return EXIT_SOURCE_UNAVAILABLE
     res = check(args.query, SearchIndex.build(notices))

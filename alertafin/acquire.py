@@ -104,37 +104,54 @@ def run_acquisition(store: ByteStore, out_dir, today=None, force=False,
     last_attempt = out_dir / "acquisition" / "last_attempt.json"
     log = RetrievalLog(out_dir / "provenance" / "retrievals.jsonl")
 
+    # --- reprocess: estrictamente offline ---
+    # Invariante: con reprocess=True fetch_bytes NO se ejecuta nunca. Si el
+    # ultimo intento registro bytes utilizables en el ByteStore se
+    # reprocesan; si no hay, error controlado sin tocar la red.
+    if reprocess:
+        prev = {}
+        if last_attempt.exists():
+            prev = json.loads(last_attempt.read_text(encoding="utf-8"))
+        sha = prev.get("source_sha256")
+        if sha and store.has(sha):
+            try:
+                return _process_bytes(
+                    store.get(sha), sha, prev.get("retrieved_at"),
+                    prev.get("retrieval_id"), store, log, out_dir,
+                    today=today,
+                )
+            except ParseError as exc:
+                _write_json(last_attempt, {
+                    **prev,
+                    "status": "PARSE_FAILED",
+                    "reprocess": True,
+                    "checked_at": _now_iso(today),
+                    "error": f"{type(exc).__name__}: {exc}",
+                })
+                return EXIT_PARSE_FAILED
+        _write_json(last_attempt, {
+            **prev,
+            "status": "SOURCE_UNAVAILABLE",
+            "reprocess": True,
+            "checked_at": _now_iso(today),
+            "error": "reprocess: no hay bytes cacheados utilizables",
+        })
+        return EXIT_SOURCE_UNAVAILABLE
+
     # --- cache agresiva ---
-    if last_attempt.exists() and (not force or reprocess):
+    if last_attempt.exists() and not force:
         prev = json.loads(last_attempt.read_text(encoding="utf-8"))
+        # Max. 1 pull/dia: solo se reutiliza si el ultimo pull OK fue
+        # hoy (UTC). retrieved_at no parseable -> fail-safe: nuevo pull.
         if (
             prev.get("status") == "OK"
             and prev.get("source_sha256")
             and store.has(prev["source_sha256"])
+            and _retrieved_day(prev.get("retrieved_at")) == _as_day(today)
         ):
-            if reprocess:
-                try:
-                    return _process_bytes(
-                        store.get(prev["source_sha256"]),
-                        prev["source_sha256"], prev["retrieved_at"],
-                        prev.get("retrieval_id"), store, log, out_dir,
-                        today=today,
-                    )
-                except ParseError as exc:
-                    _write_json(last_attempt, {
-                        **prev,
-                        "status": "PARSE_FAILED",
-                        "reprocess": True,
-                        "checked_at": _now_iso(today),
-                        "error": f"{type(exc).__name__}: {exc}",
-                    })
-                    return EXIT_PARSE_FAILED
-            # Max. 1 pull/dia: solo se reutiliza si el ultimo pull OK fue
-            # hoy (UTC). retrieved_at no parseable -> fail-safe: nuevo pull.
-            if _retrieved_day(prev.get("retrieved_at")) == _as_day(today):
-                _write_json(last_attempt, {**prev, "reused_cache": True,
-                                           "checked_at": _now_iso(today)})
-                return EXIT_OK
+            _write_json(last_attempt, {**prev, "reused_cache": True,
+                                       "checked_at": _now_iso(today)})
+            return EXIT_OK
 
     # --- adquisicion full pull ---
     try:
