@@ -34,11 +34,36 @@ jobs:
       - name: Test
         run: pytest
 
+      # Smoke de la CLI sobre el dataset congelado del repo (offline).
+      - name: CLI smoke
+        run: |
+          alertafin --version
+          alertafin check www.melzapay.com | grep -q '"WARNED"'
+          alertafin check "dominio-inexistente-xyz.example" | grep -q '"NO_WARNING_FOUND"'
+          python -m alertafin --version
+
+  lint:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+        with:
+          persist-credentials: false
+
+      - uses: actions/setup-python@5fda3b95a4ea91299a34e894583c3862153e4b97 # v7.0.0
+        with:
+          python-version: "3.11"
+
+      - name: Install
+        run: pip install -e ".[test]"
+
+      - name: Ruff
+        run: ruff check .
+
   # Check estable para branch protection: agrega la matriz completa.
   # Requerir solo "ci" en el ruleset evita reconfigurar la proteccion
   # al añadir o quitar versiones de Python.
   ci:
-    needs: pytest
+    needs: [pytest, lint]
     runs-on: ubuntu-latest
     steps:
-      - run: echo "all matrix jobs passed"
+      - run: echo "all jobs passed"
